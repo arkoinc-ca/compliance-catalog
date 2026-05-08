@@ -1,0 +1,29 @@
+catalog:
+  uuid: "a1b2c3d4-0002-4000-8000-100000000002"
+  metadata:
+    title: "An Act to modernize legislative provisions as regards the protection of personal information (Quebec Law 25 / Bill 64)"
+    last-modified: "2026-05-08T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "QC-LAW25"
+      - name: "jurisdiction"
+        value: "CA-QC"
+      - name: "effective-as-of"
+        value: "2024-09-22"
+      - name: "source-citation"
+        value: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+  groups:
+    - id: "qc-law25-governance"
+      title: "Governance and Accountability"
+      controls:
+        - id: "CA-QC-LAW25-001"
+          title: "Privacy Officer — Designate a person responsible for the protection of personal information"
+          props:
+            - name: "status"
+              value: "skeleton"
+          parts:
+            - id: "QC-LAW25-1-stmt"
+              name: "statement"
+              prose: "TODO: Author full control statement in Phase 1."

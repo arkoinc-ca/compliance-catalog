@@ -1,0 +1,29 @@
+catalog:
+  uuid: "a1b2c3d4-0003-4000-8000-100000000003"
+  metadata:
+    title: "Personal Information Protection Act (Alberta PIPA)"
+    last-modified: "2026-05-08T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "PIPA-AB"
+      - name: "jurisdiction"
+        value: "CA-AB"
+      - name: "effective-as-of"
+        value: "2004-01-01"
+      - name: "source-citation"
+        value: "https://www.qp.alberta.ca/documents/Acts/P06P5.pdf"
+  groups:
+    - id: "pipa-ab-collection"
+      title: "Collection of Personal Information"
+      controls:
+        - id: "CA-AB-PIPA-001"
+          title: "Limiting Collection — Collect only information necessary for identified purposes"
+          props:
+            - name: "status"
+              value: "skeleton"
+          parts:
+            - id: "PIPA-AB-1-stmt"
+              name: "statement"
+              prose: "TODO: Author full control statement in Phase 1."

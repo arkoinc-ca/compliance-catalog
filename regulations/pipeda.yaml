@@ -1,0 +1,29 @@
+catalog:
+  uuid: "a1b2c3d4-0001-4000-8000-100000000001"
+  metadata:
+    title: "Personal Information Protection and Electronic Documents Act (PIPEDA)"
+    last-modified: "2026-05-08T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "PIPEDA"
+      - name: "jurisdiction"
+        value: "CA"
+      - name: "effective-as-of"
+        value: "2001-01-01"
+      - name: "source-citation"
+        value: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+  groups:
+    - id: "pipeda-fair-info-principles"
+      title: "Fair Information Principles (Schedule 1)"
+      controls:
+        - id: "CA-PIPEDA-001"
+          title: "Accountability — Designate a responsible individual for personal information"
+          props:
+            - name: "status"
+              value: "skeleton"
+          parts:
+            - id: "PIPEDA-1-stmt"
+              name: "statement"
+              prose: "TODO: Author full control statement in Phase 1."

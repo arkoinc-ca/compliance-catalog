@@ -1,0 +1,29 @@
+catalog:
+  uuid: "a1b2c3d4-0004-4000-8000-100000000004"
+  metadata:
+    title: "Personal Information Protection Act (British Columbia PIPA)"
+    last-modified: "2026-05-08T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "PIPA-BC"
+      - name: "jurisdiction"
+        value: "CA-BC"
+      - name: "effective-as-of"
+        value: "2004-01-01"
+      - name: "source-citation"
+        value: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"
+  groups:
+    - id: "pipa-bc-collection"
+      title: "Collection of Personal Information"
+      controls:
+        - id: "CA-BC-PIPA-001"
+          title: "Consent for Collection — Obtain meaningful consent before collecting personal information"
+          props:
+            - name: "status"
+              value: "skeleton"
+          parts:
+            - id: "PIPA-BC-1-stmt"
+              name: "statement"
+              prose: "TODO: Author full control statement in Phase 1."

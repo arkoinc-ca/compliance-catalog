@@ -1,0 +1,52 @@
+name: OSCAL Validate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: oscal-validate-catalog-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  oscal-validate:
+    name: OSCAL Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install YAML parser
+        run: pip install pyyaml
+
+      - name: YAML syntax check (interim — Phase 1 will replace with `trestle validate`)
+        run: |
+          python - <<'EOF'
+          import sys, pathlib, yaml
+          errors = []
+          for p in pathlib.Path('.').rglob('*.yaml'):
+              if any(part.startswith('.') for part in p.parts):
+                  continue
+              try:
+                  with open(p, encoding='utf-8') as f:
+                      yaml.safe_load(f)
+              except Exception as e:
+                  errors.append(f"{p}: {e}")
+          if errors:
+              for e in errors:
+                  print(f"::error file={e.split(':',1)[0]}::{e}")
+              sys.exit(1)
+          print(f"YAML syntax OK across all *.yaml files")
+          EOF
+
+      - name: OSCAL schema validation (placeholder — wired in Phase 1)
+        run: |
+          echo "Phase 1 will replace this step with: uv run trestle validate --all"
+          exit 0

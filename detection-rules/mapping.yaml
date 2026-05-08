@@ -1,0 +1,124 @@
+# Control-to-Detection-Rule Join Schema
+#
+# This file is the authoritative index mapping OSCAL control IDs to detection rule
+# files. It establishes three detection methods:
+#   - semgrep:       static analysis rule in detection-rules/semgrep/
+#   - otel:          runtime probe template in detection-rules/otel-queries/
+#   - questionnaire: human-attestation fragment in detection-rules/questionnaire/
+#
+# A single control may appear under multiple methods when it has both a detectable
+# code pattern and a non-detectable organizational obligation.
+#
+# Schema version: 0.0.1-skeleton
+
+schema-version: "0.0.1"
+
+mappings:
+  # ──────────────────────────────────────────────────────────────────────────
+  # PIPEDA
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "PIPEDA-1"
+    regulation: "PIPEDA"
+    title: "Accountability — Designate a responsible individual"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-priv-officer-designated"
+        notes: "Organizational obligation; not statically detectable."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Quebec Law 25
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "QC-LAW25-1"
+    regulation: "QC-LAW25"
+    title: "Privacy Officer — Designate a person responsible for PI protection"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-priv-officer-designated"
+        notes: "Organizational obligation; not statically detectable."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # GDPR
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "GDPR-5-1-a"
+    regulation: "GDPR"
+    title: "Lawfulness, Fairness and Transparency"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-consent.yaml"
+        rule-id: "TODO — author in Phase 2"
+        notes: "Consent collection absence can be partially detected statically."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "TODO — author in Phase 2"
+        notes: "Lawful basis documentation is an organizational obligation."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # CASL
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "CASL-1"
+    regulation: "CASL"
+    title: "Express or Implied Consent for CEMs"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-consent.yaml"
+        rule-id: "TODO — author in Phase 2"
+        notes: "Email-send paths without consent check can be detected."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "TODO — author in Phase 2"
+        notes: "Unsubscribe mechanism must be present and documented."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # CCPA / CPRA
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "CCPA-CPRA-1798-100"
+    regulation: "CCPA-CPRA"
+    title: "Right to Know — Disclosure of PI categories and purposes"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "TODO — author in Phase 2"
+        notes: "Privacy notice adequacy requires human review."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # NYC LL.144
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "NYC-LL144-1"
+    regulation: "NYC-LL144"
+    title: "Annual Bias Audit — Independent external audit of AEDT"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-bias-audit.yaml"
+        fragment-id: "TODO — author in Phase 2"
+        notes: "External auditor is mandatory by law; self-audit is not permitted."
+      - method: otel
+        file: "detection-rules/otel-queries/TODO.yaml"
+        probe-id: "TODO — author in Phase 2"
+        notes: "Fairlearn 4/5ths output metrics can be observed at runtime (Phase 5)."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Colorado AI Act
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "CO-AI-ACT-1"
+    regulation: "CO-AI-ACT"
+    title: "Risk Impact Assessment for High-Risk AI Systems"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-governance-impact-assessment.yaml"
+        fragment-id: "TODO — author in Phase 2"
+        notes: "Impact assessment is a documented artifact; not statically detectable."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Placeholder regulations — no mappings until laws come into force
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "CA-CPPA-PLACEHOLDER-1"
+    regulation: "CA-CPPA"
+    title: "PLACEHOLDER — Awaiting Bill C-27 Royal Assent"
+    detection-methods: []
+
+  - control-id: "CA-AIDA-PLACEHOLDER-1"
+    regulation: "CA-AIDA"
+    title: "PLACEHOLDER — Awaiting Bill C-27 Royal Assent"
+    detection-methods: []

@@ -1,0 +1,29 @@
+catalog:
+  uuid: "a1b2c3d4-0008-4000-8000-100000000008"
+  metadata:
+    title: "New York City Local Law 144 of 2021 — Automated Employment Decision Tools (AEDT)"
+    last-modified: "2026-05-08T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "NYC-LL144"
+      - name: "jurisdiction"
+        value: "US-NY-NYC"
+      - name: "effective-as-of"
+        value: "2023-07-05"
+      - name: "source-citation"
+        value: "https://www.nyc.gov/assets/dca/downloads/pdf/about/LL144-of-2021.pdf"
+  groups:
+    - id: "nyc-ll144-bias-audit"
+      title: "Bias Audit Requirements"
+      controls:
+        - id: "US-NY-LL144-001"
+          title: "Annual Bias Audit — Conduct an independent bias audit of any AEDT before use"
+          props:
+            - name: "status"
+              value: "skeleton"
+          parts:
+            - id: "NYC-LL144-1-stmt"
+              name: "statement"
+              prose: "TODO: Author full control statement in Phase 1."

@@ -1,0 +1,29 @@
+catalog:
+  uuid: "a1b2c3d4-0005-4000-8000-100000000005"
+  metadata:
+    title: "Canada's Anti-Spam Legislation (CASL)"
+    last-modified: "2026-05-08T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "CASL"
+      - name: "jurisdiction"
+        value: "CA"
+      - name: "effective-as-of"
+        value: "2014-07-01"
+      - name: "source-citation"
+        value: "https://laws-lois.justice.gc.ca/eng/acts/E-1.6/"
+  groups:
+    - id: "casl-commercial-messages"
+      title: "Commercial Electronic Messages"
+      controls:
+        - id: "CA-CASL-001"
+          title: "Express or Implied Consent — Obtain consent before sending commercial electronic messages"
+          props:
+            - name: "status"
+              value: "skeleton"
+          parts:
+            - id: "CASL-1-stmt"
+              name: "statement"
+              prose: "TODO: Author full control statement in Phase 1."

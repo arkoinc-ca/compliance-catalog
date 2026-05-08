@@ -1,0 +1,33 @@
+catalog:
+  uuid: "a1b2c3d4-0010-4000-8000-100000000010"
+  metadata:
+    title: "Consumer Privacy Protection Act (CPPA) — Canada Bill C-27 [PLACEHOLDER — NOT YET IN FORCE]"
+    last-modified: "2026-05-08T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "CA-CPPA"
+      - name: "jurisdiction"
+        value: "CA"
+      - name: "effective-as-of"
+        value: "null"
+      - name: "source-citation"
+        value: "https://www.parl.ca/DocumentViewer/en/44-1/bill/C-27/first-reading"
+      - name: "status"
+        value: "not-yet-in-force; Bill C-27 pending"
+  groups:
+    - id: "cppa-placeholder-group"
+      title: "PLACEHOLDER — Controls to be authored when Bill C-27 receives Royal Assent"
+      controls:
+        - id: "CA-CPPA-001"
+          title: "PLACEHOLDER — Consent requirements under CPPA Part 1"
+          props:
+            - name: "status"
+              value: "skeleton"
+            - name: "placeholder-reason"
+              value: "Bill C-27 not yet in force; awaiting Royal Assent"
+          parts:
+            - id: "CA-CPPA-PLACEHOLDER-1-stmt"
+              name: "statement"
+              prose: "TODO: Author controls once Bill C-27 receives Royal Assent and comes into force. Monitor https://www.parl.ca/DocumentViewer/en/44-1/bill/C-27/first-reading for status."
