@@ -1,0 +1,164 @@
+rules:
+  - id: missing-audit-python
+    languages: [python]
+    severity: WARNING
+    message: |
+      Sensitive operation (user delete, role assignment, or payment refund) performed without a
+      visible audit log write. Log the actor, target, operation, and timestamp to a tamper-resistant
+      audit store before performing the action. Absence of audit trails may violate PIPEDA Principle
+      1, GDPR Art. 30 (RoPA), CASL consent records, and Quebec Law 25 governance requirements.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/"
+        - "https://gdpr.eu/article-30-records-of-processing-activities/"
+      controls:
+        - "CA-PIPEDA-001"
+        - "CA-QC-LAW25-001"
+        - "EU-GDPR-011"
+        - "US-CA-CCPA-008"
+        - "CA-CASL-006"
+      confidence: "production"
+      notes: >
+        pattern-not-inside suppresses when the containing function has an audit_log.write or
+        audit.record call appearing before the sensitive operation. If the audit call appears
+        after the delete (post-hoc logging), the rule will still fire. Considered intentional
+        for v0: pre-action audit logging is the safer pattern. v1 should use taint-mode or
+        a dataflow analysis to handle both orderings.
+    patterns:
+      - pattern-either:
+          - pattern: $USER.delete()
+          - pattern: $X.assign_role(...)
+          - pattern: $X.revoke_role(...)
+          - pattern: $X.refund(...)
+          - pattern: $X.process_payment(...)
+      - pattern-not-inside: |
+          def $F(...):
+              ...
+              audit_log.write(...)
+              ...
+              $USER.delete()
+              ...
+      - pattern-not-inside: |
+          def $F(...):
+              ...
+              audit.record(...)
+              ...
+              $USER.delete()
+              ...
+      - pattern-not-inside: |
+          def $F(...):
+              ...
+              audit_logger.log(...)
+              ...
+              $USER.delete()
+              ...
+      - pattern-not-inside: |
+          def $F(...):
+              ...
+              audit.log(...)
+              ...
+              $USER.delete()
+              ...
+
+  - id: missing-audit-javascript
+    languages: [javascript, typescript]
+    severity: WARNING
+    message: |
+      Sensitive operation (user delete, role assignment, or payment refund) performed without a
+      visible audit log write. Log the actor, target, operation, and timestamp to a tamper-resistant
+      audit store before performing the action. Absence of audit trails may violate PIPEDA, GDPR
+      Art. 30, CASL, and Quebec Law 25.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://gdpr.eu/article-30-records-of-processing-activities/"
+      controls:
+        - "CA-PIPEDA-001"
+        - "CA-QC-LAW25-001"
+        - "EU-GDPR-011"
+        - "US-CA-CCPA-008"
+        - "CA-CASL-006"
+      confidence: "production"
+    patterns:
+      - pattern-either:
+          - pattern: $USER.delete()
+          - pattern: $REPO.delete($USER)
+          - pattern: $X.assignRole(...)
+          - pattern: $X.revokeRole(...)
+          - pattern: $X.refund(...)
+          - pattern: $X.processPayment(...)
+      - pattern-not-inside: |
+          auditLog.write(...)
+      - pattern-not-inside: |
+          auditLogger.log(...)
+      - pattern-not-inside: |
+          audit.record(...)
+      - pattern-not-inside: |
+          audit.log(...)
+
+  - id: missing-audit-java
+    languages: [java]
+    severity: WARNING
+    message: |
+      Repository delete call or role-change detected without an adjacent auditLogger call. Ensure
+      the actor, target, and operation are written to an audit store before or after the sensitive
+      mutation. Baseline rule — review manually.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://gdpr.eu/article-30-records-of-processing-activities/"
+      controls:
+        - "CA-PIPEDA-001"
+        - "CA-QC-LAW25-001"
+        - "EU-GDPR-011"
+        - "US-CA-CCPA-008"
+        - "CA-CASL-006"
+      confidence: "baseline"
+    patterns:
+      - pattern-either:
+          - pattern: $REPO.delete($USER)
+          - pattern: $REPO.deleteById(...)
+          - pattern: $SERVICE.assignRole(...)
+          - pattern: $SERVICE.revokeRole(...)
+      - pattern-not-inside: |
+          $AUDIT.log(...)
+          ...
+      - pattern-not-inside: |
+          $AUDIT_LOGGER.info(...)
+          ...
+
+  - id: missing-audit-csharp
+    languages: [csharp]
+    severity: WARNING
+    message: |
+      Repository delete call or role assignment detected without a visible audit log write. Ensure
+      the actor, target, and operation are recorded in an audit trail before or after the sensitive
+      operation. Baseline rule — review manually.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://gdpr.eu/article-30-records-of-processing-activities/"
+      controls:
+        - "CA-PIPEDA-001"
+        - "CA-QC-LAW25-001"
+        - "EU-GDPR-011"
+        - "US-CA-CCPA-008"
+        - "CA-CASL-006"
+      confidence: "baseline"
+    patterns:
+      - pattern-either:
+          - pattern: $REPO.Remove($USER)
+          - pattern: _context.Users.Remove($USER)
+          - pattern: await $REPO.DeleteAsync($USER)
+          - pattern: $SERVICE.AssignRole(...)
+          - pattern: $SERVICE.RevokeRole(...)
+      - pattern-not-inside: |
+          $AUDIT.Log(...)
+          ...
+      - pattern-not-inside: |
+          _auditLogger.LogInformation(...)
+          ...
+      - pattern-not-inside: |
+          await $AUDIT.LogAsync(...)
+          ...

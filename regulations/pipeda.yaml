@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-0001-4000-8000-100000000001"
   metadata:
     title: "Personal Information Protection and Electronic Documents Act (PIPEDA)"
-    last-modified: "2026-05-08T00:00:00Z"
-    version: "0.0.1-skeleton"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.1"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -19,11 +19,483 @@ catalog:
       title: "Fair Information Principles (Schedule 1)"
       controls:
         - id: "CA-PIPEDA-001"
-          title: "Accountability — Designate a responsible individual for personal information"
+          uuid: "a1b2c3d4-0101-4000-8000-100000000101"
+          title: "Accountability — Designate a privacy officer responsible for compliance"
           props:
+            - name: "source-section"
+              value: "Sched. 1, 4.1"
+            - name: "effective-date"
+              value: "2001-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA"
             - name: "status"
-              value: "skeleton"
+              value: "draft"
           parts:
-            - id: "PIPEDA-1-stmt"
+            - id: "CA-PIPEDA-001_smt"
               name: "statement"
-              prose: "TODO: Author full control statement in Phase 1."
+              prose: |
+                An organization is responsible for personal information under its control and must designate an
+                individual or individuals to be accountable for the organization's compliance with PIPEDA. The
+                identity of the designated individual must be made known on request. Accountability for day-to-day
+                handling of personal information may be transferred to a third party, but the originating organization
+                remains responsible and must use contractual or other means to ensure equivalent protection.
+            - id: "CA-PIPEDA-001_gdn"
+              name: "guidance"
+              prose: |
+                Designate a Chief Privacy Officer (CPO) or equivalent role in writing, including the scope of
+                their authority and escalation paths. Publish the title (or name) and a contact method on your
+                website so individuals may reach the privacy officer with inquiries or complaints. The OPC's
+                guidance recommends that the CPO have organizational authority to make or escalate binding decisions
+                on data handling. Where personal information is transferred to a processor, execute a written
+                agreement obligating the processor to maintain equivalent protections.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)"
+            - href: "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/p_principle/"
+              rel: reference
+              text: "OPC — PIPEDA Fair Information Principles"
+
+        - id: "CA-PIPEDA-002"
+          uuid: "a1b2c3d4-0102-4000-8000-100000000102"
+          title: "Identifying Purposes — Document and disclose purposes for collection at or before collection"
+          props:
+            - name: "source-section"
+              value: "Sched. 1, 4.2"
+            - name: "effective-date"
+              value: "2001-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-PIPEDA-002_smt"
+              name: "statement"
+              prose: |
+                The purposes for which personal information is collected must be identified at or before the time
+                of collection. Where collected information will be used for a purpose not previously identified,
+                the new purpose must be identified before use, and the consent of the individual obtained where
+                required. Purposes must be stated in a manner that any reasonable person would understand them.
+            - id: "CA-PIPEDA-002_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a data inventory or records-of-processing that maps each category of personal information
+                to a documented, specific purpose. Provide a layered privacy notice at the point of collection
+                identifying each purpose in plain language. Vague purposes such as "improving services" without
+                further specification do not satisfy this principle per OPC guidance. Review identified purposes
+                annually and update notices whenever processing activities materially change.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)"
+            - href: "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/p_principle/"
+              rel: reference
+              text: "OPC — PIPEDA Fair Information Principles"
+
+        - id: "CA-PIPEDA-003"
+          uuid: "a1b2c3d4-0103-4000-8000-100000000103"
+          title: "Consent — Obtain meaningful consent (knowledge + voluntariness) for collection, use, disclosure"
+          props:
+            - name: "source-section"
+              value: "Sched. 1, 4.3"
+            - name: "effective-date"
+              value: "2001-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-PIPEDA-003_smt"
+              name: "statement"
+              prose: |
+                The knowledge and consent of the individual are required for the collection, use, or disclosure
+                of personal information, except where inappropriate. Consent may be expressed or implied depending
+                on the sensitivity of the information and the reasonable expectations of the individual. An
+                organization may not, as a condition of service, require an individual to consent to collection,
+                use, or disclosure beyond what is necessary to supply that service.
+            - id: "CA-PIPEDA-003_gdn"
+              name: "guidance"
+              prose: |
+                Obtain express consent (opt-in confirmation) for sensitive personal information or unexpected uses.
+                Implied consent may be acceptable for less sensitive information where the purpose is obvious to
+                a reasonable person. Pre-ticked boxes and bundled consent do not meet the meaningful consent
+                standard established by the OPC. Document the form of consent, the notice version presented, and
+                the timestamp. Provide an accessible mechanism for individuals to withdraw consent at any time.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)"
+            - href: "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/p_principle/"
+              rel: reference
+              text: "OPC — PIPEDA Fair Information Principles"
+
+        - id: "CA-PIPEDA-004"
+          uuid: "a1b2c3d4-0104-4000-8000-100000000104"
+          title: "Limiting Collection — Collect only what is necessary for identified purposes"
+          props:
+            - name: "source-section"
+              value: "Sched. 1, 4.4"
+            - name: "effective-date"
+              value: "2001-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-PIPEDA-004_smt"
+              name: "statement"
+              prose: |
+                The collection of personal information must be limited to that which is necessary for the purposes
+                identified by the organization. Information must be collected by fair and lawful means. Organizations
+                must not collect information indiscriminately and must not deceive or mislead individuals about the
+                purpose of collection.
+            - id: "CA-PIPEDA-004_gdn"
+              name: "guidance"
+              prose: |
+                Apply a data-minimization review to every new feature or data-collection point: ask whether each
+                field is strictly necessary for the identified purpose and whether the same purpose could be
+                achieved with less or less-sensitive data. Remove optional fields that are routinely collected
+                but rarely used. Document the justification for each data element in the data inventory. The OPC
+                may scrutinize whether collected information is proportionate to the stated purpose on investigation.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)"
+            - href: "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/p_principle/"
+              rel: reference
+              text: "OPC — PIPEDA Fair Information Principles"
+
+        - id: "CA-PIPEDA-005"
+          uuid: "a1b2c3d4-0105-4000-8000-100000000105"
+          title: "Limiting Use, Disclosure, and Retention — Use only for stated purposes; retain only as long as necessary"
+          props:
+            - name: "source-section"
+              value: "Sched. 1, 4.5"
+            - name: "effective-date"
+              value: "2001-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-PIPEDA-005_smt"
+              name: "statement"
+              prose: |
+                Personal information must not be used or disclosed for purposes other than those for which it was
+                collected, except with the consent of the individual or as required by law. Personal information
+                must be retained only as long as necessary for the fulfillment of those purposes. Organizations
+                must develop guidelines and implement procedures with respect to the retention of personal
+                information.
+            - id: "CA-PIPEDA-005_gdn"
+              name: "guidance"
+              prose: |
+                Establish a documented retention schedule specifying each category of personal information, its
+                maximum retention period, and the legal or business rationale. Implement automated deletion or
+                anonymization workflows triggered at the end of each retention period. Conduct an annual review
+                of secondary uses to ensure they remain within the scope of collected consent. Where information
+                is repurposed, obtain fresh consent or confirm a recognized exception applies before proceeding.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)"
+            - href: "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/p_principle/"
+              rel: reference
+              text: "OPC — PIPEDA Fair Information Principles"
+
+        - id: "CA-PIPEDA-006"
+          uuid: "a1b2c3d4-0106-4000-8000-100000000106"
+          title: "Accuracy — Keep personal information accurate, complete, and up-to-date"
+          props:
+            - name: "source-section"
+              value: "Sched. 1, 4.6"
+            - name: "effective-date"
+              value: "2001-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-PIPEDA-006_smt"
+              name: "statement"
+              prose: |
+                Personal information must be as accurate, complete, and up-to-date as is necessary for the purposes
+                for which it is to be used. The extent to which information is updated depends on the use of the
+                information, taking into account the interests of the individual. Information must be sufficiently
+                accurate to minimize the possibility that inappropriate information may be used to make a decision
+                about the individual.
+            - id: "CA-PIPEDA-006_gdn"
+              name: "guidance"
+              prose: |
+                Provide individuals with a self-service mechanism (e.g., account settings) to review and update
+                their personal information. Where information is used for decisions that affect individuals
+                (e.g., credit, insurance, employment), implement periodic refresh processes and flag stale records
+                for review. When an individual notifies you of an inaccuracy, correct the record promptly and,
+                where the information was disclosed to third parties, notify them of the correction per OPC guidance.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)"
+            - href: "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/p_principle/"
+              rel: reference
+              text: "OPC — PIPEDA Fair Information Principles"
+
+        - id: "CA-PIPEDA-007"
+          uuid: "a1b2c3d4-0107-4000-8000-100000000107"
+          title: "Safeguards — Protect personal information with security appropriate to sensitivity"
+          props:
+            - name: "source-section"
+              value: "Sched. 1, 4.7"
+            - name: "effective-date"
+              value: "2001-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-PIPEDA-007_smt"
+              name: "statement"
+              prose: |
+                Personal information must be protected by security safeguards appropriate to the sensitivity of
+                the information. The safeguards must protect personal information against loss or theft, as well
+                as unauthorized access, disclosure, copying, use, or modification. The nature of the safeguards
+                must vary based on the sensitivity of the information, the amount of information held, the nature
+                of its use, and the manner in which it is stored.
+            - id: "CA-PIPEDA-007_gdn"
+              name: "guidance"
+              prose: |
+                Implement a risk-tiered security program: classify data by sensitivity, then apply proportionate
+                controls (encryption at rest and in transit, access controls, audit logging, penetration testing).
+                Conduct annual security assessments or after material system changes. Extend security requirements
+                to processors and third-party vendors through contractual obligations and periodic audits. The
+                OPC's guidance on safeguards references ISO 27001 and NIST CSF as appropriate baseline frameworks
+                for organizations handling significant volumes of sensitive personal information.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)"
+            - href: "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/p_principle/"
+              rel: reference
+              text: "OPC — PIPEDA Fair Information Principles"
+
+        - id: "CA-PIPEDA-008"
+          uuid: "a1b2c3d4-0108-4000-8000-100000000108"
+          title: "Openness — Make privacy policies and practices readily available"
+          props:
+            - name: "source-section"
+              value: "Sched. 1, 4.8"
+            - name: "effective-date"
+              value: "2001-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-PIPEDA-008_smt"
+              name: "statement"
+              prose: |
+                An organization must make readily available to individuals specific information about its policies
+                and practices relating to the management of personal information. The information must be made
+                available in a form that is generally understandable. Organizations must be open about their
+                policies and practices regardless of whether an individual makes a specific inquiry.
+            - id: "CA-PIPEDA-008_gdn"
+              name: "guidance"
+              prose: |
+                Publish a comprehensive, plain-language privacy policy on your website that is accessible without
+                requiring a login. The policy should cover: what information is collected; why; who has access;
+                how long it is retained; how individuals may exercise their rights; and how to contact the privacy
+                officer. Link the policy prominently from the website footer, registration flows, and mobile app
+                settings. Update the policy whenever practices change and publish the revision date visibly.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)"
+            - href: "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/p_principle/"
+              rel: reference
+              text: "OPC — PIPEDA Fair Information Principles"
+
+        - id: "CA-PIPEDA-009"
+          uuid: "a1b2c3d4-0109-4000-8000-100000000109"
+          title: "Individual Access — Respond to access requests; correct inaccuracies"
+          props:
+            - name: "source-section"
+              value: "Sched. 1, 4.9"
+            - name: "effective-date"
+              value: "2001-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-PIPEDA-009_smt"
+              name: "statement"
+              prose: |
+                Upon request, an organization must inform an individual of the existence, use, and disclosure of
+                their personal information and give the individual access to that information. An individual must
+                be able to challenge the accuracy and completeness of the information and have it amended as
+                appropriate. Organizations must respond to access requests within a reasonable time and at minimal
+                or no cost to the individual.
+            - id: "CA-PIPEDA-009_gdn"
+              name: "guidance"
+              prose: |
+                Establish a documented access-request procedure with a target response time of 30 days (consistent
+                with OPC guidance). Verify the identity of the requester before disclosing information. Provide
+                the information in a clear, understandable format and explain any third-party disclosures made.
+                Where access is refused, state the legal ground and inform the requester of their right to
+                complain to the OPC. Log all access requests, decisions, and response timelines for accountability.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)"
+            - href: "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/p_principle/"
+              rel: reference
+              text: "OPC — PIPEDA Fair Information Principles"
+
+        - id: "CA-PIPEDA-010"
+          uuid: "a1b2c3d4-0110-4000-8000-100000000110"
+          title: "Challenging Compliance — Provide a complaint mechanism; respond and document"
+          props:
+            - name: "source-section"
+              value: "Sched. 1, 4.10"
+            - name: "effective-date"
+              value: "2001-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-PIPEDA-010_smt"
+              name: "statement"
+              prose: |
+                An individual must be able to address a challenge concerning compliance with PIPEDA to the
+                designated accountable individual or individuals. Organizations must have complaint procedures
+                in place and must inform individuals about those procedures. Where a complaint is found to be
+                justified, the organization must take appropriate corrective measures.
+            - id: "CA-PIPEDA-010_gdn"
+              name: "guidance"
+              prose: |
+                Publish a clear complaint procedure in your privacy policy, including how to submit a complaint,
+                the expected response timeline, and the right to escalate to the Office of the Privacy Commissioner
+                of Canada (OPC) if the complaint is not resolved to the individual's satisfaction. Log all
+                complaints received, the investigation steps taken, and the outcome. Where systemic issues are
+                identified, implement corrective measures and document them. Conduct a periodic review of
+                complaints to identify trends requiring policy or process improvements.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5)"
+            - href: "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/p_principle/"
+              rel: reference
+              text: "OPC — PIPEDA Fair Information Principles"
+
+    - id: "pipeda-breach-and-recordkeeping"
+      title: "Breach Notification and Record-Keeping (PIPEDA §10.1, Breach of Security Safeguards Regulations)"
+      controls:
+        - id: "CA-PIPEDA-011"
+          uuid: "a1b2c3d4-0111-4000-8000-100000000111"
+          title: >-
+            Breach of Security Safeguards — Report to Privacy Commissioner and notify affected individuals
+            where real risk of significant harm
+          props:
+            - name: "source-section"
+              value: "§10.1; SOR/2018-64 §1–4"
+            - name: "effective-date"
+              value: "2018-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+            - name: "notes"
+              value: >-
+                2026-05-09: Reviewed for hypothetical Parliamentary breach-notification amendment expansion.
+                No amendment passed as of this review.
+          parts:
+            - id: "CA-PIPEDA-011_smt"
+              name: "statement"
+              prose: |
+                An organization must report to the Privacy Commissioner of Canada any breach of security safeguards
+                involving personal information under its control if it is reasonable in the circumstances to believe
+                that the breach creates a real risk of significant harm to an individual. The organization must
+                also notify any individual whose personal information was involved in the breach and who faces a
+                real risk of significant harm. Significant harm includes bodily harm, humiliation, damage to
+                reputation or relationships, loss of employment or business opportunities, financial loss, identity
+                theft, and negative effects on a credit record.
+            - id: "CA-PIPEDA-011_gdn"
+              name: "guidance"
+              prose: |
+                Conduct a documented real-risk-of-significant-harm (RROSH) assessment for every identified breach,
+                evaluating the sensitivity of the information, the probability of misuse, and the scale of exposure.
+                Report to the OPC as soon as feasible — the Breach of Security Safeguards Regulations (SOR/2018-64)
+                require reporting "as soon as feasible." Use the OPC's prescribed breach report form. Individual
+                notifications must contain sufficient detail to allow the person to reduce their risk (e.g., steps
+                to protect against identity theft). Maintain a written record of the assessment and outcome for
+                each breach regardless of whether the RROSH threshold is met.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5), §10.1"
+            - href: "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2018-64/"
+              rel: source
+              text: "Breach of Security Safeguards Regulations (SOR/2018-64)"
+
+        - id: "CA-PIPEDA-012"
+          uuid: "a1b2c3d4-0112-4000-8000-100000000112"
+          title: "Breach Records — Maintain records of every breach of security safeguards and provide on request"
+          props:
+            - name: "source-section"
+              value: "§10.1(8); SOR/2018-64 §6"
+            - name: "effective-date"
+              value: "2018-11-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-PIPEDA-012_smt"
+              name: "statement"
+              prose: |
+                An organization must keep and maintain a record of every breach of security safeguards involving
+                personal information under its control, regardless of whether the breach was determined to create
+                a real risk of significant harm. The organization must provide the Privacy Commissioner of Canada
+                with access to, or a copy of, a record on request. Records must be retained for a minimum of
+                24 months after the day on which the organization determines that the breach occurred.
+            - id: "CA-PIPEDA-012_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a breach register (incident log) that captures for each breach: the date of discovery;
+                a description of the circumstances; the personal information categories and approximate number
+                of individuals affected; the RROSH assessment outcome; actions taken to contain the breach;
+                whether a report was made to the OPC; and whether individuals were notified. Retain each record
+                for at least 24 months from the date of determination per SOR/2018-64 §6. Integrate breach
+                record-keeping into your incident-response playbook so records are created as part of the
+                response workflow rather than retrospectively.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/"
+              rel: source
+              text: "Personal Information Protection and Electronic Documents Act (S.C. 2000, c. 5), §10.1(8)"
+            - href: "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2018-64/"
+              rel: source
+              text: "Breach of Security Safeguards Regulations (SOR/2018-64), §6"

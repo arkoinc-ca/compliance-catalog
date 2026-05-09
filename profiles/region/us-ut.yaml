@@ -1,0 +1,24 @@
+profile:
+  uuid: "b2c3d4e5-d607-4000-8000-200000000007"
+  metadata:
+    title: "United States — Utah Region Profile (UT-UCPA)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+  imports:
+    - href: "../../regulations/utah-ucpa.yaml"
+      include-controls:
+        - with-ids:
+            - "US-UT-UCPA-001"
+            - "US-UT-UCPA-002"
+            - "US-UT-UCPA-003"
+            - "US-UT-UCPA-004"
+            - "US-UT-UCPA-005"
+            - "US-UT-UCPA-006"
+            - "US-UT-UCPA-007"
+            - "US-UT-UCPA-008"
+            - "US-UT-UCPA-009"
+            - "US-UT-UCPA-010"
+  merge:
+    combine:
+      method: merge

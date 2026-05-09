@@ -1,0 +1,22 @@
+catalog:
+  uuid: "a1b2c3d4-9999-4000-8000-100000009999"
+  metadata:
+    title: "Test fixture — duplicate control ID (must fail validation)"
+  groups:
+    - id: "test-group"
+      title: "Test Group"
+      controls:
+        - id: "CA-TEST-REG-001"
+          uuid: "a1b2c3d4-1001-4000-8000-100000001001"
+          title: "Control one"
+          parts:
+            - id: "CA-TEST-REG-001_smt"
+              name: "statement"
+              prose: "Test control one statement."
+        - id: "CA-TEST-REG-001"
+          uuid: "a1b2c3d4-1002-4000-8000-100000001002"
+          title: "Control one — duplicate"
+          parts:
+            - id: "CA-TEST-REG-001b_smt"
+              name: "statement"
+              prose: "Duplicate control id — should trigger validation error."

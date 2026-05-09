@@ -1,0 +1,669 @@
+catalog:
+  uuid: "a1b2c3d4-a000-4000-8000-100000000000"
+  metadata:
+    title: "Regulation (EU) 2024/1689 of the European Parliament and of the Council laying down harmonised rules on artificial intelligence (EU AI Act)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "EU-AI-ACT"
+      - name: "jurisdiction"
+        value: "EU"
+      - name: "effective-as-of"
+        value: "2024-08-01"
+      - name: "source-citation"
+        value: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+      - name: "amending-act"
+        value: "Regulation (EU) 2024/1689, OJ L 2024/1689, 12.7.2024"
+  groups:
+    - id: "eu-ai-act-risk-management"
+      title: "Risk Management (Article 9)"
+      controls:
+        - id: "EU-AI-ACT-001"
+          uuid: "a1b2c3d4-a001-4000-8000-100000000001"
+          title: "Establish and maintain a risk management system for high-risk AI"
+          props:
+            - name: "source-section"
+              value: "Art. 9"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-001_smt"
+              name: "statement"
+              prose: |
+                Providers of high-risk AI systems must establish, implement, document, and maintain a risk management
+                system as a continuous iterative process throughout the entire lifecycle of the system. The risk
+                management system must identify and analyse known and foreseeable risks, estimate and evaluate risks
+                that may emerge when used as intended and under reasonably foreseeable misuse conditions, and adopt
+                suitable risk management measures.
+            - id: "EU-AI-ACT-001_gdn"
+              name: "guidance"
+              prose: |
+                Document the risk management system as a living record. Risk identification must cover all phases
+                including design, development, testing, deployment, and decommissioning. Misuse scenarios must be
+                realistic and informed by the intended use population. Residual risks after mitigation must be
+                judged acceptable and disclosed to deployers. Link each identified risk to a concrete mitigation
+                measure with an owner and review cadence.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 9 — Risk management system"
+
+    - id: "eu-ai-act-data-governance"
+      title: "Data and Data Governance (Article 10)"
+      controls:
+        - id: "EU-AI-ACT-002"
+          uuid: "a1b2c3d4-a002-4000-8000-100000000002"
+          title: "Implement data governance practices for training, validation, and testing datasets"
+          props:
+            - name: "source-section"
+              value: "Art. 10"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-002_smt"
+              name: "statement"
+              prose: |
+                High-risk AI system providers must apply data governance and management practices covering the choice
+                of training, validation, and testing data sets. These practices must address design choices, data
+                collection processes, data preparation (annotation, labelling, cleaning, enrichment, aggregation),
+                identification of possible biases and appropriate bias mitigation measures, and gaps or shortcomings
+                in the data. Training, validation, and testing data sets must be relevant, representative, free of
+                errors, and complete with respect to the intended purpose.
+            - id: "EU-AI-ACT-002_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a data lineage record covering dataset origin, version, preprocessing steps, and known
+                limitations. Document bias assessments conducted prior to training and any mitigation applied.
+                Special-category personal data (Art. 10(5)) may only be used for bias monitoring where strictly
+                necessary and subject to appropriate safeguards. Validate datasets against the defined use-case
+                population before production deployment.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 10 — Data and data governance"
+
+    - id: "eu-ai-act-technical-documentation"
+      title: "Technical Documentation (Article 11)"
+      controls:
+        - id: "EU-AI-ACT-003"
+          uuid: "a1b2c3d4-a003-4000-8000-100000000003"
+          title: "Prepare and maintain Annex IV technical documentation before placing a high-risk AI system on the market"
+          props:
+            - name: "source-section"
+              value: "Art. 11, Annex IV"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-003_smt"
+              name: "statement"
+              prose: |
+                Providers must draw up technical documentation for high-risk AI systems before placing them on the
+                market or putting them into service. The documentation must be kept up-to-date and contain at minimum
+                the information specified in Annex IV: a general description of the system, a detailed description of
+                the elements and the development process, information on the monitoring, functioning, and control of
+                the system, an assessment of the appropriateness of the performance metrics, and any pre-determined
+                changes to the system and its performance. The documentation must be made available to national
+                competent authorities upon request.
+            - id: "EU-AI-ACT-003_gdn"
+              name: "guidance"
+              prose: |
+                Structure the Annex IV package as a versioned document set with change history. Include system
+                architecture diagrams, data flow documentation, model cards or equivalent performance summaries,
+                and a description of the human oversight mechanisms. Update documentation before each significant
+                system change and before each major deployment update. Assign a document controller with defined
+                review cadence (at minimum annually or on material change).
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 11 and Annex IV — Technical documentation"
+
+    - id: "eu-ai-act-record-keeping"
+      title: "Record-Keeping and Logging (Article 12)"
+      controls:
+        - id: "EU-AI-ACT-004"
+          uuid: "a1b2c3d4-a004-4000-8000-100000000004"
+          title: "Enable automatic logging of events throughout the high-risk AI system lifecycle"
+          props:
+            - name: "source-section"
+              value: "Art. 12"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-004_smt"
+              name: "statement"
+              prose: |
+                High-risk AI systems must be designed and developed with capabilities enabling automatic recording
+                of events (logs) over the system lifetime. Logging facilities must be commensurate with the intended
+                purpose of the system and must at minimum enable tracing of events relevant to the system's output
+                for the period appropriate to the context. For biometric identification systems, logging must capture
+                the input data, the output, and the identity of the natural persons who verified the results.
+            - id: "EU-AI-ACT-004_gdn"
+              name: "guidance"
+              prose: |
+                Implement structured logging capturing at minimum: timestamp, system version, input descriptor
+                (not raw personal data unless strictly necessary), output decision/score, confidence level, and
+                human override events. Retain logs for the period required by applicable sectoral law but no less
+                than 6 months. Protect log integrity against tampering using write-once or append-only storage.
+                Ensure logs are accessible to deployers under Art. 26 obligations.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 12 — Record-keeping"
+
+    - id: "eu-ai-act-transparency-deployers"
+      title: "Transparency and Information to Deployers (Article 13)"
+      controls:
+        - id: "EU-AI-ACT-005"
+          uuid: "a1b2c3d4-a005-4000-8000-100000000005"
+          title: "Provide deployers with transparent information and instructions for use"
+          props:
+            - name: "source-section"
+              value: "Art. 13"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-005_smt"
+              name: "statement"
+              prose: |
+                High-risk AI systems must be designed and developed to ensure that their operation is sufficiently
+                transparent to enable deployers to interpret the system's output and use it appropriately.
+                Providers must accompany high-risk AI systems with instructions for use in an appropriate digital
+                or non-digital format that include: the identity and contact details of the provider, the
+                characteristics, capabilities, and limitations of the system, the intended purpose, performance
+                metrics, known and foreseeable circumstances that may lead to risks, and the human oversight
+                measures to be taken.
+            - id: "EU-AI-ACT-005_gdn"
+              name: "guidance"
+              prose: |
+                Publish an instructions-for-use document that is version-controlled and delivered with each release.
+                Include a plain-language system card explaining what the model does, what it does not do, and when
+                human review is mandatory. Disclose known performance gaps across demographic groups. Make the
+                document available in the official EU language(s) of the member states where the system is deployed.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 13 — Transparency and provision of information to deployers"
+
+    - id: "eu-ai-act-human-oversight"
+      title: "Human Oversight (Article 14)"
+      controls:
+        - id: "EU-AI-ACT-006"
+          uuid: "a1b2c3d4-a006-4000-8000-100000000006"
+          title: "Design high-risk AI systems with effective human oversight measures"
+          props:
+            - name: "source-section"
+              value: "Art. 14"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-006_smt"
+              name: "statement"
+              prose: |
+                High-risk AI systems must be designed and developed in such a way, including with appropriate
+                human-machine interface tools, that they can be effectively overseen by natural persons during
+                the period in which the AI system is in use. Oversight measures must enable individuals to fully
+                understand the capabilities and limitations of the AI system, monitor its operation, and be able
+                to decide not to use the system or override or reverse its output. A stop functionality must be
+                available where technically feasible.
+            - id: "EU-AI-ACT-006_gdn"
+              name: "guidance"
+              prose: |
+                Implement override and escalation pathways in the UI or API that are accessible without special
+                permissions. Log every human override event. Provide training materials to deployer staff on
+                when to override. Do not design incentive structures that discourage override. Where a stop
+                function is present, ensure it terminates the relevant AI-driven action within the session
+                without data loss. Document the oversight design rationale in the Annex IV technical documentation.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 14 — Human oversight"
+
+    - id: "eu-ai-act-accuracy-robustness"
+      title: "Accuracy, Robustness, and Cybersecurity (Article 15)"
+      controls:
+        - id: "EU-AI-ACT-007"
+          uuid: "a1b2c3d4-a007-4000-8000-100000000007"
+          title: "Achieve and maintain appropriate accuracy, robustness, and cybersecurity for high-risk AI systems"
+          props:
+            - name: "source-section"
+              value: "Art. 15"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-007_smt"
+              name: "statement"
+              prose: |
+                High-risk AI systems must be designed and developed so that they achieve, in light of their
+                intended purpose, an appropriate level of accuracy, robustness, and cybersecurity, and perform
+                consistently in those respects throughout their lifecycle. Systems must be resilient against
+                errors, faults, inconsistencies, and attempts by unauthorised parties or adversarial inputs
+                to alter the system's use, outputs, or performance. Technical redundancy measures must be
+                implemented where appropriate.
+            - id: "EU-AI-ACT-007_gdn"
+              name: "guidance"
+              prose: |
+                Define and disclose quantitative accuracy thresholds in the system card and Annex IV
+                documentation. Conduct adversarial robustness testing (e.g., input perturbation, prompt
+                injection where applicable) before deployment and after significant model changes. Apply
+                cybersecurity controls aligned with ENISA AI security guidelines including model integrity
+                checks and supply-chain verification. Monitor production accuracy metrics and trigger review
+                when drift exceeds pre-defined thresholds.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 15 — Accuracy, robustness, and cybersecurity"
+
+    - id: "eu-ai-act-employment-annex-iii"
+      title: "High-Risk AI in Employment (Annex III §4)"
+      controls:
+        - id: "EU-AI-ACT-008"
+          uuid: "a1b2c3d4-a008-4000-8000-100000000008"
+          title: "Comply with high-risk AI obligations when deploying AI in employment and worker management contexts"
+          props:
+            - name: "source-section"
+              value: "Annex III §4"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-008_smt"
+              name: "statement"
+              prose: |
+                AI systems used for recruitment and selection of natural persons (including advertising,
+                screening or filtering applications, evaluating candidates), for making decisions affecting
+                terms of the work relationship, for promotion or termination of contracts, for task
+                allocation based on individual behaviour or personal traits, or for monitoring and evaluating
+                the performance and behaviour of workers are classified as high-risk under Annex III §4 and
+                must comply with all Chapter III Section 2 obligations.
+            - id: "EU-AI-ACT-008_gdn"
+              name: "guidance"
+              prose: |
+                Conduct a self-assessment to determine whether any AI system used in HR processes falls within
+                Annex III §4 scope. If in scope, register the system in the EU database under Art. 49, complete
+                Annex IV technical documentation, appoint a qualified person responsible for regulatory
+                compliance, and notify workers or their representatives as required by applicable labour law.
+                Pay particular attention to bias testing across protected characteristics (gender, age, ethnicity)
+                given the employment context.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Annex III §4 — High-risk AI systems in employment"
+
+    - id: "eu-ai-act-deployer-obligations"
+      title: "Deployer Obligations (Article 26)"
+      controls:
+        - id: "EU-AI-ACT-009"
+          uuid: "a1b2c3d4-a009-4000-8000-100000000009"
+          title: "Fulfil deployer obligations for high-risk AI systems including monitoring and human oversight"
+          props:
+            - name: "source-section"
+              value: "Art. 26"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-009_smt"
+              name: "statement"
+              prose: |
+                Deployers of high-risk AI systems must take appropriate technical and organisational measures
+                to ensure they use such systems in accordance with the instructions for use. They must assign
+                human oversight to natural persons with the necessary competence, training, and authority.
+                Deployers must monitor the operation of the system on the basis of the instructions for use
+                and inform the provider when they have reason to believe the system presents a risk. Where
+                deployers use the system in the course of their activities they must ensure workers and their
+                representatives are informed.
+            - id: "EU-AI-ACT-009_gdn"
+              name: "guidance"
+              prose: |
+                Establish an internal AI deployment register listing each high-risk AI system in use, the
+                responsible team, the assigned human oversight person, and the review cadence. Train oversight
+                personnel on the system's limitations before go-live. Set up an incident escalation channel to
+                notify the provider of anomalous outputs within a defined SLA (recommended: 5 business days
+                for non-emergency, 24 hours for safety-critical events). Document all override and escalation
+                events for audit purposes.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 26 — Obligations of deployers of high-risk AI systems"
+
+    - id: "eu-ai-act-fria"
+      title: "Fundamental Rights Impact Assessment (Article 27)"
+      controls:
+        - id: "EU-AI-ACT-010"
+          uuid: "a1b2c3d4-a010-4000-8000-100000000010"
+          title: "Conduct a fundamental rights impact assessment before deploying high-risk AI in public or regulated contexts"
+          props:
+            - name: "source-section"
+              value: "Art. 27"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-010_smt"
+              name: "statement"
+              prose: |
+                Deployers that are bodies governed by public law or private operators providing services of
+                general interest (such as banks, insurance companies, or providers of critical infrastructure)
+                must carry out a fundamental rights impact assessment (FRIA) before putting a high-risk AI
+                system into use. The FRIA must identify the rights that may be affected, the likelihood and
+                severity of the impact, and the measures to be taken to address those impacts. The assessment
+                must be submitted to the relevant market surveillance authority upon request.
+            - id: "EU-AI-ACT-010_gdn"
+              name: "guidance"
+              prose: |
+                Engage a multidisciplinary team including legal, compliance, ethics, and affected-community
+                representatives when conducting the FRIA. Map the system's decision perimeter to fundamental
+                rights under the EU Charter (non-discrimination, privacy, fair trial, etc.). Document
+                residual risks and the rationale for accepting them. Refresh the FRIA when the system's
+                use context materially changes or when post-deployment monitoring reveals unexpected impacts.
+                The FRA (EU Agency for Fundamental Rights) toolkit may be used as a reference methodology.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 27 — Fundamental rights impact assessment for high-risk AI systems"
+
+    - id: "eu-ai-act-transparency-persons"
+      title: "Transparency Obligations to Natural Persons (Article 50)"
+      controls:
+        - id: "EU-AI-ACT-011"
+          uuid: "a1b2c3d4-a011-4000-8000-100000000011"
+          title: "Notify natural persons when interacting with AI systems and disclose AI-generated content"
+          props:
+            - name: "source-section"
+              value: "Art. 50(1)"
+            - name: "effective-date"
+              value: "2025-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-011_smt"
+              name: "statement"
+              prose: |
+                Providers of AI systems intended to interact directly with natural persons must ensure that
+                those persons are informed they are interacting with an AI system, unless this is obvious from
+                the context. Providers and deployers of AI systems that generate synthetic audio, image, video,
+                or text content (including deepfakes) must mark the outputs in a machine-readable format and
+                ensure the outputs are labelled as artificially generated or manipulated. Exceptions apply
+                for authorised law enforcement purposes and certain creative works with appropriate disclosure.
+            - id: "EU-AI-ACT-011_gdn"
+              name: "guidance"
+              prose: |
+                Implement an AI interaction disclosure banner or opening statement for all chatbot and voice AI
+                products. For synthetic media, embed C2PA (Coalition for Content Provenance and Authenticity)
+                or equivalent machine-readable provenance metadata in generated files. Display a visible
+                human-readable watermark or label for video, audio, and image outputs. For text-only generative
+                AI outputs shared publicly, include a disclosure footer. Maintain records of when and how
+                disclosures are rendered for at least 12 months.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 50(1) — Transparency obligations for certain AI systems"
+
+        - id: "EU-AI-ACT-012"
+          uuid: "a1b2c3d4-a012-4000-8000-100000000012"
+          title: "Label deepfake and synthetic content with machine-readable disclosure"
+          props:
+            - name: "source-section"
+              value: "Art. 50(2), 50(4)"
+            - name: "effective-date"
+              value: "2025-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-012_smt"
+              name: "statement"
+              prose: |
+                Deployers of AI systems that generate or manipulate image, audio, or video content constituting
+                a deepfake must disclose that the content has been artificially generated or manipulated.
+                Providers and deployers of AI systems that generate text published for the purpose of informing
+                the public on matters of public interest must disclose that the text was AI-generated unless
+                human review has substantially modified the content. Disclosures must be clear, prominent, and
+                made at the time of presentation to the natural person.
+            - id: "EU-AI-ACT-012_gdn"
+              name: "guidance"
+              prose: |
+                Apply machine-readable metadata (C2PA manifest, IPTC fields, or equivalent) to all AI-generated
+                media files at the point of generation, before any distribution or storage. Present a visible
+                label in the user interface whenever AI-generated content is displayed. For text content
+                intended for public information, include an explicit disclosure statement (e.g., "This content
+                was generated with AI assistance") unless a human editor has substantially revised and takes
+                editorial responsibility for the content. Retain disclosure logs for regulatory audit for
+                at least 12 months.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 50(2) and 50(4) — Deepfake and synthetic content disclosure"
+
+    - id: "eu-ai-act-prohibited-practices"
+      title: "Prohibited AI Practices (Article 5)"
+      controls:
+        - id: "EU-AI-ACT-013"
+          uuid: "a1b2c3d4-a013-4000-8000-100000000013"
+          title: "Do not develop or deploy AI systems engaging in prohibited practices under Article 5"
+          props:
+            - name: "source-section"
+              value: "Art. 5"
+            - name: "effective-date"
+              value: "2025-02-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-013_smt"
+              name: "statement"
+              prose: |
+                The following AI practices are prohibited: (a) subliminal, manipulative, or deceptive
+                techniques that distort behaviour in a way that causes or is reasonably likely to cause
+                significant harm; (b) exploitation of vulnerabilities of specific groups due to age, disability,
+                or socio-economic situation; (c) social scoring by public authorities that leads to detrimental
+                treatment; (d) real-time remote biometric identification in publicly accessible spaces by law
+                enforcement (except under strict listed exceptions); (e) biometric categorisation inferring
+                sensitive attributes; (f) untargeted scraping of facial images for recognition databases;
+                (g) emotion recognition in the workplace or educational institutions; (h) AI-based predictions
+                of criminal offending based solely on profiling.
+            - id: "EU-AI-ACT-013_gdn"
+              name: "guidance"
+              prose: |
+                Conduct a prohibited-practices screening for all AI products before development begins and
+                before any significant capability expansion. Maintain a documented decision record confirming
+                the system does not fall within Art. 5 scope. Where borderline cases exist, obtain written
+                legal opinion. Art. 5 applies from 2025-02-02 — the earliest of any EU AI Act obligation.
+                Violations are subject to the highest fines: up to EUR 35 million or 7% of global annual
+                turnover, whichever is higher.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 5 — Prohibited artificial intelligence practices"
+
+    - id: "eu-ai-act-conformity-assessment"
+      title: "Conformity Assessment and Registration"
+      controls:
+        - id: "EU-AI-ACT-014"
+          uuid: "a1b2c3d4-a014-4000-8000-100000000014"
+          title: "Complete conformity assessment and register high-risk AI systems in the EU database before market placement"
+          props:
+            - name: "source-section"
+              value: "Art. 43, 49"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-014_smt"
+              name: "statement"
+              prose: |
+                Before placing a high-risk AI system on the market or putting it into service, providers must
+                complete a conformity assessment pursuant to Art. 43. For most Annex III systems, providers
+                may self-assess; for biometric identification and systems listed under Annex III §1, third-party
+                assessment by a notified body is mandatory. Following successful conformity assessment, providers
+                must affix the CE marking and draw up an EU declaration of conformity. High-risk AI systems
+                must be registered in the EU AI database operated by the Commission (Art. 49) before deployment.
+            - id: "EU-AI-ACT-014_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a conformity assessment dossier containing: completed Annex IV technical documentation,
+                risk management system records, testing results against accuracy and robustness metrics,
+                the EU declaration of conformity (Art. 47 template), and the CE marking certificate or
+                self-assessment conclusion. Register in the EU AI database at https://ai-office.ec.europa.eu
+                before first commercial deployment. Update the registration on material changes to the system.
+                Retain the declaration of conformity and dossier for 10 years after the last system is placed
+                on the market.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 43 and 49 — Conformity assessment and registration"
+
+        - id: "EU-AI-ACT-015"
+          uuid: "a1b2c3d4-a015-4000-8000-100000000015"
+          title: "Draw up and maintain EU declaration of conformity"
+          props:
+            - name: "source-section"
+              value: "Art. 47"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-015_smt"
+              name: "statement"
+              prose: |
+                Providers must draw up a written EU declaration of conformity for each high-risk AI system
+                confirming that the system complies with the requirements of Chapter III Section 2 of the
+                EU AI Act. The declaration must contain the information specified in Annex V including the
+                name and address of the provider, a description of the AI system, the conformity assessment
+                procedure used, the notified body involved (if any), applicable harmonised standards or
+                common specifications relied upon, and the place and date of issue. The declaration must
+                be updated whenever the system is substantially modified.
+            - id: "EU-AI-ACT-015_gdn"
+              name: "guidance"
+              prose: |
+                Use the Annex V template structure for the declaration. The declaration must be version-
+                controlled and signed by an authorised representative. Store the declaration in the Annex IV
+                technical documentation dossier. When the system is substantially modified (triggering
+                re-conformity assessment under Art. 43(4)), issue a new dated declaration and invalidate
+                the prior version. Make the current declaration available on request to market surveillance
+                authorities and customers within 10 business days of request.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 47 and Annex V — EU declaration of conformity"
+
+    - id: "eu-ai-act-post-market"
+      title: "Post-Market Monitoring and Incident Reporting"
+      controls:
+        - id: "EU-AI-ACT-016"
+          uuid: "a1b2c3d4-a016-4000-8000-100000000016"
+          title: "Establish a post-market monitoring system and report serious incidents to authorities"
+          props:
+            - name: "source-section"
+              value: "Art. 72, 73"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-016_smt"
+              name: "statement"
+              prose: |
+                Providers of high-risk AI systems must establish and document a post-market monitoring system
+                proportionate to the nature of the AI technologies and the risks of the high-risk AI system.
+                The post-market monitoring plan must be part of the Annex IV technical documentation. Providers
+                must report any serious incident (death or serious harm to health, serious and irreversible
+                disruption of infrastructure, infringement of fundamental rights) to the market surveillance
+                authority of the member state where the incident occurred without undue delay and in any event
+                within 15 days of becoming aware of the serious incident.
+            - id: "EU-AI-ACT-016_gdn"
+              name: "guidance"
+              prose: |
+                Define KPIs for post-market monitoring in the Annex IV plan: include accuracy drift thresholds,
+                anomaly rates, customer-reported error rates, and override frequency. Establish an internal
+                incident severity classification aligned to the Art. 73 definition of "serious incident".
+                Create a regulatory notification workflow with defined roles, escalation paths, and 15-day
+                SLA. Conduct periodic post-market reviews (at minimum annually) and record outcomes. Coordinate
+                with deployers to collect incident signals through contractual obligations in the supply agreement.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 72 and 73 — Post-market monitoring and incident reporting"

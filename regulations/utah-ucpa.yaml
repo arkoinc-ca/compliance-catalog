@@ -1,0 +1,383 @@
+catalog:
+  uuid: "a1b2c3d4-b300-4000-8000-100000000000"
+  metadata:
+    title: "Utah Consumer Privacy Act (UCPA)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "UT-UCPA"
+      - name: "jurisdiction"
+        value: "US-UT"
+      - name: "effective-as-of"
+        value: "2023-12-31"
+      - name: "source-citation"
+        value: "https://le.utah.gov/xcode/Title13/Chapter61/13-61.html"
+  groups:
+    - id: "ut-ucpa-scope"
+      title: "Scope and Applicability"
+      controls:
+        - id: "US-UT-UCPA-001"
+          uuid: "a1b2c3d4-b301-4000-8000-100000000001"
+          title: "Determine applicability under the UCPA revenue and consumer thresholds"
+          props:
+            - name: "source-section"
+              value: "§13-61-102"
+            - name: "effective-date"
+              value: "2023-12-31"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-UT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-UT-UCPA-001_smt"
+              name: "statement"
+              prose: |
+                The UCPA applies to controllers and processors that: (i) conduct business in Utah or produce
+                products or services targeted to Utah consumers; (ii) have annual revenue of $25 million or
+                more; and (iii) satisfy at least one of the following: control or process personal data of
+                100,000 or more consumers per year; or derive over 50 percent of gross revenue from the sale
+                of personal data and control or process personal data of 25,000 or more consumers.
+            - id: "US-UT-UCPA-001_gdn"
+              name: "guidance"
+              prose: |
+                The UCPA's $25 million revenue floor distinguishes it from peer state laws — many smaller
+                businesses are categorically excluded. Assess revenue, consumer volume, and revenue-from-data-sales
+                thresholds each year and document the analysis. Note that annual revenue is the total company
+                revenue, not only Utah-derived revenue. Track consumer counts for Utah residents across all
+                products and services.
+          links:
+            - href: "https://le.utah.gov/xcode/Title13/Chapter61/13-61.html"
+              rel: source
+              text: "Utah Code §13-61-102 — Definitions and applicability"
+
+    - id: "ut-ucpa-controller-obligations"
+      title: "Controller Obligations"
+      controls:
+        - id: "US-UT-UCPA-002"
+          uuid: "a1b2c3d4-b302-4000-8000-100000000002"
+          title: "Provide a clear and accessible privacy notice"
+          props:
+            - name: "source-section"
+              value: "§13-61-302(1)"
+            - name: "effective-date"
+              value: "2023-12-31"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-UT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-UT-UCPA-002_smt"
+              name: "statement"
+              prose: |
+                Controllers must provide consumers with a reasonably accessible, clear, and meaningful privacy
+                notice that includes: the categories of personal data processed; the purposes for processing;
+                the categories of personal data shared with third parties; the categories of third parties
+                with whom data is shared; and how consumers may exercise their rights under the UCPA.
+            - id: "US-UT-UCPA-002_gdn"
+              name: "guidance"
+              prose: |
+                Publish and maintain a privacy notice linked from all data-collection entry points. Use plain
+                language. Enumerate the specific categories of data and third-party recipients — generic
+                language is insufficient. Update the notice whenever data flows change. The UCPA does not
+                require the notice to appear before collection but it must be reasonably accessible.
+          links:
+            - href: "https://le.utah.gov/xcode/Title13/Chapter61/13-61.html"
+              rel: source
+              text: "Utah Code §13-61-302 — Controller responsibilities"
+
+        - id: "US-UT-UCPA-003"
+          uuid: "a1b2c3d4-b303-4000-8000-100000000003"
+          title: "Limit processing to disclosed purposes and practice data minimization"
+          props:
+            - name: "source-section"
+              value: "§13-61-302(1)(b)"
+            - name: "effective-date"
+              value: "2023-12-31"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-UT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-UT-UCPA-003_smt"
+              name: "statement"
+              prose: |
+                Controllers must limit the collection of personal data to what is reasonably necessary and
+                proportionate to the purposes for which such data is processed as disclosed to the consumer.
+                Processing personal data for purposes not disclosed to consumers requires consumer consent
+                unless an applicable exception applies.
+            - id: "US-UT-UCPA-003_gdn"
+              name: "guidance"
+              prose: |
+                Conduct a data inventory mapping each field to a disclosed purpose. Reject secondary-use
+                requests without a consent gate or documented exception. Build minimization into product
+                design — default to collecting the minimum required set. Review data collection forms and
+                APIs periodically to remove stale or over-broad fields.
+          links:
+            - href: "https://le.utah.gov/xcode/Title13/Chapter61/13-61.html"
+              rel: source
+              text: "Utah Code §13-61-302 — Controller responsibilities"
+
+        - id: "US-UT-UCPA-004"
+          uuid: "a1b2c3d4-b304-4000-8000-100000000004"
+          title: "Implement reasonable administrative, technical, and physical security measures"
+          props:
+            - name: "source-section"
+              value: "§13-61-302(1)(c)"
+            - name: "effective-date"
+              value: "2023-12-31"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-UT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-UT-UCPA-004_smt"
+              name: "statement"
+              prose: |
+                Controllers must establish, implement, and maintain reasonable administrative, technical, and
+                physical data security practices to protect the confidentiality, integrity, and accessibility
+                of personal data. The security measures must be appropriate to the volume and nature of the
+                personal data processed.
+            - id: "US-UT-UCPA-004_gdn"
+              name: "guidance"
+              prose: |
+                A documented security program proportionate to data sensitivity and volume satisfies this
+                obligation. Core controls include: encryption at rest and in transit; role-based access
+                control; vulnerability management; and an incident response plan. Review and test controls
+                at least annually. For sensitive data categories, apply heightened controls.
+          links:
+            - href: "https://le.utah.gov/xcode/Title13/Chapter61/13-61.html"
+              rel: source
+              text: "Utah Code §13-61-302 — Controller responsibilities"
+
+    - id: "ut-ucpa-consumer-rights"
+      title: "Consumer Rights"
+      controls:
+        - id: "US-UT-UCPA-005"
+          uuid: "a1b2c3d4-b305-4000-8000-100000000005"
+          title: "Respond to consumer access and portability requests within 45 days"
+          props:
+            - name: "source-section"
+              value: "§13-61-202(1)(a), §13-61-202(1)(c)"
+            - name: "effective-date"
+              value: "2023-12-31"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-UT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-UT-UCPA-005_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to confirm whether a controller is processing their personal data
+                and to access that data. Consumers also have the right to receive a copy of the personal data
+                they have provided in a portable, readily usable format. Controllers must respond to verified
+                requests within 45 days, with a possible 45-day extension on notice to the consumer.
+            - id: "US-UT-UCPA-005_gdn"
+              name: "guidance"
+              prose: |
+                Implement an authenticated request portal or process. Deliver data in a structured, machine-
+                readable format. Document the 45-day clock from request receipt. For extensions, notify the
+                consumer within the initial period with the reason. Maintain request logs for at least two
+                years. The UCPA does not grant a correction right — do not conflate access with correction.
+          links:
+            - href: "https://le.utah.gov/xcode/Title13/Chapter61/13-61.html"
+              rel: source
+              text: "Utah Code §13-61-202 — Consumer rights"
+
+        - id: "US-UT-UCPA-006"
+          uuid: "a1b2c3d4-b306-4000-8000-100000000006"
+          title: "Honor consumer deletion requests for data provided by the consumer"
+          props:
+            - name: "source-section"
+              value: "§13-61-202(1)(b)"
+            - name: "effective-date"
+              value: "2023-12-31"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-UT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-UT-UCPA-006_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to delete personal data that the consumer provided to the controller.
+                Note that the UCPA deletion right is narrower than peer state laws: it covers only data the
+                consumer provided, not all data obtained about the consumer. Controllers must respond within
+                45 days. Statutory exceptions apply for data required to complete a transaction, comply with
+                law, or for certain other permitted purposes.
+            - id: "US-UT-UCPA-006_gdn"
+              name: "guidance"
+              prose: |
+                Distinguish between data the consumer actively provided (form submissions, account fields,
+                uploads) and data derived or inferred by the controller. The UCPA deletion obligation covers
+                the former. Implement deletion workflows that target consumer-provided data across all
+                datastores. Document any exceptions applied and retain audit logs. Propagate deletion to
+                processors via DPA provisions where required.
+          links:
+            - href: "https://le.utah.gov/xcode/Title13/Chapter61/13-61.html"
+              rel: source
+              text: "Utah Code §13-61-202 — Consumer rights"
+
+        - id: "US-UT-UCPA-007"
+          uuid: "a1b2c3d4-b307-4000-8000-100000000007"
+          title: "Provide opt-out for sale of personal data and targeted advertising"
+          props:
+            - name: "source-section"
+              value: "§13-61-202(1)(d)"
+            - name: "effective-date"
+              value: "2023-12-31"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-UT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-UT-UCPA-007_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to opt out of: (i) the sale of their personal data to third parties;
+                and (ii) targeted advertising. Note that the UCPA does not provide a general opt-out right
+                for profiling with significant effects — this distinguishes it from VCDPA, CTDPA, and CPA.
+                Controllers must honor opt-out requests promptly.
+            - id: "US-UT-UCPA-007_gdn"
+              name: "guidance"
+              prose: |
+                Implement a clear and accessible opt-out mechanism linked from the privacy notice. Process
+                opt-out signals promptly — the UCPA does not specify a timeline but 15 days aligns with peer
+                state best practice. Propagate opt-outs to downstream ad-tech vendors and data brokers.
+                Do not re-enroll opted-out consumers without new affirmative consent. Log opt-out events.
+          links:
+            - href: "https://le.utah.gov/xcode/Title13/Chapter61/13-61.html"
+              rel: source
+              text: "Utah Code §13-61-202 — Consumer rights"
+
+    - id: "ut-ucpa-sensitive-data"
+      title: "Sensitive Data"
+      controls:
+        - id: "US-UT-UCPA-008"
+          uuid: "a1b2c3d4-b308-4000-8000-100000000008"
+          title: "Obtain consent or provide opt-out before processing sensitive data"
+          props:
+            - name: "source-section"
+              value: "§13-61-302(2)"
+            - name: "effective-date"
+              value: "2023-12-31"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-UT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-UT-UCPA-008_smt"
+              name: "statement"
+              prose: |
+                Controllers must not process sensitive data without either: (i) the consumer's consent; or
+                (ii) for most categories, providing the consumer a clear opportunity to opt out of the
+                processing. Sensitive data includes: racial or ethnic origin; religious beliefs; mental or
+                physical health; sexual orientation; immigration status; genetic data; biometric data for
+                unique identification; precise geolocation; and personal data of children.
+            - id: "US-UT-UCPA-008_gdn"
+              name: "guidance"
+              prose: |
+                The UCPA offers an opt-out model for most sensitive data categories (unlike states requiring
+                opt-in consent for all sensitive data). However, for data involving children, opt-in consent
+                aligned with COPPA is the appropriate standard. Identify all sensitive data flows in your
+                data inventory. Implement category-appropriate consent or opt-out mechanisms. Audit for
+                unauthorized sensitive-data collection at least annually.
+          links:
+            - href: "https://le.utah.gov/xcode/Title13/Chapter61/13-61.html"
+              rel: source
+              text: "Utah Code §13-61-302 — Controller responsibilities; sensitive data"
+
+    - id: "ut-ucpa-processors"
+      title: "Processor Obligations"
+      controls:
+        - id: "US-UT-UCPA-009"
+          uuid: "a1b2c3d4-b309-4000-8000-100000000009"
+          title: "Govern processor relationships through binding contracts"
+          props:
+            - name: "source-section"
+              value: "§13-61-303"
+            - name: "effective-date"
+              value: "2023-12-31"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-UT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-UT-UCPA-009_smt"
+              name: "statement"
+              prose: |
+                Processing of personal data by a processor must be governed by a binding contract between
+                the controller and processor. The contract must specify: controller instructions for processing;
+                the nature and purpose of processing; the types of personal data involved; the duration of
+                processing; and the rights and obligations of both parties. Processors must process data only
+                on controller instructions and must assist controllers in meeting UCPA obligations.
+            - id: "US-UT-UCPA-009_gdn"
+              name: "guidance"
+              prose: |
+                Review all vendor agreements for UCPA data processing terms. Agreements must prohibit
+                processors from using personal data for their own commercial purposes, require prior
+                authorization before engaging sub-processors, and mandate data deletion or return on
+                contract termination. Build UCPA-compliant DPA templates into your vendor onboarding
+                process. Track sub-processor changes and update controller authorizations proactively.
+          links:
+            - href: "https://le.utah.gov/xcode/Title13/Chapter61/13-61.html"
+              rel: source
+              text: "Utah Code §13-61-303 — Processor responsibilities"
+
+    - id: "ut-ucpa-enforcement"
+      title: "Enforcement"
+      controls:
+        - id: "US-UT-UCPA-010"
+          uuid: "a1b2c3d4-b30a-4000-8000-10000000000a"
+          title: "Respond to AG enforcement notices; no private right of action"
+          props:
+            - name: "source-section"
+              value: "§13-61-401"
+            - name: "effective-date"
+              value: "2023-12-31"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-UT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-UT-UCPA-010_smt"
+              name: "statement"
+              prose: |
+                Enforcement of the UCPA rests exclusively with the Division of Consumer Protection and the
+                AG. There is no private right of action. Before initiating a civil action, the AG must provide
+                30 days' written notice of the alleged violation, allowing an opportunity to cure. Civil
+                penalties up to $7,500 per violation may be imposed. Injunctive relief is also available.
+            - id: "US-UT-UCPA-010_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a documented compliance program so that AG cure notices can be addressed within the
+                30-day window. Designate a privacy officer to receive regulatory correspondence. Document all
+                remediation steps taken in response to a notice. Monitor Division of Consumer Protection
+                guidance for enforcement priorities. Note: unlike VCDPA, the UCPA cure period does not expire
+                on a fixed date — it is a permanent feature of the enforcement regime.
+          links:
+            - href: "https://le.utah.gov/xcode/Title13/Chapter61/13-61.html"
+              rel: source
+              text: "Utah Code §13-61-401 — Enforcement"

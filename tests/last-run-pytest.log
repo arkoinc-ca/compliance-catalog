@@ -1,0 +1,15 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-8.4.2, pluggy-1.6.0 -- C:\Python314\python.exe
+cachedir: .pytest_cache
+benchmark: 5.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: D:\Personal\arko-readiness-profiling\compliance-toolkit\repos\compliance-catalog
+configfile: pyproject.toml
+plugins: anyio-4.11.0, Faker-40.4.0, langsmith-0.6.4, benchmark-5.2.3, cov-7.0.0, typeguard-2.13.3, asyncio-1.3.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 3 items
+
+tests/test_catalog_validation.py::test_quebec_law25_controls_complete PASSED [ 33%]
+tests/test_catalog_validation.py::test_validator_rejects_duplicate_control_id PASSED [ 66%]
+tests/test_catalog_validation.py::test_validator_passes_on_catalog_directory PASSED [100%]
+
+============================== 3 passed in 0.19s ==============================

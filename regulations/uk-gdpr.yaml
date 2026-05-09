@@ -1,0 +1,431 @@
+catalog:
+  uuid: "a1b2c3d4-c200-4000-8000-100000000000"
+  metadata:
+    title: "UK GDPR Overlay — Data Protection Act 2018 and UK GDPR (retained EU law)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "UK-GDPR"
+      - name: "jurisdiction"
+        value: "UK"
+      - name: "effective-as-of"
+        value: "2021-01-01"
+      - name: "source-citation"
+        value: "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+      - name: "overlay-note"
+        value: "This catalog covers UK-specific divergences from EU GDPR; pair with EU-GDPR controls."
+  groups:
+    - id: "uk-gdpr-supervisory-authority"
+      title: "ICO as Supervisory Authority"
+      controls:
+        - id: "UK-GDPR-001"
+          uuid: "a1b2c3d4-c201-4000-8000-100000000001"
+          title: "Register with the ICO and pay the data protection fee (DPA 2018 Part 4)"
+          props:
+            - name: "source-section"
+              value: "DPA 2018 s. 108–111; GDPR Art. 77 (UK)"
+            - name: "effective-date"
+              value: "2021-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "UK"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "UK-GDPR-001_smt"
+              name: "statement"
+              prose: |
+                Most organisations that process personal data as a controller must pay an annual data protection
+                fee to the Information Commissioner's Office (ICO) unless they qualify for an exemption. The
+                fee tier is determined by the organisation's size, turnover, and number of staff. Failure to
+                pay the fee is a civil monetary penalty offence separate from UK GDPR infringement penalties.
+                Data subjects may lodge complaints directly with the ICO under UK GDPR Art. 77 (retained).
+            - id: "UK-GDPR-001_gdn"
+              name: "guidance"
+              prose: |
+                Assess annual ICO fee liability using the ICO's online self-assessment tool. Exemptions include
+                processing solely for staff administration, not-for-profit purposes, judicial functions, and
+                personal household activity. Register or renew before the fee falls due; non-payment carries a
+                fine of up to £4,350. Maintain a record of ICO registration number and renewal dates. Ensure
+                your ICO registration accurately reflects current processing activities; update it when activities
+                change materially.
+          links:
+            - href: "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+              rel: source
+              text: "Data Protection Act 2018"
+            - href: "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/"
+              rel: guidance
+              text: "ICO UK GDPR Guidance"
+
+        - id: "UK-GDPR-002"
+          uuid: "a1b2c3d4-c202-4000-8000-100000000002"
+          title: "Report personal data breaches to the ICO within 72 hours (UK GDPR Art. 33)"
+          props:
+            - name: "source-section"
+              value: "UK GDPR Art. 33; DPA 2018 s. 67"
+            - name: "effective-date"
+              value: "2021-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "UK"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "UK-GDPR-002_smt"
+              name: "statement"
+              prose: |
+                Where a personal data breach is likely to result in a risk to the rights and freedoms of natural
+                persons, the controller must notify the ICO without undue delay and, where feasible, within 72
+                hours of becoming aware of it. Where notification is not made within 72 hours, it must be
+                accompanied by reasons for the delay. Processors must notify controllers without undue delay
+                after becoming aware of a breach.
+            - id: "UK-GDPR-002_gdn"
+              name: "guidance"
+              prose: |
+                Use the ICO's online breach reporting portal. The 72-hour clock starts when any member of the
+                organisation with responsibility for data protection becomes aware of the breach — not just the
+                DPO. If information is incomplete within 72 hours, submit an initial report and supplement it.
+                Maintain a breach register for all incidents regardless of whether they meet the notification
+                threshold (Art. 33(5) UK). Post-Brexit, if the breach also affects EU data subjects, a separate
+                notification to the relevant EU supervisory authority is required.
+          links:
+            - href: "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+              rel: source
+              text: "Data Protection Act 2018"
+
+    - id: "uk-gdpr-age-of-consent"
+      title: "Age of Consent for Online Services"
+      controls:
+        - id: "UK-GDPR-003"
+          uuid: "a1b2c3d4-c203-4000-8000-100000000003"
+          title: "Apply age 13 as the UK consent threshold for information society services (DPA 2018 s. 9)"
+          props:
+            - name: "source-section"
+              value: "DPA 2018 s. 9; UK GDPR Art. 8"
+            - name: "effective-date"
+              value: "2021-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "UK"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "UK-GDPR-003_smt"
+              name: "statement"
+              prose: |
+                In the UK, the minimum age for a child to provide their own consent for processing in the context
+                of information society services is 13, lower than the EU GDPR default of 16 (with member state
+                option to lower to 13). For children under 13, parental or guardian consent is required. This
+                divergence from EU GDPR Art. 8 is a UK-specific choice made under DPA 2018 s. 9.
+            - id: "UK-GDPR-003_gdn"
+              name: "guidance"
+              prose: |
+                Implement an age verification or age estimation mechanism appropriate to the risk level of your
+                service. The ICO's Children's Code (Age Appropriate Design Code) provides detailed guidance on
+                age verification approaches. For high-risk services (e.g., social media, gaming), invest in
+                robust age verification. For lower-risk services, a self-declaration with a proportionate backstop
+                is acceptable. Apply the ICO's Children's Code standards to any service likely to be accessed
+                by children under 18, not just the consent threshold of 13.
+          links:
+            - href: "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+              rel: source
+              text: "Data Protection Act 2018"
+            - href: "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/children-and-the-uk-gdpr/"
+              rel: guidance
+              text: "ICO Children's Code Guidance"
+
+    - id: "uk-gdpr-national-security-exemptions"
+      title: "National Security and Intelligence Exemptions"
+      controls:
+        - id: "UK-GDPR-004"
+          uuid: "a1b2c3d4-c204-4000-8000-100000000004"
+          title: "Apply DPA 2018 national security and intelligence service exemptions where applicable (DPA 2018 Sch. 2)"
+          props:
+            - name: "source-section"
+              value: "DPA 2018 s. 26–27; Sch. 2 Parts 1–4"
+            - name: "effective-date"
+              value: "2021-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "UK"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "UK-GDPR-004_smt"
+              name: "statement"
+              prose: |
+                The DPA 2018 provides exemptions from UK GDPR obligations for processing required for national
+                security or defence purposes (s. 26), and extends Part 4 processing rules to the intelligence
+                services (GCHQ, MI5, MI6). These are UK-specific exemptions with no direct EU GDPR equivalent.
+                Private-sector organisations that process data on behalf of government under national security
+                contracts should seek specific legal advice on applicable exemptions and must not assume general
+                commercial exemptions apply.
+            - id: "UK-GDPR-004_gdn"
+              name: "guidance"
+              prose: |
+                The national security exemption is narrow and requires a certificate signed by a minister of the
+                Crown. It is not a general commercial exemption. If your organisation processes data for government
+                or law enforcement under contract, review the applicable contractual and statutory frameworks with
+                legal counsel. The intelligence services framework under Part 4 applies only to the designated
+                intelligence services — it does not extend to their contractors unless specifically contracted.
+          links:
+            - href: "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+              rel: source
+              text: "Data Protection Act 2018"
+
+    - id: "uk-gdpr-adequacy-transfers"
+      title: "International Transfers — UK Adequacy Framework"
+      controls:
+        - id: "UK-GDPR-005"
+          uuid: "a1b2c3d4-c205-4000-8000-100000000005"
+          title: "Use appropriate UK transfer mechanism for international data transfers (UK GDPR Art. 45–49)"
+          props:
+            - name: "source-section"
+              value: "UK GDPR Art. 45–49; DPA 2018 s. 17A"
+            - name: "effective-date"
+              value: "2021-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "UK"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "UK-GDPR-005_smt"
+              name: "statement"
+              prose: |
+                Post-Brexit, the UK has its own adequacy framework separate from the EU. The UK has granted
+                adequacy to the EU/EEA (allowing free transfers to EU member states) and to a list of other
+                countries. Where no UK adequacy decision exists, transfers must rely on UK-specific mechanisms:
+                the International Data Transfer Agreement (IDTA) or the UK Addendum to EU Standard Contractual
+                Clauses (SCCs). EU SCCs alone are insufficient for UK-originating transfers from 21 March 2024.
+            - id: "UK-GDPR-005_gdn"
+              name: "guidance"
+              prose: |
+                Audit all international data transfers and identify the applicable transfer mechanism for each.
+                Replace any EU SCCs used for UK-originating transfers with the UK IDTA or UK Addendum. Transfers
+                to the EU/EEA benefit from a UK adequacy decision — no additional mechanism is required. Monitor
+                the ICO's adequacy decisions list for changes, including the status of the UK-US Data Bridge.
+                For binding corporate rules (BCRs) approved pre-Brexit, confirm whether they have been re-approved
+                by the ICO under the UK BCR framework.
+          links:
+            - href: "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+              rel: source
+              text: "Data Protection Act 2018"
+            - href: "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/international-transfers/"
+              rel: guidance
+              text: "ICO International Transfers Guidance"
+
+        - id: "UK-GDPR-006"
+          uuid: "a1b2c3d4-c206-4000-8000-100000000006"
+          title: "Assess and document UK-EU data flows and adequacy reliance (post-Brexit)"
+          props:
+            - name: "source-section"
+              value: "UK GDPR Art. 45; UK-EU Trade and Cooperation Agreement"
+            - name: "effective-date"
+              value: "2021-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "UK"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "UK-GDPR-006_smt"
+              name: "statement"
+              prose: |
+                The UK granted adequacy to the EU/EEA, meaning transfers of personal data from the UK to EU/EEA
+                countries do not require an additional transfer mechanism. However, this is a UK decision and is
+                subject to periodic review. Organisations must also consider the EU's separate adequacy decision
+                for the UK when transferring data from EU to UK: the EU granted the UK adequacy in June 2021,
+                subject to a four-year review period. Any change to UK data protection law that diverges
+                significantly from EU standards could trigger withdrawal of EU adequacy.
+            - id: "UK-GDPR-006_gdn"
+              name: "guidance"
+              prose: |
+                Document your organisation's reliance on UK-EU and EU-UK adequacy decisions as part of your
+                transfer records. Monitor announcements from the European Commission and the ICO regarding adequacy
+                review outcomes. Have contingency transfer mechanisms (IDTA, Standard Contractual Clauses, Binding
+                Corporate Rules) prepared for EU-to-UK transfers in case EU adequacy is modified or withdrawn.
+                Build transfer mechanism review into your annual compliance calendar.
+          links:
+            - href: "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+              rel: source
+              text: "Data Protection Act 2018"
+
+    - id: "uk-gdpr-ico-codes"
+      title: "ICO Codes of Practice"
+      controls:
+        - id: "UK-GDPR-007"
+          uuid: "a1b2c3d4-c207-4000-8000-100000000007"
+          title: "Comply with ICO statutory codes of practice (DPA 2018 s. 121–128)"
+          props:
+            - name: "source-section"
+              value: "DPA 2018 s. 121–128"
+            - name: "effective-date"
+              value: "2021-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "UK"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "UK-GDPR-007_smt"
+              name: "statement"
+              prose: |
+                The DPA 2018 grants the ICO power to issue statutory codes of practice on specific topics. The
+                ICO has issued or is developing codes on: direct marketing; data sharing; journalism; employment
+                practices; the Children's Code (Age Appropriate Design Code); and biometric recognition. While
+                codes are not themselves law, they are admissible as evidence in legal proceedings, and the ICO
+                considers compliance when determining whether a UK GDPR infringement has occurred. Non-compliance
+                with a relevant code is a significant factor in enforcement decisions.
+            - id: "UK-GDPR-007_gdn"
+              name: "guidance"
+              prose: |
+                Identify which ICO codes of practice are relevant to your processing activities. At minimum:
+                review the Direct Marketing Code if you conduct marketing by any channel; review the Children's
+                Code if your service is likely to be accessed by under-18s; review the Employment Practices Code
+                for employee data processing. Implement the code's standards and document your compliance. Update
+                policies when new codes are issued or existing codes are revised. The ICO publishes codes under
+                the DPA 2018 s. 121–125 on ico.org.uk.
+          links:
+            - href: "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+              rel: source
+              text: "Data Protection Act 2018"
+            - href: "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/ico-codes-of-practice/"
+              rel: guidance
+              text: "ICO Codes of Practice"
+
+    - id: "uk-gdpr-pecr"
+      title: "PECR Cross-Reference for Marketing and Cookies"
+      controls:
+        - id: "UK-GDPR-008"
+          uuid: "a1b2c3d4-c208-4000-8000-100000000008"
+          title: "Comply with PECR for electronic marketing and cookie/tracking requirements (PECR 2003)"
+          props:
+            - name: "source-section"
+              value: "PECR 2003 regs. 6, 22–24; DPA 2018 s. 161"
+            - name: "effective-date"
+              value: "2021-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "UK"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "UK-GDPR-008_smt"
+              name: "statement"
+              prose: |
+                The Privacy and Electronic Communications Regulations 2003 (PECR) remain in force in the UK
+                post-Brexit and operate alongside UK GDPR. PECR imposes specific rules on: cookies and similar
+                technologies (reg. 6 — requires informed consent unless strictly necessary); electronic marketing
+                to individuals (reg. 22 — requires prior consent for email/SMS marketing); electronic marketing
+                to businesses (reg. 23 — opt-out right applies); and use of the Telephone Preference Service
+                (TPS) for live calls. The ICO enforces PECR separately from UK GDPR and can fine up to £500,000
+                per breach.
+            - id: "UK-GDPR-008_gdn"
+              name: "guidance"
+              prose: |
+                Implement a cookie consent management platform (CMP) that: does not set non-essential cookies
+                before consent; presents a genuine yes/no choice without pre-ticked boxes; allows granular
+                opt-in by category; and records consent with timestamp and version. Strictly necessary cookies
+                do not require consent. For email marketing, obtain prior express consent and provide an easy
+                opt-out in every message. For B2B soft opt-in (reg. 22(3)), ensure the contact is a previous
+                customer, the product/service is similar, and opt-out is offered at each contact. Check the TPS
+                before making live marketing calls.
+          links:
+            - href: "https://www.legislation.gov.uk/uksi/2003/2426/contents"
+              rel: source
+              text: "Privacy and Electronic Communications Regulations 2003 (PECR)"
+            - href: "https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/"
+              rel: guidance
+              text: "ICO Direct Marketing and PECR Guidance"
+
+        - id: "UK-GDPR-009"
+          uuid: "a1b2c3d4-c209-4000-8000-100000000009"
+          title: "Apply the ICO Direct Marketing Code for all UK marketing activities"
+          props:
+            - name: "source-section"
+              value: "DPA 2018 s. 122; PECR 2003"
+            - name: "effective-date"
+              value: "2021-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "UK"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "UK-GDPR-009_smt"
+              name: "statement"
+              prose: |
+                The ICO's Direct Marketing Code is a statutory code of practice under DPA 2018 s. 122. It
+                consolidates UK GDPR and PECR requirements for marketing by all channels. Controllers engaged
+                in direct marketing to UK individuals must apply the standards in the code, covering: lawful
+                basis for processing marketing data; consent for electronic marketing under PECR; suppression
+                list management; third-party list acquisition; and profiling for marketing purposes. The code
+                is admissible as evidence in ICO enforcement proceedings.
+            - id: "UK-GDPR-009_gdn"
+              name: "guidance"
+              prose: |
+                Review the ICO Direct Marketing Code and map your marketing processes to its requirements.
+                Key actions: use the soft opt-in only where all four conditions are met; maintain a suppression
+                list for opt-outs and screen against it before each send; do not use publicly available data
+                for marketing without a transparent lawful basis; and document your legitimate interest
+                assessment (LIA) for any marketing relying on legitimate interests as the legal basis. Train
+                marketing staff on PECR and the Direct Marketing Code annually.
+          links:
+            - href: "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/direct-marketing/"
+              rel: source
+              text: "ICO Direct Marketing Code"
+            - href: "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+              rel: source
+              text: "Data Protection Act 2018"
+
+        - id: "UK-GDPR-010"
+          uuid: "a1b2c3d4-c210-4000-8000-100000000010"
+          title: "Appoint a UK GDPR representative if no UK establishment (UK GDPR Art. 27)"
+          props:
+            - name: "source-section"
+              value: "UK GDPR Art. 27"
+            - name: "effective-date"
+              value: "2021-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "UK"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "UK-GDPR-010_smt"
+              name: "statement"
+              prose: |
+                Controllers or processors not established in the UK who process personal data of UK data subjects
+                in connection with offering goods/services to them, or monitoring their behaviour within the UK,
+                must designate in writing a representative established in the UK. The representative acts as
+                a point of contact for the ICO and for data subjects. This is a UK-specific requirement separate
+                from any EU GDPR representative obligation.
+            - id: "UK-GDPR-010_gdn"
+              name: "guidance"
+              prose: |
+                Appoint a UK representative before commencing processing of UK data subjects' personal data if
+                your organisation has no establishment in the UK. The representative must be established in the
+                UK and authorised to act on behalf of the controller/processor in relation to obligations under
+                UK GDPR. Publish the representative's contact details in your privacy notice. The representative
+                can be an individual or a company. Maintain a written mandate documenting the appointment. Notify
+                the ICO if the representative changes.
+          links:
+            - href: "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+              rel: source
+              text: "Data Protection Act 2018"
+            - href: "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/controllers-and-processors/representatives/"
+              rel: guidance
+              text: "ICO Guidance on UK Representatives"

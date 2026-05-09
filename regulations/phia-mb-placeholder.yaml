@@ -1,0 +1,46 @@
+catalog:
+  uuid: "a1b2c3d4-d200-4000-8000-100000000200"
+  metadata:
+    title: "Personal Health Information Act (Manitoba PHIA) — Placeholder"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.0.1"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "CA-MB-PHIA"
+      - name: "jurisdiction"
+        value: "CA-MB"
+      - name: "effective-as-of"
+        value: "1997-12-12"
+      - name: "source-citation"
+        value: "https://web2.gov.mb.ca/laws/statutes/ccsm/p033-5e.php"
+  groups:
+    - id: "phia-mb-placeholder"
+      title: "Placeholder — Authoring Pending"
+      controls:
+        - id: "CA-MB-PHIA-001"
+          uuid: "a1b2c3d4-d201-4000-8000-100000000201"
+          title: "Manitoba PHIA — Provincial health information statute (placeholder)"
+          props:
+            - name: "source-section"
+              value: "C.C.S.M. c. P33.5"
+            - name: "effective-date"
+              value: "1997-12-12"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-MB"
+            - name: "status"
+              value: "placeholder"
+          parts:
+            - id: "CA-MB-PHIA-001_smt"
+              name: "statement"
+              prose: |
+                Provincial health-info statute — to be authored via RFC process. The Manitoba Personal Health
+                Information Act (C.C.S.M. c. P33.5) governs the collection, use, disclosure, and protection
+                of personal health information by trustees (health information custodians) in Manitoba. Full
+                control authoring is pending SME review and the RFC contribution process.
+          links:
+            - href: "https://web2.gov.mb.ca/laws/statutes/ccsm/p033-5e.php"
+              rel: source
+              text: "The Personal Health Information Act, C.C.S.M. c. P33.5 (Manitoba)"

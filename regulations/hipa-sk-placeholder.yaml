@@ -1,0 +1,46 @@
+catalog:
+  uuid: "a1b2c3d4-d300-4000-8000-100000000300"
+  metadata:
+    title: "Health Information Protection Act (Saskatchewan HIPA) — Placeholder"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.0.1"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "CA-SK-HIPA"
+      - name: "jurisdiction"
+        value: "CA-SK"
+      - name: "effective-as-of"
+        value: "2003-09-01"
+      - name: "source-citation"
+        value: "https://publications.saskatchewan.ca/api/v1/products/34444/formats/41553/download"
+  groups:
+    - id: "hipa-sk-placeholder"
+      title: "Placeholder — Authoring Pending"
+      controls:
+        - id: "CA-SK-HIPA-001"
+          uuid: "a1b2c3d4-d301-4000-8000-100000000301"
+          title: "Saskatchewan HIPA — Provincial health information statute (placeholder)"
+          props:
+            - name: "source-section"
+              value: "SS 1999, c H-0.021"
+            - name: "effective-date"
+              value: "2003-09-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-SK"
+            - name: "status"
+              value: "placeholder"
+          parts:
+            - id: "CA-SK-HIPA-001_smt"
+              name: "statement"
+              prose: |
+                Provincial health-info statute — to be authored via RFC process. The Saskatchewan Health
+                Information Protection Act (SS 1999, c H-0.021) governs the collection, use, disclosure,
+                and protection of personal health information by trustees in Saskatchewan. Full control
+                authoring is pending SME review and the RFC contribution process.
+          links:
+            - href: "https://publications.saskatchewan.ca/api/v1/products/34444/formats/41553/download"
+              rel: source
+              text: "Health Information Protection Act, SS 1999, c H-0.021 (Saskatchewan)"

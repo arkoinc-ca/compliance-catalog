@@ -1,124 +1,2048 @@
 # Control-to-Detection-Rule Join Schema
+# This file is the authoritative index mapping OSCAL control IDs to detection rule files.
+# Methods: semgrep | otel | questionnaire.
+# Schema version: 0.1.0
 #
-# This file is the authoritative index mapping OSCAL control IDs to detection rule
-# files. It establishes three detection methods:
-#   - semgrep:       static analysis rule in detection-rules/semgrep/
-#   - otel:          runtime probe template in detection-rules/otel-queries/
-#   - questionnaire: human-attestation fragment in detection-rules/questionnaire/
-#
-# A single control may appear under multiple methods when it has both a detectable
-# code pattern and a non-detectable organizational obligation.
-#
-# Schema version: 0.0.1-skeleton
-
-schema-version: "0.0.1"
+# NOTE: questionnaire/* and otel-queries/* file references in this index are
+# Phase 2 / Phase 5 deliverables. Rule files for these methods will be authored
+# in those phases (see detection-rules/questionnaire/README.md). Until then,
+# QuestionnaireEngine handles missing fragments via its mapping-driven fallback,
+# and OtelEngine v0 is a stub. Semgrep file references (5 files under
+# detection-rules/semgrep/) all resolve on disk today.
+schema-version: "0.1.0"
 
 mappings:
+
   # ──────────────────────────────────────────────────────────────────────────
-  # PIPEDA
+  # PIPEDA (12 controls)
   # ──────────────────────────────────────────────────────────────────────────
-  - control-id: "PIPEDA-1"
+  - control-id: "CA-PIPEDA-001"
     regulation: "PIPEDA"
-    title: "Accountability — Designate a responsible individual"
+    title: "Accountability — Designate a privacy officer responsible for compliance"
     detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-audit.yaml"
+        rule-id: "missing-audit"
+        notes: "TODO author rule in P2-T06."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-priv-officer-designated"
-        notes: "Organizational obligation; not statically detectable."
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-PIPEDA-002"
+    regulation: "PIPEDA"
+    title: "Identifying Purposes — Document and disclose purposes for collection at or before collection"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-purposes-documented"
+        notes: "Purposes must be documented in a privacy notice; not statically detectable."
+
+  - control-id: "CA-PIPEDA-003"
+    regulation: "PIPEDA"
+    title: "Consent — Obtain meaningful consent for collection, use, disclosure"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-consent.yaml"
+        rule-id: "missing-consent"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-consent-mechanism-present"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-PIPEDA-004"
+    regulation: "PIPEDA"
+    title: "Limiting Collection — Collect only what is necessary for identified purposes"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-collection-limited-to-purpose"
+        notes: "Data minimisation review requires human assessment."
+
+  - control-id: "CA-PIPEDA-005"
+    regulation: "PIPEDA"
+    title: "Limiting Use, Disclosure, and Retention — Use only for stated purposes; retain only as long as necessary"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-retention.yaml"
+        rule-id: "missing-retention"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-retention-schedule-defined"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-PIPEDA-006"
+    regulation: "PIPEDA"
+    title: "Accuracy — Keep personal information accurate, complete, and up-to-date"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-accuracy-process-defined"
+        notes: "Accuracy practices require human attestation."
+
+  - control-id: "CA-PIPEDA-007"
+    regulation: "PIPEDA"
+    title: "Safeguards — Protect personal information with security appropriate to sensitivity"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/pii-in-logs.yaml"
+        rule-id: "pii-in-logs"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-security-safeguards-documented"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-PIPEDA-008"
+    regulation: "PIPEDA"
+    title: "Openness — Make privacy policies and practices readily available"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-privacy-policy-published"
+        notes: "Availability of privacy policy requires human review."
+
+  - control-id: "CA-PIPEDA-009"
+    regulation: "PIPEDA"
+    title: "Individual Access — Respond to access requests; correct inaccuracies"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-dsr-access-process-defined"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-PIPEDA-010"
+    regulation: "PIPEDA"
+    title: "Challenging Compliance — Provide a complaint mechanism; respond and document"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-complaint-mechanism-present"
+        notes: "Complaint handling is an organizational process."
+
+  - control-id: "CA-PIPEDA-011"
+    regulation: "PIPEDA"
+    title: "Breach of Security Safeguards — Report to Privacy Commissioner and notify affected individuals"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/breach-response.yaml"
+        fragment-id: "q-breach-response-sop-documented"
+        notes: "Breach SOP is a documented organizational obligation."
+
+  - control-id: "CA-PIPEDA-012"
+    regulation: "PIPEDA"
+    title: "Breach Records — Maintain records of every breach of security safeguards"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/breach-response.yaml"
+        fragment-id: "q-breach-records-maintained"
+        notes: "Record-keeping obligation requires human attestation."
 
   # ──────────────────────────────────────────────────────────────────────────
-  # Quebec Law 25
+  # Quebec Law 25 (25 controls)
   # ──────────────────────────────────────────────────────────────────────────
-  - control-id: "QC-LAW25-1"
+  - control-id: "CA-QC-LAW25-001"
     regulation: "QC-LAW25"
-    title: "Privacy Officer — Designate a person responsible for PI protection"
+    title: "Designate a person in charge of the protection of personal information"
     detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-audit.yaml"
+        rule-id: "missing-audit"
+        notes: "TODO author rule in P2-T06."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-priv-officer-designated"
-        notes: "Organizational obligation; not statically detectable."
+        notes: "Organizational obligation — primary detection."
 
-  # ──────────────────────────────────────────────────────────────────────────
-  # GDPR
-  # ──────────────────────────────────────────────────────────────────────────
-  - control-id: "GDPR-5-1-a"
-    regulation: "GDPR"
-    title: "Lawfulness, Fairness and Transparency"
+  - control-id: "CA-QC-LAW25-002"
+    regulation: "QC-LAW25"
+    title: "Publish contact information of the person in charge"
     detection-methods:
-      - method: semgrep
-        file: "detection-rules/semgrep/missing-consent.yaml"
-        rule-id: "TODO — author in Phase 2"
-        notes: "Consent collection absence can be partially detected statically."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
-        fragment-id: "TODO — author in Phase 2"
-        notes: "Lawful basis documentation is an organizational obligation."
+        fragment-id: "q-priv-officer-contact-published"
+        notes: "Publication requires human verification."
 
-  # ──────────────────────────────────────────────────────────────────────────
-  # CASL
-  # ──────────────────────────────────────────────────────────────────────────
-  - control-id: "CASL-1"
-    regulation: "CASL"
-    title: "Express or Implied Consent for CEMs"
-    detection-methods:
-      - method: semgrep
-        file: "detection-rules/semgrep/missing-consent.yaml"
-        rule-id: "TODO — author in Phase 2"
-        notes: "Email-send paths without consent check can be detected."
-      - method: questionnaire
-        file: "detection-rules/questionnaire/dsr-process.yaml"
-        fragment-id: "TODO — author in Phase 2"
-        notes: "Unsubscribe mechanism must be present and documented."
-
-  # ──────────────────────────────────────────────────────────────────────────
-  # CCPA / CPRA
-  # ──────────────────────────────────────────────────────────────────────────
-  - control-id: "CCPA-CPRA-1798-100"
-    regulation: "CCPA-CPRA"
-    title: "Right to Know — Disclosure of PI categories and purposes"
+  - control-id: "CA-QC-LAW25-003"
+    regulation: "QC-LAW25"
+    title: "Define and document the privacy governance framework"
     detection-methods:
       - method: questionnaire
-        file: "detection-rules/questionnaire/dsr-process.yaml"
-        fragment-id: "TODO — author in Phase 2"
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-governance-framework-documented"
+        notes: "Governance documentation requires human attestation."
+
+  - control-id: "CA-QC-LAW25-004"
+    regulation: "QC-LAW25"
+    title: "Inform individuals of purposes at or before collection"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-purposes-disclosed-at-collection"
         notes: "Privacy notice adequacy requires human review."
 
+  - control-id: "CA-QC-LAW25-005"
+    regulation: "QC-LAW25"
+    title: "Disclose third-party sharing and automated decision-making at collection"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-third-party-sharing-disclosed"
+        notes: "Disclosure adequacy requires human review."
+
+  - control-id: "CA-QC-LAW25-006"
+    regulation: "QC-LAW25"
+    title: "Publish a publicly accessible privacy policy"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-privacy-policy-published"
+        notes: "Publication and adequacy require human review."
+
+  - control-id: "CA-QC-LAW25-007"
+    regulation: "QC-LAW25"
+    title: "Obtain express consent for sensitive personal information"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-consent.yaml"
+        rule-id: "missing-consent"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-express-consent-for-sensitive-pi"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-QC-LAW25-008"
+    regulation: "QC-LAW25"
+    title: "Obtain granular consent — separate consent for each purpose"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-granular-consent-per-purpose"
+        notes: "Consent architecture requires human review."
+
+  - control-id: "CA-QC-LAW25-009"
+    regulation: "QC-LAW25"
+    title: "Honor withdrawal of consent without penalty"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-consent-withdrawal-honored"
+        notes: "Withdrawal mechanism requires human attestation."
+
+  - control-id: "CA-QC-LAW25-010"
+    regulation: "QC-LAW25"
+    title: "Obtain parental consent for individuals under 14"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-parental-consent-under-14"
+        notes: "Age verification and parental consent mechanism require human review."
+
+  - control-id: "CA-QC-LAW25-011"
+    regulation: "QC-LAW25"
+    title: "Apply privacy by default to technological products and services"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-privacy-by-default-applied"
+        notes: "Privacy-by-default review requires human assessment."
+
+  - control-id: "CA-QC-LAW25-012"
+    regulation: "QC-LAW25"
+    title: "Conduct a PIA for information technology acquisition projects"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-impact-assessment.yaml"
+        fragment-id: "q-pia-it-acquisition-completed"
+        notes: "PIA completion requires human attestation."
+
+  - control-id: "CA-QC-LAW25-013"
+    regulation: "QC-LAW25"
+    title: "Conduct a PIA before any cross-border transfer of personal information"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/cross-border-transfers.yaml"
+        fragment-id: "q-pia-cross-border-completed"
+        notes: "Cross-border PIA requires human attestation."
+
+  - control-id: "CA-QC-LAW25-014"
+    regulation: "QC-LAW25"
+    title: "Ensure equivalent protection before communicating personal information outside Quebec"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/cross-border-transfers.yaml"
+        fragment-id: "q-equivalent-protection-confirmed"
+        notes: "Equivalence assessment requires human review."
+
+  - control-id: "CA-QC-LAW25-015"
+    regulation: "QC-LAW25"
+    title: "Notify the CAI of a confidentiality incident involving serious injury risk"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/breach-response.yaml"
+        fragment-id: "q-cai-breach-notification-sop"
+        notes: "Breach SOP and regulator notification require human attestation."
+
+  - control-id: "CA-QC-LAW25-016"
+    regulation: "QC-LAW25"
+    title: "Notify affected individuals of a confidentiality incident involving serious injury risk"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/pii-in-logs.yaml"
+        rule-id: "pii-in-logs"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/breach-response.yaml"
+        fragment-id: "q-individual-breach-notification-sop"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-QC-LAW25-017"
+    regulation: "QC-LAW25"
+    title: "Respond to access requests for personal information"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-access-request-process-qc"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-QC-LAW25-018"
+    regulation: "QC-LAW25"
+    title: "Honor rectification requests for inaccurate or incomplete personal information"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-rectification-process-defined"
+        notes: "Rectification workflow requires human attestation."
+
+  - control-id: "CA-QC-LAW25-019"
+    regulation: "QC-LAW25"
+    title: "Provide personal information in portable, structured format on request"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-portability-process-defined"
+        notes: "Portability mechanism requires human attestation."
+
+  - control-id: "CA-QC-LAW25-020"
+    regulation: "QC-LAW25"
+    title: "Honor the right to deindexing and cessation of dissemination"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-deindexing-process-defined"
+        notes: "Deindexing workflow requires human attestation."
+
+  - control-id: "CA-QC-LAW25-021"
+    regulation: "QC-LAW25"
+    title: "Notify individuals of automated decision-making and provide right to human review"
+    detection-methods:
+      - method: otel
+        file: "detection-rules/otel-queries/automated-decision-monitoring.yaml"
+        probe-id: "automated-decision-monitoring"
+        notes: "Runtime probe can detect automated decision events. TODO author in P2."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-impact-assessment.yaml"
+        fragment-id: "q-automated-decision-notice-provided"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-QC-LAW25-022"
+    regulation: "QC-LAW25"
+    title: "Establish and apply a data retention and destruction schedule"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-retention.yaml"
+        rule-id: "missing-retention"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-retention-destruction-schedule-exists"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-QC-LAW25-023"
+    regulation: "QC-LAW25"
+    title: "Maintain a publicly accessible, plain-language confidentiality policy"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-confidentiality-policy-published"
+        notes: "Policy publication and plain-language review require human attestation."
+
+  - control-id: "CA-QC-LAW25-024"
+    regulation: "QC-LAW25"
+    title: "Require written agreements protecting personal information with service providers"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/vendor-management.yaml"
+        fragment-id: "q-service-provider-written-agreements"
+        notes: "Contract review requires human attestation."
+
+  - control-id: "CA-QC-LAW25-025"
+    regulation: "QC-LAW25"
+    title: "Maintain records of personal information communicated to third parties"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/vendor-management.yaml"
+        fragment-id: "q-third-party-disclosure-records"
+        notes: "Record-keeping requires human attestation."
+
   # ──────────────────────────────────────────────────────────────────────────
-  # NYC LL.144
+  # PIPA — Alberta (8 controls)
   # ──────────────────────────────────────────────────────────────────────────
-  - control-id: "NYC-LL144-1"
+  - control-id: "CA-AB-PIPA-001"
+    regulation: "PIPA-AB"
+    title: "Notification at or Before Collection — disclose purposes and contact for inquiries"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-collection-notice-ab"
+        notes: "Privacy notice at collection requires human review."
+
+  - control-id: "CA-AB-PIPA-002"
+    regulation: "PIPA-AB"
+    title: "Consent — Obtain consent for collection, use, and disclosure of personal information"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-consent.yaml"
+        rule-id: "missing-consent"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-consent-mechanism-ab"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-AB-PIPA-003"
+    regulation: "PIPA-AB"
+    title: "Employee Personal Information — Reasonable purposes; notice to employees"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-employee-pi-purposes-reasonable"
+        notes: "Employee notice and purpose reasonableness require human review."
+
+  - control-id: "CA-AB-PIPA-004"
+    regulation: "PIPA-AB"
+    title: "Disclosure Without Consent — Limit disclosures to listed circumstances; document basis"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-disclosure-without-consent-basis-documented"
+        notes: "Disclosure basis documentation requires human attestation."
+
+  - control-id: "CA-AB-PIPA-005"
+    regulation: "PIPA-AB"
+    title: "Right of Access and Correction — Respond within 45 days; explain refusals"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-access-correction-45day-ab"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-AB-PIPA-006"
+    regulation: "PIPA-AB"
+    title: "Reasonable Security Arrangements — Protect personal information against loss/unauthorized access"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/pii-in-logs.yaml"
+        rule-id: "pii-in-logs"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-security-arrangements-ab"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-AB-PIPA-007"
+    regulation: "PIPA-AB"
+    title: "Breach Notification — Notify Commissioner without unreasonable delay where real risk of significant harm"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/breach-response.yaml"
+        fragment-id: "q-breach-notification-oipc-ab"
+        notes: "Breach SOP and regulator notification require human attestation."
+
+  - control-id: "CA-AB-PIPA-008"
+    regulation: "PIPA-AB"
+    title: "Privacy Officer / Designation — Designate one or more individuals responsible for compliance"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-priv-officer-designated-ab"
+        notes: "Designation requires human attestation."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # PIPA — British Columbia (8 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "CA-BC-PIPA-001"
+    regulation: "PIPA-BC"
+    title: "Notification at or Before Collection — disclose purposes and identify contact"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-collection-notice-bc"
+        notes: "Privacy notice at collection requires human review."
+
+  - control-id: "CA-BC-PIPA-002"
+    regulation: "PIPA-BC"
+    title: "Consent — Obtain consent for collection, use, and disclosure"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-consent.yaml"
+        rule-id: "missing-consent"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-consent-mechanism-bc"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-BC-PIPA-003"
+    regulation: "PIPA-BC"
+    title: "Employee Personal Information — Reasonable purposes; notice to employees"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-employee-pi-purposes-bc"
+        notes: "Employee notice requires human review."
+
+  - control-id: "CA-BC-PIPA-004"
+    regulation: "PIPA-BC"
+    title: "Disclosure Without Consent — Limit disclosures to listed circumstances; document basis"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-disclosure-without-consent-bc"
+        notes: "Disclosure basis documentation requires human attestation."
+
+  - control-id: "CA-BC-PIPA-005"
+    regulation: "PIPA-BC"
+    title: "Right of Access and Correction — Respond within 30 business days"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-access-correction-30day-bc"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-BC-PIPA-006"
+    regulation: "PIPA-BC"
+    title: "Reasonable Security Arrangements — Protect personal information; mitigate risk of loss/unauthorized access"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/pii-in-logs.yaml"
+        rule-id: "pii-in-logs"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-security-arrangements-bc"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-BC-PIPA-007"
+    regulation: "PIPA-BC"
+    title: "Privacy Officer / Designation — Designate one or more individuals responsible for compliance"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-priv-officer-designated-bc"
+        notes: "Designation requires human attestation."
+
+  - control-id: "CA-BC-PIPA-008"
+    regulation: "PIPA-BC"
+    title: "Records of Privacy Practices — Develop, follow, and make privacy policies available on request"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-privacy-practices-records-bc"
+        notes: "Policy availability requires human attestation."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # CASL (6 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "CA-CASL-001"
+    regulation: "CASL"
+    title: "Express or Implied Consent — Obtain consent before sending CEMs"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-consent.yaml"
+        rule-id: "missing-consent"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-cem-consent-obtained"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "CA-CASL-002"
+    regulation: "CASL"
+    title: "Identification — Clearly identify sender in every CEM"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-cem-sender-identified"
+        notes: "CEM identification requires human review of templates."
+
+  - control-id: "CA-CASL-003"
+    regulation: "CASL"
+    title: "Unsubscribe Mechanism — Provide a working unsubscribe in every CEM; honor within 10 business days"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-unsubscribe-mechanism-present"
+        notes: "Unsubscribe mechanism and 10-day SLA require human attestation."
+
+  - control-id: "CA-CASL-004"
+    regulation: "CASL"
+    title: "Altering Transmission Data — Do not alter transmission data without express consent"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-transmission-data-not-altered"
+        notes: "Technical controls and policy review require human attestation."
+
+  - control-id: "CA-CASL-005"
+    regulation: "CASL"
+    title: "Computer Program Installation — Obtain express consent before installing software; disclose function"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-software-install-consent-obtained"
+        notes: "Consent for software installation requires human review."
+
+  - control-id: "CA-CASL-006"
+    regulation: "CASL"
+    title: "Consent Records — Retain proof of consent and the consent request itself"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-audit.yaml"
+        rule-id: "missing-audit"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-consent-records-retained"
+        notes: "Organizational obligation — primary detection."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # GDPR (18 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "EU-GDPR-001"
+    regulation: "GDPR"
+    title: "Lawfulness, Fairness, and Transparency — Process personal data lawfully, fairly, and transparently"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-consent.yaml"
+        rule-id: "missing-consent"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-lawful-basis-documented"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "EU-GDPR-002"
+    regulation: "GDPR"
+    title: "Purpose Limitation — Collect for specified, explicit, legitimate purposes; no incompatible further processing"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-purpose-limitation-documented"
+        notes: "Purpose limitation review requires human assessment."
+
+  - control-id: "EU-GDPR-003"
+    regulation: "GDPR"
+    title: "Data Minimisation, Accuracy, Storage Limitation, Integrity and Confidentiality"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-retention.yaml"
+        rule-id: "missing-retention"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-data-minimisation-applied"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "EU-GDPR-004"
+    regulation: "GDPR"
+    title: "Conditions for Consent — Freely given, specific, informed, unambiguous; withdrawal as easy as giving"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-consent.yaml"
+        rule-id: "missing-consent"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-consent-conditions-met"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "EU-GDPR-005"
+    regulation: "GDPR"
+    title: "Special Category Data and Children's Consent — Art. 9 conditions; parental consent for children"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-special-category-conditions-met"
+        notes: "Special category processing requires dedicated human review."
+
+  - control-id: "EU-GDPR-006"
+    regulation: "GDPR"
+    title: "Transparent Information and Communication — Privacy notices at collection and on request"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-transparency-notices-present"
+        notes: "Notice adequacy requires human review."
+
+  - control-id: "EU-GDPR-007"
+    regulation: "GDPR"
+    title: "Right of Access by the Data Subject — Provide copy of personal data within one month"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-access-request-one-month"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "EU-GDPR-008"
+    regulation: "GDPR"
+    title: "Right to Rectification, Erasure, and Restriction — Correct, erase, or restrict processing"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-erasure-restriction-process"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "EU-GDPR-009"
+    regulation: "GDPR"
+    title: "Right to Data Portability — Structured, machine-readable copy where processing is automated"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-portability-structured-format"
+        notes: "Portability mechanism requires human attestation."
+
+  - control-id: "EU-GDPR-010"
+    regulation: "GDPR"
+    title: "Right to Object and Automated Decision-Making — Object to processing; restrict solely-automated decisions"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-right-to-object-honored"
+        notes: "Objection workflow and automated decision restriction require human review."
+
+  - control-id: "EU-GDPR-011"
+    regulation: "GDPR"
+    title: "Records of Processing Activities (RoPA) — Maintain Article 30 records of all processing activities"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-audit.yaml"
+        rule-id: "missing-audit"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ropa-maintained"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "EU-GDPR-012"
+    regulation: "GDPR"
+    title: "Data Protection by Design and by Default — Embed privacy measures into systems from the outset"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-privacy-by-design-applied"
+        notes: "Privacy-by-design review requires human assessment."
+
+  - control-id: "EU-GDPR-013"
+    regulation: "GDPR"
+    title: "Data Processor Agreements — Bind processors by Article 28 contracts providing sufficient guarantees"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/vendor-management.yaml"
+        fragment-id: "q-dpa-art28-in-place"
+        notes: "Contract review requires human attestation."
+
+  - control-id: "EU-GDPR-014"
+    regulation: "GDPR"
+    title: "Security of Processing — Implement appropriate technical and organisational measures"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/pii-in-logs.yaml"
+        rule-id: "pii-in-logs"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-security-toms-implemented"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "EU-GDPR-015"
+    regulation: "GDPR"
+    title: "Personal Data Breach Notification — Notify supervisory authority within 72 hours; notify data subjects if high risk"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/breach-response.yaml"
+        fragment-id: "q-breach-72hr-notification-sop"
+        notes: "Breach SOP and 72-hour SLA require human attestation."
+
+  - control-id: "EU-GDPR-016"
+    regulation: "GDPR"
+    title: "Data Protection Impact Assessment (DPIA) — Required for high-risk processing; consult authority if residual risk"
+    detection-methods:
+      - method: otel
+        file: "detection-rules/otel-queries/dpia-outcomes.yaml"
+        probe-id: "dpia-outcomes"
+        notes: "Runtime probe can surface DPIA outcome signals. TODO author in P2."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-impact-assessment.yaml"
+        fragment-id: "q-dpia-completed-for-high-risk"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "EU-GDPR-017"
+    regulation: "GDPR"
+    title: "Designate a Data Protection Officer — Where required by Art. 37; publish contact and notify supervisory authority"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-dpo-designated-where-required"
+        notes: "DPO designation and publication require human attestation."
+
+  - control-id: "EU-GDPR-018"
+    regulation: "GDPR"
+    title: "International Data Transfers — Adequacy decision, SCCs with TIA, BCRs, or derogation; document the mechanism"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/cross-border-transfers.yaml"
+        fragment-id: "q-transfer-mechanism-documented"
+        notes: "Transfer mechanism selection and documentation require human review."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # CCPA / CPRA (12 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "US-CA-CCPA-001"
+    regulation: "CCPA-CPRA"
+    title: "Right to Know — Disclose categories and specific pieces of personal information collected, used, disclosed"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-right-to-know-disclosure"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "US-CA-CCPA-002"
+    regulation: "CCPA-CPRA"
+    title: "Right to Delete — Honor verifiable consumer requests to delete personal information"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-right-to-delete-process"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "US-CA-CCPA-003"
+    regulation: "CCPA-CPRA"
+    title: "Right to Correct — Honor requests to correct inaccurate personal information"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-right-to-correct-process"
+        notes: "Correction workflow requires human attestation."
+
+  - control-id: "US-CA-CCPA-004"
+    regulation: "CCPA-CPRA"
+    title: "Right to Opt Out of Sale or Sharing — Honor requests; recognize Global Privacy Control"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-opt-out-sale-sharing-honored"
+        notes: "GPC recognition and opt-out workflow require human review."
+
+  - control-id: "US-CA-CCPA-005"
+    regulation: "CCPA-CPRA"
+    title: "Right to Limit Use of Sensitive Personal Information — Honor limitation requests"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-sensitive-pi-limitation-process"
+        notes: "Sensitive PI limitation workflow requires human attestation."
+
+  - control-id: "US-CA-CCPA-006"
+    regulation: "CCPA-CPRA"
+    title: "Non-Discrimination — Do not discriminate against consumers exercising rights"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-non-discrimination-policy"
+        notes: "Non-discrimination policy and practice review require human attestation."
+
+  - control-id: "US-CA-CCPA-007"
+    regulation: "CCPA-CPRA"
+    title: "Notice at Collection — Inform consumers at or before collection of categories, purposes, retention"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-retention.yaml"
+        rule-id: "missing-retention"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-notice-at-collection-ccpa"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "US-CA-CCPA-008"
+    regulation: "CCPA-CPRA"
+    title: "Privacy Policy — Maintain a comprehensive privacy policy with required disclosures, updated every 12 months"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-audit.yaml"
+        rule-id: "missing-audit"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-privacy-policy-annual-update"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "US-CA-CCPA-009"
+    regulation: "CCPA-CPRA"
+    title: "Verifiable Consumer Request Process — At least two designated methods; verify identity"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-vcr-two-methods-identity-verified"
+        notes: "Request intake and identity verification require human attestation."
+
+  - control-id: "US-CA-CCPA-010"
+    regulation: "CCPA-CPRA"
+    title: "Service Provider and Contractor Contracts — Bind processors with required contractual terms"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/vendor-management.yaml"
+        fragment-id: "q-service-provider-contracts-ccpa"
+        notes: "Contract review requires human attestation."
+
+  - control-id: "US-CA-CCPA-011"
+    regulation: "CCPA-CPRA"
+    title: "Data Security — Implement reasonable security procedures; statutory damages on breach"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/pii-in-logs.yaml"
+        rule-id: "pii-in-logs"
+        notes: "TODO author rule in P2-T06."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-reasonable-security-ccpa"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "US-CA-CCPA-012"
+    regulation: "CCPA-CPRA"
+    title: "Risk Assessments and Cybersecurity Audits — Conduct for high-risk processing; submit on Agency request"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-impact-assessment.yaml"
+        fragment-id: "q-risk-assessment-high-risk-ccpa"
+        notes: "Risk assessment completion requires human attestation."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # NYC Local Law 144 (4 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "US-NY-LL144-001"
     regulation: "NYC-LL144"
-    title: "Annual Bias Audit — Independent external audit of AEDT"
+    title: "Annual Bias Audit — Independent external audit of AEDT before use; updated annually"
+    detection-methods:
+      - method: otel
+        file: "detection-rules/otel-queries/bias-audit-metrics.yaml"
+        probe-id: "bias-audit-metrics"
+        notes: "Fairlearn 4/5ths output metrics can be observed at runtime. TODO author in P2."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-bias-audit.yaml"
+        fragment-id: "q-independent-bias-audit-completed"
+        notes: "External auditor is mandatory by law — primary detection."
+
+  - control-id: "US-NY-LL144-002"
+    regulation: "NYC-LL144"
+    title: "Public Disclosure of Bias Audit Results — Post summary results on publicly accessible website"
     detection-methods:
       - method: questionnaire
         file: "detection-rules/questionnaire/ai-bias-audit.yaml"
-        fragment-id: "TODO — author in Phase 2"
-        notes: "External auditor is mandatory by law; self-audit is not permitted."
-      - method: otel
-        file: "detection-rules/otel-queries/TODO.yaml"
-        probe-id: "TODO — author in Phase 2"
-        notes: "Fairlearn 4/5ths output metrics can be observed at runtime (Phase 5)."
+        fragment-id: "q-bias-audit-results-published"
+        notes: "Website publication requires human verification."
 
-  # ──────────────────────────────────────────────────────────────────────────
-  # Colorado AI Act
-  # ──────────────────────────────────────────────────────────────────────────
-  - control-id: "CO-AI-ACT-1"
-    regulation: "CO-AI-ACT"
-    title: "Risk Impact Assessment for High-Risk AI Systems"
+  - control-id: "US-NY-LL144-003"
+    regulation: "NYC-LL144"
+    title: "Candidate / Employee Notice — 10 business days before AEDT use; alternative process on request"
     detection-methods:
       - method: questionnaire
-        file: "detection-rules/questionnaire/ai-governance-impact-assessment.yaml"
-        fragment-id: "TODO — author in Phase 2"
+        file: "detection-rules/questionnaire/ai-bias-audit.yaml"
+        fragment-id: "q-aedt-candidate-notice-10days"
+        notes: "Notice workflow and 10-day lead time require human attestation."
+
+  - control-id: "US-NY-LL144-004"
+    regulation: "NYC-LL144"
+    title: "Records of Bias Audit Inputs — Retain records sufficient for an independent auditor to reproduce the analysis"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-bias-audit.yaml"
+        fragment-id: "q-bias-audit-input-records-retained"
+        notes: "Record-keeping requires human attestation."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Colorado AI Act (5 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "US-CO-AI-001"
+    regulation: "CO-AI-ACT"
+    title: "Risk Impact Assessment — Documented assessment before deploying a high-risk AI system; reviewed annually"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-impact-assessment.yaml"
+        fragment-id: "q-risk-impact-assessment-co"
         notes: "Impact assessment is a documented artifact; not statically detectable."
 
-  # ──────────────────────────────────────────────────────────────────────────
-  # Placeholder regulations — no mappings until laws come into force
-  # ──────────────────────────────────────────────────────────────────────────
-  - control-id: "CA-CPPA-PLACEHOLDER-1"
-    regulation: "CA-CPPA"
-    title: "PLACEHOLDER — Awaiting Bill C-27 Royal Assent"
-    detection-methods: []
+  - control-id: "US-CO-AI-002"
+    regulation: "CO-AI-ACT"
+    title: "Reasonable Care to Avoid Algorithmic Discrimination — Protect consumers from known or foreseeable discrimination risks"
+    detection-methods:
+      - method: otel
+        file: "detection-rules/otel-queries/algorithmic-discrimination-monitoring.yaml"
+        probe-id: "algorithmic-discrimination-monitoring"
+        notes: "Runtime fairness metrics can surface discrimination signals. TODO author in P2."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-bias-audit.yaml"
+        fragment-id: "q-algorithmic-discrimination-controls"
+        notes: "Organizational obligation — primary detection."
 
-  - control-id: "CA-AIDA-PLACEHOLDER-1"
-    regulation: "CA-AIDA"
-    title: "PLACEHOLDER — Awaiting Bill C-27 Royal Assent"
-    detection-methods: []
+  - control-id: "US-CO-AI-003"
+    regulation: "CO-AI-ACT"
+    title: "Consumer Notice for Consequential Decisions — Notify consumer when high-risk AI is used; provide explanation rights"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-impact-assessment.yaml"
+        fragment-id: "q-consumer-ai-notice-co"
+        notes: "Notice provision requires human attestation."
+
+  - control-id: "US-CO-AI-004"
+    regulation: "CO-AI-ACT"
+    title: "Right to Appeal Adverse Consequential Decisions — Opportunity to correct data and appeal with human review"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-impact-assessment.yaml"
+        fragment-id: "q-appeal-human-review-process-co"
+        notes: "Appeal workflow and human review mechanism require human attestation."
+
+  - control-id: "US-CO-AI-005"
+    regulation: "CO-AI-ACT"
+    title: "Disclosure to Attorney General of Algorithmic Discrimination — Report within 90 days of discovery"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-bias-audit.yaml"
+        fragment-id: "q-ag-disclosure-90day-sop"
+        notes: "AG disclosure SOP requires human attestation."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # EU AI Act (16 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "EU-AI-ACT-001"
+    regulation: "EU-AI-ACT"
+    title: "Establish and maintain a risk management system for high-risk AI"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-001"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-002"
+    regulation: "EU-AI-ACT"
+    title: "Implement data governance practices for training, validation, and testing datasets"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-002"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-003"
+    regulation: "EU-AI-ACT"
+    title: "Prepare and maintain Annex IV technical documentation before placing a high-risk AI system on the market"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-003"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-004"
+    regulation: "EU-AI-ACT"
+    title: "Enable automatic logging of events throughout the high-risk AI system lifecycle"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-audit.yaml"
+        rule-id: "missing-audit"
+        notes: "Phase 4 v0 — semgrep audit-log detection."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-004"
+        notes: "Phase 4 v0 — questionnaire fallback."
+
+  - control-id: "EU-AI-ACT-005"
+    regulation: "EU-AI-ACT"
+    title: "Provide deployers with transparent information and instructions for use"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-005"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-006"
+    regulation: "EU-AI-ACT"
+    title: "Design high-risk AI systems with effective human oversight measures"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-006"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-007"
+    regulation: "EU-AI-ACT"
+    title: "Achieve and maintain appropriate accuracy, robustness, and cybersecurity for high-risk AI systems"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-007"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-008"
+    regulation: "EU-AI-ACT"
+    title: "Comply with high-risk AI obligations when deploying AI in employment and worker management contexts"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-008"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-009"
+    regulation: "EU-AI-ACT"
+    title: "Fulfil deployer obligations for high-risk AI systems including monitoring and human oversight"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-009"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-010"
+    regulation: "EU-AI-ACT"
+    title: "Conduct a fundamental rights impact assessment before deploying high-risk AI in public or regulated contexts"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-010"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-011"
+    regulation: "EU-AI-ACT"
+    title: "Notify natural persons when interacting with AI systems and disclose AI-generated content"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-011"
+        notes: "Phase 4 v0 — UI-level obligation; questionnaire only."
+
+  - control-id: "EU-AI-ACT-012"
+    regulation: "EU-AI-ACT"
+    title: "Label deepfake and synthetic content with machine-readable disclosure"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-012"
+        notes: "Phase 4 v0 — UI-level deepfake disclosure; questionnaire only."
+
+  - control-id: "EU-AI-ACT-013"
+    regulation: "EU-AI-ACT"
+    title: "Do not develop or deploy AI systems engaging in prohibited practices under Article 5"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-013"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-014"
+    regulation: "EU-AI-ACT"
+    title: "Complete conformity assessment and register high-risk AI systems in the EU database before market placement"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-014"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-015"
+    regulation: "EU-AI-ACT"
+    title: "Draw up and maintain EU declaration of conformity"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-015"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "EU-AI-ACT-016"
+    regulation: "EU-AI-ACT"
+    title: "Establish a post-market monitoring system and report serious incidents to authorities"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-016"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Virginia VCDPA (13 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "US-VA-VCDPA-001"
+    regulation: "VA-VCDPA"
+    title: "Determine applicability based on consumer threshold"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-001"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-VA-VCDPA-002"
+    regulation: "VA-VCDPA"
+    title: "Provide a clear and accessible privacy notice"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-002"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-VA-VCDPA-003"
+    regulation: "VA-VCDPA"
+    title: "Limit processing to specified, explicit, and legitimate purposes"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-003"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-VA-VCDPA-004"
+    regulation: "VA-VCDPA"
+    title: "Implement reasonable data security practices"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-004"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-VA-VCDPA-005"
+    regulation: "VA-VCDPA"
+    title: "Prohibit processing personal data in a discriminatory manner"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-005"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-VA-VCDPA-006"
+    regulation: "VA-VCDPA"
+    title: "Respond to consumer access and portability requests"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "Phase 4 v0 — first DSR control for VA-VCDPA."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-006"
+        notes: "Phase 4 v0 — questionnaire fallback."
+
+  - control-id: "US-VA-VCDPA-007"
+    regulation: "VA-VCDPA"
+    title: "Honor consumer correction requests"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-007"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-VA-VCDPA-008"
+    regulation: "VA-VCDPA"
+    title: "Honor consumer deletion requests"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-008"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-VA-VCDPA-009"
+    regulation: "VA-VCDPA"
+    title: "Provide opt-out mechanisms for sale, targeted advertising, and profiling"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-009"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-VA-VCDPA-010"
+    regulation: "VA-VCDPA"
+    title: "Obtain consent before processing sensitive data"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-010"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-VA-VCDPA-011"
+    regulation: "VA-VCDPA"
+    title: "Conduct data protection impact assessments for high-risk processing"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-011"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-VA-VCDPA-012"
+    regulation: "VA-VCDPA"
+    title: "Execute binding data processing agreements with processors"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-012"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-VA-VCDPA-013"
+    regulation: "VA-VCDPA"
+    title: "Respond to AG enforcement notices within the 30-day cure period"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-va-vcdpa-013"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Connecticut CTDPA (11 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "US-CT-CTDPA-001"
+    regulation: "CT-CTDPA"
+    title: "Determine applicability based on consumer and revenue thresholds"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ct-ctdpa-001"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-CT-CTDPA-002"
+    regulation: "CT-CTDPA"
+    title: "Provide a clear and accessible privacy notice"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ct-ctdpa-002"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-CT-CTDPA-003"
+    regulation: "CT-CTDPA"
+    title: "Apply data minimization and purpose limitation"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ct-ctdpa-003"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-CT-CTDPA-004"
+    regulation: "CT-CTDPA"
+    title: "Implement reasonable data security practices"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ct-ctdpa-004"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-CT-CTDPA-005"
+    regulation: "CT-CTDPA"
+    title: "Respond to consumer access requests within 45 days"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "Phase 4 v0 — first DSR control for CT-CTDPA."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ct-ctdpa-005"
+        notes: "Phase 4 v0 — questionnaire fallback."
+
+  - control-id: "US-CT-CTDPA-006"
+    regulation: "CT-CTDPA"
+    title: "Honor consumer correction and deletion requests"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ct-ctdpa-006"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-CT-CTDPA-007"
+    regulation: "CT-CTDPA"
+    title: "Provide opt-out for sale, targeted advertising, and profiling"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ct-ctdpa-007"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-CT-CTDPA-008"
+    regulation: "CT-CTDPA"
+    title: "Establish an internal consumer rights appeal process"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ct-ctdpa-008"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-CT-CTDPA-009"
+    regulation: "CT-CTDPA"
+    title: "Obtain consent before processing sensitive data"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ct-ctdpa-009"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-CT-CTDPA-010"
+    regulation: "CT-CTDPA"
+    title: "Conduct DPIAs for high-risk processing activities"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ct-ctdpa-010"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-CT-CTDPA-011"
+    regulation: "CT-CTDPA"
+    title: "Govern processor relationships through binding data processing agreements"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ct-ctdpa-011"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Utah UCPA (10 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "US-UT-UCPA-001"
+    regulation: "UT-UCPA"
+    title: "Determine applicability under the UCPA revenue and consumer thresholds"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ut-ucpa-001"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-UT-UCPA-002"
+    regulation: "UT-UCPA"
+    title: "Provide a clear and accessible privacy notice"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ut-ucpa-002"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-UT-UCPA-003"
+    regulation: "UT-UCPA"
+    title: "Limit processing to disclosed purposes and practice data minimization"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ut-ucpa-003"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-UT-UCPA-004"
+    regulation: "UT-UCPA"
+    title: "Implement reasonable administrative, technical, and physical security measures"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ut-ucpa-004"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-UT-UCPA-005"
+    regulation: "UT-UCPA"
+    title: "Respond to consumer access and portability requests within 45 days"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "Phase 4 v0 — first DSR control for UT-UCPA."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ut-ucpa-005"
+        notes: "Phase 4 v0 — questionnaire fallback."
+
+  - control-id: "US-UT-UCPA-006"
+    regulation: "UT-UCPA"
+    title: "Honor consumer deletion requests for data provided by the consumer"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ut-ucpa-006"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-UT-UCPA-007"
+    regulation: "UT-UCPA"
+    title: "Provide opt-out for sale of personal data and targeted advertising"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ut-ucpa-007"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-UT-UCPA-008"
+    regulation: "UT-UCPA"
+    title: "Obtain consent or provide opt-out before processing sensitive data"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ut-ucpa-008"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-UT-UCPA-009"
+    regulation: "UT-UCPA"
+    title: "Govern processor relationships through binding contracts"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ut-ucpa-009"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-UT-UCPA-010"
+    regulation: "UT-UCPA"
+    title: "Respond to AG enforcement notices; no private right of action"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-ut-ucpa-010"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Brazil LGPD (14 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "BR-LGPD-001"
+    regulation: "BR-LGPD"
+    title: "Establish and document a lawful basis for processing personal data (Art. 7)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-001"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "BR-LGPD-002"
+    regulation: "BR-LGPD"
+    title: "Establish lawful basis for processing sensitive personal data (Art. 11)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-002"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "BR-LGPD-003"
+    regulation: "BR-LGPD"
+    title: "Honor data subject rights upon request (Art. 18)"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "Phase 4 v0 — Art. 18 data-subject-rights control."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-003"
+        notes: "Phase 4 v0 — questionnaire fallback."
+
+  - control-id: "BR-LGPD-004"
+    regulation: "BR-LGPD"
+    title: "Appoint and publish contact details of the DPO/encarregado (Art. 41)"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-audit.yaml"
+        rule-id: "missing-audit"
+        notes: "Phase 4 v0 — Art. 41 DPO appointment control."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-004"
+        notes: "Phase 4 v0 — questionnaire fallback."
+
+  - control-id: "BR-LGPD-005"
+    regulation: "BR-LGPD"
+    title: "Conduct a DPIA/RIPD for high-risk processing activities (Art. 38)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-005"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "BR-LGPD-006"
+    regulation: "BR-LGPD"
+    title: "Ensure adequate protection before transferring personal data internationally (Art. 33)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-006"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "BR-LGPD-007"
+    regulation: "BR-LGPD"
+    title: "Notify the ANPD and affected data subjects of security incidents (Art. 48)"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-audit.yaml"
+        rule-id: "missing-audit"
+        notes: "Phase 4 v0 — Art. 48 incident notification control."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-007"
+        notes: "Phase 4 v0 — questionnaire fallback."
+
+  - control-id: "BR-LGPD-008"
+    regulation: "BR-LGPD"
+    title: "Maintain records of processing activities (Art. 37)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-008"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "BR-LGPD-009"
+    regulation: "BR-LGPD"
+    title: "Obtain specific parental consent before processing children's data (Art. 14)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-009"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "BR-LGPD-010"
+    regulation: "BR-LGPD"
+    title: "Ensure operators process data only per controller instructions (Art. 39)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-010"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "BR-LGPD-011"
+    regulation: "BR-LGPD"
+    title: "Implement technical and administrative security measures (Art. 46)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-011"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "BR-LGPD-012"
+    regulation: "BR-LGPD"
+    title: "Apply data minimization and purpose limitation principles (Art. 6)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-012"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "BR-LGPD-013"
+    regulation: "BR-LGPD"
+    title: "Provide transparent privacy notice to data subjects (Art. 9)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-013"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "BR-LGPD-014"
+    regulation: "BR-LGPD"
+    title: "Establish accountability governance and demonstrate compliance (Art. 50)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-014"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # UK GDPR (10 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "UK-GDPR-001"
+    regulation: "UK-GDPR"
+    title: "Register with the ICO and pay the data protection fee (DPA 2018 Part 4)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-uk-gdpr-001"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "UK-GDPR-002"
+    regulation: "UK-GDPR"
+    title: "Report personal data breaches to the ICO within 72 hours (UK GDPR Art. 33)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-uk-gdpr-002"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "UK-GDPR-003"
+    regulation: "UK-GDPR"
+    title: "Apply age 13 as the UK consent threshold for information society services (DPA 2018 s. 9)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-uk-gdpr-003"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "UK-GDPR-004"
+    regulation: "UK-GDPR"
+    title: "Apply DPA 2018 national security and intelligence service exemptions where applicable (DPA 2018 Sch. 2)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-uk-gdpr-004"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "UK-GDPR-005"
+    regulation: "UK-GDPR"
+    title: "Use appropriate UK transfer mechanism for international data transfers (UK GDPR Art. 45-49)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-uk-gdpr-005"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "UK-GDPR-006"
+    regulation: "UK-GDPR"
+    title: "Assess and document UK-EU data flows and adequacy reliance (post-Brexit)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-uk-gdpr-006"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "UK-GDPR-007"
+    regulation: "UK-GDPR"
+    title: "Comply with ICO statutory codes of practice (DPA 2018 s. 121-128)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-uk-gdpr-007"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "UK-GDPR-008"
+    regulation: "UK-GDPR"
+    title: "Comply with PECR for electronic marketing and cookie/tracking requirements (PECR 2003)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-uk-gdpr-008"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "UK-GDPR-009"
+    regulation: "UK-GDPR"
+    title: "Apply the ICO Direct Marketing Code for all UK marketing activities"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-uk-gdpr-009"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "UK-GDPR-010"
+    regulation: "UK-GDPR"
+    title: "Appoint a UK GDPR representative if no UK establishment (UK GDPR Art. 27)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-uk-gdpr-010"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Illinois BIPA (6 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "US-IL-BIPA-001"
+    regulation: "IL-BIPA"
+    title: "Obtain written informed consent before collecting biometric identifiers (§15(b))"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-consent.yaml"
+        rule-id: "missing-consent"
+        notes: "Phase 4 v0 — biometric consent detection."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-il-bipa-001"
+        notes: "Phase 4 v0 — questionnaire fallback."
+
+  - control-id: "US-IL-BIPA-002"
+    regulation: "IL-BIPA"
+    title: "Publish a written biometric data retention and destruction policy (§15(a))"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-retention.yaml"
+        rule-id: "missing-retention"
+        notes: "Phase 4 v0 — biometric retention policy detection."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-il-bipa-002"
+        notes: "Phase 4 v0 — questionnaire fallback."
+
+  - control-id: "US-IL-BIPA-003"
+    regulation: "IL-BIPA"
+    title: "Prohibit sale or profiting from biometric data (§15(c))"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-il-bipa-003"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-IL-BIPA-004"
+    regulation: "IL-BIPA"
+    title: "Restrict disclosure of biometric data to third parties (§15(d))"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-il-bipa-004"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-IL-BIPA-005"
+    regulation: "IL-BIPA"
+    title: "Protect biometric data with security standards at least as protective as other sensitive data (§15(e))"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-il-bipa-005"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "US-IL-BIPA-006"
+    regulation: "IL-BIPA"
+    title: "Apply SB 2979 (2024) one-violation-per-subject rule to BIPA compliance program"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-il-bipa-006"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Ontario PHIPA (14 controls)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "CA-ON-PHIPA-001"
+    regulation: "ON-PHIPA"
+    title: "Designate a Contact Person and Implement Privacy Policies (HIC duties)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-001"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "CA-ON-PHIPA-002"
+    regulation: "ON-PHIPA"
+    title: "Agent Obligations — Agents must comply with HIC's instructions and PHIPA"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-002"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "CA-ON-PHIPA-003"
+    regulation: "ON-PHIPA"
+    title: "Express Consent — Obtain consent before collecting, using, or disclosing PHI"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-003"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "CA-ON-PHIPA-004"
+    regulation: "ON-PHIPA"
+    title: "Lockbox — Respect an individual's instruction to withhold PHI from specific recipients"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-004"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "CA-ON-PHIPA-005"
+    regulation: "ON-PHIPA"
+    title: "Circle of Care — Permitted use and disclosure for treatment within the circle of care"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-005"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "CA-ON-PHIPA-006"
+    regulation: "ON-PHIPA"
+    title: "Limiting Collection — Collect only the minimum PHI necessary for the identified purpose"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-006"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "CA-ON-PHIPA-007"
+    regulation: "ON-PHIPA"
+    title: "Limiting Disclosure — Disclose PHI only for permitted purposes and to permitted recipients"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-007"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "CA-ON-PHIPA-008"
+    regulation: "ON-PHIPA"
+    title: "Security Safeguards — Implement administrative, technical, and physical safeguards for PHI"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-008"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "CA-ON-PHIPA-009"
+    regulation: "ON-PHIPA"
+    title: "Breach Notification — Notify affected individuals and IPC of privacy breaches at first reasonable opportunity"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-009"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "CA-ON-PHIPA-010"
+    regulation: "ON-PHIPA"
+    title: "Right of Access — Provide individuals with access to their own PHI on request"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-dsr.yaml"
+        rule-id: "missing-dsr"
+        notes: "Phase 4 v0 — access-and-correction DSR control for ON-PHIPA."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-010"
+        notes: "Phase 4 v0 — questionnaire fallback."
+
+  - control-id: "CA-ON-PHIPA-011"
+    regulation: "ON-PHIPA"
+    title: "Right of Correction — Correct inaccurate or incomplete PHI on request"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-011"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "CA-ON-PHIPA-012"
+    regulation: "ON-PHIPA"
+    title: "Electronic Audit Logs — Log and retain PHI access events in electronic health systems"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-audit.yaml"
+        rule-id: "missing-audit"
+        notes: "Phase 4 v0 — audit log control for ON-PHIPA."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-012"
+        notes: "Phase 4 v0 — questionnaire fallback."
+
+  - control-id: "CA-ON-PHIPA-013"
+    regulation: "ON-PHIPA"
+    title: "IPC Oversight — Cooperate with IPC investigations and comply with IPC orders"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-013"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "CA-ON-PHIPA-014"
+    regulation: "ON-PHIPA"
+    title: "Prescribed Persons and Registries — Disclose PHI to prescribed entities only for prescribed purposes"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-on-phipa-014"
+        notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Placeholders (8 controls — 1 each)
+  # ──────────────────────────────────────────────────────────────────────────
+  - control-id: "US-TX-TDPSA-001"
+    regulation: "TX-TDPSA"
+    title: "Texas Data Privacy and Security Act (TDPSA) — Community Tier Placeholder"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-tx-tdpsa-001"
+        notes: "Placeholder regulation — to be authored via RFC."
+
+  - control-id: "US-CO-CPA-001"
+    regulation: "CO-CPA"
+    title: "Colorado Privacy Act (CPA) — Community Tier Placeholder"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-co-cpa-001"
+        notes: "Placeholder regulation — to be authored via RFC."
+
+  - control-id: "US-OR-OCPA-001"
+    regulation: "OR-OCPA"
+    title: "Oregon Consumer Privacy Act (OCPA) — Community Tier Placeholder"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-us-or-ocpa-001"
+        notes: "Placeholder regulation — to be authored via RFC."
+
+  - control-id: "IL-AIVI-001"
+    regulation: "IL-AIVI"
+    title: "Israel AI & Data Protection — Placeholder (Non-Binding 2023 Policy)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-il-aivi-001"
+        notes: "Placeholder regulation — to be authored via RFC."
+
+  - control-id: "CA-MB-PHIA-001"
+    regulation: "MB-PHIA"
+    title: "Personal Health Information Act (Manitoba PHIA) — Placeholder"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-mb-phia-001"
+        notes: "Placeholder regulation — to be authored via RFC."
+
+  - control-id: "CA-SK-HIPA-001"
+    regulation: "SK-HIPA"
+    title: "Health Information Protection Act (Saskatchewan HIPA) — Placeholder"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-sk-hipa-001"
+        notes: "Placeholder regulation — to be authored via RFC."
+
+  - control-id: "CA-NL-PHIA-001"
+    regulation: "NL-PHIA"
+    title: "Personal Health Information Act (Newfoundland and Labrador PHIA) — Placeholder"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-nl-phia-001"
+        notes: "Placeholder regulation — to be authored via RFC."
+
+  - control-id: "CA-NS-PHIA-001"
+    regulation: "NS-PHIA"
+    title: "Personal Health Information Act (Nova Scotia PHIA) — Placeholder"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ca-ns-phia-001"
+        notes: "Placeholder regulation — to be authored via RFC."

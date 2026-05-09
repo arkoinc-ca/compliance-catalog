@@ -8,20 +8,17 @@ For general Python stack standards (uv, ruff, mypy, pytest patterns), see the pr
 
 ## Schema requirement
 
-All control files must conform to **OSCAL 1.0.2**. Validate before committing:
+All control files must pass the structural validator at `scripts/validate_catalog.py` (Pydantic v2; enforces `catalog`/`profile` top-level key, control-ID regex `^[A-Z]{2,3}(-[A-Z0-9]+)+-\d{3}$`, UUID v4, no duplicates, per-file minimum control count). Full OSCAL 1.0.2 schema conformance via `compliance-trestle` is **not** wired in v0.x — our YAMLs use a simplified OSCAL-shaped structure that does not match trestle's full-envelope expectation. See `docs/phases/phase-1-catalog-v0.md` Decision Log (2026-05-09) for rationale.
+
+Validate before committing:
 
 ```bash
-# Install compliance-trestle (see pyproject.toml)
 uv sync
-
-# Validate a single file
-trestle validate -f regulations/pipeda.yaml
-
-# Validate the full catalog
-trestle validate --all
+uv run python scripts/validate_catalog.py
+uv run pytest
 ```
 
-Do not open PRs with files that fail `trestle validate`.
+CI runs the same commands via `.github/workflows/oscal-validate.yaml`. Do not open PRs with files that fail validation or pytest.
 
 ---
 

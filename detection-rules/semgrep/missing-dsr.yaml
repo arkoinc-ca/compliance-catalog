@@ -1,0 +1,158 @@
+rules:
+  - id: missing-dsr-python
+    languages: [python]
+    severity: INFO
+    message: |
+      Sensitive delete or export operation detected without an accompanying DSR (data-subject
+      request) endpoint heuristic. Privacy laws (GDPR Art. 15-17, PIPEDA Principle 9, CCPA,
+      Quebec Law 25 s.27) require a documented mechanism for users to request access, erasure,
+      correction, or portability of their personal data. Ensure your FastAPI/Flask/Django app
+      exposes at least one route matching /dsr, /data-rights, /users/me/data, or
+      /users/{id}/delete, or that a dedicated DSR handler class exists.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://gdpr.eu/article-15-right-of-access/"
+        - "https://gdpr.eu/article-17-right-to-be-forgotten/"
+        - "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/"
+      controls:
+        - "EU-GDPR-007"
+        - "EU-GDPR-008"
+        - "CA-PIPEDA-009"
+        - "CA-QC-LAW25-017"
+        - "US-CA-CCPA-001"
+        - "US-CA-CCPA-002"
+        - "CA-AB-PIPA-005"
+        - "CA-BC-PIPA-005"
+      confidence: "production"
+      notes: >
+        v0 heuristic — file-level scope, not per-app. pattern-not-inside suppresses when the
+        delete call is inside a class or a function named *DSR*. Does not detect DSR routes
+        registered via decorator (e.g. @app.delete('/dsr')). Consider taint-mode or
+        framework-aware analysis in v1.
+    patterns:
+      - pattern-either:
+          - pattern: $USER.delete()
+          - pattern: $REPO.delete($USER)
+          - pattern: $SESSION.delete($USER)
+      - pattern-not-inside: |
+          class $DSR:
+              ...
+      - pattern-not-inside: |
+          def $DSR_HANDLER(...):
+              ...
+          ...
+          $USER.delete()
+
+  - id: missing-dsr-javascript
+    languages: [javascript, typescript]
+    severity: INFO
+    message: |
+      Sensitive delete operation detected without a visible DSR endpoint or handler. Privacy laws
+      (GDPR Art. 15-17, PIPEDA, CCPA, Quebec Law 25) require a mechanism for users to request
+      access, erasure, correction, or portability. Ensure your Express/NestJS/Fastify app exposes
+      a route matching /dsr, /data-rights, /users/:id/data, or /users/:id/delete.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://gdpr.eu/article-15-right-of-access/"
+        - "https://gdpr.eu/article-17-right-to-be-forgotten/"
+      controls:
+        - "EU-GDPR-007"
+        - "EU-GDPR-008"
+        - "CA-PIPEDA-009"
+        - "CA-QC-LAW25-017"
+        - "US-CA-CCPA-001"
+        - "US-CA-CCPA-002"
+        - "CA-AB-PIPA-005"
+        - "CA-BC-PIPA-005"
+      confidence: "production"
+    patterns:
+      - pattern-either:
+          - pattern: $USER.delete()
+          - pattern: $REPO.delete($USER)
+          - pattern: $PRISMA.user.delete(...)
+          - pattern: $DB.users.deleteOne(...)
+          - pattern: $DB.users.deleteMany(...)
+      - pattern-not-inside: |
+          $APP.delete('/dsr', ...)
+      - pattern-not-inside: |
+          $APP.delete('/data-rights', ...)
+      - pattern-not-inside: |
+          class $DSR_CONTROLLER {
+            ...
+          }
+
+  - id: missing-dsr-java
+    languages: [java]
+    severity: INFO
+    message: |
+      Repository delete call detected without a visible DSR controller or handler. Ensure your
+      Spring/Jakarta application exposes a DSR endpoint (e.g., DELETE /users/{id} with identity
+      verification, or a dedicated DsrController). Baseline rule — review manually.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://gdpr.eu/article-17-right-to-be-forgotten/"
+      controls:
+        - "EU-GDPR-007"
+        - "EU-GDPR-008"
+        - "CA-PIPEDA-009"
+        - "CA-QC-LAW25-017"
+        - "US-CA-CCPA-001"
+        - "US-CA-CCPA-002"
+        - "CA-AB-PIPA-005"
+        - "CA-BC-PIPA-005"
+      confidence: "baseline"
+    patterns:
+      - pattern-either:
+          - pattern: $REPO.delete($USER)
+          - pattern: $REPO.deleteById(...)
+      - pattern-not-inside: |
+          @RestController
+          class $DSR {
+            ...
+          }
+      - pattern-not-inside: |
+          @RequestMapping("/dsr")
+          class $X {
+            ...
+          }
+
+  - id: missing-dsr-csharp
+    languages: [csharp]
+    severity: INFO
+    message: |
+      Repository delete call detected without a visible DSR controller or handler. Ensure your
+      ASP.NET application exposes a DSR endpoint or a DsrController handling data-subject requests
+      for access, erasure, and correction. Baseline rule — review manually.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://gdpr.eu/article-17-right-to-be-forgotten/"
+      controls:
+        - "EU-GDPR-007"
+        - "EU-GDPR-008"
+        - "CA-PIPEDA-009"
+        - "CA-QC-LAW25-017"
+        - "US-CA-CCPA-001"
+        - "US-CA-CCPA-002"
+        - "CA-AB-PIPA-005"
+        - "CA-BC-PIPA-005"
+      confidence: "baseline"
+    patterns:
+      - pattern-either:
+          - pattern: $REPO.Remove($USER)
+          - pattern: _context.Users.Remove($USER)
+          - pattern: $REPO.Delete($USER)
+          - pattern: await $REPO.DeleteAsync($USER)
+      - pattern-not-inside: |
+          [Route("dsr")]
+          class $CTRL : ControllerBase {
+            ...
+          }
+      - pattern-not-inside: |
+          [Route("data-rights")]
+          class $CTRL : ControllerBase {
+            ...
+          }

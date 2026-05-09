@@ -1,0 +1,488 @@
+catalog:
+  uuid: "a1b2c3d4-b100-4000-8000-100000000000"
+  metadata:
+    title: "Virginia Consumer Data Protection Act (VCDPA)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "VA-VCDPA"
+      - name: "jurisdiction"
+        value: "US-VA"
+      - name: "effective-as-of"
+        value: "2023-01-01"
+      - name: "source-citation"
+        value: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+  groups:
+    - id: "va-vcdpa-scope"
+      title: "Scope and Applicability"
+      controls:
+        - id: "US-VA-VCDPA-001"
+          uuid: "a1b2c3d4-b101-4000-8000-100000000001"
+          title: "Determine applicability based on consumer threshold"
+          props:
+            - name: "source-section"
+              value: "§59.1-575"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-001_smt"
+              name: "statement"
+              prose: |
+                The VCDPA applies to persons that conduct business in Virginia or produce products or services
+                targeted to Virginia residents and that during a calendar year either: (i) control or process
+                personal data of at least 100,000 consumers; or (ii) control or process personal data of at
+                least 25,000 consumers and derive over 50 percent of gross revenue from the sale of personal data.
+            - id: "US-VA-VCDPA-001_gdn"
+              name: "guidance"
+              prose: |
+                Assess whether your organization meets either threshold annually. Document the consumer count
+                methodology and revenue attribution. B2B data (employees, contractors in their business capacity)
+                is excluded from the consumer count. Track data subject counts across all Virginia resident
+                interactions; do not conflate with total user counts globally.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-575 — Definitions and applicability"
+
+    - id: "va-vcdpa-controller-obligations"
+      title: "Controller Obligations"
+      controls:
+        - id: "US-VA-VCDPA-002"
+          uuid: "a1b2c3d4-b102-4000-8000-100000000002"
+          title: "Provide a clear and accessible privacy notice"
+          props:
+            - name: "source-section"
+              value: "§59.1-578(A)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-002_smt"
+              name: "statement"
+              prose: |
+                Controllers must provide consumers with a reasonably accessible, clear, and meaningful privacy
+                notice that discloses: the categories of personal data processed; the purposes for processing;
+                how and where consumers may exercise their rights; the categories of personal data shared with
+                third parties; and the categories of third parties with whom personal data is shared.
+            - id: "US-VA-VCDPA-002_gdn"
+              name: "guidance"
+              prose: |
+                Publish a privacy notice (policy) that is directly linked from any page where personal data is
+                collected. Use plain language. Enumerate data categories specifically — generic labels such as
+                "information you provide" are insufficient. Refresh the notice whenever data flows or sharing
+                arrangements change materially. Make it available before or at the time of collection.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-578 — Controller responsibilities"
+
+        - id: "US-VA-VCDPA-003"
+          uuid: "a1b2c3d4-b103-4000-8000-100000000003"
+          title: "Limit processing to specified, explicit, and legitimate purposes"
+          props:
+            - name: "source-section"
+              value: "§59.1-578(A)(2)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-003_smt"
+              name: "statement"
+              prose: |
+                Controllers must limit the collection of personal data to what is adequate, relevant, and
+                reasonably necessary in relation to the purposes for which such data is processed, as disclosed
+                to the consumer. Controllers must not process personal data for purposes that are not reasonably
+                necessary to or compatible with the disclosed purposes without the consumer's consent.
+            - id: "US-VA-VCDPA-003_gdn"
+              name: "guidance"
+              prose: |
+                Conduct a data inventory and map each data element to a disclosed processing purpose. Reject
+                requests to reuse data for new purposes without a consumer consent gate or a compatibility
+                assessment. Apply data minimization in system design — collect only fields required for the
+                stated purpose. Document the compatibility assessment when secondary use is contemplated.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-578 — Controller responsibilities"
+
+        - id: "US-VA-VCDPA-004"
+          uuid: "a1b2c3d4-b104-4000-8000-100000000004"
+          title: "Implement reasonable data security practices"
+          props:
+            - name: "source-section"
+              value: "§59.1-578(A)(4)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-004_smt"
+              name: "statement"
+              prose: |
+                Controllers must establish, implement, and maintain reasonable administrative, technical, and
+                physical data security practices to protect the confidentiality, integrity, and accessibility
+                of personal data. The security practices must be appropriate to the volume and nature of the
+                personal data processed.
+            - id: "US-VA-VCDPA-004_gdn"
+              name: "guidance"
+              prose: |
+                Security measures should be calibrated to data sensitivity. At minimum: encrypt personal data
+                at rest and in transit; apply role-based access controls; conduct periodic vulnerability assessments;
+                and maintain an incident response plan. Document the security program. For sensitive data categories,
+                apply heightened controls such as multi-factor authentication and audit logging.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-578 — Controller responsibilities"
+
+        - id: "US-VA-VCDPA-005"
+          uuid: "a1b2c3d4-b105-4000-8000-100000000005"
+          title: "Prohibit processing personal data in a discriminatory manner"
+          props:
+            - name: "source-section"
+              value: "§59.1-578(A)(5)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-005_smt"
+              name: "statement"
+              prose: |
+                Controllers must not process personal data in violation of state or federal laws prohibiting
+                unlawful discrimination against consumers. Controllers must not discriminate against a consumer
+                for exercising any consumer right under the VCDPA, including by denying goods or services,
+                charging different prices, or providing a different level of service quality.
+            - id: "US-VA-VCDPA-005_gdn"
+              name: "guidance"
+              prose: |
+                Audit your data processing for disparate-impact patterns against protected classes. Ensure that
+                exercising VCDPA rights does not trigger system-side penalties such as loss of service access or
+                degraded functionality. A financial incentive program may offer benefits in exchange for data,
+                but participation must be voluntary and the incentive must not be so material as to constitute
+                coercion. Document non-discrimination policies in your privacy program.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-578 — Controller responsibilities"
+
+    - id: "va-vcdpa-consumer-rights"
+      title: "Consumer Rights"
+      controls:
+        - id: "US-VA-VCDPA-006"
+          uuid: "a1b2c3d4-b106-4000-8000-100000000006"
+          title: "Respond to consumer access and portability requests"
+          props:
+            - name: "source-section"
+              value: "§59.1-577(A)(1), §59.1-577(A)(4)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-006_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to confirm whether a controller is processing their personal data and
+                to access that data. Consumers also have the right to obtain a copy of the personal data they
+                previously provided to the controller in a portable and, to the extent technically feasible,
+                readily usable format. Controllers must respond within 45 days, extendable by an additional
+                45 days when reasonably necessary.
+            - id: "US-VA-VCDPA-006_gdn"
+              name: "guidance"
+              prose: |
+                Establish an authenticated request intake mechanism (web form, email, account portal). Verify
+                consumer identity before disclosure. Provide the data in a structured, machine-readable format
+                (JSON, CSV). Document the 45-day clock from receipt of the request. First extension requires
+                notice to the consumer with the reason. Maintain a log of requests and responses for audit
+                readiness.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-577 — Consumer rights"
+
+        - id: "US-VA-VCDPA-007"
+          uuid: "a1b2c3d4-b107-4000-8000-100000000007"
+          title: "Honor consumer correction requests"
+          props:
+            - name: "source-section"
+              value: "§59.1-577(A)(2)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-007_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to correct inaccuracies in their personal data, taking into account
+                the nature of the personal data and the purposes of the processing of the consumer's personal
+                data. Controllers must act on a verified correction request within 45 days.
+            - id: "US-VA-VCDPA-007_gdn"
+              name: "guidance"
+              prose: |
+                Implement a correction workflow that: verifies consumer identity, routes the correction request
+                to data stewards, updates records, and confirms the correction to the consumer. Where the data
+                is also held by processors or shared with third parties, notify those parties of the correction
+                where feasible. Log correction actions and any denials with stated reasons.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-577 — Consumer rights"
+
+        - id: "US-VA-VCDPA-008"
+          uuid: "a1b2c3d4-b108-4000-8000-100000000008"
+          title: "Honor consumer deletion requests"
+          props:
+            - name: "source-section"
+              value: "§59.1-577(A)(3)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-008_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to delete personal data provided by or obtained about the consumer.
+                Controllers must honor verified deletion requests within 45 days. The deletion obligation
+                extends to personal data held by processors acting on the controller's behalf. Exceptions
+                exist for data necessary to complete a transaction, comply with a legal obligation, or for
+                certain other permitted purposes.
+            - id: "US-VA-VCDPA-008_gdn"
+              name: "guidance"
+              prose: |
+                Map all datastores containing personal data — including backups and analytics systems — so
+                deletion can be executed across the full data estate. Propagate deletion instructions to
+                processors via contractual mechanisms. Document each deletion with a timestamp and confirmation.
+                Where a legal hold or other exception applies, document the basis and retain only what is
+                strictly necessary.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-577 — Consumer rights"
+
+        - id: "US-VA-VCDPA-009"
+          uuid: "a1b2c3d4-b109-4000-8000-100000000009"
+          title: "Provide opt-out mechanisms for sale, targeted advertising, and profiling"
+          props:
+            - name: "source-section"
+              value: "§59.1-577(A)(5)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-009_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to opt out of: (i) the sale of personal data to third parties;
+                (ii) targeted advertising using personal data; and (iii) profiling for decisions that produce
+                legal or similarly significant effects. Controllers must provide a clear and conspicuous opt-out
+                method and must honor opt-out signals, including universal opt-out mechanisms.
+            - id: "US-VA-VCDPA-009_gdn"
+              name: "guidance"
+              prose: |
+                Implement opt-out links or controls in the privacy notice and at data-collection points. Honor
+                global privacy control (GPC) signals as a valid opt-out mechanism. Process opt-out requests
+                within 15 days. Ensure downstream data brokers and ad-tech vendors receive opt-out propagation.
+                Do not re-enroll a consumer who has opted out without their subsequent affirmative consent.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-577 — Consumer rights"
+
+    - id: "va-vcdpa-sensitive-data"
+      title: "Sensitive Data and Consent"
+      controls:
+        - id: "US-VA-VCDPA-010"
+          uuid: "a1b2c3d4-b10a-4000-8000-10000000000a"
+          title: "Obtain consent before processing sensitive data"
+          props:
+            - name: "source-section"
+              value: "§59.1-578(A)(5), §59.1-575 (definition)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-010_smt"
+              name: "statement"
+              prose: |
+                Controllers must not process sensitive personal data without the consumer's consent. Sensitive
+                data includes: data revealing racial or ethnic origin, religious beliefs, mental or physical
+                health diagnosis, sexual orientation, immigration status, genetic or biometric data, precise
+                geolocation data, financial data, and personal data of known children.
+            - id: "US-VA-VCDPA-010_gdn"
+              name: "guidance"
+              prose: |
+                Identify all sensitive data categories in your data inventory. Implement affirmative opt-in
+                consent gates (not pre-checked) before processing. For children's data, comply with COPPA
+                consent requirements as the floor. Document the consent record with timestamp and version of
+                the consent notice. Regularly audit sensitive-data flows to detect unauthorized processing.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-578 — Controller responsibilities; §59.1-575 definitions"
+
+    - id: "va-vcdpa-dpia"
+      title: "Data Protection Impact Assessments"
+      controls:
+        - id: "US-VA-VCDPA-011"
+          uuid: "a1b2c3d4-b10b-4000-8000-10000000000b"
+          title: "Conduct data protection impact assessments for high-risk processing"
+          props:
+            - name: "source-section"
+              value: "§59.1-580"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-011_smt"
+              name: "statement"
+              prose: |
+                Controllers must conduct and document a data protection impact assessment (DPIA) for processing
+                activities that present a heightened risk of harm, including: targeted advertising; sale of
+                personal data; profiling for consequential decisions; processing sensitive data; and any
+                processing involving personal data of children. DPIAs must be made available to the AG
+                upon request.
+            - id: "US-VA-VCDPA-011_gdn"
+              name: "guidance"
+              prose: |
+                Trigger a DPIA at project inception for any of the listed activity types. The assessment must
+                weigh the benefits against the risks to consumers, including risks of injury, discrimination,
+                or other material harm. Document: purpose; data categories; necessity; proportionality; safeguards;
+                and residual risk. Retain DPIAs and update them when processing activities change materially.
+                A single DPIA may cover a class of similar processing activities.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-580 — Data protection assessments"
+
+    - id: "va-vcdpa-processors"
+      title: "Processor Contracts"
+      controls:
+        - id: "US-VA-VCDPA-012"
+          uuid: "a1b2c3d4-b10c-4000-8000-10000000000c"
+          title: "Execute binding data processing agreements with processors"
+          props:
+            - name: "source-section"
+              value: "§59.1-579"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-012_smt"
+              name: "statement"
+              prose: |
+                Processing of personal data by a processor must be governed by a binding contract between
+                the controller and processor. The contract must set out: instructions for processing; the
+                nature and purpose of processing; the type of data and duration; and the parties' obligations
+                and rights. Processors must only act on documented controller instructions and must assist
+                controllers in meeting their VCDPA obligations.
+            - id: "US-VA-VCDPA-012_gdn"
+              name: "guidance"
+              prose: |
+                Review all vendor contracts for data processing terms. Existing agreements that predate the
+                VCDPA must be updated at renewal or by January 1, 2023 for covered entities. Data processing
+                agreements must prohibit processors from: processing data for their own purposes; engaging
+                sub-processors without controller authorization; and retaining data beyond the contract term.
+                Require processors to delete or return data on contract termination.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-579 — Responsibilities of processors"
+
+    - id: "va-vcdpa-enforcement"
+      title: "Enforcement and Cure"
+      controls:
+        - id: "US-VA-VCDPA-013"
+          uuid: "a1b2c3d4-b10d-4000-8000-10000000000d"
+          title: "Respond to AG enforcement notices within the 30-day cure period"
+          props:
+            - name: "source-section"
+              value: "§59.1-581"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-VA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-VA-VCDPA-013_smt"
+              name: "statement"
+              prose: |
+                The Virginia Attorney General has exclusive enforcement authority under the VCDPA. There is no
+                private right of action. Before initiating a civil action, the AG must provide a controller
+                or processor with written notice of the alleged violation and a 30-day cure period. Civil
+                penalties up to $7,500 per violation may be imposed for uncured or recurring violations.
+            - id: "US-VA-VCDPA-013_gdn"
+              name: "guidance"
+              prose: |
+                Maintain an internal VCDPA compliance program with documented policies and response procedures
+                so that any AG notice can be addressed swiftly within the 30-day window. Designate a privacy
+                officer or counsel to receive and triage regulatory correspondence. Document remediation actions
+                taken in response to a cure notice. Note: the cure-period right expires January 1, 2026, after
+                which the AG may proceed directly to civil action.
+          links:
+            - href: "https://law.lis.virginia.gov/vacode/title59.1/chapter53/"
+              rel: source
+              text: "Va. Code §59.1-581 — Enforcement"

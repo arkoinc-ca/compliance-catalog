@@ -1,0 +1,265 @@
+catalog:
+  uuid: "a1b2c3d4-c400-4000-8000-100000000000"
+  metadata:
+    title: "Illinois Biometric Information Privacy Act (BIPA) — 740 ILCS 14/"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "US-IL-BIPA"
+      - name: "jurisdiction"
+        value: "US-IL"
+      - name: "effective-as-of"
+        value: "2008-10-03"
+      - name: "last-amended"
+        value: "2024-08-02"
+      - name: "source-citation"
+        value: "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004&ChapterID=57"
+  groups:
+    - id: "bipa-collection-consent"
+      title: "Collection and Informed Consent"
+      controls:
+        - id: "US-IL-BIPA-001"
+          uuid: "a1b2c3d4-c401-4000-8000-100000000001"
+          title: "Obtain written informed consent before collecting biometric identifiers (§15(b))"
+          props:
+            - name: "source-section"
+              value: "740 ILCS 14/15(b)"
+            - name: "effective-date"
+              value: "2008-10-03"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-IL"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-IL-BIPA-001_smt"
+              name: "statement"
+              prose: |
+                No private entity may collect, capture, purchase, receive through trade, or otherwise obtain a
+                person's or customer's biometric identifier or biometric information, unless it first: informs
+                the subject or the subject's legally authorized representative in writing that a biometric
+                identifier or biometric information is being collected or stored; informs the subject or the
+                subject's legally authorized representative in writing of the specific purpose and length of
+                term for which a biometric identifier or biometric information is being collected, stored, and
+                used; and receives a written release executed by the subject of the biometric identifier or
+                biometric information or the subject's legally authorized representative.
+            - id: "US-IL-BIPA-001_gdn"
+              name: "guidance"
+              prose: |
+                Before any biometric collection (fingerprint, retina/iris scan, voiceprint, facial geometry,
+                or hand scan), present a written disclosure naming: (1) the fact that biometrics are being
+                collected; (2) the specific purpose (e.g., timekeeping, physical access, payment); and (3) the
+                retention period. Obtain a signed or electronically confirmed written release. Do not commence
+                biometric collection before the release is executed. Retain the signed release for the duration
+                of the biometric program plus applicable statute of limitations. Employee biometrics for
+                timekeeping are a common use case — ensure HR onboarding workflows obtain BIPA releases before
+                first biometric enrollment.
+          links:
+            - href: "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004&ChapterID=57"
+              rel: source
+              text: "740 ILCS 14/ — Biometric Information Privacy Act"
+
+        - id: "US-IL-BIPA-002"
+          uuid: "a1b2c3d4-c402-4000-8000-100000000002"
+          title: "Publish a written biometric data retention and destruction policy (§15(a))"
+          props:
+            - name: "source-section"
+              value: "740 ILCS 14/15(a)"
+            - name: "effective-date"
+              value: "2008-10-03"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-IL"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-IL-BIPA-002_smt"
+              name: "statement"
+              prose: |
+                A private entity in possession of biometric identifiers or biometric information must develop a
+                written policy, made available to the public, establishing a retention schedule and guidelines
+                for permanently destroying biometric identifiers and biometric information when the initial
+                purpose for collecting or obtaining such identifiers or information has been satisfied or within
+                3 years of the individual's last interaction with the private entity, whichever occurs first.
+            - id: "US-IL-BIPA-002_gdn"
+              name: "guidance"
+              prose: |
+                Publish a biometric data retention and destruction policy on your website or in an accessible
+                internal location. The policy must state: the categories of biometric data collected; the
+                retention period (the shorter of the purpose being fulfilled or 3 years from last interaction);
+                and the destruction method (e.g., cryptographic deletion, secure overwrite). Implement automated
+                deletion workflows triggered by employment termination, customer account closure, or the 3-year
+                backstop, whichever is earliest. Document and audit deletions. The policy must be available
+                to the public — a confidential internal policy is insufficient.
+          links:
+            - href: "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004&ChapterID=57"
+              rel: source
+              text: "740 ILCS 14/ — Biometric Information Privacy Act"
+
+    - id: "bipa-prohibitions"
+      title: "Sale and Disclosure Prohibitions"
+      controls:
+        - id: "US-IL-BIPA-003"
+          uuid: "a1b2c3d4-c403-4000-8000-100000000003"
+          title: "Prohibit sale or profiting from biometric data (§15(c))"
+          props:
+            - name: "source-section"
+              value: "740 ILCS 14/15(c)"
+            - name: "effective-date"
+              value: "2008-10-03"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-IL"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-IL-BIPA-003_smt"
+              name: "statement"
+              prose: |
+                No private entity in possession of a biometric identifier or biometric information may sell,
+                lease, trade, or otherwise profit from a person's or customer's biometric identifier or biometric
+                information. This prohibition is absolute — there is no consent exception for monetization of
+                biometric data under BIPA §15(c).
+            - id: "US-IL-BIPA-003_gdn"
+              name: "guidance"
+              prose: |
+                Do not include biometric identifiers or biometric information in any data monetization, data
+                brokerage, advertising, or analytics product sold to third parties. Review vendor and data
+                sharing agreements to ensure biometric data is excluded from any revenue-generating data sharing.
+                The prohibition covers indirect profit (e.g., providing biometric data as part of a bundled
+                service sold to a third party). Verify that biometric vendors and processors are contractually
+                prohibited from re-selling the biometric data you provide to them.
+          links:
+            - href: "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004&ChapterID=57"
+              rel: source
+              text: "740 ILCS 14/ — Biometric Information Privacy Act"
+
+        - id: "US-IL-BIPA-004"
+          uuid: "a1b2c3d4-c404-4000-8000-100000000004"
+          title: "Restrict disclosure of biometric data to third parties (§15(d))"
+          props:
+            - name: "source-section"
+              value: "740 ILCS 14/15(d)"
+            - name: "effective-date"
+              value: "2008-10-03"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-IL"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-IL-BIPA-004_smt"
+              name: "statement"
+              prose: |
+                No private entity in possession of a biometric identifier or biometric information may disclose,
+                redisclose, or otherwise disseminate a person's or customer's biometric identifier or biometric
+                information unless: (1) the subject or the subject's legally authorized representative consents
+                to the disclosure; (2) the disclosure completes a financial transaction requested or authorized
+                by the subject; (3) disclosure is required by state or federal law or municipal ordinance; or
+                (4) disclosure is required pursuant to a valid warrant or subpoena.
+            - id: "US-IL-BIPA-004_gdn"
+              name: "guidance"
+              prose: |
+                Establish a biometric data sharing whitelist covering only the four permitted disclosure categories.
+                Before sharing biometric data with any third party (including vendors, affiliates, or government
+                agencies without legal process), verify which exception applies. For vendor sharing (e.g., a
+                biometric timekeeping system vendor), require the individual's prior written consent as part of
+                the enrollment process, or structure the arrangement so the vendor processes on behalf of the
+                controller without receiving the raw biometric data. Maintain a log of all biometric disclosures
+                with the applicable exception documented.
+          links:
+            - href: "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004&ChapterID=57"
+              rel: source
+              text: "740 ILCS 14/ — Biometric Information Privacy Act"
+
+    - id: "bipa-security"
+      title: "Security Safeguards"
+      controls:
+        - id: "US-IL-BIPA-005"
+          uuid: "a1b2c3d4-c405-4000-8000-100000000005"
+          title: "Protect biometric data with security standards at least as protective as other sensitive data (§15(e))"
+          props:
+            - name: "source-section"
+              value: "740 ILCS 14/15(e)"
+            - name: "effective-date"
+              value: "2008-10-03"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-IL"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-IL-BIPA-005_smt"
+              name: "statement"
+              prose: |
+                A private entity in possession of biometric identifiers or biometric information must store,
+                transmit, and protect from disclosure all biometric identifiers and biometric information using
+                the reasonable standard of care within the private entity's industry, and in a manner that is
+                the same as or more protective than the manner in which the private entity stores, transmits,
+                and protects other confidential and sensitive information.
+            - id: "US-IL-BIPA-005_gdn"
+              name: "guidance"
+              prose: |
+                Apply encryption at rest and in transit to all biometric data storage and transmission. Restrict
+                access to biometric data to personnel with a documented need-to-know. Implement access logging
+                and anomaly detection for biometric data stores. Conduct security risk assessments for biometric
+                systems at least annually. Compare your biometric data security controls to those applied to
+                other sensitive categories (e.g., payment card data, health data) and ensure biometric controls
+                are at least equivalent. Document security measures and retain documentation for audit purposes.
+          links:
+            - href: "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004&ChapterID=57"
+              rel: source
+              text: "740 ILCS 14/ — Biometric Information Privacy Act"
+
+    - id: "bipa-2024-amendment"
+      title: "2024 SB 2979 Amendment — Per-Subject Damage Limitation"
+      controls:
+        - id: "US-IL-BIPA-006"
+          uuid: "a1b2c3d4-c406-4000-8000-100000000006"
+          title: "Apply SB 2979 (2024) one-violation-per-subject rule to BIPA compliance program"
+          props:
+            - name: "source-section"
+              value: "740 ILCS 14/20 (as amended by SB 2979, eff. 2024-08-02)"
+            - name: "effective-date"
+              value: "2024-08-02"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-IL"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-IL-BIPA-006_smt"
+              name: "statement"
+              prose: |
+                Illinois SB 2979, effective 2024-08-02, amended BIPA §20 to limit private right of action
+                damages to one violation per person per type of biometric identifier or biometric information
+                collected — regardless of the number of individual scans or collections. Under the pre-2024
+                law, courts had permitted per-scan damages, which led to massive class-action exposure. The
+                amendment applies retroactively to pending claims. The statutory damages remain $1,000 per
+                negligent violation and $5,000 per intentional or reckless violation per person per identifier
+                type.
+            - id: "US-IL-BIPA-006_gdn"
+              name: "guidance"
+              prose: |
+                Update litigation reserve and compliance risk assessments to reflect the SB 2979 per-person
+                (not per-scan) damages cap. Review pending BIPA litigation with counsel regarding retroactive
+                application of the amendment. For prospective compliance program purposes, the substantive
+                obligations of §15(a)–(e) are unchanged — the amendment affects only the quantum of damages,
+                not the underlying duties. Ensure biometric consent forms, retention policies, and security
+                controls remain fully compliant with all §15 requirements. Document the compliance program's
+                awareness of the 2024 amendment for audit records.
+          links:
+            - href: "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004&ChapterID=57"
+              rel: source
+              text: "740 ILCS 14/ — Biometric Information Privacy Act (as amended)"
+            - href: "https://www.ilga.gov/legislation/101/SB/10100SB2979.htm"
+              rel: source
+              text: "Illinois SB 2979 (2024 Amendment)"

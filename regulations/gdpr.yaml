@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-0006-4000-8000-100000000006"
   metadata:
     title: "General Data Protection Regulation (GDPR) — Regulation (EU) 2016/679"
-    last-modified: "2026-05-08T00:00:00Z"
-    version: "0.0.1-skeleton"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -15,15 +15,738 @@ catalog:
       - name: "source-citation"
         value: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
   groups:
-    - id: "gdpr-lawful-basis"
-      title: "Lawful Basis and Principles (Chapter II)"
+    - id: "gdpr-principles"
+      title: "Chapter II — Principles (Articles 5–11)"
       controls:
         - id: "EU-GDPR-001"
-          title: "Lawfulness, Fairness and Transparency — Process personal data lawfully, fairly, and in a transparent manner"
+          uuid: "a1b2c3d4-0501-4000-8000-100000000501"
+          title: "Lawfulness, Fairness, and Transparency — Process personal data lawfully, fairly, and transparently"
           props:
+            - name: "source-section"
+              value: "Art. 5(1)(a), Art. 6"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
             - name: "status"
-              value: "skeleton"
+              value: "draft"
           parts:
-            - id: "GDPR-5-1-a-stmt"
+            - id: "EU-GDPR-001_smt"
               name: "statement"
-              prose: "TODO: Author full control statement in Phase 1."
+              prose: |
+                Personal data must be processed lawfully, fairly, and in a transparent manner in relation to the data
+                subject (Article 5(1)(a)). Processing is lawful only where at least one of the six bases listed in
+                Article 6 applies: consent, contract, legal obligation, vital interests, public task, or legitimate
+                interests. Recital 39 emphasises that the principle of transparency requires that information and
+                communication relating to processing be easily accessible and easy to understand.
+            - id: "EU-GDPR-001_gdn"
+              name: "guidance"
+              prose: |
+                Document the lawful basis for every processing activity before processing begins; record it in your
+                Records of Processing Activities (RoPA). Where legitimate interests (Art. 6(1)(f)) is relied upon,
+                complete and retain a Legitimate Interests Assessment (LIA). The Data Protection Officer or privacy
+                team is responsible for maintaining the basis inventory. Evidence of compliance is the RoPA entry
+                plus the LIA or consent records per activity. Refer to EDPB Guidelines 2/2019 on legitimate
+                interest for detailed guidance on the balancing test.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+            - href: "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+              rel: reference
+              text: "EDPB Guidelines and Recommendations"
+
+        - id: "EU-GDPR-002"
+          uuid: "a1b2c3d4-0502-4000-8000-100000000502"
+          title: "Purpose Limitation — Collect for specified, explicit, legitimate purposes; no incompatible further processing"
+          props:
+            - name: "source-section"
+              value: "Art. 5(1)(b)"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-002_smt"
+              name: "statement"
+              prose: |
+                Personal data must be collected for specified, explicit, and legitimate purposes and not further
+                processed in a manner incompatible with those purposes (Article 5(1)(b)). Further processing for
+                archiving in the public interest, scientific or historical research, or statistical purposes is not
+                considered incompatible subject to the safeguards in Article 89. Recital 50 sets out factors for
+                assessing compatibility of a new purpose with the original purpose.
+            - id: "EU-GDPR-002_gdn"
+              name: "guidance"
+              prose: |
+                Specify processing purposes in the RoPA with sufficient granularity to allow compatibility assessment.
+                Before repurposing data, conduct a documented compatibility assessment using the Recital 50 factors:
+                link between original and new purpose; context of collection; nature of data; likely consequences;
+                and safeguards in place. The privacy or legal team must approve new secondary uses. Evidence of
+                compliance includes the compatibility assessment record and updated privacy notices reflecting any
+                new purpose.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+
+        - id: "EU-GDPR-003"
+          uuid: "a1b2c3d4-0503-4000-8000-100000000503"
+          title: "Data Minimisation, Accuracy, Storage Limitation, Integrity and Confidentiality"
+          props:
+            - name: "source-section"
+              value: "Art. 5(1)(c)–(f)"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-003_smt"
+              name: "statement"
+              prose: |
+                Personal data must be adequate, relevant, and limited to what is necessary for the purposes
+                (minimisation, Art. 5(1)(c)); accurate and kept up to date (accuracy, Art. 5(1)(d)); kept in a
+                form permitting identification no longer than necessary (storage limitation, Art. 5(1)(e)); and
+                processed with appropriate security including protection against unauthorised access, accidental loss
+                or destruction (integrity and confidentiality, Art. 5(1)(f)).
+            - id: "EU-GDPR-003_gdn"
+              name: "guidance"
+              prose: |
+                Adopt a data-minimisation review at system design stage: for each field collected, justify why it is
+                necessary. Maintain a retention schedule specifying the retention period per data category and the
+                trigger for deletion or anonymisation. Implement automated deletion or archival workflows and audit
+                them annually. The DPO or privacy team owns the retention schedule; the security team owns the
+                integrity and confidentiality controls. Evidence of compliance: retention schedule document, deletion
+                logs, and access-control review records.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+
+        - id: "EU-GDPR-004"
+          uuid: "a1b2c3d4-0504-4000-8000-100000000504"
+          title: "Conditions for Consent — Freely given, specific, informed, unambiguous; withdrawal as easy as giving"
+          props:
+            - name: "source-section"
+              value: "Art. 7, Recital 32, 42, 43"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-004_smt"
+              name: "statement"
+              prose: |
+                Where processing is based on consent, the controller must be able to demonstrate that the data subject
+                has consented (Article 7(1)). Consent must be freely given, specific, informed, and unambiguous — a
+                pre-ticked box or inactivity does not constitute consent (Recital 32). The data subject must be able
+                to withdraw consent at any time and withdrawal must be as easy as giving it (Article 7(3)). Where
+                consent is bundled as a condition of a service contract, it is presumed not to be freely given
+                (Recital 43).
+            - id: "EU-GDPR-004_gdn"
+              name: "guidance"
+              prose: |
+                Implement granular, purpose-specific consent UI with no pre-ticked boxes. Capture and store a consent
+                record per data subject including: timestamp, version of notice presented, specific purpose(s)
+                consented to, and the method of confirmation. Provide a withdrawal mechanism (e.g., account settings,
+                unsubscribe link) that is at least as prominent as the consent mechanism. Refer to EDPB Guidelines
+                05/2020 on consent for detailed conformance criteria including the distinction between consent and
+                legitimate interest for online advertising.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+            - href: "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+              rel: reference
+              text: "EDPB Guidelines 05/2020 on Consent"
+
+        - id: "EU-GDPR-005"
+          uuid: "a1b2c3d4-0505-4000-8000-100000000505"
+          title: "Special Category Data and Children's Consent — Art. 9 conditions for sensitive data; parental consent for children"
+          props:
+            - name: "source-section"
+              value: "Art. 8, Art. 9"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-005_smt"
+              name: "statement"
+              prose: |
+                Processing of special category data (health, biometric, racial or ethnic origin, political opinions,
+                religious beliefs, trade union membership, genetic data, sex life or sexual orientation) is prohibited
+                unless one of the conditions in Article 9(2) is met — most commonly explicit consent or a health-care
+                necessity ground. For information society services offered directly to children, Article 8 requires
+                parental or guardian consent for children below the Member State age threshold (16 years by default;
+                Member States may lower to 13).
+            - id: "EU-GDPR-005_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a register of all special-category data processing and the specific Article 9(2) condition
+                relied upon for each activity. Where explicit consent is the condition, ensure it is visually and
+                procedurally distinct from general consent. For digital services accessible to children, implement an
+                age verification or age-estimation mechanism and a parental consent workflow. The DPO must review any
+                new use of special-category data before it begins. Evidence of compliance: the Art. 9 register,
+                explicit consent records, and DPIA where required.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+
+    - id: "gdpr-data-subject-rights"
+      title: "Chapter III — Rights of the Data Subject (Articles 12–22)"
+      controls:
+        - id: "EU-GDPR-006"
+          uuid: "a1b2c3d4-0506-4000-8000-100000000506"
+          title: "Transparent Information and Communication — Privacy notices at collection and on request"
+          props:
+            - name: "source-section"
+              value: "Art. 12, 13, 14"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-006_smt"
+              name: "statement"
+              prose: |
+                Controllers must provide data subjects with the information specified in Articles 13–14 in a concise,
+                transparent, intelligible, and easily accessible form, using clear and plain language (Article 12(1)).
+                Article 13 applies where data is collected directly from the data subject (at the time of collection);
+                Article 14 applies where data is obtained from a third party (within one month or at first contact).
+                The information must be provided free of charge.
+            - id: "EU-GDPR-006_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a layered privacy notice: a short notice at the point of collection linking to a full privacy
+                policy. The full policy must cover all Article 13/14 mandatory elements: identity of controller;
+                contact details of DPO; purposes and legal bases; legitimate interests where applicable; recipients;
+                international transfers; retention periods; and all data subject rights. Review and update notices
+                whenever processing activities change. Evidence of compliance: dated versions of privacy notices,
+                copy of the notice presented at each collection touchpoint, and a mapping of notice content to
+                Art. 13/14 requirements.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+
+        - id: "EU-GDPR-007"
+          uuid: "a1b2c3d4-0507-4000-8000-100000000507"
+          title: "Right of Access by the Data Subject — Provide copy of personal data within one month"
+          props:
+            - name: "source-section"
+              value: "Art. 15"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-007_smt"
+              name: "statement"
+              prose: |
+                Data subjects have the right to obtain confirmation of whether their personal data is being processed
+                and, if so, to receive a copy of that data along with the supplementary information listed in
+                Article 15(1) (purposes, categories, recipients, transfers, retention, rights, source). The
+                controller must respond within one month, extendable by two further months for complex or numerous
+                requests with notification of the extension (Article 12(3)).
+            - id: "EU-GDPR-007_gdn"
+              name: "guidance"
+              prose: |
+                Establish a documented Subject Access Request (SAR) process: intake channel, identity verification,
+                30-day response tracker, and template response. The response must include a copy of the personal
+                data in a commonly used format. Log each SAR including receipt date, response date, and outcome.
+                Where extension is needed, send the extension notice within the initial one-month window. Evidence
+                of compliance: the SAR log, response templates, and sample completed responses. Refer to EDPB
+                Guidelines 01/2022 on data subject rights — right of access for detailed scope guidance.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+            - href: "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+              rel: reference
+              text: "EDPB Guidelines 01/2022 on the Right of Access"
+
+        - id: "EU-GDPR-008"
+          uuid: "a1b2c3d4-0508-4000-8000-100000000508"
+          title: "Right to Rectification, Erasure, and Restriction — Correct, erase, or restrict processing"
+          props:
+            - name: "source-section"
+              value: "Art. 16, 17, 18"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-008_smt"
+              name: "statement"
+              prose: |
+                Data subjects have the right to obtain rectification of inaccurate personal data without undue delay
+                (Article 16), the right to erasure ("right to be forgotten") where one of the grounds in Article 17(1)
+                applies (e.g., data no longer necessary, consent withdrawn, unlawful processing), and the right to
+                restriction of processing while accuracy is contested or a processing objection is pending
+                (Article 18). Downstream recipients of the data must be notified of rectification or erasure unless
+                this proves impossible or involves disproportionate effort (Article 19).
+            - id: "EU-GDPR-008_gdn"
+              name: "guidance"
+              prose: |
+                Implement workflows to receive, verify identity for, and execute rectification, erasure, and
+                restriction requests within one month. For erasure, document assessment of whether any Art. 17(3)
+                exceptions apply (legal obligation, archiving, public interest). Propagate erasure and rectification
+                to downstream processors and maintain a notification log. Evidence of compliance: request logs,
+                assessment records for refusals, and downstream-notification records. Where technical erasure is
+                infeasible within the deadline, document the reason and apply access restrictions in the interim.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+
+        - id: "EU-GDPR-009"
+          uuid: "a1b2c3d4-0509-4000-8000-100000000509"
+          title: "Right to Data Portability — Structured, machine-readable copy where processing is by automated means"
+          props:
+            - name: "source-section"
+              value: "Art. 20"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-009_smt"
+              name: "statement"
+              prose: |
+                Where processing is based on consent (Article 6(1)(a) or Article 9(2)(a)) or on a contract
+                (Article 6(1)(b)), and the processing is carried out by automated means, data subjects have the
+                right to receive their personal data in a structured, commonly used, machine-readable format
+                (Article 20(1)). They also have the right to transmit that data to another controller without
+                hindrance from the current controller.
+            - id: "EU-GDPR-009_gdn"
+              name: "guidance"
+              prose: |
+                Implement a data export feature that produces personal data in a standard machine-readable format
+                (JSON or CSV preferred). Portability applies to data actively provided by the data subject and data
+                observed from their activity; it does not extend to inferred or derived data. Process portability
+                requests within one month. Evidence of compliance: a functioning export feature or documented manual
+                process, and a log of portability requests. Refer to WP29 Guidelines on the right to data
+                portability (WP242 rev.01) for scope detail.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+
+        - id: "EU-GDPR-010"
+          uuid: "a1b2c3d4-0510-4000-8000-100000000510"
+          title: "Right to Object and Automated Decision-Making — Object to processing; restrict solely-automated decisions"
+          props:
+            - name: "source-section"
+              value: "Art. 21, 22"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-010_smt"
+              name: "statement"
+              prose: |
+                Data subjects have the right to object at any time to processing based on legitimate interests or
+                public task, including profiling for those bases; the controller must cease unless it demonstrates
+                compelling legitimate grounds overriding the data subject's interests (Article 21(1)). Where the
+                objection is to direct marketing, the controller must cease unconditionally (Article 21(3)). Data
+                subjects also have the right not to be subject to solely automated decisions — including profiling —
+                that produce legal or similarly significant effects, except under Article 22(2) conditions, and
+                then with the right to human review (Article 22(3)).
+            - id: "EU-GDPR-010_gdn"
+              name: "guidance"
+              prose: |
+                Provide a clear, accessible objection mechanism in all direct-marketing communications and at the
+                point of data collection for legitimate-interest processing. Implement a documented review process
+                for objections: assess compelling grounds; cease processing if grounds are not established; and log
+                the outcome. For automated decision-making systems with legal or similarly significant effect,
+                document the logic, implement a meaningful human review pathway, and surface the right to object in
+                privacy notices. Evidence: objection-request log, ADM system register, human-review process
+                description.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+
+    - id: "gdpr-controller-and-processor-obligations"
+      title: "Chapter IV — Controller and Processor (Articles 24–43)"
+      controls:
+        - id: "EU-GDPR-011"
+          uuid: "a1b2c3d4-0511-4000-8000-100000000511"
+          title: "Records of Processing Activities (RoPA) — Maintain Article 30 records of all processing activities"
+          props:
+            - name: "source-section"
+              value: "Art. 30"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-011_smt"
+              name: "statement"
+              prose: |
+                Each controller must maintain a record of processing activities under its responsibility containing
+                the information specified in Article 30(1): controller name and contact details; DPO contact;
+                purposes of processing; categories of data subjects and personal data; categories of recipients;
+                international transfers and safeguards; retention periods; and a general description of security
+                measures. The record must be made available to the supervisory authority on request and must be in
+                writing, including electronic form.
+            - id: "EU-GDPR-011_gdn"
+              name: "guidance"
+              prose: |
+                Use the EDPB's publicly available RoPA template as a baseline. Assign ownership of each processing
+                activity record to the relevant business unit, with central oversight by the DPO. Update the RoPA
+                whenever a new processing activity is launched or an existing one changes materially. Conduct an
+                annual RoPA audit. Evidence of compliance: current RoPA document accessible to the supervisory
+                authority on request, version history, and records of the annual review. The exemption for
+                organisations with fewer than 250 employees (Art. 30(5)) does not apply where processing poses
+                risk to data subjects or is not occasional.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+            - href: "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+              rel: reference
+              text: "EDPB RoPA Guidance"
+
+        - id: "EU-GDPR-012"
+          uuid: "a1b2c3d4-0512-4000-8000-100000000512"
+          title: "Data Protection by Design and by Default — Embed privacy measures into systems from the outset"
+          props:
+            - name: "source-section"
+              value: "Art. 25"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-012_smt"
+              name: "statement"
+              prose: |
+                Taking into account the state of the art, the cost of implementation, and the nature, scope, context,
+                and purposes of processing, the controller must implement appropriate technical and organisational
+                measures (such as pseudonymisation) designed to implement the data protection principles effectively
+                and to integrate necessary safeguards into the processing — both at the time of determining the means
+                of processing and at the time of the processing itself (Article 25(1)). By default, only personal
+                data necessary for each specific purpose must be processed (Article 25(2)).
+            - id: "EU-GDPR-012_gdn"
+              name: "guidance"
+              prose: |
+                Embed privacy review into the software development lifecycle (SDLC): require a privacy impact
+                checklist at design phase, enforce least-privilege defaults in system configuration, and validate
+                minimisation at code review. Default settings must restrict data sharing to what is strictly
+                necessary; additional data exposure must require affirmative opt-in. Refer to EDPB Guidelines
+                04/2019 on Article 25 for a non-exhaustive list of technical measures including pseudonymisation,
+                end-to-end encryption, and access controls. Evidence: design-phase privacy checklists, SDLC policy,
+                and results of default-configuration audits.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+            - href: "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+              rel: reference
+              text: "EDPB Guidelines 04/2019 on Data Protection by Design and by Default"
+
+        - id: "EU-GDPR-013"
+          uuid: "a1b2c3d4-0513-4000-8000-100000000513"
+          title: "Data Processor Agreements — Bind processors by Article 28 contracts providing sufficient guarantees"
+          props:
+            - name: "source-section"
+              value: "Art. 28"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-013_smt"
+              name: "statement"
+              prose: |
+                Where processing is carried out on behalf of a controller, the controller must use only processors
+                providing sufficient guarantees to implement appropriate technical and organisational measures, ensuring
+                processing meets GDPR requirements and protects data subject rights (Article 28(1)). Processing by
+                a processor must be governed by a binding contract setting out the subject-matter, duration, nature
+                and purpose of processing, type of personal data and categories of data subjects, and the obligations
+                and rights of the controller — covering all matters listed in Article 28(3)(a)–(h).
+            - id: "EU-GDPR-013_gdn"
+              name: "guidance"
+              prose: |
+                Execute a Data Processing Agreement (DPA) with every vendor, cloud provider, and contractor that
+                processes personal data on your behalf before any processing begins. The DPA must include: processing
+                only on documented instructions; confidentiality obligations on authorised personnel; implementation
+                of Article 32 security measures; sub-processor controls with written consent; assistance with data
+                subject rights; deletion or return of data at contract end; and audit rights. Maintain a processor
+                register with DPA status and last-review date. Review DPAs annually and when vendors update
+                sub-processors.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+
+        - id: "EU-GDPR-014"
+          uuid: "a1b2c3d4-0514-4000-8000-100000000514"
+          title: "Security of Processing — Implement appropriate technical and organisational measures"
+          props:
+            - name: "source-section"
+              value: "Art. 32"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-014_smt"
+              name: "statement"
+              prose: |
+                The controller and processor must implement appropriate technical and organisational measures to
+                ensure a level of security appropriate to the risk, including as appropriate: encryption and
+                pseudonymisation of personal data; the ability to ensure ongoing confidentiality, integrity,
+                availability, and resilience of processing systems; the ability to restore access to data in a
+                timely manner following an incident; and a process for regularly testing, assessing, and evaluating
+                the effectiveness of security measures (Article 32(1)).
+            - id: "EU-GDPR-014_gdn"
+              name: "guidance"
+              prose: |
+                Implement encryption at rest and in transit for all personal data; apply pseudonymisation where
+                feasible to reduce breach impact. Conduct an annual security risk assessment against processing
+                activities; document residual risks and mitigations. Maintain an incident-response plan and test
+                it at least annually. Perform regular penetration testing and vulnerability scanning. The security
+                team owns these controls; the DPO reviews the risk assessment outcomes. Evidence of compliance:
+                encryption configuration records, risk assessment reports, pen-test reports, and business-continuity
+                test results.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+            - href: "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+              rel: reference
+              text: "EDPB Recommendations 01/2021 on Pseudonymisation"
+
+        - id: "EU-GDPR-015"
+          uuid: "a1b2c3d4-0515-4000-8000-100000000515"
+          title: "Personal Data Breach Notification — Notify supervisory authority within 72 hours; notify data subjects if high risk"
+          props:
+            - name: "source-section"
+              value: "Art. 33, 34"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-015_smt"
+              name: "statement"
+              prose: |
+                In the event of a personal data breach, the controller must notify the competent supervisory authority
+                without undue delay and, where feasible, within 72 hours of becoming aware, unless the breach is
+                unlikely to result in a risk to the rights and freedoms of natural persons (Article 33(1)). Where
+                the breach is likely to result in a high risk to data subjects, the controller must also notify the
+                data subjects without undue delay, using clear and plain language (Article 34(1)). Processors must
+                notify the controller without undue delay upon becoming aware of a breach.
+            - id: "EU-GDPR-015_gdn"
+              name: "guidance"
+              prose: |
+                Maintain an incident-response runbook that includes a breach-severity triage decision tree (is risk
+                likely? is risk high?) to determine notification obligations within the 72-hour window. Log all
+                incidents — including those below the notification threshold — with the date, description, risk
+                assessment outcome, and decision rationale. Supervisory authority notification must include the
+                information specified in Article 33(3); if not all information is available within 72 hours,
+                provide it in phases. Evidence of compliance: incident log, notification records, risk assessment
+                documentation, and data-subject notification templates.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+            - href: "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+              rel: reference
+              text: "EDPB Guidelines 9/2022 on Personal Data Breach Notification"
+
+        - id: "EU-GDPR-016"
+          uuid: "a1b2c3d4-0516-4000-8000-100000000516"
+          title: "Data Protection Impact Assessment (DPIA) — Required for high-risk processing; consult authority if residual risk"
+          props:
+            - name: "source-section"
+              value: "Art. 35, 36"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-016_smt"
+              name: "statement"
+              prose: |
+                Where a type of processing is likely to result in a high risk to the rights and freedoms of natural
+                persons, the controller must carry out a Data Protection Impact Assessment (DPIA) prior to the
+                processing (Article 35(1)). A DPIA is mandatory where processing involves systematic profiling with
+                legal effects, large-scale processing of special-category data, or systematic monitoring of publicly
+                accessible areas (Article 35(3)). Each supervisory authority publishes a list of processing types
+                requiring a mandatory DPIA. Where residual high risk cannot be mitigated, prior consultation with
+                the supervisory authority is required (Article 36).
+            - id: "EU-GDPR-016_gdn"
+              name: "guidance"
+              prose: |
+                Screen all new and changed processing activities against the EDPB's Article 35 list of mandatory-DPIA
+                processing types and your lead supervisory authority's national list before launch. A DPIA must
+                include: a systematic description of the processing and its purposes; an assessment of necessity
+                and proportionality; an assessment of risks to data subjects; and the measures to address those
+                risks. Retain completed DPIAs and update them when the processing changes materially. Where prior
+                consultation is triggered (Art. 36), allow at least 8 weeks for the supervisory authority to respond.
+                The DPO must be consulted in carrying out each DPIA (Art. 35(2)).
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+            - href: "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+              rel: reference
+              text: "EDPB Guidelines on Data Protection Impact Assessment (WP248 rev.01)"
+
+        - id: "EU-GDPR-017"
+          uuid: "a1b2c3d4-0517-4000-8000-100000000517"
+          title: "Designate a Data Protection Officer — Where required by Art. 37; publish contact and notify supervisory authority"
+          props:
+            - name: "source-section"
+              value: "Art. 37, 38, 39"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-017_smt"
+              name: "statement"
+              prose: |
+                Controllers and processors must designate a Data Protection Officer (DPO) where: processing is
+                carried out by a public authority; core activities consist of large-scale regular and systematic
+                monitoring of data subjects; or core activities consist of large-scale processing of special-category
+                or criminal-offence data (Article 37(1)). The DPO's contact details must be published and communicated
+                to the supervisory authority (Article 37(7)). The DPO must be provided with resources, access to
+                data and processes, and must maintain expert knowledge of data protection law and practice
+                (Articles 38–39).
+            - id: "EU-GDPR-017_gdn"
+              name: "guidance"
+              prose: |
+                Conduct a documented assessment of whether the DPO obligation applies; retain the assessment even
+                where the conclusion is that no DPO is required. Where a DPO is appointed, publish their name or
+                title and a contact method on your website and register their contact details with the lead
+                supervisory authority. The DPO must not be dismissed or penalised for performing their tasks, must
+                have direct access to senior management, and must have sufficient time and budget. Evidence of
+                compliance: DPO designation document, supervisory authority registration confirmation, and published
+                DPO contact on the website.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+            - href: "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+              rel: reference
+              text: "EDPB Guidelines on Data Protection Officers (WP243 rev.01)"
+
+    - id: "gdpr-international-transfers"
+      title: "Chapter V — Transfers to Third Countries (Articles 44–49)"
+      controls:
+        - id: "EU-GDPR-018"
+          uuid: "a1b2c3d4-0518-4000-8000-100000000518"
+          title: "International Data Transfers — Adequacy decision, SCCs with TIA, BCRs, or derogation; document the mechanism"
+          props:
+            - name: "source-section"
+              value: "Art. 44–49; Schrems II (Case C-311/18)"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-018_smt"
+              name: "statement"
+              prose: |
+                Any transfer of personal data to a third country or international organisation may take place only
+                where the conditions of Chapter V are complied with (Article 44). Permitted mechanisms include: an
+                adequacy decision by the European Commission (Article 45); appropriate safeguards such as Standard
+                Contractual Clauses (SCCs) or Binding Corporate Rules (BCRs) (Articles 46–47); or one of the
+                specific derogations in Article 49 (e.g., explicit consent, performance of a contract). Following
+                Schrems II (Case C-311/18), controllers relying on SCCs must conduct a Transfer Impact Assessment
+                (TIA) to verify that the destination country's law does not undermine the SCC protections.
+            - id: "EU-GDPR-018_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a transfer register documenting every data flow to third countries: the destination country,
+                the categories of data transferred, the transfer mechanism relied upon, and the date the mechanism
+                was assessed. For SCC-based transfers, complete a Transfer Impact Assessment (TIA) before the
+                transfer begins, assessing the legal framework of the destination country (access by public
+                authorities, remedies available) and any supplementary technical measures (encryption,
+                pseudonymisation) needed to ensure equivalent protection. Review TIAs annually and whenever the
+                destination country's legal framework changes. For BCRs, obtain supervisory authority approval
+                before relying on them. Refer to EDPB Recommendations 01/2020 on supplementary measures for
+                detailed TIA methodology.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Official Journal of the European Union"
+            - href: "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+              rel: reference
+              text: "EDPB Recommendations 01/2020 on Supplementary Measures for International Transfers"

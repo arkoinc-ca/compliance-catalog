@@ -1,0 +1,24 @@
+profile:
+  uuid: "b2c3d4e5-d612-4000-8000-200000000012"
+  metadata:
+    title: "United Kingdom — Region Profile (UK GDPR)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+  imports:
+    - href: "../../regulations/uk-gdpr.yaml"
+      include-controls:
+        - with-ids:
+            - "UK-GDPR-001"
+            - "UK-GDPR-002"
+            - "UK-GDPR-003"
+            - "UK-GDPR-004"
+            - "UK-GDPR-005"
+            - "UK-GDPR-006"
+            - "UK-GDPR-007"
+            - "UK-GDPR-008"
+            - "UK-GDPR-009"
+            - "UK-GDPR-010"
+  merge:
+    combine:
+      method: merge

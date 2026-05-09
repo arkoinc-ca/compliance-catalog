@@ -1,0 +1,173 @@
+rules:
+  - id: missing-retention-python
+    languages: [python]
+    severity: INFO
+    message: |
+      SQLAlchemy model without an inferred retention policy. Consider adding one of:
+        - A `retention_policy` or `__retention__` class attribute naming the applicable schedule,
+        - A `deleted_at` or `expires_at` column enabling TTL-based purge,
+        - Or a comment block `# retention: <days>d` recognisable by the assessor.
+      Without a documented retention policy, data may be kept longer than necessary, violating
+      PIPEDA Principle 5, GDPR Art. 5(1)(e) (storage limitation), CCPA notice-at-collection
+      requirements, and Quebec Law 25 s.23 (destruction schedule).
+    metadata:
+      category: "compliance"
+      references:
+        - "https://gdpr.eu/article-5-principles-for-processing-personal-data/"
+        - "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/"
+      controls:
+        - "CA-PIPEDA-005"
+        - "EU-GDPR-003"
+        - "CA-QC-LAW25-022"
+        - "US-CA-CCPA-007"
+      confidence: "production"
+    patterns:
+      - pattern: |
+          class $MODEL(Base):
+              ...
+      - pattern-not: |
+          class $MODEL(Base):
+              retention_policy = ...
+      - pattern-not: |
+          class $MODEL(Base):
+              __retention__ = ...
+      - pattern-not: |
+          class $MODEL(Base):
+              deleted_at = ...
+      - pattern-not: |
+          class $MODEL(Base):
+              expires_at = ...
+      - pattern-not: |
+          class $MODEL(Base):
+              purge_after_days = ...
+
+  - id: missing-retention-javascript
+    languages: [javascript, typescript]
+    severity: INFO
+    message: |
+      Mongoose or Sequelize model defined without an inferred retention policy. Add one of:
+        - An `expires` index (Mongoose TTL index),
+        - A `deletedAt`/`expiresAt` field with a TTL job,
+        - Or a `retentionPolicy` static property the assessor can detect.
+      Without a documented retention policy, data may be kept longer than necessary, violating
+      PIPEDA, GDPR storage limitation, CCPA, and Quebec Law 25.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://gdpr.eu/article-5-principles-for-processing-personal-data/"
+      controls:
+        - "CA-PIPEDA-005"
+        - "EU-GDPR-003"
+        - "CA-QC-LAW25-022"
+        - "US-CA-CCPA-007"
+      confidence: "production"
+    patterns:
+      - pattern-either:
+          - patterns:
+              - pattern: |
+                  new mongoose.Schema({...})
+              - pattern-not: |
+                  new mongoose.Schema({..., expires: ..., ...})
+              - pattern-not: |
+                  new mongoose.Schema({..., deletedAt: ..., ...})
+              - pattern-not: |
+                  new mongoose.Schema({..., expiresAt: ..., ...})
+          - patterns:
+              - pattern: |
+                  $MODEL.init({...}, {...})
+              - pattern-not: |
+                  $MODEL.init({..., deletedAt: ..., ...})
+              - pattern-not: |
+                  $MODEL.init({..., expiresAt: ..., ...})
+
+  - id: missing-retention-java
+    languages: [java]
+    severity: INFO
+    message: |
+      JPA @Entity class without a retention annotation or a scheduled purge indicator. Consider
+      adding a custom @Retention annotation or a `retentionDays` field. Without a documented
+      retention schedule, data may be kept longer than necessary. Baseline rule — review manually.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://gdpr.eu/article-5-principles-for-processing-personal-data/"
+      controls:
+        - "CA-PIPEDA-005"
+        - "EU-GDPR-003"
+        - "CA-QC-LAW25-022"
+        - "US-CA-CCPA-007"
+      confidence: "baseline"
+    patterns:
+      - pattern: |
+          @Entity
+          class $MODEL {
+            ...
+          }
+      - pattern-not: |
+          @Entity
+          @Retention(...)
+          class $MODEL {
+            ...
+          }
+      - pattern-not: |
+          @Entity
+          class $MODEL {
+            ...
+            int retentionDays = ...;
+            ...
+          }
+      - pattern-not: |
+          @Entity
+          class $MODEL {
+            ...
+            LocalDate expiresAt = ...;
+            ...
+          }
+
+  - id: missing-retention-csharp
+    languages: [csharp]
+    severity: INFO
+    message: |
+      EF Core entity class without a retention policy indicator. Consider adding a
+      [RetentionPolicy] attribute, an ExpiresAt or DeletedAt property, or a RetentionDays
+      constant. Without a documented retention schedule, data may be kept longer than necessary,
+      violating PIPEDA, GDPR storage limitation, CCPA, and Quebec Law 25.
+      Baseline rule — review manually.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://gdpr.eu/article-5-principles-for-processing-personal-data/"
+      controls:
+        - "CA-PIPEDA-005"
+        - "EU-GDPR-003"
+        - "CA-QC-LAW25-022"
+        - "US-CA-CCPA-007"
+      confidence: "baseline"
+    patterns:
+      - pattern: |
+          class $MODEL : $BASE {
+            ...
+          }
+      - pattern-not: |
+          [RetentionPolicy(...)]
+          class $MODEL : $BASE {
+            ...
+          }
+      - pattern-not: |
+          class $MODEL : $BASE {
+            ...
+            public DateTime ExpiresAt { get; set; }
+            ...
+          }
+      - pattern-not: |
+          class $MODEL : $BASE {
+            ...
+            public DateTime DeletedAt { get; set; }
+            ...
+          }
+      - pattern-not: |
+          class $MODEL : $BASE {
+            ...
+            public int RetentionDays { get; set; }
+            ...
+          }

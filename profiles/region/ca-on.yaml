@@ -2,18 +2,34 @@ profile:
   uuid: "b2c3d4e5-0101-4000-8000-200000000001"
   metadata:
     title: "Canada — Ontario Region Profile (PIPEDA + CASL)"
-    last-modified: "2026-05-08T00:00:00Z"
-    version: "0.0.1-skeleton"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
     oscal-version: "1.0.2"
   imports:
     - href: "../../regulations/pipeda.yaml"
       include-controls:
         - with-ids:
             - "CA-PIPEDA-001"
+            - "CA-PIPEDA-002"
+            - "CA-PIPEDA-003"
+            - "CA-PIPEDA-004"
+            - "CA-PIPEDA-005"
+            - "CA-PIPEDA-006"
+            - "CA-PIPEDA-007"
+            - "CA-PIPEDA-008"
+            - "CA-PIPEDA-009"
+            - "CA-PIPEDA-010"
+            - "CA-PIPEDA-011"
+            - "CA-PIPEDA-012"
     - href: "../../regulations/casl.yaml"
       include-controls:
         - with-ids:
             - "CA-CASL-001"
+            - "CA-CASL-002"
+            - "CA-CASL-003"
+            - "CA-CASL-004"
+            - "CA-CASL-005"
+            - "CA-CASL-006"
   merge:
     combine:
       method: merge

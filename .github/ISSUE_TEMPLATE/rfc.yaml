@@ -1,0 +1,97 @@
+name: RFC — New Regulation or Structural Change
+description: >
+  Propose a new regulation catalog entry or a structural change to the catalog
+  schema, directory layout, or validation rules. Read docs/rfc-process.md before filing.
+title: "RFC: "
+labels:
+  - rfc
+  - needs-triage
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Before filing:** Read [`docs/rfc-process.md`](../docs/rfc-process.md).
+        The comment period is 10 calendar days. Incomplete RFCs will be closed and returned for revision.
+
+  - type: input
+    id: sponsor
+    attributes:
+      label: Sponsor
+      description: >
+        Your GitHub handle. You are committing to drive authoring if this RFC is accepted.
+        Must be a current Contributor, Reviewer, or Maintainer.
+      placeholder: "@your-github-handle"
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: >
+        Why is this regulation or change needed? What problem does it solve for users of the toolkit?
+        Cite the jurisdiction, regulator, or schema pain point.
+      placeholder: "Quebec Law 25 (Bill 64) is in force and affects all Quebec-resident organizations..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: >
+        What regulations, jurisdictions, control IDs, or schema elements are in scope?
+        Be explicit about what is OUT of scope to prevent scope creep.
+      placeholder: |
+        In scope: …
+        Out of scope: …
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: >
+        How does this affect existing controls, CI validation, downstream consumers
+        (compliance-assess detection rules), or SME review obligations?
+      placeholder: "Adds 20–25 new controls under CA-QC-LAW25-*. No schema changes required..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: >
+        What other approaches were considered and why were they not chosen?
+      placeholder: "Alternative A: fold into PIPEDA. Rejected because..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks
+      description: >
+        Legal accuracy risks, maintenance burden, coverage gaps, license compatibility issues,
+        or other concerns.
+      placeholder: "Risk: regulation text is in French only; translation fidelity must be verified by a QC-licensed SME..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have read `docs/rfc-process.md`
+          required: true
+        - label: I searched existing issues and this RFC is not a duplicate
+          required: true
+        - label: I am willing to sponsor (drive authoring) if this RFC is accepted
+          required: true
+        - label: I have identified a primary government source for the regulation(s) in scope
+          required: true

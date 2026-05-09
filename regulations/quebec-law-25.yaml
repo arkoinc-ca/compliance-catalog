@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-0002-4000-8000-100000000002"
   metadata:
     title: "An Act to modernize legislative provisions as regards the protection of personal information (Quebec Law 25 / Bill 64)"
-    last-modified: "2026-05-08T00:00:00Z"
-    version: "0.0.1-skeleton"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -11,19 +11,922 @@ catalog:
       - name: "jurisdiction"
         value: "CA-QC"
       - name: "effective-as-of"
-        value: "2024-09-22"
+        value: "2022-09-22"
       - name: "source-citation"
         value: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+      - name: "amending-act"
+        value: "Bill 64 / An Act to modernize legislative provisions as regards the protection of personal information, SQ 2021, c 25"
   groups:
     - id: "qc-law25-governance"
       title: "Governance and Accountability"
       controls:
         - id: "CA-QC-LAW25-001"
-          title: "Privacy Officer — Designate a person responsible for the protection of personal information"
+          uuid: "a1b2c3d4-0021-4000-8000-100000000021"
+          title: "Designate a person in charge of the protection of personal information"
           props:
+            - name: "source-section"
+              value: "§3.1"
+            - name: "effective-date"
+              value: "2022-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
             - name: "status"
-              value: "skeleton"
+              value: "draft"
           parts:
-            - id: "QC-LAW25-1-stmt"
+            - id: "CA-QC-LAW25-001_smt"
               name: "statement"
-              prose: "TODO: Author full control statement in Phase 1."
+              prose: |
+                The enterprise must designate a person in charge of the protection of personal information. By default,
+                the person in charge is the person exercising the highest authority within the enterprise. The enterprise
+                may designate another natural person to assume that role. The name and contact information of the person
+                in charge must be published on the enterprise's website.
+            - id: "CA-QC-LAW25-001_gdn"
+              name: "guidance"
+              prose: |
+                Publish the privacy officer's name (or title) and a contact method (email address or web form) on the
+                publicly accessible portion of your website. The person in charge need not be an employee — an external
+                DPO-equivalent is permitted. Document the delegation in writing and retain it. The CAI (Commission
+                d'accès à l'information) may audit whether a named contact is reachable.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-002"
+          uuid: "a1b2c3d4-0022-4000-8000-100000000022"
+          title: "Publish contact information of the person in charge"
+          props:
+            - name: "source-section"
+              value: "§3.1"
+            - name: "effective-date"
+              value: "2022-09-22"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-002_smt"
+              name: "statement"
+              prose: |
+                The enterprise must publish on its website the title and contact information of the person in charge
+                of the protection of personal information, so that any person may contact them to exercise their rights
+                or to make inquiries about personal information held by the enterprise.
+            - id: "CA-QC-LAW25-002_gdn"
+              name: "guidance"
+              prose: |
+                The contact information must be accessible without requiring a login. A dedicated privacy contact page
+                or a footer link on the main website satisfies this requirement. A generic 'contact us' form is
+                insufficient unless it is clearly labeled for privacy inquiries directed to the person in charge.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-003"
+          uuid: "a1b2c3d4-0023-4000-8000-100000000023"
+          title: "Define and document the privacy governance framework"
+          props:
+            - name: "source-section"
+              value: "§3.1"
+            - name: "effective-date"
+              value: "2022-09-22"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-003_smt"
+              name: "statement"
+              prose: |
+                The person in charge of the protection of personal information is responsible for ensuring that the
+                enterprise complies with the Act respecting the protection of personal information in the private sector.
+                The enterprise must maintain internal governance rules and policies to give effect to this responsibility.
+            - id: "CA-QC-LAW25-003_gdn"
+              name: "guidance"
+              prose: |
+                Establish a written privacy governance framework covering: roles and responsibilities for data handling,
+                internal escalation paths for privacy concerns, employee training requirements, and a schedule for
+                periodic policy review. The person in charge should be empowered to make or escalate binding decisions
+                on data processing activities.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+    - id: "qc-law25-transparency"
+      title: "Transparency and Information to Individuals"
+      controls:
+        - id: "CA-QC-LAW25-004"
+          uuid: "a1b2c3d4-0024-4000-8000-100000000024"
+          title: "Inform individuals of purposes at or before collection"
+          props:
+            - name: "source-section"
+              value: "§8"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-004_smt"
+              name: "statement"
+              prose: |
+                Any enterprise that collects personal information must, at or before the time of collection, inform
+                the persons concerned of: the purposes for which the information is collected; the means by which it
+                is collected; the rights of access and rectification provided by law; and the right to withdraw consent
+                at any time.
+            - id: "CA-QC-LAW25-004_gdn"
+              name: "guidance"
+              prose: |
+                Privacy notices must be provided at or before the point of collection, not buried in a general terms
+                document. For digital products, embed a layered notice at the data-entry point (e.g., below a
+                registration form) with a link to the full privacy policy. Ensure the notice specifically identifies
+                each purpose — 'to improve our services' alone is insufficient.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-005"
+          uuid: "a1b2c3d4-0025-4000-8000-100000000025"
+          title: "Disclose third-party sharing and automated decision-making at collection"
+          props:
+            - name: "source-section"
+              value: "§8.1"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-005_smt"
+              name: "statement"
+              prose: |
+                Where an enterprise uses personal information for automated decision-making, or communicates it to
+                third parties, it must so inform the persons concerned at the time of collection. The notice must
+                identify any third parties with whom information will be shared and the purposes of such sharing.
+            - id: "CA-QC-LAW25-005_gdn"
+              name: "guidance"
+              prose: |
+                Name or categorize recipients of personal information in the privacy notice (e.g., 'payment processors',
+                'analytics providers'). If the enterprise uses profiling or scoring algorithms that produce decisions
+                affecting individuals, this must be disclosed at collection. Generic references to 'service providers'
+                without further description do not satisfy this requirement.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-006"
+          uuid: "a1b2c3d4-0026-4000-8000-100000000026"
+          title: "Publish a publicly accessible privacy policy"
+          props:
+            - name: "source-section"
+              value: "§8.2"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-006_smt"
+              name: "statement"
+              prose: |
+                An enterprise must make its confidentiality policy available on its website. The policy must be written
+                in plain language and provide information about the management of personal information, including
+                the categories of persons who have access to the information and the retention periods.
+            - id: "CA-QC-LAW25-006_gdn"
+              name: "guidance"
+              prose: |
+                The privacy policy must be written in clear, plain language accessible to a non-specialist. It must
+                cover: what information is collected; why; who has access internally and externally; how long it is
+                retained; and how individuals may exercise their rights. Link the policy from every page footer and
+                from consent screens. Review and update it whenever processing activities change materially.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+    - id: "qc-law25-consent"
+      title: "Consent"
+      controls:
+        - id: "CA-QC-LAW25-007"
+          uuid: "a1b2c3d4-0027-4000-8000-100000000027"
+          title: "Obtain express consent for sensitive personal information"
+          props:
+            - name: "source-section"
+              value: "§12"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-007_smt"
+              name: "statement"
+              prose: |
+                Consent to the collection, use or communication of personal information must be manifest, free,
+                informed and given for specific purposes. Consent is valid only for the time necessary to achieve
+                those purposes. Any consent obtained through deception or coercion is without effect.
+            - id: "CA-QC-LAW25-007_gdn"
+              name: "guidance"
+              prose: |
+                Consent must be affirmative — pre-ticked checkboxes, bundled consent, or consent buried in terms
+                of service do not meet the standard. For each purpose, obtain a separate, explicit confirmation.
+                Document the consent record (timestamp, version of notice shown, method of confirmation). Consent
+                given under threat of service denial is not 'free' unless the collection is strictly necessary for
+                the service requested.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-008"
+          uuid: "a1b2c3d4-0028-4000-8000-100000000028"
+          title: "Obtain granular consent — separate consent for each purpose"
+          props:
+            - name: "source-section"
+              value: "§13"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-008_smt"
+              name: "statement"
+              prose: |
+                A request for consent must be presented separately from any other information communicated to the
+                person. Consent to the use of personal information for commercial prospecting purposes must be
+                obtained separately from any other consent.
+            - id: "CA-QC-LAW25-008_gdn"
+              name: "guidance"
+              prose: |
+                Do not bundle marketing consent with functional consent. Present a distinct, stand-alone consent
+                request for each material purpose (e.g., product account creation, marketing emails, sharing with
+                partners). The consent interface must clearly distinguish each purpose so the individual can
+                selectively accept or decline. Record each consent decision with its associated purpose.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-009"
+          uuid: "a1b2c3d4-0029-4000-8000-100000000029"
+          title: "Honor withdrawal of consent without penalty"
+          props:
+            - name: "source-section"
+              value: "§14"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-009_smt"
+              name: "statement"
+              prose: |
+                A person may withdraw their consent to the collection, use or communication of personal information
+                at any time, subject to the time required to process the withdrawal and any legal or contractual
+                constraints. Withdrawal of consent must not result in any reprisal against the person.
+            - id: "CA-QC-LAW25-009_gdn"
+              name: "guidance"
+              prose: |
+                Provide a simple, always-accessible mechanism for consent withdrawal (e.g., account settings page,
+                unsubscribe link, emailed request). Process withdrawal requests without undue delay. Withdrawal of
+                marketing consent must not degrade access to the core service. Document the withdrawal timestamp and
+                cease processing for the withdrawn purpose within a reasonable time (CAI guidance suggests promptly).
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-010"
+          uuid: "a1b2c3d4-0030-4000-8000-100000000030"
+          title: "Obtain parental consent for individuals under 14"
+          props:
+            - name: "source-section"
+              value: "§4.1"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-010_smt"
+              name: "statement"
+              prose: |
+                When an enterprise collects personal information from a person under 14 years of age, it must obtain
+                the consent of the person having parental authority before collecting such information. An enterprise
+                may not refuse to provide a service to a minor solely on the grounds that parental consent is required.
+            - id: "CA-QC-LAW25-010_gdn"
+              name: "guidance"
+              prose: |
+                Implement an age-gate at the point of collection if your service is likely to be used by children
+                under 14. Where age verification is not technically feasible, adopt a risk-based approach and treat
+                any user who may be under 14 as requiring parental consent. Document how parental consent is captured
+                and verified. The CAI has indicated that the bar for verification is proportionate to the sensitivity
+                of information collected.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+    - id: "qc-law25-privacy-by-default"
+      title: "Privacy by Default"
+      controls:
+        - id: "CA-QC-LAW25-011"
+          uuid: "a1b2c3d4-0031-4000-8000-100000000031"
+          title: "Apply privacy by default to technological products and services"
+          props:
+            - name: "source-section"
+              value: "§9.1"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-011_smt"
+              name: "statement"
+              prose: |
+                Any enterprise that develops or offers a technological product or service to the public that allows
+                the collection of personal information must ensure that the parameters of the product or service
+                provide the highest level of confidentiality by default, without any intervention by the person
+                concerned. No personal information may be publicly disclosed by default through such a product or
+                service.
+            - id: "CA-QC-LAW25-011_gdn"
+              name: "guidance"
+              prose: |
+                This obligation applies to technology products with profiling, identification, or location-tracking
+                capabilities. Default settings must restrict data sharing to what is strictly necessary. Optional
+                features that increase data exposure must be off by default and require active opt-in. Conduct a
+                design review at product launch and after material feature changes to verify that default
+                configurations do not expose personal information without the user's affirmative action.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+    - id: "qc-law25-pia"
+      title: "Privacy Impact Assessment"
+      controls:
+        - id: "CA-QC-LAW25-012"
+          uuid: "a1b2c3d4-0032-4000-8000-100000000032"
+          title: "Conduct a PIA for information technology acquisition projects"
+          props:
+            - name: "source-section"
+              value: "§3.3"
+            - name: "effective-date"
+              value: "2022-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-012_smt"
+              name: "statement"
+              prose: |
+                Any enterprise that acquires, develops or overhauled an information system involving personal
+                information must, before doing so, conduct a privacy impact assessment (PIA) with respect to such
+                a project. The PIA must be proportionate to the sensitivity of the information concerned and must
+                identify and assess the privacy risks associated with the project and propose measures to mitigate
+                those risks.
+            - id: "CA-QC-LAW25-012_gdn"
+              name: "guidance"
+              prose: |
+                A PIA is required before launching new IT systems, significant system overhauls, or new data
+                processing activities involving personal information. The PIA must be documented and retained.
+                Elements to address: purpose and legal basis for collection; data flows; third-party processors;
+                security measures; retention schedule; rights-enablement mechanisms; and residual risk. Consult
+                the CAI's published PIA guidance for a reference template. PIAs should be revisited when the
+                system changes materially.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-013"
+          uuid: "a1b2c3d4-0033-4000-8000-100000000033"
+          title: "Conduct a PIA before any cross-border transfer of personal information"
+          props:
+            - name: "source-section"
+              value: "§3.3"
+            - name: "effective-date"
+              value: "2022-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-013_smt"
+              name: "statement"
+              prose: |
+                Before communicating personal information outside Quebec, an enterprise must conduct a privacy
+                impact assessment to determine whether the information will receive protection equivalent to that
+                provided under Quebec law. The PIA for cross-border transfers must consider the legal framework
+                of the recipient jurisdiction and any contractual or technical measures in place to protect the
+                information.
+            - id: "CA-QC-LAW25-013_gdn"
+              name: "guidance"
+              prose: |
+                Document the jurisdictions where personal information is transferred or stored (including cloud
+                providers' data residency). For each transfer destination, assess: adequacy of local privacy laws;
+                risk of government access; contractual protections (data processing agreements, standard contractual
+                clauses equivalent). If the assessment concludes that equivalent protection cannot be ensured,
+                the transfer must not proceed without additional safeguards or consent. Retain the PIA on file.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+    - id: "qc-law25-cross-border"
+      title: "Cross-Border Transfers"
+      controls:
+        - id: "CA-QC-LAW25-014"
+          uuid: "a1b2c3d4-0034-4000-8000-100000000034"
+          title: "Ensure equivalent protection before communicating personal information outside Quebec"
+          props:
+            - name: "source-section"
+              value: "§17"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-014_smt"
+              name: "statement"
+              prose: |
+                An enterprise may not communicate personal information outside Quebec or entrust an enterprise
+                outside Quebec with the task of collecting, holding, using or communicating personal information
+                on its behalf unless it has previously conducted a privacy impact assessment establishing that
+                the information will receive protection equivalent to that afforded under Quebec law, and takes
+                any necessary measures to ensure such protection.
+            - id: "CA-QC-LAW25-014_gdn"
+              name: "guidance"
+              prose: |
+                Equivalent protection is assessed against the AQPRP (Act respecting the protection of personal
+                information in the private sector) standard. Before onboarding any vendor or cloud provider
+                processing Quebec residents' data outside Quebec, complete a documented transfer-PIA. Execute a
+                written data processing agreement specifying security obligations, sub-processor controls, and
+                return/destruction of data on contract end. Periodically re-assess when vendors change their
+                data residency or sub-processor arrangements.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+    - id: "qc-law25-breach"
+      title: "Breach Notification"
+      controls:
+        - id: "CA-QC-LAW25-015"
+          uuid: "a1b2c3d4-0035-4000-8000-100000000035"
+          title: "Notify the CAI of a confidentiality incident involving serious injury risk"
+          props:
+            - name: "source-section"
+              value: "§3.5, §3.6"
+            - name: "effective-date"
+              value: "2022-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-015_smt"
+              name: "statement"
+              prose: |
+                Any enterprise that becomes aware of a confidentiality incident involving personal information it
+                holds must, as soon as reasonably possible, notify the Commission d'accès à l'information (CAI)
+                if the incident presents a risk of serious injury to the persons concerned. An enterprise must
+                also keep a register of every confidentiality incident.
+            - id: "CA-QC-LAW25-015_gdn"
+              name: "guidance"
+              prose: |
+                Notification to the CAI must be made using the CAI's prescribed form as soon as reasonably possible
+                after discovery — the CAI has indicated a 72-hour window aligns with best practice, though the
+                Act does not prescribe an exact deadline. Maintain a confidentiality incident register (log)
+                containing: the date of the incident; a description; the categories of individuals affected;
+                the risks identified; and remedial measures taken. The register must be retained and made available
+                to the CAI on request. All incidents must be logged regardless of whether they meet the notification
+                threshold.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-016"
+          uuid: "a1b2c3d4-0036-4000-8000-100000000036"
+          title: "Notify affected individuals of a confidentiality incident involving serious injury risk"
+          props:
+            - name: "source-section"
+              value: "§3.7, §3.8"
+            - name: "effective-date"
+              value: "2022-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-016_smt"
+              name: "statement"
+              prose: |
+                Where a confidentiality incident presents a risk of serious injury to the persons concerned, the
+                enterprise must notify each person whose personal information was involved as soon as reasonably
+                possible. The notice must contain sufficient information to allow the person to take steps to
+                protect their interests.
+            - id: "CA-QC-LAW25-016_gdn"
+              name: "guidance"
+              prose: |
+                Individual notification must include: a description of the incident; the date or period during
+                which it occurred; the categories of personal information affected; the measures the enterprise
+                has taken or intends to take; any assistance or resources available to the individual; and the
+                contact information of the person in charge of personal information protection. Notification may
+                be delayed if law enforcement confirms that it would impede an investigation. Document all
+                notification decisions and timelines.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+    - id: "qc-law25-rights"
+      title: "Individual Rights"
+      controls:
+        - id: "CA-QC-LAW25-017"
+          uuid: "a1b2c3d4-0037-4000-8000-100000000037"
+          title: "Respond to access requests for personal information"
+          props:
+            - name: "source-section"
+              value: "§27, §28, §29"
+            - name: "effective-date"
+              value: "2022-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-017_smt"
+              name: "statement"
+              prose: |
+                Any person has the right to be informed of the existence of personal information concerning them
+                that is held by an enterprise, to be acquainted with that information, and to have it communicated
+                to them in a comprehensible form. Enterprises must respond to access requests within 30 days or,
+                where the request cannot be dealt with within 30 days, must notify the person of the extended
+                timeframe.
+            - id: "CA-QC-LAW25-017_gdn"
+              name: "guidance"
+              prose: |
+                Establish an internal process for receiving, routing, and responding to access requests within
+                the 30-day statutory window. The response must: confirm whether information is held; provide the
+                information in an intelligible format; identify who has had access to it; and explain the source
+                of the information where known. Requests made by email or through a web form must be treated
+                equally to written requests. Where access is refused in whole or in part, state the legal ground
+                for refusal and inform the person of their right to seek review by the CAI.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-018"
+          uuid: "a1b2c3d4-0038-4000-8000-100000000038"
+          title: "Honor rectification requests for inaccurate or incomplete personal information"
+          props:
+            - name: "source-section"
+              value: "§28, §30"
+            - name: "effective-date"
+              value: "2022-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-018_smt"
+              name: "statement"
+              prose: |
+                Any person has the right to have inaccurate, incomplete, ambiguous, or outdated personal
+                information held by an enterprise corrected. The enterprise must, free of charge, rectify the
+                information and, where applicable, transmit a copy of the rectified information to third parties
+                to whom the information was communicated in the preceding year.
+            - id: "CA-QC-LAW25-018_gdn"
+              name: "guidance"
+              prose: |
+                Implement a workflow to accept rectification requests, verify identity, update records, and notify
+                any third parties who received the now-corrected information. Rectification must be performed at
+                no charge to the individual. Keep a log of rectification actions including the date, field corrected,
+                and any downstream notifications. Where rectification is refused, document the reason and inform
+                the individual of their recourse rights with the CAI.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-019"
+          uuid: "a1b2c3d4-0039-4000-8000-100000000039"
+          title: "Provide personal information in portable, structured format on request"
+          props:
+            - name: "source-section"
+              value: "§27 (computerized format)"
+            - name: "effective-date"
+              value: "2024-09-22"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-019_smt"
+              name: "statement"
+              prose: |
+                Any person who has provided personal information to an enterprise in computerized form has the
+                right to receive that information in a structured, commonly used technological format. The
+                enterprise must, on request, communicate the information to any person or body authorized by
+                the individual to receive it. This portability right came into force on September 22, 2024.
+            - id: "CA-QC-LAW25-019_gdn"
+              name: "guidance"
+              prose: |
+                Portability applies to information the individual actively provided in digital form (e.g., profile
+                data, transaction history, preferences) — it does not extend to inferred or derived data. Provide
+                the export in a commonly-used, machine-readable format such as JSON, CSV, or XML. Implement a
+                data export feature in your product or an administrative process to fulfill requests within the
+                30-day access-request window. Third-party portability transfers require identity verification of
+                both the requesting individual and the receiving party.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-020"
+          uuid: "a1b2c3d4-0040-4000-8000-100000000040"
+          title: "Honor the right to deindexing and cessation of dissemination"
+          props:
+            - name: "source-section"
+              value: "§28.1"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-020_smt"
+              name: "statement"
+              prose: |
+                Any person may ask an enterprise that disseminates personal information on the internet to cease
+                disseminating that information or to re-index it, where the dissemination causes them serious
+                injury. The enterprise must act on such a request unless it can justify continued dissemination
+                on grounds of public interest, freedom of expression, or journalistic purpose.
+            - id: "CA-QC-LAW25-020_gdn"
+              name: "guidance"
+              prose: |
+                This right applies to content published online that contains personal information about the
+                requesting individual. Establish a process to receive and evaluate deindexing requests, assess
+                the proportionality between the individual's privacy interest and the public interest in
+                maintaining the content, and document the decision. If the request is granted, remove or re-index
+                the content and, where feasible, request search engine deindexing. If refused, notify the
+                individual of their right to apply to the CAI.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+        - id: "CA-QC-LAW25-021"
+          uuid: "a1b2c3d4-0041-4000-8000-100000000041"
+          title: "Notify individuals of automated decision-making and provide right to human review"
+          props:
+            - name: "source-section"
+              value: "§12.1"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-021_smt"
+              name: "statement"
+              prose: |
+                An enterprise that uses personal information to render a decision based exclusively on automated
+                processing must inform the person concerned of this fact as soon as the decision is made. The
+                enterprise must also, on request, inform the person of the personal information used to render
+                the decision, the reasons and principal factors and parameters that led to the decision, and the
+                person's right to have the decision reviewed by a human being.
+            - id: "CA-QC-LAW25-021_gdn"
+              name: "guidance"
+              prose: |
+                Automated decision-making includes algorithmic credit scoring, fraud screening, content moderation,
+                hiring screening, and similar systems where no human reviews the specific decision. Ensure
+                notification occurs at the time the decision is communicated to the individual. Provide a
+                meaningful right to request human review — not merely a form that routes back to the same
+                algorithm. Document the logic, parameters, and data inputs for each automated decision system
+                in a way that allows meaningful explanation to affected individuals.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+    - id: "qc-law25-retention"
+      title: "Retention and Destruction"
+      controls:
+        - id: "CA-QC-LAW25-022"
+          uuid: "a1b2c3d4-0042-4000-8000-100000000042"
+          title: "Establish and apply a data retention and destruction schedule"
+          props:
+            - name: "source-section"
+              value: "§23"
+            - name: "effective-date"
+              value: "2022-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-022_smt"
+              name: "statement"
+              prose: |
+                An enterprise must not keep personal information beyond the period necessary to achieve the
+                purposes for which it was collected. Once those purposes are served, the enterprise must destroy
+                the information or anonymize it in order to use it for serious and legitimate purposes.
+                Anonymization must result in information that can no longer be used to identify an individual,
+                directly or indirectly.
+            - id: "CA-QC-LAW25-022_gdn"
+              name: "guidance"
+              prose: |
+                Document a retention schedule specifying each category of personal information, the retention
+                period, and the legal or business justification. Implement automated deletion or anonymization
+                workflows. Anonymization must meet the CAI's technical standard — pseudonymization (e.g., hashing
+                with a key that remains in your possession) is not anonymization. Retain the retention schedule
+                and evidence of deletion on file. The CAI may request evidence that destruction has occurred.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+    - id: "qc-law25-confidentiality-policies"
+      title: "Confidentiality Policies"
+      controls:
+        - id: "CA-QC-LAW25-023"
+          uuid: "a1b2c3d4-0043-4000-8000-100000000043"
+          title: "Maintain a publicly accessible, plain-language confidentiality policy"
+          props:
+            - name: "source-section"
+              value: "§3.2"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-023_smt"
+              name: "statement"
+              prose: |
+                An enterprise must adopt and implement policies and practices governing the governance of personal
+                information. The enterprise must publish on its website a confidentiality policy written in plain
+                language that covers the management of personal information including: collection purposes;
+                categories of persons having access; retention periods; and how to exercise rights under the Act.
+            - id: "CA-QC-LAW25-023_gdn"
+              name: "guidance"
+              prose: |
+                The policy must be genuinely readable by an ordinary person — avoid legal jargon and passive voice.
+                Structure it with clear headers and use plain-language summaries alongside any required legal
+                formulations. Update the policy each time processing activities change and publish the revision
+                date prominently. The CAI recommends the policy address: who collects; what is collected; why;
+                how long it is kept; who can access it; how individuals exercise rights; and who to contact.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+    - id: "qc-law25-vendors"
+      title: "Vendor and Processor Agreements"
+      controls:
+        - id: "CA-QC-LAW25-024"
+          uuid: "a1b2c3d4-0044-4000-8000-100000000044"
+          title: "Require written agreements protecting personal information with service providers"
+          props:
+            - name: "source-section"
+              value: "§18.3"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-024_smt"
+              name: "statement"
+              prose: |
+                An enterprise that has personal information collected on its behalf by a third person, or that
+                entrusts a third person with the task of holding, using or communicating personal information
+                on its behalf, must ensure that the third person provides a level of protection equivalent to
+                that required by the Act. The agreement with the third person must be in writing and include
+                provisions governing the security of information and its return or destruction at the end of
+                the agreement.
+            - id: "CA-QC-LAW25-024_gdn"
+              name: "guidance"
+              prose: |
+                Execute a written data processing agreement (DPA) with every vendor, contractor, or cloud provider
+                that processes Quebec residents' personal information on your behalf. The DPA must include: security
+                obligations; restrictions on use for the vendor's own purposes; sub-processor controls; breach
+                notification obligations to you; and provisions requiring the return or certified destruction of
+                data on contract termination. Review DPAs when vendors update their sub-processor lists or
+                change data residency. Maintain a vendor register with DPA status and last-review date.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"
+
+    - id: "qc-law25-records"
+      title: "Records of Communications"
+      controls:
+        - id: "CA-QC-LAW25-025"
+          uuid: "a1b2c3d4-0045-4000-8000-100000000045"
+          title: "Maintain records of personal information communicated to third parties"
+          props:
+            - name: "source-section"
+              value: "§17, §3.2"
+            - name: "effective-date"
+              value: "2023-09-22"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-QC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-QC-LAW25-025_smt"
+              name: "statement"
+              prose: |
+                An enterprise must keep a record of any communication of personal information to a person or body
+                outside Quebec, including the information communicated, the recipient, the date, and the purpose.
+                The enterprise's confidentiality policies must describe the governance of such communications,
+                and the records must be made available to the CAI on request.
+            - id: "CA-QC-LAW25-025_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a data-transfer log or register that records: the recipient's name and jurisdiction;
+                the categories of personal information shared; the date of transfer; the legal basis (consent,
+                contract, legitimate interest); and whether a cross-border PIA was conducted. The log supports
+                both CAI audit readiness and breach notification obligations (§3.7 requires notifying downstream
+                recipients of rectified information). Integrate this log with your vendor register and DPA tracking
+                to ensure completeness.
+          links:
+            - href: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+              rel: source
+              text: "Act respecting the protection of personal information in the private sector (CQLR c P-39.1)"

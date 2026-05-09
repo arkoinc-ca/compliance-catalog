@@ -1,0 +1,15 @@
+profile:
+  uuid: "b2c3d4e5-d609-4000-8000-200000000009"
+  metadata:
+    title: "United States — Texas Region Profile (TX-TDPSA)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+  imports:
+    - href: "../../regulations/texas-tdpsa-placeholder.yaml"
+      include-controls:
+        - with-ids:
+            - "US-TX-TDPSA-001"
+  merge:
+    combine:
+      method: merge

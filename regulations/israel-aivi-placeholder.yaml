@@ -1,0 +1,63 @@
+catalog:
+  uuid: "a1b2c3d4-c300-4000-8000-100000000000"
+  metadata:
+    title: "Israel AI & Data Protection — Placeholder (Non-Binding 2023 Policy)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "IL-AIVI"
+      - name: "jurisdiction"
+        value: "IL"
+      - name: "effective-as-of"
+        value: "2023-01-01"
+      - name: "source-citation"
+        value: "https://www.gov.il/en/departments/ministry_of_innovation_science_technology"
+      - name: "status-note"
+        value: "Non-binding guidance only — no binding AI statute enacted as of 2026-05-09."
+  groups:
+    - id: "il-aivi-placeholder"
+      title: "Placeholder — Pending Binding Legislation"
+      controls:
+        - id: "IL-AIVI-001"
+          uuid: "a1b2c3d4-c301-4000-8000-100000000001"
+          title: "Monitor Israeli AI policy for future binding legislation"
+          props:
+            - name: "source-section"
+              value: "Ministry of Innovation, Science and Technology — AI Policy 2023"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "low"
+            - name: "jurisdiction"
+              value: "IL"
+            - name: "status"
+              value: "placeholder"
+          parts:
+            - id: "IL-AIVI-001_smt"
+              name: "statement"
+              prose: |
+                Non-binding — Ministry of Innovation, Science and Technology 2023 AI policy. To be re-evaluated
+                when Israel passes binding AI legislation. As of 2026-05-09, Israel's AI governance framework
+                consists of non-binding policy guidance issued by the Ministry of Innovation, Science and
+                Technology. No dedicated AI statute is in force. The Privacy Protection Authority (PPA)
+                enforces the Privacy Protection Law 5741-1981 and its regulations, which may apply to
+                AI-driven data processing of Israeli citizens' personal information. Organisations should
+                monitor legislative developments and PPA guidance for binding requirements.
+            - id: "IL-AIVI-001_gdn"
+              name: "guidance"
+              prose: |
+                This control is a placeholder pending enactment of binding Israeli AI legislation. Review this
+                catalog entry when: (1) Israel enacts a binding AI Act or amends the Privacy Protection Law
+                to address AI; (2) the PPA issues binding regulations on automated decision-making; or (3) the
+                Israeli Standard Institution publishes mandatory AI standards. In the interim, apply general
+                Privacy Protection Law obligations to AI-driven processing of Israeli personal data, and monitor
+                the Ministry of Innovation's AI policy updates at gov.il.
+          links:
+            - href: "https://www.gov.il/en/departments/ministry_of_innovation_science_technology"
+              rel: source
+              text: "Israeli Ministry of Innovation, Science and Technology"
+            - href: "https://www.gov.il/en/departments/the_privacy_protection_authority"
+              rel: reference
+              text: "Privacy Protection Authority (PPA)"

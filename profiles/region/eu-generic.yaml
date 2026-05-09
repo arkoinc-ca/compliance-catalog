@@ -2,14 +2,35 @@ profile:
   uuid: "b2c3d4e5-0108-4000-8000-200000000008"
   metadata:
     title: "European Union — Generic Region Profile (GDPR)"
-    last-modified: "2026-05-08T00:00:00Z"
-    version: "0.0.1-skeleton"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
     oscal-version: "1.0.2"
   imports:
     - href: "../../regulations/gdpr.yaml"
       include-controls:
         - with-ids:
             - "EU-GDPR-001"
+            - "EU-GDPR-002"
+            - "EU-GDPR-003"
+            - "EU-GDPR-004"
+            - "EU-GDPR-005"
+            - "EU-GDPR-006"
+            - "EU-GDPR-007"
+            - "EU-GDPR-008"
+            - "EU-GDPR-009"
+            - "EU-GDPR-010"
+            - "EU-GDPR-011"
+            - "EU-GDPR-012"
+            - "EU-GDPR-013"
+            - "EU-GDPR-014"
+            - "EU-GDPR-015"
+            - "EU-GDPR-016"
+            - "EU-GDPR-017"
+            - "EU-GDPR-018"
   merge:
     combine:
       method: merge
+# NOTE: EU AI Act overlay — for products or services subject to the EU Artificial Intelligence Act,
+# compose the eu-ai-act-annex-iv.yaml use-case profile alongside this region profile.
+# See profiles/use-case/eu-ai-act-annex-iv.yaml (to be authored). Do NOT add it to this file's
+# imports list, as not all EU deployments are subject to the AI Act. Compose at the consumer level.

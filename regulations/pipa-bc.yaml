@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-0004-4000-8000-100000000004"
   metadata:
     title: "Personal Information Protection Act (British Columbia PIPA)"
-    last-modified: "2026-05-08T00:00:00Z"
-    version: "0.0.1-skeleton"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -15,15 +15,331 @@ catalog:
       - name: "source-citation"
         value: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"
   groups:
-    - id: "pipa-bc-collection"
-      title: "Collection of Personal Information"
+    - id: "pipa-bc-collection-and-consent"
+      title: "Collection, Use, Disclosure, and Consent (Part 4, §6–21)"
       controls:
         - id: "CA-BC-PIPA-001"
-          title: "Consent for Collection — Obtain meaningful consent before collecting personal information"
+          uuid: "a1b2c3d4-0301-4000-8000-100000000301"
+          title: "Notification at or Before Collection — disclose purposes and identify contact"
           props:
+            - name: "source-section"
+              value: "§10"
+            - name: "effective-date"
+              value: "2004-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-BC"
             - name: "status"
-              value: "skeleton"
+              value: "draft"
           parts:
-            - id: "PIPA-BC-1-stmt"
+            - id: "CA-BC-PIPA-001_smt"
               name: "statement"
-              prose: "TODO: Author full control statement in Phase 1."
+              prose: |
+                Before or at the time an organization collects personal information about an individual,
+                the organization must, on request, tell the individual the purposes for which the
+                information is being collected and identify a contact person who can answer the
+                individual's questions about the collection. The organization must make this information
+                available without requiring a formal written request.
+            - id: "CA-BC-PIPA-001_gdn"
+              name: "guidance"
+              prose: |
+                Unlike Alberta PIPA §13, BC PIPA §10 is a "on request" disclosure obligation rather
+                than a proactive one, but best practice — confirmed by OIPC BC orders — is to provide
+                the notice proactively at the point of collection. Embed a brief collection notice
+                adjacent to every data-collection touchpoint naming the contact (title sufficient)
+                and the collection purposes. OIPC BC Order P16-01 found that relying on a general
+                website privacy policy without a contextual notice at collection did not meet the spirit
+                of §10 for in-store tablet intake forms.
+          links:
+            - href: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"
+              rel: source
+              text: "Personal Information Protection Act, SBC 2003, c 63 (BC Laws)"
+
+        - id: "CA-BC-PIPA-002"
+          uuid: "a1b2c3d4-0302-4000-8000-100000000302"
+          title: "Consent — Obtain consent for collection, use, and disclosure"
+          props:
+            - name: "source-section"
+              value: "§6, §7"
+            - name: "effective-date"
+              value: "2004-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-BC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-BC-PIPA-002_smt"
+              name: "statement"
+              prose: |
+                An organization must not collect, use, or disclose personal information about an
+                individual without the individual's consent, except as authorized by BC PIPA or
+                another applicable enactment. Consent may be express or implied. Express consent is
+                required where the information is sensitive, the collection is not within the
+                individual's reasonable expectations, or where the organization wishes to use or
+                disclose for secondary purposes. Consent must be obtained for each identified purpose.
+            - id: "CA-BC-PIPA-002_gdn"
+              name: "guidance"
+              prose: |
+                BC PIPA's consent framework closely parallels Alberta PIPA and PIPEDA but applies
+                to provincially-regulated private-sector organizations in BC. Implied consent applies
+                where a reasonable person would expect the collection as part of a service relationship.
+                For secondary uses (marketing, analytics sharing with partners), obtain express opt-in
+                consent separate from service consent. The OIPC BC's guidance note on consent (2015)
+                and Order P17-03 reinforce that consent withdrawal mechanisms must be as easy to use
+                as the original consent mechanism.
+          links:
+            - href: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"
+              rel: source
+              text: "Personal Information Protection Act, SBC 2003, c 63 (BC Laws)"
+
+        - id: "CA-BC-PIPA-003"
+          uuid: "a1b2c3d4-0303-4000-8000-100000000303"
+          title: "Employee Personal Information — Reasonable purposes; notice to employees"
+          props:
+            - name: "source-section"
+              value: "§13, §16, §19"
+            - name: "effective-date"
+              value: "2004-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-BC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-BC-PIPA-003_smt"
+              name: "statement"
+              prose: |
+                BC PIPA establishes a parallel employee-information framework: an employer may collect,
+                use, or disclose employee personal information without consent if it is for a reasonable
+                purpose and the employer has notified the employee of those purposes before or at the
+                time of collection. Disclosure of employee personal information to a third party without
+                consent is limited to the purposes for which it was collected or a consistent purpose.
+            - id: "CA-BC-PIPA-003_gdn"
+              name: "guidance"
+              prose: |
+                Provide a written employment privacy notice at the start of employment covering all
+                collection purposes — payroll, benefits, health and safety, performance management,
+                and any electronic monitoring. Electronic monitoring (computer use, email scanning,
+                GPS tracking of vehicles) requires documented reasonable-purpose justification and
+                must be disclosed in the notice. The OIPC BC's guidance on employee monitoring (2019)
+                recommends a written workplace monitoring policy as a standalone document, separate
+                from the general employment contract.
+          links:
+            - href: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"
+              rel: source
+              text: "Personal Information Protection Act, SBC 2003, c 63 (BC Laws)"
+
+        - id: "CA-BC-PIPA-004"
+          uuid: "a1b2c3d4-0304-4000-8000-100000000304"
+          title: "Disclosure Without Consent — Limit disclosures to listed circumstances; document basis"
+          props:
+            - name: "source-section"
+              value: "§18"
+            - name: "effective-date"
+              value: "2004-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-BC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-BC-PIPA-004_smt"
+              name: "statement"
+              prose: |
+                An organization may disclose personal information about an individual without consent
+                only in circumstances enumerated in §18 of BC PIPA, including: compliance with a
+                subpoena, warrant, or court order; reasonable grounds to believe an emergency involving
+                a risk to life or safety; or for purposes that serve the public interest in a manner
+                that outweighs the intrusion. The organization must document the specific §18 basis
+                for each non-consensual disclosure.
+            - id: "CA-BC-PIPA-004_gdn"
+              name: "guidance"
+              prose: |
+                Mirror your disclosure-authorization procedure to the Alberta framework: all
+                non-consensual disclosures must be reviewed and approved by the privacy officer before
+                release, with the applicable §18 ground recorded. Law-enforcement requests without
+                lawful authority should be declined and referred to legal counsel. BC PIPA §18(1)(e)
+                permits disclosure to a public body for law-enforcement purposes, but voluntary
+                disclosure beyond that provision is not sanctioned. Maintain a disclosure log
+                auditable by the OIPC BC.
+          links:
+            - href: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"
+              rel: source
+              text: "Personal Information Protection Act, SBC 2003, c 63 (BC Laws)"
+
+    - id: "pipa-bc-rights-and-safeguards"
+      title: "Access, Correction, Safeguards, Designation"
+      controls:
+        - id: "CA-BC-PIPA-005"
+          uuid: "a1b2c3d4-0305-4000-8000-100000000305"
+          title: "Right of Access and Correction — Respond within 30 business days"
+          props:
+            - name: "source-section"
+              value: "§23, §24, §28, §29"
+            - name: "effective-date"
+              value: "2004-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-BC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-BC-PIPA-005_smt"
+              name: "statement"
+              prose: |
+                Upon written request, an organization must tell an individual whether it holds personal
+                information about them and provide access to that information within 30 business days
+                of receiving the request. If access cannot be provided within 30 business days, the
+                organization must notify the individual of the extension and the reason. The organization
+                must correct personal information that is shown to be inaccurate or incomplete, and
+                notify any third parties to whom it disclosed the incorrect information.
+            - id: "CA-BC-PIPA-005_gdn"
+              name: "guidance"
+              prose: |
+                BC PIPA's 30-business-day window (approximately 6 calendar weeks) is a key provincial
+                delta from Alberta PIPA's 45-calendar-day limit and Quebec's 30-calendar-day limit —
+                track the distinction carefully in multi-jurisdiction obligations. An extension of up
+                to an additional 30 business days is available under §27(2) for complex or voluminous
+                requests. Refusals must cite the specific §23(3) or §24(1) exception and notify the
+                individual of their right to complain to the OIPC BC. Implement an intake tracker
+                with a business-day deadline counter that excludes weekends and statutory holidays.
+          links:
+            - href: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"
+              rel: source
+              text: "Personal Information Protection Act, SBC 2003, c 63 (BC Laws)"
+            - href: "https://www.oipc.bc.ca/"
+              rel: source
+              text: "Office of the Information and Privacy Commissioner for British Columbia"
+
+        - id: "CA-BC-PIPA-006"
+          uuid: "a1b2c3d4-0306-4000-8000-100000000306"
+          title: "Reasonable Security Arrangements — Protect personal information; mitigate risk of loss/unauthorized access"
+          props:
+            - name: "source-section"
+              value: "§34"
+            - name: "effective-date"
+              value: "2004-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-BC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-BC-PIPA-006_smt"
+              name: "statement"
+              prose: |
+                An organization must protect personal information in its custody or under its control
+                by making reasonable security arrangements to prevent unauthorized access, collection,
+                use, disclosure, copying, modification, or disposal. The level of protection must be
+                appropriate to the sensitivity of the information. This obligation extends to personal
+                information held by service providers acting on the organization's behalf.
+            - id: "CA-BC-PIPA-006_gdn"
+              name: "guidance"
+              prose: |
+                BC PIPA §34 is substantively identical to Alberta PIPA §34 and applies the same
+                proportionality standard. Implement controls proportionate to information sensitivity:
+                encryption at rest and in transit, role-based access controls, audit logging, and
+                vulnerability patching. Vendor contracts must require equivalent security arrangements
+                (see also §15.3 on service-provider agreements). The OIPC BC's published breach
+                investigation reports consistently cite inadequate encryption and absent multi-factor
+                authentication as security failures. Conduct an annual security review and document
+                findings and remediation.
+          links:
+            - href: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"
+              rel: source
+              text: "Personal Information Protection Act, SBC 2003, c 63 (BC Laws)"
+            - href: "https://www.oipc.bc.ca/"
+              rel: source
+              text: "Office of the Information and Privacy Commissioner for British Columbia"
+
+        - id: "CA-BC-PIPA-007"
+          uuid: "a1b2c3d4-0307-4000-8000-100000000307"
+          title: "Privacy Officer / Designation — Designate one or more individuals responsible for compliance"
+          props:
+            - name: "source-section"
+              value: "§4(3)"
+            - name: "effective-date"
+              value: "2004-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-BC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-BC-PIPA-007_smt"
+              name: "statement"
+              prose: |
+                Every organization subject to BC PIPA must designate one or more individuals to be
+                responsible for ensuring that the organization complies with the Act. The organization
+                remains accountable for personal information under its control, regardless of where
+                the information is processed or stored. A transfer of personal information to a third
+                party for processing does not reduce the organization's obligations under the Act.
+            - id: "CA-BC-PIPA-007_gdn"
+              name: "guidance"
+              prose: |
+                The BC PIPA §4(3) designation mirrors Alberta PIPA §5(3) and PIPEDA Principle 1
+                (Accountability). Publish the designated contact's title and a functional contact
+                method in the privacy policy and on the organization's website. The designate should
+                have authority to make binding compliance decisions, receive and respond to OIPC BC
+                inquiries, and oversee access-request handling. The OIPC BC's guidance bulletin on
+                accountability (2016) recommends that organizations of any size maintain a written
+                designation and provide the designate with regular privacy training.
+          links:
+            - href: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"
+              rel: source
+              text: "Personal Information Protection Act, SBC 2003, c 63 (BC Laws)"
+            - href: "https://www.oipc.bc.ca/"
+              rel: source
+              text: "Office of the Information and Privacy Commissioner for British Columbia"
+
+        - id: "CA-BC-PIPA-008"
+          uuid: "a1b2c3d4-0308-4000-8000-100000000308"
+          title: "Records of Privacy Practices — Develop and follow privacy policies and practices and make available on request"
+          props:
+            - name: "source-section"
+              value: "§5"
+            - name: "effective-date"
+              value: "2004-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-BC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-BC-PIPA-008_smt"
+              name: "statement"
+              prose: |
+                An organization must develop and follow policies and practices that give effect to its
+                obligations under BC PIPA, including: designating an individual responsible for
+                compliance; protecting personal information by appropriate security arrangements;
+                making information available to individuals about its policies and practices; and
+                developing a process for responding to complaints. On request, the organization must
+                make its privacy policies and practices available in a generally understandable form.
+            - id: "CA-BC-PIPA-008_gdn"
+              name: "guidance"
+              prose: |
+                This §5 obligation is BC PIPA's transparency and accountability cornerstone — it has
+                no direct statutory breach-notification parallel (unlike Alberta PIPA §34.1), making
+                §5 policy transparency BC's primary public-accountability mechanism. Publish a plain-
+                language privacy policy covering: purposes of collection; who has access; retention
+                periods; rights of access and correction; how to file a complaint; and the contact for
+                the designated privacy officer. Update the policy whenever processing activities
+                change materially and date-stamp each version. The OIPC BC has found organizations
+                non-compliant under §5 where policies were outdated or not made available on request
+                within a reasonable time (see Order P14-02).
+          links:
+            - href: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"
+              rel: source
+              text: "Personal Information Protection Act, SBC 2003, c 63 (BC Laws)"
+            - href: "https://www.oipc.bc.ca/"
+              rel: source
+              text: "Office of the Information and Privacy Commissioner for British Columbia"

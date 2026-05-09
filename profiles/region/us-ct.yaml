@@ -1,0 +1,25 @@
+profile:
+  uuid: "b2c3d4e5-d606-4000-8000-200000000006"
+  metadata:
+    title: "United States — Connecticut Region Profile (CT-CTDPA)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+  imports:
+    - href: "../../regulations/connecticut-ctdpa.yaml"
+      include-controls:
+        - with-ids:
+            - "US-CT-CTDPA-001"
+            - "US-CT-CTDPA-002"
+            - "US-CT-CTDPA-003"
+            - "US-CT-CTDPA-004"
+            - "US-CT-CTDPA-005"
+            - "US-CT-CTDPA-006"
+            - "US-CT-CTDPA-007"
+            - "US-CT-CTDPA-008"
+            - "US-CT-CTDPA-009"
+            - "US-CT-CTDPA-010"
+            - "US-CT-CTDPA-011"
+  merge:
+    combine:
+      method: merge

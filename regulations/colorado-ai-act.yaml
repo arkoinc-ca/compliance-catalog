@@ -1,9 +1,9 @@
 catalog:
   uuid: "a1b2c3d4-0009-4000-8000-100000000009"
   metadata:
-    title: "Colorado Artificial Intelligence Act — C.R.S. §§6-1-1701 through 6-1-1706 (SB24-205)"
-    last-modified: "2026-05-08T00:00:00Z"
-    version: "0.0.1-skeleton"
+    title: "Colorado Artificial Intelligence Act — C.R.S. §§ 6-1-1701 through 6-1-1706 (SB24-205)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -14,16 +14,204 @@ catalog:
         value: "2026-02-01"
       - name: "source-citation"
         value: "https://leg.colorado.gov/bills/sb24-205"
+      - name: "enforcement-note"
+        value: "Effective date subject to legislative delay (e.g., SB25-318); confirm operative date with Colorado AG guidance before relying on this catalog for compliance deadlines."
   groups:
-    - id: "co-ai-act-high-risk"
-      title: "High-Risk Artificial Intelligence Systems"
+    - id: "co-ai-act-developer-and-deployer-duties"
+      title: "Developer and Deployer Duties for High-Risk AI"
       controls:
         - id: "US-CO-AI-001"
-          title: "Impact Assessment — Conduct a risk impact assessment for each high-risk AI system"
+          uuid: "a1b2c3d4-0801-4000-8000-100000000801"
+          title: "Risk Impact Assessment — Documented assessment before deploying a high-risk AI system; reviewed annually"
           props:
+            - name: "source-section"
+              value: "§ 6-1-1703(3); § 6-1-1704(3)"
+            - name: "effective-date"
+              value: "2026-02-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CO"
             - name: "status"
-              value: "skeleton"
+              value: "draft"
           parts:
-            - id: "CO-AI-ACT-1-stmt"
+            - id: "US-CO-AI-001_smt"
               name: "statement"
-              prose: "TODO: Author full control statement in Phase 1."
+              prose: |
+                A developer or deployer of a high-risk artificial intelligence system must, before deploying the
+                system and before each subsequent annual review period, complete a documented impact assessment
+                covering: the purpose, intended benefits, and reasonably foreseeable uses of the system; the
+                categories of data inputs and outputs; the known or reasonably foreseeable risks of algorithmic
+                discrimination and the steps taken to mitigate those risks; and any performance metrics. A
+                consequential decision is one that has a material legal or similarly significant effect on a
+                consumer with respect to education, employment, housing, credit, insurance, or healthcare access.
+            - id: "US-CO-AI-001_gdn"
+              name: "guidance"
+              prose: |
+                Structure the impact assessment as a living document that is reviewed and updated at least annually
+                and whenever the system's use, training data, or decision scope materially changes. The Colorado
+                Attorney General is expected to issue guidance specifying assessment format and content requirements
+                under ongoing rulemaking; monitor the AG's AI guidance pages for updates. For multi-party supply
+                chains, deployers should obtain documentation from developers and integrate it into their own
+                assessment rather than relying solely on vendor-supplied summaries. As of authoring (2026-05-09),
+                the operative effective date may be revised by amending legislation; verify with the Attorney
+                General's published guidance before scheduling compliance work.
+          links:
+            - href: "https://leg.colorado.gov/bills/sb24-205"
+              rel: source
+              text: "Colorado SB24-205, C.R.S. § 6-1-1703(3), § 6-1-1704(3) (Impact Assessment)"
+
+        - id: "US-CO-AI-002"
+          uuid: "a1b2c3d4-0802-4000-8000-100000000802"
+          title: "Reasonable Care to Avoid Algorithmic Discrimination — Protect consumers from known or foreseeable discrimination risks"
+          props:
+            - name: "source-section"
+              value: "§ 6-1-1702; § 6-1-1703(2); § 6-1-1704(2)"
+            - name: "effective-date"
+              value: "2026-02-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CO"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CO-AI-002_smt"
+              name: "statement"
+              prose: |
+                Developers and deployers of high-risk AI systems must use reasonable care to protect consumers
+                from any known or reasonably foreseeable risks of algorithmic discrimination. Algorithmic
+                discrimination means any condition in which a high-risk AI system contributes to unjustified
+                differential treatment or impacts disfavoring consumers on the basis of a protected class under
+                state or federal law, including age, color, disability, familial status, genetic information,
+                marital status, national origin, race, religion, sex, or veteran status.
+            - id: "US-CO-AI-002_gdn"
+              name: "guidance"
+              prose: |
+                Reasonable care obligations require proactive steps throughout the AI system lifecycle: testing for
+                disparate impact on protected classes before deployment, monitoring outcomes during operation,
+                and retraining or adjusting the system when discrimination risks are identified. Maintain records
+                of disparity testing results and remediation actions. The Act creates a rebuttable presumption of
+                reasonable care where a deployer complies with a published government or industry technical
+                standard addressing algorithmic discrimination; the Colorado AG's rulemaking may designate
+                qualifying standards, so monitor for published guidance.
+          links:
+            - href: "https://leg.colorado.gov/bills/sb24-205"
+              rel: source
+              text: "Colorado SB24-205, C.R.S. § 6-1-1702, § 6-1-1703(2), § 6-1-1704(2) (Algorithmic Discrimination)"
+
+        - id: "US-CO-AI-003"
+          uuid: "a1b2c3d4-0803-4000-8000-100000000803"
+          title: "Consumer Notice for Consequential Decisions — Notify consumer when high-risk AI is used; provide explanation rights"
+          props:
+            - name: "source-section"
+              value: "§ 6-1-1703(4); § 6-1-1704(4)"
+            - name: "effective-date"
+              value: "2026-02-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CO"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CO-AI-003_smt"
+              name: "statement"
+              prose: |
+                A deployer that uses a high-risk AI system to make or substantially assist in making a
+                consequential decision must, prior to or at the time of making a consequential decision, notify
+                the consumer that a high-risk AI system is being used, identify the purpose of the system and
+                the nature of the consequential decision, and provide the consumer with the opportunity to request
+                an explanation of the basis for the decision, the principal factors and parameters that contributed
+                to the decision, and how the consumer may correct data that is used by the system.
+            - id: "US-CO-AI-003_gdn"
+              name: "guidance"
+              prose: |
+                Notice must be provided before the decision is rendered or simultaneously with its delivery — not
+                after. Implement a standardized disclosure template that identifies the AI system by name or
+                functional description, the type of decision being made, and the consumer's rights to explanation
+                and correction. Explanation rights require a meaningful summary of the factors that influenced the
+                outcome; generic model descriptions do not satisfy this requirement. The Colorado AG's ongoing
+                rulemaking is expected to clarify the format and method of required notices; review AG guidance
+                pages for updates before deployment.
+          links:
+            - href: "https://leg.colorado.gov/bills/sb24-205"
+              rel: source
+              text: "Colorado SB24-205, C.R.S. § 6-1-1703(4), § 6-1-1704(4) (Consumer Notice)"
+
+        - id: "US-CO-AI-004"
+          uuid: "a1b2c3d4-0804-4000-8000-100000000804"
+          title: "Right to Appeal Adverse Consequential Decisions — Opportunity to correct data and appeal with human review"
+          props:
+            - name: "source-section"
+              value: "§ 6-1-1703(5); § 6-1-1704(5)"
+            - name: "effective-date"
+              value: "2026-02-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-CO"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CO-AI-004_smt"
+              name: "statement"
+              prose: |
+                A deployer that uses a high-risk AI system to make an adverse consequential decision affecting a
+                consumer must provide the consumer with an opportunity to correct any incorrect personal data
+                used by the system and, where technically feasible, to appeal the adverse decision and have it
+                reviewed by a human being. The appeal process must be meaningful and not merely a re-execution
+                of the same automated system.
+            - id: "US-CO-AI-004_gdn"
+              name: "guidance"
+              prose: |
+                Establish a documented appeal workflow with a dedicated intake channel, a human reviewer empowered
+                to override the system's output, and a defined response timeframe. Ensure that the appeal is
+                reviewed by a person with authority and competence to evaluate the specific decision type, not
+                simply a customer-service representative reading AI-generated notes. Where human review is not
+                technically feasible for a particular decision type, document the technical constraint and provide
+                an alternative remedy consistent with AG guidance. Log all appeals, correction requests, and
+                outcomes for at least the period specified in forthcoming AG rulemaking.
+          links:
+            - href: "https://leg.colorado.gov/bills/sb24-205"
+              rel: source
+              text: "Colorado SB24-205, C.R.S. § 6-1-1703(5), § 6-1-1704(5) (Right to Appeal)"
+
+        - id: "US-CO-AI-005"
+          uuid: "a1b2c3d4-0805-4000-8000-100000000805"
+          title: "Disclosure to Attorney General of Algorithmic Discrimination — Report within 90 days of discovery"
+          props:
+            - name: "source-section"
+              value: "§ 6-1-1703(7); § 6-1-1704(7)"
+            - name: "effective-date"
+              value: "2026-02-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CO"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CO-AI-005_smt"
+              name: "statement"
+              prose: |
+                A deployer or developer that discovers that a high-risk AI system has caused or is reasonably
+                likely to have caused algorithmic discrimination must disclose that discovery to the Colorado
+                Attorney General within ninety days of the discovery. The disclosure must describe the nature of
+                the discrimination, the populations affected, the consequential decisions involved, and the
+                remediation steps taken or planned. Developers must also notify deployers of which they are aware
+                that use the affected system so that deployers may fulfill their own disclosure obligations.
+            - id: "US-CO-AI-005_gdn"
+              name: "guidance"
+              prose: |
+                Establish a clear internal trigger for the 90-day clock: the discovery date is when a responsible
+                person within the organization first becomes aware of facts sufficient to reasonably conclude that
+                discrimination has occurred or is likely. Maintain an escalation protocol that routes algorithmic
+                discrimination findings immediately to legal and compliance teams. Prepare a disclosure template
+                covering the required elements so that the notification can be drafted and filed promptly. Because
+                the Act's scope and enforcement procedures are subject to ongoing AG rulemaking, review the AG's
+                published AI guidance pages before finalizing your disclosure process.
+          links:
+            - href: "https://leg.colorado.gov/bills/sb24-205"
+              rel: source
+              text: "Colorado SB24-205, C.R.S. § 6-1-1703(7), § 6-1-1704(7) (AG Disclosure)"

@@ -1,0 +1,59 @@
+catalog:
+  uuid: "a1b2c3d4-b500-4000-8000-100000000000"
+  metadata:
+    title: "Colorado Privacy Act (CPA) — Community Tier Placeholder"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.0.1"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "CO-CPA"
+      - name: "jurisdiction"
+        value: "US-CO"
+      - name: "effective-as-of"
+        value: "2023-07-01"
+      - name: "source-citation"
+        value: "https://leg.colorado.gov/bills/sb21-190"
+      - name: "status"
+        value: "placeholder"
+      - name: "community-tier"
+        value: "tier-2"
+  groups:
+    - id: "co-cpa-placeholder"
+      title: "Placeholder Controls"
+      controls:
+        - id: "US-CO-CPA-001"
+          uuid: "a1b2c3d4-b501-4000-8000-100000000001"
+          title: "Community tier placeholder — CPA controls to be authored via RFC process"
+          props:
+            - name: "source-section"
+              value: "TBD"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-CO"
+            - name: "status"
+              value: "placeholder"
+            - name: "community-tier"
+              value: "tier-2"
+          parts:
+            - id: "US-CO-CPA-001_smt"
+              name: "statement"
+              prose: |
+                Community tier — to be authored via RFC process per CONTRIBUTING.md. This placeholder
+                reserves the control ID namespace for the Colorado Privacy Act (C.R.S. §6-1-1301 et seq.,
+                effective July 1, 2023). Note: this catalog (CO-CPA) is distinct from the existing
+                Colorado AI Act catalog (CO-AI-ACT), which covers C.R.S. §6-1-1701 et seq. Full controls
+                will be authored by the community following the RFC process in CONTRIBUTING.md.
+            - id: "US-CO-CPA-001_gdn"
+              name: "guidance"
+              prose: |
+                See CONTRIBUTING.md for instructions on authoring community-tier regulation controls and
+                submitting them via the RFC process. Prospective authors should review the existing VCDPA
+                and CTDPA catalogs as style references. Do not conflate this catalog with CO-AI-ACT.
+          links:
+            - href: "https://leg.colorado.gov/bills/sb21-190"
+              rel: source
+              text: "Colorado SB 21-190 — Colorado Privacy Act"

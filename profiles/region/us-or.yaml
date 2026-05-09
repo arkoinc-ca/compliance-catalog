@@ -1,0 +1,15 @@
+profile:
+  uuid: "b2c3d4e5-d610-4000-8000-200000000010"
+  metadata:
+    title: "United States — Oregon Region Profile (OR-OCPA)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+  imports:
+    - href: "../../regulations/oregon-ocpa-placeholder.yaml"
+      include-controls:
+        - with-ids:
+            - "US-OR-OCPA-001"
+  merge:
+    combine:
+      method: merge

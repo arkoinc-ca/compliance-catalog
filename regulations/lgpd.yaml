@@ -1,0 +1,571 @@
+catalog:
+  uuid: "a1b2c3d4-c100-4000-8000-100000000000"
+  metadata:
+    title: "Lei Geral de Proteção de Dados Pessoais (LGPD) — Lei nº 13.709/2018"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "BR-LGPD"
+      - name: "jurisdiction"
+        value: "BR"
+      - name: "effective-as-of"
+        value: "2020-09-18"
+      - name: "sanctions-effective"
+        value: "2021-08-01"
+      - name: "source-citation"
+        value: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+  groups:
+    - id: "lgpd-legal-bases"
+      title: "Legal Bases for Processing"
+      controls:
+        - id: "BR-LGPD-001"
+          uuid: "a1b2c3d4-c101-4000-8000-100000000001"
+          title: "Establish and document a lawful basis for processing personal data (Art. 7)"
+          props:
+            - name: "source-section"
+              value: "Art. 7"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-001_smt"
+              name: "statement"
+              prose: |
+                Processing of personal data is only permitted when it is based on one of the legal hypotheses
+                listed in Art. 7 of the LGPD, including: consent of the data subject; compliance with a legal
+                or regulatory obligation; execution of public policies; conducting studies by research bodies;
+                execution of a contract; exercise of rights in judicial, administrative, or arbitral proceedings;
+                protection of life; protection of health; legitimate interests of the controller or a third party;
+                and credit protection. The controller must be able to demonstrate the applicable legal basis.
+            - id: "BR-LGPD-001_gdn"
+              name: "guidance"
+              prose: |
+                Before initiating any processing activity, identify and document the applicable Art. 7 basis in
+                your records of processing activities (ROPA). Consent under LGPD must be free, informed, unambiguous,
+                and for a specific purpose; it cannot be bundled with acceptance of general terms. Legitimate
+                interest (Art. 7 IX) requires a three-part test: purpose, necessity, and balancing against data
+                subject rights. Document your legitimate interest assessment (LIA) and retain it. Review legal
+                bases periodically and update when processing purposes change.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+        - id: "BR-LGPD-002"
+          uuid: "a1b2c3d4-c102-4000-8000-100000000002"
+          title: "Establish lawful basis for processing sensitive personal data (Art. 11)"
+          props:
+            - name: "source-section"
+              value: "Art. 11"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-002_smt"
+              name: "statement"
+              prose: |
+                Sensitive personal data — comprising racial or ethnic origin, religious belief, political opinion,
+                trade union or religious organization membership, health or sex life data, genetic or biometric
+                data — may only be processed with explicit consent of the data subject for specific purposes, or
+                without consent only under the narrower list of bases set out in Art. 11 II (legal obligation,
+                public policy studies, vital interests, prevention of fraud, or protection of health by health
+                professionals). Processing sensitive data for discriminatory or abusive purposes is prohibited.
+            - id: "BR-LGPD-002_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a separate register of all processing activities involving sensitive data with the
+                applicable Art. 11 basis documented. Explicit consent for sensitive data must name the specific
+                category of data and specific purpose — generic privacy policy consent is insufficient. For health
+                data processing without consent (e.g., Art. 11 II f), ensure only the minimum necessary data is
+                processed and that access is restricted to qualified health professionals bound by professional
+                secrecy. Conduct a DPIA/RIPD for all sensitive data processing activities.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+    - id: "lgpd-data-subject-rights"
+      title: "Data Subject Rights"
+      controls:
+        - id: "BR-LGPD-003"
+          uuid: "a1b2c3d4-c103-4000-8000-100000000003"
+          title: "Honor data subject rights upon request (Art. 18)"
+          props:
+            - name: "source-section"
+              value: "Art. 18"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-003_smt"
+              name: "statement"
+              prose: |
+                The data subject has the right to obtain from the controller, at any time and upon request:
+                confirmation of the existence of processing; access to data; correction of incomplete, inaccurate,
+                or outdated data; anonymization, blocking, or deletion of unnecessary or excessive data; portability
+                to another service or product provider; deletion of data processed with consent; information about
+                public and private entities with which data was shared; information about the possibility of not
+                providing consent and the consequences; and revocation of consent. The controller must respond
+                within 15 days.
+            - id: "BR-LGPD-003_gdn"
+              name: "guidance"
+              prose: |
+                Establish an accessible channel (web form, email, or in-app) for data subject requests and
+                respond within the 15-day statutory window. Document each request, the response, and any grounds
+                for refusal. Deletion requests must be actioned immediately unless a legal retention obligation
+                applies; document such exceptions. For portability requests, provide data in a structured,
+                interoperable format. Train customer-facing staff to route LGPD requests to the DPO/encarregado
+                without delay.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+    - id: "lgpd-dpo"
+      title: "Data Protection Officer (Encarregado)"
+      controls:
+        - id: "BR-LGPD-004"
+          uuid: "a1b2c3d4-c104-4000-8000-100000000004"
+          title: "Appoint and publish contact details of the DPO/encarregado (Art. 41)"
+          props:
+            - name: "source-section"
+              value: "Art. 41"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-004_smt"
+              name: "statement"
+              prose: |
+                The controller must appoint an encarregado (data protection officer) responsible for: accepting
+                complaints and communications from data subjects; receiving communications from the ANPD; guiding
+                employees and contractors on data protection practices; and carrying out other responsibilities
+                set by the controller or supplementary rules. The encarregado's identity and contact details must
+                be publicly disclosed, preferably on the controller's website.
+            - id: "BR-LGPD-004_gdn"
+              name: "guidance"
+              prose: |
+                Publish the encarregado's name (or title) and a direct contact method (email or form) on a
+                publicly accessible page of your website. The encarregado may be an internal employee or an
+                external service provider. Ensure the encarregado has adequate access to internal processes and
+                data inventories to respond to ANPD inquiries. The ANPD may issue supplementary rules defining
+                exemptions for micro- and small enterprises — monitor ANPD resolutions for applicable thresholds.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+    - id: "lgpd-dpia"
+      title: "Data Protection Impact Assessment (RIPD)"
+      controls:
+        - id: "BR-LGPD-005"
+          uuid: "a1b2c3d4-c105-4000-8000-100000000005"
+          title: "Conduct a DPIA/RIPD for high-risk processing activities (Art. 38)"
+          props:
+            - name: "source-section"
+              value: "Art. 38"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-005_smt"
+              name: "statement"
+              prose: |
+                The ANPD may require the controller to prepare a data protection impact assessment report (relatório
+                de impacto à proteção de dados pessoais — RIPD) for processing operations that may generate risks
+                to civil liberties and fundamental rights. The report must contain: a description of the types
+                of data collected; the methodology used for collection; the security measures adopted; and an
+                analysis of measures, safeguards, and mechanisms to mitigate risks. The ANPD may determine that
+                the content of the report be made public.
+            - id: "BR-LGPD-005_gdn"
+              name: "guidance"
+              prose: |
+                Proactively conduct a RIPD for any processing involving: sensitive data; large-scale profiling;
+                systematic monitoring; processing of data of vulnerable individuals (including children); or new
+                technologies that may pose risks to data subjects. The RIPD need not be published but must be
+                available to the ANPD on request. Use the ANPD's published RIPD guidance as a reference template.
+                Integrate RIPD into product development lifecycle gates for new processing activities.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+    - id: "lgpd-international-transfers"
+      title: "International Data Transfers"
+      controls:
+        - id: "BR-LGPD-006"
+          uuid: "a1b2c3d4-c106-4000-8000-100000000006"
+          title: "Ensure adequate protection before transferring personal data internationally (Art. 33)"
+          props:
+            - name: "source-section"
+              value: "Art. 33"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-006_smt"
+              name: "statement"
+              prose: |
+                International transfer of personal data is only permitted to countries or international bodies
+                that provide an adequate level of protection of personal data. Where adequacy is not established,
+                transfer may proceed only where the controller provides and proves adequate safeguards through:
+                standard contractual clauses; binding corporate rules; specific contractual clauses; global
+                corporate privacy seals; or the data subject's specific and highlighted consent after being
+                informed about the international nature of the transfer. The ANPD will determine which countries
+                are deemed adequate.
+            - id: "BR-LGPD-006_gdn"
+              name: "guidance"
+              prose: |
+                Before initiating any cross-border transfer, verify whether the destination country holds an ANPD
+                adequacy decision. Where no adequacy decision exists, execute standard contractual clauses
+                approved or accepted by the ANPD, or binding corporate rules. Document each transfer basis in
+                your records of processing. For transfers relying on consent, present the international transfer
+                disclosure clearly and separately from other consent requests. Monitor ANPD resolutions for updates
+                to adequacy determinations and approved transfer mechanisms.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+    - id: "lgpd-incident-notification"
+      title: "Incident Notification"
+      controls:
+        - id: "BR-LGPD-007"
+          uuid: "a1b2c3d4-c107-4000-8000-100000000007"
+          title: "Notify the ANPD and affected data subjects of security incidents (Art. 48)"
+          props:
+            - name: "source-section"
+              value: "Art. 48"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-007_smt"
+              name: "statement"
+              prose: |
+                The controller must notify the ANPD and the affected data subject of any security incident that
+                may pose a relevant risk or harm to the data subjects within a reasonable time period. The
+                notification must include: the description of the nature of the affected personal data; information
+                about the data subjects involved; the technical and security measures adopted; the risks related
+                to the incident; and the measures that were or will be taken to reverse or mitigate the effects
+                of the damage.
+            - id: "BR-LGPD-007_gdn"
+              name: "guidance"
+              prose: |
+                The ANPD's Resolution CD/ANPD No. 15/2024 sets the notification timeline at 72 hours for
+                incidents posing relevant risk, and up to 3 business days for other notifiable incidents. Maintain
+                an incident response plan that includes ANPD and data subject notification workflows. Establish
+                a security incident register covering: date of occurrence; date of discovery; nature of data
+                affected; number of data subjects; risk assessment; and remediation actions taken. Retain incident
+                records for audit. Test the incident response plan at least annually.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+    - id: "lgpd-records-of-processing"
+      title: "Records of Processing Activities"
+      controls:
+        - id: "BR-LGPD-008"
+          uuid: "a1b2c3d4-c108-4000-8000-100000000008"
+          title: "Maintain records of processing activities (Art. 37)"
+          props:
+            - name: "source-section"
+              value: "Art. 37"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-008_smt"
+              name: "statement"
+              prose: |
+                The controller and the operator must keep a record of the processing operations that they carry
+                out, especially when based on the legitimate interest hypothesis. The ANPD may determine that
+                records of specific categories of processing operations be made public, considering the nature,
+                scope, context, and purpose of the processing as well as the risks and benefits for data subjects
+                and third parties.
+            - id: "BR-LGPD-008_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a Record of Processing Activities (ROPA) — equivalent to GDPR Art. 30 records — covering:
+                controller and DPO contact details; purposes of processing; legal basis; categories of data subjects
+                and personal data; recipients or categories of recipients; cross-border transfers and transfer
+                mechanisms; retention periods; and a general description of technical and organizational security
+                measures. Keep the ROPA current; review quarterly and after any material change to processing.
+                The ROPA must be produced to the ANPD on request.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+    - id: "lgpd-children"
+      title: "Children and Adolescents"
+      controls:
+        - id: "BR-LGPD-009"
+          uuid: "a1b2c3d4-c109-4000-8000-100000000009"
+          title: "Obtain specific parental consent before processing children's data (Art. 14)"
+          props:
+            - name: "source-section"
+              value: "Art. 14"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-009_smt"
+              name: "statement"
+              prose: |
+                Processing of personal data of children (under 12) must be in the best interests of the child
+                and requires specific and highlighted consent from at least one parent or legal guardian. Processing
+                of adolescents' data (12–18) should also be conducted in the best interests of the adolescent.
+                Controllers must make reasonable efforts to verify that consent was given or authorized by a
+                parent or guardian. Collection of more data than is strictly necessary for the service requested
+                is prohibited, and conditioned processing that leads children to provide more data than necessary
+                is also prohibited.
+            - id: "BR-LGPD-009_gdn"
+              name: "guidance"
+              prose: |
+                Implement age verification at the point of collection for services likely used by children under 12.
+                When parental consent is collected, use a separate, clearly highlighted consent form that names
+                the data, purpose, and identity of the controller. Do not use deceptive design patterns to obtain
+                children's data. The ANPD may establish supplementary rules on age verification procedures and
+                acceptable consent mechanisms for children's data. Conduct a RIPD for any service directed at
+                or likely to be used by children.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+    - id: "lgpd-processor-obligations"
+      title: "Processor (Operator) Obligations"
+      controls:
+        - id: "BR-LGPD-010"
+          uuid: "a1b2c3d4-c110-4000-8000-100000000010"
+          title: "Ensure operators process data only per controller instructions (Art. 39)"
+          props:
+            - name: "source-section"
+              value: "Art. 39"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-010_smt"
+              name: "statement"
+              prose: |
+                The operator (processor) must process personal data in accordance with the instructions provided
+                by the controller, and the provisions of this Law apply to it when it violates the Law or does
+                not follow the lawful instructions of the controller. The controller remains liable for the
+                operator's processing where the operator does not comply with the LGPD.
+            - id: "BR-LGPD-010_gdn"
+              name: "guidance"
+              prose: |
+                Execute a written data processing agreement (DPA) with every operator/processor that processes
+                personal data on your behalf. The DPA must restrict the operator to processing data solely on
+                documented controller instructions; prohibit the operator from processing data for its own
+                purposes; require the operator to implement adequate security measures; mandate breach notification
+                to the controller without undue delay; and address return or deletion of data on contract
+                termination. Audit key operators periodically for LGPD compliance. Maintain a register of all
+                operators with DPA status and review dates.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+        - id: "BR-LGPD-011"
+          uuid: "a1b2c3d4-c111-4000-8000-100000000011"
+          title: "Implement technical and administrative security measures (Art. 46)"
+          props:
+            - name: "source-section"
+              value: "Art. 46"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-011_smt"
+              name: "statement"
+              prose: |
+                Agents of processing must adopt security, technical, and administrative measures capable of
+                protecting personal data from unauthorized access and from accidental or unlawful destruction,
+                loss, alteration, communication, or any form of improper or unlawful processing. The ANPD may
+                establish technical security standards to govern controllers and operators.
+            - id: "BR-LGPD-011_gdn"
+              name: "guidance"
+              prose: |
+                Implement security controls proportionate to the risk level of processing activities, including:
+                encryption at rest and in transit; access controls and least-privilege principles; audit logging;
+                vulnerability management; and regular security testing. Document security measures in the RIPD
+                for high-risk activities. Align with ANPD security guidelines and, where applicable, ABNT NBR
+                ISO/IEC 27001 standards. Review and test security measures at least annually and after any
+                significant infrastructure change.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+        - id: "BR-LGPD-012"
+          uuid: "a1b2c3d4-c112-4000-8000-100000000012"
+          title: "Apply data minimization and purpose limitation principles (Art. 6)"
+          props:
+            - name: "source-section"
+              value: "Art. 6"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-012_smt"
+              name: "statement"
+              prose: |
+                Processing of personal data must comply with good faith and with the principles of: purpose
+                (processing for legitimate, specific, explicit, and informed purposes without possibility of
+                further processing incompatible with those purposes); adequacy (compatibility of processing with
+                the stated purposes); and necessity (limitation to the minimum necessary, relevant, and proportionate
+                data to achieve the purposes). Excessive collection or secondary use incompatible with the original
+                purpose is prohibited.
+            - id: "BR-LGPD-012_gdn"
+              name: "guidance"
+              prose: |
+                At design time, for each processing activity, define the specific, documented purpose and identify
+                only the minimum data fields necessary. Do not retain data after the purpose is fulfilled. Before
+                any new use of existing data, assess whether the new purpose is compatible with the original;
+                if not, obtain a new legal basis or consent. Document purpose assessments in the ROPA. Implement
+                data minimization controls in collection forms and APIs to prevent collection of unnecessary fields.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+        - id: "BR-LGPD-013"
+          uuid: "a1b2c3d4-c113-4000-8000-100000000013"
+          title: "Provide transparent privacy notice to data subjects (Art. 9)"
+          props:
+            - name: "source-section"
+              value: "Art. 9"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-013_smt"
+              name: "statement"
+              prose: |
+                The data subject has the right to access, at any time and upon request, information about: the
+                specific purpose of the processing; the form and duration of the processing; the identity and
+                contact information of the controller; information about shared use of data by the controller
+                and the purpose; the controller's responsibilities; and data subject rights. This information
+                must be provided in clear and adequate form, appropriate to the means used for collection.
+            - id: "BR-LGPD-013_gdn"
+              name: "guidance"
+              prose: |
+                Publish a privacy notice at or before the point of data collection. For digital products, embed
+                a layered notice at the data entry point with a link to the full privacy policy. The notice must
+                be written in plain language, appropriate to the audience (including children where applicable).
+                Where the controller changes the purpose of processing, the data subject must be notified before
+                the new processing begins, and may withdraw consent if the original basis was consent. Update
+                the privacy notice promptly when processing activities change.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+        - id: "BR-LGPD-014"
+          uuid: "a1b2c3d4-c114-4000-8000-100000000014"
+          title: "Establish accountability governance and demonstrate compliance (Art. 50)"
+          props:
+            - name: "source-section"
+              value: "Art. 50"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-014_smt"
+              name: "statement"
+              prose: |
+                Controllers and operators may formulate rules of good practices and governance that establish
+                conditions for organization, operation, procedure, including complaints and petitions of data
+                subjects, security, technical standards, specific obligations for the different involved parties
+                in the processing, educational actions, internal mechanisms of supervision and risk mitigation,
+                and other conditions relevant to the processing of personal data. The ANPD shall encourage
+                controllers and operators to adopt programs of good practices and governance.
+            - id: "BR-LGPD-014_gdn"
+              name: "guidance"
+              prose: |
+                Establish and document a formal LGPD compliance program covering: governance structure and roles;
+                privacy by design principles in product development; employee training on LGPD obligations;
+                internal audit procedures; a data subject request handling workflow; vendor management procedures;
+                and an incident response plan. Document the program and demonstrate its operation to the ANPD
+                when required. Compliance programs that are certified by ANPD-recognized bodies may be considered
+                as mitigating factors in enforcement proceedings.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"

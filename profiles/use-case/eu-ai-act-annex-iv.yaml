@@ -1,0 +1,35 @@
+profile:
+  uuid: "b2c3d4e5-a100-4000-8000-200000000000"
+  metadata:
+    title: "Use-Case Profile — EU AI Act Annex IV Technical Documentation"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+    props:
+      - name: "use-case"
+        value: "eu-ai-act-annex-iv"
+      - name: "description"
+        value: >
+          For providers of high-risk AI systems preparing Annex IV technical documentation.
+          Covers system overview, design and architecture, data governance, monitoring plan,
+          performance metrics, change management, and the EU declaration of conformity.
+          Scoped to the controls that directly drive documentation obligations under Art. 9-15
+          and Art. 47, excluding deployer-only (Art. 26-27) and prohibition (Art. 5) controls.
+      - name: "target-audience"
+        value: "AI system providers building Annex IV documentation packages for high-risk AI systems"
+  imports:
+    - href: "../../regulations/eu-ai-act.yaml"
+      include-controls:
+        - with-ids:
+            - "EU-AI-ACT-001"
+            - "EU-AI-ACT-002"
+            - "EU-AI-ACT-003"
+            - "EU-AI-ACT-004"
+            - "EU-AI-ACT-005"
+            - "EU-AI-ACT-006"
+            - "EU-AI-ACT-007"
+            - "EU-AI-ACT-014"
+            - "EU-AI-ACT-015"
+  merge:
+    combine:
+      method: merge

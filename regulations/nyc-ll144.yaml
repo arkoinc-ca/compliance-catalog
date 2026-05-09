@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-0008-4000-8000-100000000008"
   metadata:
     title: "New York City Local Law 144 of 2021 — Automated Employment Decision Tools (AEDT)"
-    last-modified: "2026-05-08T00:00:00Z"
-    version: "0.0.1-skeleton"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -13,17 +13,176 @@ catalog:
       - name: "effective-as-of"
         value: "2023-07-05"
       - name: "source-citation"
-        value: "https://www.nyc.gov/assets/dca/downloads/pdf/about/LL144-of-2021.pdf"
+        value: "https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=4344524&GUID=B051915D-A9AC-451E-81F8-6596032FA3F9"
+      - name: "dcwp-rules-citation"
+        value: "https://rules.cityofnewyork.us/rule/automated-employment-decision-tools/"
   groups:
-    - id: "nyc-ll144-bias-audit"
-      title: "Bias Audit Requirements"
+    - id: "nyc-ll144-bias-audit-requirements"
+      title: "Bias Audit and Disclosure Requirements"
       controls:
         - id: "US-NY-LL144-001"
-          title: "Annual Bias Audit — Conduct an independent bias audit of any AEDT before use"
+          uuid: "a1b2c3d4-0701-4000-8000-100000000701"
+          title: "Annual Bias Audit — Independent external audit of AEDT before use; updated annually"
           props:
+            - name: "source-section"
+              value: "§ 20-871; DCWP Rule § 5-301"
+            - name: "effective-date"
+              value: "2023-07-05"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-NY-NYC"
             - name: "status"
-              value: "skeleton"
+              value: "draft"
           parts:
-            - id: "NYC-LL144-1-stmt"
+            - id: "US-NY-LL144-001_smt"
               name: "statement"
-              prose: "TODO: Author full control statement in Phase 1."
+              prose: |
+                An employer or employment agency that uses an automated employment decision tool (AEDT) to
+                substantially assist or replace discretionary decision-making for hiring or promotion in New York
+                City must have the tool subjected to a bias audit conducted by an independent auditor before
+                the tool is used and at least once per year thereafter. The bias audit must calculate selection
+                rates and impact ratios for each race/ethnicity and sex category with a statistically significant
+                sample size, as well as for intersectional categories where data permits. An AEDT may not be
+                used for a role in New York City unless a valid bias audit result covers the tool.
+            - id: "US-NY-LL144-001_gdn"
+              name: "guidance"
+              prose: |
+                Retain an auditor that is independent — meaning the auditor has no financial relationship with
+                the employer, employment agency, or AEDT vendor for the year preceding the audit. DCWP Rule
+                §5-301 specifies the required calculations: the auditor must compute the selection rate for each
+                required category and the impact ratio (each category's selection rate divided by the highest
+                selection rate among all categories). Where fewer than 100 applicants or candidates fall in a
+                category, the auditor may note insufficient data rather than compute a ratio. Begin the audit
+                process at least 60 days before planned deployment to allow time for remediation if significant
+                disparate impact is found.
+          links:
+            - href: "https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=4344524&GUID=B051915D-A9AC-451E-81F8-6596032FA3F9"
+              rel: source
+              text: "NYC Local Law 144 of 2021, § 20-871 (Bias Audit Requirement)"
+            - href: "https://rules.cityofnewyork.us/rule/automated-employment-decision-tools/"
+              rel: source
+              text: "DCWP Final Rule § 5-301 (Bias Audit Methodology)"
+
+        - id: "US-NY-LL144-002"
+          uuid: "a1b2c3d4-0702-4000-8000-100000000702"
+          title: "Public Disclosure of Bias Audit Results — Post summary results on publicly accessible website"
+          props:
+            - name: "source-section"
+              value: "§ 20-871(b); DCWP Rule § 5-302"
+            - name: "effective-date"
+              value: "2023-07-05"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-NY-NYC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-NY-LL144-002_smt"
+              name: "statement"
+              prose: |
+                An employer or employment agency that uses an AEDT must make publicly available on its website
+                a summary of the results of the most recent bias audit, the distribution date of the AEDT, and
+                the date of the audit. The disclosure must remain posted for at least as long as the employer or
+                employment agency uses the AEDT and for at least six months thereafter. The posted information
+                must be accessible without requiring visitors to create an account or provide personal information.
+            - id: "US-NY-LL144-002_gdn"
+              name: "guidance"
+              prose: |
+                Create a dedicated public webpage (or a clearly labeled section of an existing careers or
+                privacy page) containing the bias audit summary results, including the impact ratios calculated
+                for each race/ethnicity and sex category, the date the AEDT was first deployed, and the date
+                the audit was completed. DCWP Rule §5-302 specifies the required disclosure elements. Where the
+                employer uses an AEDT developed by a third-party vendor, confirm that the vendor's published
+                audit covers the employer's specific use case and deployment configuration; generic vendor audits
+                may not satisfy this obligation if the tool is configured differently.
+          links:
+            - href: "https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=4344524&GUID=B051915D-A9AC-451E-81F8-6596032FA3F9"
+              rel: source
+              text: "NYC Local Law 144 of 2021, § 20-871(b) (Public Disclosure)"
+            - href: "https://rules.cityofnewyork.us/rule/automated-employment-decision-tools/"
+              rel: source
+              text: "DCWP Final Rule § 5-302 (Disclosure Requirements)"
+
+        - id: "US-NY-LL144-003"
+          uuid: "a1b2c3d4-0703-4000-8000-100000000703"
+          title: "Candidate / Employee Notice — 10 business days before AEDT use; alternative process on request"
+          props:
+            - name: "source-section"
+              value: "§ 20-871(c); DCWP Rule § 5-303"
+            - name: "effective-date"
+              value: "2023-07-05"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-NY-NYC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-NY-LL144-003_smt"
+              name: "statement"
+              prose: |
+                At least ten business days before an AEDT is used in connection with an employment decision
+                affecting a New York City resident, the employer or employment agency must provide notice to the
+                candidate or employee that an AEDT will be used. The notice must include identification of the
+                job qualifications and characteristics that the AEDT assesses. The employer or employment agency
+                must also provide the candidate or employee with an opportunity to request an alternative selection
+                process or accommodation if available.
+            - id: "US-NY-LL144-003_gdn"
+              name: "guidance"
+              prose: |
+                Deliver notice through the job posting, an application-stage disclosure, or a direct communication
+                to the candidate. The notice must identify the specific characteristics or job qualifications the
+                AEDT evaluates (e.g., "communication skills," "problem-solving ability") — a generic reference to
+                use of an AI tool is insufficient. DCWP Rule §5-303 specifies acceptable notice formats. Where an
+                alternative assessment process is available, describe how candidates can request it and establish
+                a clear internal workflow for evaluating and granting such requests. Document each notice and any
+                accommodation requests received.
+          links:
+            - href: "https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=4344524&GUID=B051915D-A9AC-451E-81F8-6596032FA3F9"
+              rel: source
+              text: "NYC Local Law 144 of 2021, § 20-871(c) (Candidate Notice)"
+            - href: "https://rules.cityofnewyork.us/rule/automated-employment-decision-tools/"
+              rel: source
+              text: "DCWP Final Rule § 5-303 (Notice Requirements)"
+
+        - id: "US-NY-LL144-004"
+          uuid: "a1b2c3d4-0704-4000-8000-100000000704"
+          title: "Records of Bias Audit Inputs — Retain records sufficient for an independent auditor to reproduce the analysis"
+          props:
+            - name: "source-section"
+              value: "§ 20-871; DCWP Rule § 5-301(c)"
+            - name: "effective-date"
+              value: "2023-07-05"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-NY-NYC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-NY-LL144-004_smt"
+              name: "statement"
+              prose: |
+                Employers and employment agencies that use an AEDT must retain records sufficient to allow an
+                independent auditor to reproduce the bias audit results. This includes the data used as inputs
+                to the audit, the methodology applied, and the auditor's full report. Records must be retained
+                for at least three years following the date of the bias audit and must be made available for
+                inspection by the New York City Department of Consumer and Worker Protection upon request.
+            - id: "US-NY-LL144-004_gdn"
+              name: "guidance"
+              prose: |
+                Preserve the complete audit dataset (anonymized as appropriate, but retaining the demographic
+                categories and outcomes used), the auditor's written methodology, the impact ratio calculations,
+                and all communications with the auditor during the audit engagement. DCWP Rule §5-301(c) requires
+                that the data retained be sufficient for an independent third party to verify the results. If the
+                AEDT vendor performed or assisted with the audit, ensure you receive and retain the underlying
+                data and methodology documentation — do not rely solely on a vendor-issued summary report.
+          links:
+            - href: "https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=4344524&GUID=B051915D-A9AC-451E-81F8-6596032FA3F9"
+              rel: source
+              text: "NYC Local Law 144 of 2021, § 20-871 (Records Retention)"
+            - href: "https://rules.cityofnewyork.us/rule/automated-employment-decision-tools/"
+              rel: source
+              text: "DCWP Final Rule § 5-301(c) (Audit Data Retention)"

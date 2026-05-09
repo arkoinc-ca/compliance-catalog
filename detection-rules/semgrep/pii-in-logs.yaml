@@ -1,0 +1,162 @@
+rules:
+  - id: pii-in-logs-python
+    languages: [python]
+    severity: WARNING
+    message: |
+      Potential PII in log statement. Logging fields named 'email', 'phone', 'ssn', 'password',
+      'token', or 'credit_card' may leak personal information into log streams, which often have
+      wider read-access than the source data store. Redact or mask these fields before logging.
+    metadata:
+      category: "compliance"
+      cwe: "CWE-532"
+      references:
+        - "https://owasp.org/www-community/vulnerabilities/Insertion_of_Sensitive_Information_into_Log_File"
+      controls:
+        - "CA-PIPEDA-007"
+        - "EU-GDPR-014"
+        - "CA-QC-LAW25-016"
+        - "US-CA-CCPA-011"
+        - "CA-AB-PIPA-006"
+        - "CA-BC-PIPA-006"
+      confidence: "production"
+    pattern-either:
+      - patterns:
+          - pattern-either:
+              - pattern: logger.$LEVEL(..., $X.email, ...)
+              - pattern: logger.$LEVEL(..., $X.phone, ...)
+              - pattern: logger.$LEVEL(..., $X.ssn, ...)
+              - pattern: logger.$LEVEL(..., $X.password, ...)
+              - pattern: logger.$LEVEL(..., $X.token, ...)
+              - pattern: logger.$LEVEL(..., $X.credit_card, ...)
+              - pattern: logging.$LEVEL(..., $X.email, ...)
+              - pattern: logging.$LEVEL(..., $X.phone, ...)
+              - pattern: logging.$LEVEL(..., $X.ssn, ...)
+              - pattern: logging.$LEVEL(..., $X.password, ...)
+              - pattern: logging.$LEVEL(..., $X.token, ...)
+              - pattern: logging.$LEVEL(..., $X.credit_card, ...)
+              - pattern: log.$LEVEL(..., $X.email, ...)
+              - pattern: log.$LEVEL(..., $X.phone, ...)
+              - pattern: log.$LEVEL(..., $X.ssn, ...)
+              - pattern: log.$LEVEL(..., $X.password, ...)
+              - pattern: log.$LEVEL(..., $X.token, ...)
+              - pattern: log.$LEVEL(..., $X.credit_card, ...)
+              - pattern: print(..., $X.email, ...)
+              - pattern: print(..., $X.phone, ...)
+              - pattern: print(..., $X.ssn, ...)
+              - pattern: print(..., $X.password, ...)
+              - pattern: print(..., $X.token, ...)
+              - pattern: print(..., $X.credit_card, ...)
+
+  - id: pii-in-logs-javascript
+    languages: [javascript, typescript]
+    severity: WARNING
+    message: |
+      Potential PII in log statement. Logging properties named 'email', 'phone', 'ssn', 'password',
+      or 'token' may leak personal information into log streams. Redact or mask these fields before
+      logging. Consider a structured logging library with a built-in redaction filter.
+    metadata:
+      category: "compliance"
+      cwe: "CWE-532"
+      references:
+        - "https://owasp.org/www-community/vulnerabilities/Insertion_of_Sensitive_Information_into_Log_File"
+      controls:
+        - "CA-PIPEDA-007"
+        - "EU-GDPR-014"
+        - "CA-QC-LAW25-016"
+        - "US-CA-CCPA-011"
+        - "CA-AB-PIPA-006"
+        - "CA-BC-PIPA-006"
+      confidence: "production"
+    pattern-either:
+      - pattern: console.$LEVEL($X.email)
+      - pattern: console.$LEVEL($X.phone)
+      - pattern: console.$LEVEL($X.ssn)
+      - pattern: console.$LEVEL($X.password)
+      - pattern: console.$LEVEL($X.token)
+      - pattern: console.$LEVEL($X.creditCard)
+      - pattern: console.$LEVEL($X.credit_card)
+      - pattern: logger.$LEVEL($X.email)
+      - pattern: logger.$LEVEL($X.phone)
+      - pattern: logger.$LEVEL($X.ssn)
+      - pattern: logger.$LEVEL($X.password)
+      - pattern: logger.$LEVEL($X.token)
+      - pattern: logger.$LEVEL($X.creditCard)
+      - pattern: log.$LEVEL($X.email)
+      - pattern: log.$LEVEL($X.phone)
+      - pattern: log.$LEVEL($X.ssn)
+      - pattern: log.$LEVEL($X.password)
+      - pattern: log.$LEVEL($X.token)
+
+  - id: pii-in-logs-java
+    languages: [java]
+    severity: WARNING
+    message: |
+      Potential PII in log statement. Logging return values of getEmail(), getPhone(), getSsn(),
+      or getPassword() may leak personal information into log streams. Redact before logging.
+    metadata:
+      category: "compliance"
+      cwe: "CWE-532"
+      references:
+        - "https://owasp.org/www-community/vulnerabilities/Insertion_of_Sensitive_Information_into_Log_File"
+      controls:
+        - "CA-PIPEDA-007"
+        - "EU-GDPR-014"
+        - "CA-QC-LAW25-016"
+        - "US-CA-CCPA-011"
+        - "CA-AB-PIPA-006"
+        - "CA-BC-PIPA-006"
+      confidence: "baseline"
+    pattern-either:
+      - pattern: $LOGGER.info($X.getEmail())
+      - pattern: $LOGGER.info($X.getPhone())
+      - pattern: $LOGGER.info($X.getSsn())
+      - pattern: $LOGGER.info($X.getPassword())
+      - pattern: $LOGGER.debug($X.getEmail())
+      - pattern: $LOGGER.debug($X.getPhone())
+      - pattern: $LOGGER.debug($X.getSsn())
+      - pattern: $LOGGER.debug($X.getPassword())
+      - pattern: $LOGGER.warn($X.getEmail())
+      - pattern: $LOGGER.warn($X.getPassword())
+      - pattern: $LOGGER.error($X.getEmail())
+      - pattern: $LOGGER.error($X.getPassword())
+      - pattern: System.out.println($X.getEmail())
+      - pattern: System.out.println($X.getPhone())
+      - pattern: System.out.println($X.getSsn())
+      - pattern: System.out.println($X.getPassword())
+
+  - id: pii-in-logs-csharp
+    languages: [csharp]
+    severity: WARNING
+    message: |
+      Potential PII in log statement. Logging properties like Email, Phone, Ssn, or Password in a
+      string interpolation or format string may leak personal information into log streams. Use a
+      structured logging library with destructuring and field-level redaction (e.g., Serilog).
+    metadata:
+      category: "compliance"
+      cwe: "CWE-532"
+      references:
+        - "https://owasp.org/www-community/vulnerabilities/Insertion_of_Sensitive_Information_into_Log_File"
+      controls:
+        - "CA-PIPEDA-007"
+        - "EU-GDPR-014"
+        - "CA-QC-LAW25-016"
+        - "US-CA-CCPA-011"
+        - "CA-AB-PIPA-006"
+        - "CA-BC-PIPA-006"
+      confidence: "baseline"
+    pattern-either:
+      - pattern: $LOGGER.LogInformation($"...{$X.Email}...")
+      - pattern: $LOGGER.LogInformation($"...{$X.Phone}...")
+      - pattern: $LOGGER.LogInformation($"...{$X.Ssn}...")
+      - pattern: $LOGGER.LogInformation($"...{$X.Password}...")
+      - pattern: $LOGGER.LogDebug($"...{$X.Email}...")
+      - pattern: $LOGGER.LogDebug($"...{$X.Phone}...")
+      - pattern: $LOGGER.LogDebug($"...{$X.Password}...")
+      - pattern: $LOGGER.LogWarning($"...{$X.Email}...")
+      - pattern: $LOGGER.LogWarning($"...{$X.Password}...")
+      - pattern: $LOGGER.LogError($"...{$X.Email}...")
+      - pattern: $LOGGER.LogError($"...{$X.Password}...")
+      - pattern: Console.WriteLine($"...{$X.Email}...")
+      - pattern: Console.WriteLine($"...{$X.Phone}...")
+      - pattern: Console.WriteLine($"...{$X.Ssn}...")
+      - pattern: Console.WriteLine($"...{$X.Password}...")

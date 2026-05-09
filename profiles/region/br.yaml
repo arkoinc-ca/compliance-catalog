@@ -1,0 +1,28 @@
+profile:
+  uuid: "b2c3d4e5-d611-4000-8000-200000000011"
+  metadata:
+    title: "Brazil — Region Profile (LGPD)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+  imports:
+    - href: "../../regulations/lgpd.yaml"
+      include-controls:
+        - with-ids:
+            - "BR-LGPD-001"
+            - "BR-LGPD-002"
+            - "BR-LGPD-003"
+            - "BR-LGPD-004"
+            - "BR-LGPD-005"
+            - "BR-LGPD-006"
+            - "BR-LGPD-007"
+            - "BR-LGPD-008"
+            - "BR-LGPD-009"
+            - "BR-LGPD-010"
+            - "BR-LGPD-011"
+            - "BR-LGPD-012"
+            - "BR-LGPD-013"
+            - "BR-LGPD-014"
+  merge:
+    combine:
+      method: merge

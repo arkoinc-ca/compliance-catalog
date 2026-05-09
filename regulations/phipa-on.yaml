@@ -1,0 +1,570 @@
+catalog:
+  uuid: "a1b2c3d4-d100-4000-8000-100000000100"
+  metadata:
+    title: "Personal Health Information Protection Act, 2004 (Ontario PHIPA)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "CA-ON-PHIPA"
+      - name: "jurisdiction"
+        value: "CA-ON"
+      - name: "effective-as-of"
+        value: "2004-11-01"
+      - name: "source-citation"
+        value: "https://www.ontario.ca/laws/statute/04p03"
+      - name: "amending-act"
+        value: "Strengthening Patient Care Act, 2021, S.O. 2021, c. 27"
+  groups:
+    - id: "phipa-on-hic-duties"
+      title: "Health Information Custodian Duties and Accountability"
+      controls:
+        - id: "CA-ON-PHIPA-001"
+          uuid: "a1b2c3d4-d101-4000-8000-100000000101"
+          title: "Designate a Contact Person and Implement Privacy Policies (HIC duties)"
+          props:
+            - name: "source-section"
+              value: "§15, §16"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-001_smt"
+              name: "statement"
+              prose: |
+                A health information custodian (HIC) must designate a contact person who is responsible for
+                ensuring that the custodian complies with PHIPA and its regulations. The custodian must ensure
+                that the contact person has the authority to carry out this responsibility. The HIC must also
+                develop, implement, and maintain policies and practices that give effect to the HIC's obligations
+                under PHIPA, and must provide information about those policies and practices to any person who
+                asks.
+            - id: "CA-ON-PHIPA-001_gdn"
+              name: "guidance"
+              prose: |
+                The contact person is the organizational privacy officer for health information. Publish the
+                contact person's name or title and a method of contact on the HIC's public-facing website or
+                at the point of care. Policies must cover the full lifecycle of personal health information
+                (PHI): collection, use, disclosure, retention, and destruction. Review and update policies
+                at least annually and after any material change in operations or applicable law. Document that
+                the contact person has been formally designated and has authority to bind the organization on
+                privacy decisions.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A"
+
+        - id: "CA-ON-PHIPA-002"
+          uuid: "a1b2c3d4-d102-4000-8000-100000000102"
+          title: "Agent Obligations — Agents must comply with HIC's instructions and PHIPA"
+          props:
+            - name: "source-section"
+              value: "§17"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-002_smt"
+              name: "statement"
+              prose: |
+                An agent of a health information custodian shall not collect, use, disclose, retain, or dispose
+                of personal health information except as permitted or required by the custodian and by PHIPA.
+                An agent who collects, uses, or discloses PHI in contravention of PHIPA is not acting as an
+                agent of the custodian for the purposes of that action. The HIC must take reasonable steps to
+                ensure that agents comply with PHIPA.
+            - id: "CA-ON-PHIPA-002_gdn"
+              name: "guidance"
+              prose: |
+                Agents include employees, volunteers, contractors, and any person acting under the authority of
+                the custodian. Implement workforce training on permitted uses and disclosures. Execute written
+                agreements with external agents (vendors, service providers) that mirror the HIC's obligations
+                under PHIPA. Conduct periodic audits of agent access to PHI systems. An agent who misuses PHI
+                exposes both themselves and the HIC to IPC investigation and potential penalties.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A"
+
+    - id: "phipa-on-consent"
+      title: "Consent and Lockbox"
+      controls:
+        - id: "CA-ON-PHIPA-003"
+          uuid: "a1b2c3d4-d103-4000-8000-100000000103"
+          title: "Express Consent — Obtain consent before collecting, using, or disclosing PHI"
+          props:
+            - name: "source-section"
+              value: "§18, §29"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-003_smt"
+              name: "statement"
+              prose: |
+                A health information custodian shall not collect, use, or disclose personal health information
+                about an individual unless the custodian has the individual's consent (express or implied, as
+                applicable) or another lawful authority under PHIPA. Consent must be knowledgeable — the individual
+                must be able to understand that they are consenting and that they have the right to withhold or
+                withdraw consent. Consent must also be voluntary and not obtained by deception or coercion.
+            - id: "CA-ON-PHIPA-003_gdn"
+              name: "guidance"
+              prose: |
+                Implied consent arises where the individual has been given the opportunity to withhold or withdraw
+                consent and has not done so, and where it is reasonable in the circumstances to imply consent
+                (e.g., treatment purposes within the circle of care). Outside the circle of care, express consent
+                is required. Document the form and basis of consent for each purpose. Consent for secondary
+                purposes (research, marketing, or purposes beyond treatment) must always be express. Provide
+                individuals with clear information about the purpose, the PHI to be used or disclosed, and their
+                right to withdraw before obtaining consent.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A"
+
+        - id: "CA-ON-PHIPA-004"
+          uuid: "a1b2c3d4-d104-4000-8000-100000000104"
+          title: "Lockbox — Respect an individual's instruction to withhold PHI from specific recipients"
+          props:
+            - name: "source-section"
+              value: "§19, §20"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-004_smt"
+              name: "statement"
+              prose: |
+                An individual may instruct a health information custodian to withhold disclosure of some or all
+                of the individual's personal health information from one or more HICs named by the individual.
+                Where such an instruction is in place, the custodian must not disclose the PHI to those named
+                HICs (the "lockbox" right). An individual may also instruct a HIC not to use particular PHI for
+                a purpose to which implied consent would otherwise apply.
+            - id: "CA-ON-PHIPA-004_gdn"
+              name: "guidance"
+              prose: |
+                Implement a technical lockbox mechanism in PHI management systems that allows patients to restrict
+                sharing with specified providers or facilities. Where an EHR or shared platform is used, ensure
+                the lockbox flag propagates to all connected systems. Document received lockbox instructions and
+                the technical controls in place. Staff must be trained to check for lockbox flags before disclosing
+                PHI. Note that lockbox restrictions do not override emergency treatment disclosures under §38.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A"
+
+    - id: "phipa-on-purposes"
+      title: "Permitted Purposes for Collection, Use, and Disclosure"
+      controls:
+        - id: "CA-ON-PHIPA-005"
+          uuid: "a1b2c3d4-d105-4000-8000-100000000105"
+          title: "Circle of Care — Permitted use and disclosure for treatment within the circle of care"
+          props:
+            - name: "source-section"
+              value: "§29, §31, §37, §38"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-005_smt"
+              name: "statement"
+              prose: |
+                A health information custodian may use personal health information about an individual for the
+                purpose of providing health care or assisting in providing health care to the individual, and
+                may disclose it to another HIC for the same purpose, on the implied consent of the individual.
+                This treatment-purpose authorization — the circle of care — permits sharing among providers
+                directly involved in the individual's care, provided the individual has not withheld consent
+                or issued a lockbox instruction.
+            - id: "CA-ON-PHIPA-005_gdn"
+              name: "guidance"
+              prose: |
+                The circle of care includes HICs that have a therapeutic or treatment relationship with the
+                individual (e.g., referring physician, specialist, pharmacist, hospital providing care). It does
+                not extend to administrative staff who do not have a treatment role, or to providers not involved
+                in the individual's current episode of care. Clearly define and document who falls within the
+                circle of care in organizational policies. Implement role-based access controls in PHI systems
+                to restrict access to circle-of-care personnel.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A"
+
+        - id: "CA-ON-PHIPA-006"
+          uuid: "a1b2c3d4-d106-4000-8000-100000000106"
+          title: "Limiting Collection — Collect only the minimum PHI necessary for the identified purpose"
+          props:
+            - name: "source-section"
+              value: "§30"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-006_smt"
+              name: "statement"
+              prose: |
+                A health information custodian shall not collect personal health information if other information
+                will serve the purpose and shall not collect more personal health information than is reasonably
+                necessary for the purposes for which it is collected. The collection of PHI must be limited to
+                that which is necessary to accomplish the specified purpose.
+            - id: "CA-ON-PHIPA-006_gdn"
+              name: "guidance"
+              prose: |
+                Apply a minimum-necessary standard when designing forms, intake processes, and data fields in
+                clinical and administrative systems. Periodically audit data elements collected and remove fields
+                that are not used or not necessary for identified purposes. Document the rationale for collecting
+                each category of PHI in policies and procedures. The minimum-necessary standard applies to all
+                collection, use, and disclosure decisions, including within the circle of care.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A"
+
+        - id: "CA-ON-PHIPA-007"
+          uuid: "a1b2c3d4-d107-4000-8000-100000000107"
+          title: "Limiting Disclosure — Disclose PHI only for permitted purposes and to permitted recipients"
+          props:
+            - name: "source-section"
+              value: "§§29–43"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-007_smt"
+              name: "statement"
+              prose: |
+                A health information custodian shall not disclose personal health information about an individual
+                unless: the individual or the individual's substitute decision-maker has consented; one of the
+                statutory exceptions in PHIPA §§37–49 applies (including treatment, payment, legal proceedings,
+                regulatory functions, public health, or research with IPC approval); or another Act requires or
+                authorizes disclosure. The custodian must have a documented basis for every disclosure.
+            - id: "CA-ON-PHIPA-007_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a disclosure log recording the recipient, PHI disclosed, purpose, legal authority, and
+                date for every non-routine disclosure. Implement access controls that prevent unauthorized lateral
+                disclosure within systems. Train staff on the statutory exceptions and require supervisor approval
+                for disclosures outside the circle of care. Where disclosure is made under legal compulsion
+                (court order, statutory requirement), obtain legal advice and document the analysis.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A"
+
+    - id: "phipa-on-security-breach"
+      title: "Security Safeguards and Breach Notification"
+      controls:
+        - id: "CA-ON-PHIPA-008"
+          uuid: "a1b2c3d4-d108-4000-8000-100000000108"
+          title: "Security Safeguards — Implement administrative, technical, and physical safeguards for PHI"
+          props:
+            - name: "source-section"
+              value: "§12"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-008_smt"
+              name: "statement"
+              prose: |
+                A health information custodian shall take steps that are reasonable in the circumstances to
+                ensure that personal health information in its custody or control is protected against theft,
+                loss, and unauthorized use or disclosure, and to ensure that the records of personal health
+                information are protected against unauthorized copying, modification, or disposal. The
+                safeguards must be proportionate to the sensitivity of the PHI.
+            - id: "CA-ON-PHIPA-008_gdn"
+              name: "guidance"
+              prose: |
+                Implement a risk-tiered security program addressing administrative controls (policies, training,
+                background checks), physical controls (locked filing systems, clean-desk policy, facility access),
+                and technical controls (encryption at rest and in transit, role-based access, multi-factor
+                authentication, audit logging). Conduct periodic security risk assessments. Apply security
+                requirements to agents and third-party vendors through written agreements. The IPC has issued
+                guidance recommending encryption of PHI on portable devices as a baseline safeguard.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A"
+            - href: "https://www.ipc.on.ca/wp-content/uploads/2020/02/phipa-decision-making-framework.pdf"
+              rel: reference
+              text: "IPC Ontario — PHIPA Decision-Making Framework"
+
+        - id: "CA-ON-PHIPA-009"
+          uuid: "a1b2c3d4-d109-4000-8000-100000000109"
+          title: "Breach Notification — Notify affected individuals and IPC of privacy breaches at first reasonable opportunity"
+          props:
+            - name: "source-section"
+              value: "§12.1"
+            - name: "effective-date"
+              value: "2017-10-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-009_smt"
+              name: "statement"
+              prose: |
+                A health information custodian that experiences a breach — unauthorized use, disclosure, or loss
+                of PHI, or unauthorized access to PHI — must notify at the first reasonable opportunity: (a) each
+                individual whose PHI was involved, and (b) the Information and Privacy Commissioner of Ontario
+                (IPC), if the breach meets the prescribed significance threshold under the regulation. The custodian
+                must also take steps to contain and remediate the breach. Notification was added by the Strengthening
+                Patient Care Act, 2021 with regulatory provisions prescribing form and content.
+            - id: "CA-ON-PHIPA-009_gdn"
+              name: "guidance"
+              prose: |
+                Develop and test a breach response plan specifying detection, containment, assessment, notification,
+                and post-incident review steps. The IPC notification threshold is prescribed by regulation;
+                consult O. Reg. 329/04 and IPC guidance for the current threshold. Individual notifications must
+                describe the breach, the PHI involved, the remedial actions taken, and contact information for
+                the individual to ask questions. Do not delay notification to conduct a full investigation if
+                preliminary information is sufficient to satisfy the threshold — notify and supplement as needed.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A, §12.1"
+            - href: "https://www.ipc.on.ca/"
+              rel: reference
+              text: "Information and Privacy Commissioner of Ontario (IPC)"
+
+    - id: "phipa-on-access-correction"
+      title: "Patient Access and Correction"
+      controls:
+        - id: "CA-ON-PHIPA-010"
+          uuid: "a1b2c3d4-d110-4000-8000-100000000110"
+          title: "Right of Access — Provide individuals with access to their own PHI on request"
+          props:
+            - name: "source-section"
+              value: "§52, §53, §54"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-010_smt"
+              name: "statement"
+              prose: |
+                An individual has the right to request access to a record of personal health information in the
+                custody or control of a health information custodian. The HIC must respond to the request within
+                30 days (or within an extended period not exceeding 30 additional days where it is not reasonably
+                possible to respond within the initial period). Access must be provided unless a specific exemption
+                in PHIPA applies (e.g., serious risk of harm to the individual or third party, professional
+                privilege, ongoing law enforcement matter).
+            - id: "CA-ON-PHIPA-010_gdn"
+              name: "guidance"
+              prose: |
+                Establish a documented access-request procedure that accepts requests in writing (including by
+                email), verifies identity, locates responsive records, applies exemptions only where necessary
+                and justified, and issues a written decision within the 30-day window. Where an exemption is
+                claimed, provide the individual with written reasons and information about their right to complain
+                to the IPC. Log all access requests with the date received, response date, and decision outcome.
+                Where records exist in multiple systems, ensure the search is comprehensive.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A, §§52–54"
+
+        - id: "CA-ON-PHIPA-011"
+          uuid: "a1b2c3d4-d111-4000-8000-100000000111"
+          title: "Right of Correction — Correct inaccurate or incomplete PHI on request"
+          props:
+            - name: "source-section"
+              value: "§55"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-011_smt"
+              name: "statement"
+              prose: |
+                An individual may request that a health information custodian correct a record of PHI in its
+                custody or control. Where the HIC is satisfied that the record is incomplete or inaccurate for
+                the purposes for which the HIC uses it, the HIC must correct the record and notify any agent
+                or HIC to whom the incorrect PHI was previously disclosed. Where the HIC refuses correction,
+                the individual may require that a statement of disagreement be attached to the record.
+            - id: "CA-ON-PHIPA-011_gdn"
+              name: "guidance"
+              prose: |
+                Implement a correction-request procedure that accepts requests in writing, routes them to the
+                appropriate custodian of the record, makes the correction or appends a statement of disagreement,
+                and notifies downstream recipients within a reasonable time. Retain evidence of corrections made
+                and notifications sent. Where clinical records are involved, ensure corrections are co-signed
+                or annotated in a manner consistent with professional and accreditation standards (i.e., original
+                entries are not erased, but amendments are clearly dated and attributed).
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A, §55"
+
+    - id: "phipa-on-audit-oversight"
+      title: "Electronic Audit Logs and IPC Oversight"
+      controls:
+        - id: "CA-ON-PHIPA-012"
+          uuid: "a1b2c3d4-d112-4000-8000-100000000112"
+          title: "Electronic Audit Logs — Log and retain PHI access events in electronic health systems"
+          props:
+            - name: "source-section"
+              value: "§12; O. Reg. 329/04 §6.1"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-012_smt"
+              name: "statement"
+              prose: |
+                Health information custodians that use electronic systems to hold PHI must implement electronic
+                audit logging sufficient to detect and investigate unauthorized access or disclosure. Audit logs
+                must record, at minimum, the identity of persons who accessed PHI, the date and time of access,
+                and the nature of the action performed. Logs must be retained for a prescribed period and must
+                be protected from tampering or unauthorized deletion.
+            - id: "CA-ON-PHIPA-012_gdn"
+              name: "guidance"
+              prose: |
+                Configure EHR and PHI management systems to generate tamper-evident audit logs of all read,
+                create, update, and delete operations on PHI records. Retain audit logs for a minimum of 10 years
+                or as otherwise required by Ontario regulation. Establish a process for regular log review and
+                anomaly detection (e.g., after-hours access, bulk downloads). Provide audit log reports to the
+                IPC on request. The IPC's Health Sector privacy investigations consistently cite inadequate audit
+                logging as a contributing factor in breaches.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A"
+            - href: "https://www.ontario.ca/laws/regulation/040329"
+              rel: source
+              text: "General, O. Reg. 329/04 under PHIPA"
+
+        - id: "CA-ON-PHIPA-013"
+          uuid: "a1b2c3d4-d113-4000-8000-100000000113"
+          title: "IPC Oversight — Cooperate with IPC investigations and comply with IPC orders"
+          props:
+            - name: "source-section"
+              value: "§57, §58, §61"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-013_smt"
+              name: "statement"
+              prose: |
+                A health information custodian must cooperate with and not obstruct the Information and Privacy
+                Commissioner of Ontario in the exercise of its powers under PHIPA. Where the IPC issues an order
+                requiring a HIC to take or refrain from taking specified action, the HIC must comply with the
+                order within the time specified. Failure to comply with an IPC order may result in penalties
+                under PHIPA §72.
+            - id: "CA-ON-PHIPA-013_gdn"
+              name: "guidance"
+              prose: |
+                Designate a privacy officer or legal counsel as the primary point of contact for IPC inquiries,
+                investigations, and complaints. Respond to IPC requests for information and records within the
+                time specified by the IPC. Where an IPC investigation is initiated, preserve all potentially
+                relevant records and suspend routine destruction schedules. Implement a process to track IPC
+                orders received and confirm compliance with each requirement within the specified deadline.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A, §§57–61"
+            - href: "https://www.ipc.on.ca/"
+              rel: reference
+              text: "Information and Privacy Commissioner of Ontario (IPC)"
+
+        - id: "CA-ON-PHIPA-014"
+          uuid: "a1b2c3d4-d114-4000-8000-100000000114"
+          title: "Prescribed Persons and Registries — Disclose PHI to prescribed entities only for prescribed purposes"
+          props:
+            - name: "source-section"
+              value: "§39, §45"
+            - name: "effective-date"
+              value: "2004-11-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA-ON"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-ON-PHIPA-014_smt"
+              name: "statement"
+              prose: |
+                A health information custodian may disclose personal health information about an individual to
+                a prescribed person or entity, or to a health registry established by regulation, for the
+                purpose of analysis or compiling statistical information for planning or managing the health
+                system, if the prescribed requirements for such disclosure are met. Disclosure to prescribed
+                persons must be consistent with the applicable regulation and any conditions imposed by the
+                regulator.
+            - id: "CA-ON-PHIPA-014_gdn"
+              name: "guidance"
+              prose: |
+                Prescribed persons and entities (e.g., Cancer Care Ontario, CIHI, ICES, Public Health Ontario)
+                are listed in O. Reg. 329/04 Schedule. Before disclosing PHI to a prescribed entity, verify
+                that the entity is listed and that the disclosure purpose aligns with its mandate. Execute a
+                data-sharing agreement that specifies permitted uses, security requirements, and return or
+                destruction of PHI. Maintain a record of every disclosure to prescribed entities including the
+                legal authority, PHI categories, and date.
+          links:
+            - href: "https://www.ontario.ca/laws/statute/04p03"
+              rel: source
+              text: "Personal Health Information Protection Act, 2004, S.O. 2004, c. 3, Sch. A, §§39, 45"
+            - href: "https://www.ontario.ca/laws/regulation/040329"
+              rel: source
+              text: "General, O. Reg. 329/04 under PHIPA — Prescribed Persons Schedule"

@@ -1,0 +1,58 @@
+catalog:
+  uuid: "a1b2c3d4-b400-4000-8000-100000000000"
+  metadata:
+    title: "Texas Data Privacy and Security Act (TDPSA) — Community Tier Placeholder"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.0.1"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "US-TX-TDPSA"
+      - name: "jurisdiction"
+        value: "US-TX"
+      - name: "effective-as-of"
+        value: "2024-07-01"
+      - name: "source-citation"
+        value: "https://capitol.texas.gov/tlodocs/88R/billtext/html/HB04/HB00004F.htm"
+      - name: "status"
+        value: "placeholder"
+      - name: "community-tier"
+        value: "tier-2"
+  groups:
+    - id: "us-tx-tdpsa-placeholder"
+      title: "Placeholder Controls"
+      controls:
+        - id: "US-TX-TDPSA-001"
+          uuid: "a1b2c3d4-b401-4000-8000-100000000001"
+          title: "Community tier placeholder — TDPSA controls to be authored via RFC process"
+          props:
+            - name: "source-section"
+              value: "TBD"
+            - name: "effective-date"
+              value: "2024-07-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-TX"
+            - name: "status"
+              value: "placeholder"
+            - name: "community-tier"
+              value: "tier-2"
+          parts:
+            - id: "US-TX-TDPSA-001_smt"
+              name: "statement"
+              prose: |
+                Community tier — to be authored via RFC process per CONTRIBUTING.md. This placeholder
+                reserves the control ID namespace for the Texas Data Privacy and Security Act (Tex. Bus. &
+                Com. Code §541 et seq., effective July 1, 2024). Full controls will be authored by the
+                community following the RFC process described in CONTRIBUTING.md.
+            - id: "US-TX-TDPSA-001_gdn"
+              name: "guidance"
+              prose: |
+                See CONTRIBUTING.md for instructions on authoring community-tier regulation controls and
+                submitting them via the RFC process. Prospective authors should review the existing VCDPA
+                and CTDPA catalogs as style references.
+          links:
+            - href: "https://capitol.texas.gov/tlodocs/88R/billtext/html/HB04/HB00004F.htm"
+              rel: source
+              text: "Texas HB 4 (88th Legislature) — Texas Data Privacy and Security Act"

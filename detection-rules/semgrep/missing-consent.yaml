@@ -1,0 +1,178 @@
+rules:
+  - id: missing-consent-python
+    languages: [python]
+    severity: WARNING
+    message: |
+      Function appears to send marketing email or process consent-required data without checking a
+      consent flag. Consider adding a guard like `if user.consent_marketing:` or
+      `if user.has_consent(...):` before this call. Sending commercial electronic messages (CEMs)
+      or processing sensitive data without valid consent may violate GDPR, PIPEDA, CASL, and
+      Quebec Law 25.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://laws-lois.justice.gc.ca/eng/acts/C-28.65/"
+        - "https://gdpr.eu/article-6-lawful-basis-for-processing/"
+      controls:
+        - "EU-GDPR-001"
+        - "EU-GDPR-004"
+        - "CA-PIPEDA-003"
+        - "CA-CASL-001"
+        - "CA-QC-LAW25-007"
+        - "CA-AB-PIPA-002"
+        - "CA-BC-PIPA-002"
+      confidence: "production"
+    pattern-either:
+      - patterns:
+          - pattern-either:
+              - pattern: send_email($USER, ...)
+              - pattern: send_marketing_email($USER, ...)
+              - pattern: send_marketing(...)
+              - pattern: $MAILER.send_marketing(...)
+              - pattern: $MAILER.send_email($USER, ...)
+          - pattern-not-inside: |
+              if $USER.consent_marketing:
+                  ...
+          - pattern-not-inside: |
+              if $USER.has_consent(...):
+                  ...
+          - pattern-not-inside: |
+              if $USER.marketing_opt_in:
+                  ...
+          - pattern-not-inside: |
+              if $CONSENT:
+                  ...
+      - patterns:
+          - pattern: $X.send_newsletter(...)
+          - pattern-not-inside: |
+              if $USER.consent_marketing:
+                  ...
+          - pattern-not-inside: |
+              if $USER.newsletter_opt_in:
+                  ...
+
+  - id: missing-consent-javascript
+    languages: [javascript, typescript]
+    severity: WARNING
+    message: |
+      Function appears to send marketing email or commercial message without checking a consent
+      flag. Add a guard like `if (user.consentMarketing)` or `if (user.hasConsent(...))` before
+      this call. Sending CEMs without valid consent may violate GDPR, PIPEDA, CASL, and
+      Quebec Law 25.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://laws-lois.justice.gc.ca/eng/acts/C-28.65/"
+        - "https://gdpr.eu/article-6-lawful-basis-for-processing/"
+      controls:
+        - "EU-GDPR-001"
+        - "EU-GDPR-004"
+        - "CA-PIPEDA-003"
+        - "CA-CASL-001"
+        - "CA-QC-LAW25-007"
+        - "CA-AB-PIPA-002"
+        - "CA-BC-PIPA-002"
+      confidence: "production"
+    pattern-either:
+      - patterns:
+          - pattern-either:
+              - pattern: sendEmail($USER, ...)
+              - pattern: sendMarketingEmail($USER, ...)
+              - pattern: sendMarketing(...)
+              - pattern: mailer.send($USER, ...)
+              - pattern: $MAILER.sendMarketing(...)
+              - pattern: $MAILER.sendEmail($USER, ...)
+          - pattern-not-inside: |
+              if ($USER.consentMarketing) {
+                ...
+              }
+          - pattern-not-inside: |
+              if ($USER.consent_marketing) {
+                ...
+              }
+          - pattern-not-inside: |
+              if ($USER.hasConsent(...)) {
+                ...
+              }
+          - pattern-not-inside: |
+              if ($CONSENT) {
+                ...
+              }
+      - patterns:
+          - pattern: $MAILER.sendNewsletter(...)
+          - pattern-not-inside: |
+              if ($USER.newsletterOptIn) {
+                ...
+              }
+
+  - id: missing-consent-java
+    languages: [java]
+    severity: WARNING
+    message: |
+      Method appears to send marketing or commercial email without a visible consent check.
+      Ensure isConsentMarketing(), hasConsent(), or an equivalent guard is called before
+      dispatching any commercial electronic message. Baseline rule — review manually.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://laws-lois.justice.gc.ca/eng/acts/C-28.65/"
+        - "https://gdpr.eu/article-6-lawful-basis-for-processing/"
+      controls:
+        - "EU-GDPR-001"
+        - "EU-GDPR-004"
+        - "CA-PIPEDA-003"
+        - "CA-CASL-001"
+        - "CA-QC-LAW25-007"
+        - "CA-AB-PIPA-002"
+        - "CA-BC-PIPA-002"
+      confidence: "baseline"
+    pattern-either:
+      - patterns:
+          - pattern-either:
+              - pattern: $MAILER.sendMarketingEmail(...)
+              - pattern: $MAILER.sendMarketing(...)
+              - pattern: $SERVICE.sendNewsletter(...)
+          - pattern-not-inside: |
+              if ($USER.isConsentMarketing()) {
+                ...
+              }
+          - pattern-not-inside: |
+              if ($USER.hasConsent(...)) {
+                ...
+              }
+
+  - id: missing-consent-csharp
+    languages: [csharp]
+    severity: WARNING
+    message: |
+      Method appears to send marketing or commercial email without a visible consent check.
+      Ensure a guard like `if (user.ConsentMarketing)` or `if (user.HasConsent(...))` is present
+      before sending any commercial electronic message. Baseline rule — review manually.
+    metadata:
+      category: "compliance"
+      references:
+        - "https://laws-lois.justice.gc.ca/eng/acts/C-28.65/"
+        - "https://gdpr.eu/article-6-lawful-basis-for-processing/"
+      controls:
+        - "EU-GDPR-001"
+        - "EU-GDPR-004"
+        - "CA-PIPEDA-003"
+        - "CA-CASL-001"
+        - "CA-QC-LAW25-007"
+        - "CA-AB-PIPA-002"
+        - "CA-BC-PIPA-002"
+      confidence: "baseline"
+    pattern-either:
+      - patterns:
+          - pattern-either:
+              - pattern: $MAILER.SendMarketingEmail(...)
+              - pattern: $MAILER.SendMarketing(...)
+              - pattern: $SERVICE.SendNewsletter(...)
+          - pattern-not-inside: |
+              if ($USER.ConsentMarketing) {
+                ...
+              }
+          - pattern-not-inside: |
+              if ($USER.HasConsent(...)) {
+                ...
+              }

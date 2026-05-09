@@ -23,30 +23,17 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install YAML parser
-        run: pip install pyyaml
+      - name: Install dependencies
+        run: pip install pyyaml pydantic pytest ruff mypy types-PyYAML
 
-      - name: YAML syntax check (interim — Phase 1 will replace with `trestle validate`)
-        run: |
-          python - <<'EOF'
-          import sys, pathlib, yaml
-          errors = []
-          for p in pathlib.Path('.').rglob('*.yaml'):
-              if any(part.startswith('.') for part in p.parts):
-                  continue
-              try:
-                  with open(p, encoding='utf-8') as f:
-                      yaml.safe_load(f)
-              except Exception as e:
-                  errors.append(f"{p}: {e}")
-          if errors:
-              for e in errors:
-                  print(f"::error file={e.split(':',1)[0]}::{e}")
-              sys.exit(1)
-          print(f"YAML syntax OK across all *.yaml files")
-          EOF
+      - name: Lint
+        run: python -m ruff check scripts/ tests/
 
-      - name: OSCAL schema validation (placeholder — wired in Phase 1)
-        run: |
-          echo "Phase 1 will replace this step with: uv run trestle validate --all"
-          exit 0
+      - name: Type check
+        run: python -m mypy scripts/
+
+      - name: Run custom catalog validator
+        run: python scripts/validate_catalog.py
+
+      - name: Run catalog test suite
+        run: pytest tests/test_catalog_validation.py -v

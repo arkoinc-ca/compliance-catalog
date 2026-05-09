@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-0007-4000-8000-100000000007"
   metadata:
     title: "California Consumer Privacy Act / California Privacy Rights Act (CCPA/CPRA)"
-    last-modified: "2026-05-08T00:00:00Z"
-    version: "0.0.1-skeleton"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -13,17 +13,477 @@ catalog:
       - name: "effective-as-of"
         value: "2023-01-01"
       - name: "source-citation"
-        value: "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1798.100&lawCode=CIV"
+        value: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+      - name: "regulations-source"
+        value: "https://cppa.ca.gov/regulations/"
   groups:
     - id: "ccpa-cpra-consumer-rights"
-      title: "Consumer Rights"
+      title: "Consumer Rights — §§ 1798.100, .105, .106, .110, .115, .120, .121, .130, .135, .140"
       controls:
         - id: "US-CA-CCPA-001"
-          title: "Right to Know — Inform consumers about personal information categories collected and purposes"
+          uuid: "a1b2c3d4-0601-4000-8000-100000000601"
+          title: "Right to Know — Disclose categories and specific pieces of personal information collected, used, disclosed"
           props:
+            - name: "source-section"
+              value: "§ 1798.100, .110, .115, .130"
+            - name: "effective-date"
+              value: "2020-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
             - name: "status"
-              value: "skeleton"
+              value: "draft"
           parts:
-            - id: "CCPA-CPRA-1798-100-stmt"
+            - id: "US-CA-CCPA-001_smt"
               name: "statement"
-              prose: "TODO: Author full control statement in Phase 1."
+              prose: |
+                Consumers have the right to request that a business disclose: the categories of personal information
+                collected; the categories of sources; the business or commercial purposes for collection; the categories
+                of third parties with whom information is shared; and the specific pieces of personal information held
+                about the consumer. Businesses must respond to verifiable consumer requests within 45 days, extendable
+                by an additional 45 days when reasonably necessary with notice.
+            - id: "US-CA-CCPA-001_gdn"
+              name: "guidance"
+              prose: |
+                Maintain an up-to-date data inventory mapping each category of personal information to its collection
+                source, business purpose, and disclosure recipients. Configure your consumer-facing request portal to
+                accept and route Right to Know requests. CPPA regulations (§7023) require that responses to specific-
+                pieces requests be delivered in a readily usable format. Confirm that your inventory aligns with the
+                categories disclosed in your privacy policy to avoid inconsistent disclosures.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.100, .110, .115, .130 (CCPA/CPRA)"
+
+        - id: "US-CA-CCPA-002"
+          uuid: "a1b2c3d4-0602-4000-8000-100000000602"
+          title: "Right to Delete — Honor verifiable consumer requests to delete personal information; document statutory exceptions"
+          props:
+            - name: "source-section"
+              value: "§ 1798.105"
+            - name: "effective-date"
+              value: "2020-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-002_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to request that a business delete personal information collected from them,
+                subject to statutory exceptions. A business that receives a verifiable deletion request must delete
+                the consumer's personal information from its records and direct any service providers and contractors
+                to delete the information from their records. Businesses must respond within 45 days and inform
+                consumers of any exceptions applied.
+            - id: "US-CA-CCPA-002_gdn"
+              name: "guidance"
+              prose: |
+                Document all nine statutory exceptions to deletion (§ 1798.105(d)) so that staff can apply them
+                consistently, and communicate which exception applies when declining a request in whole or in part.
+                Establish a deletion workflow that propagates requests to all downstream service providers and
+                contractors under contract. CPPA regulations (§7022) require that deletion be verified and that
+                partial exceptions be communicated to the consumer with the information actually deleted clearly
+                identified.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.105 (CCPA/CPRA — Right to Delete)"
+
+        - id: "US-CA-CCPA-003"
+          uuid: "a1b2c3d4-0603-4000-8000-100000000603"
+          title: "Right to Correct — Honor requests to correct inaccurate personal information"
+          props:
+            - name: "source-section"
+              value: "§ 1798.106 (CPRA)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-003_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to request that a business correct inaccurate personal information about
+                them. Upon receiving a verifiable consumer request to correct, the business must use commercially
+                reasonable efforts to correct the inaccurate information. The business must direct service providers
+                and contractors to make corresponding corrections in their records.
+            - id: "US-CA-CCPA-003_gdn"
+              name: "guidance"
+              prose: |
+                Implement a correction workflow that captures the consumer's claimed correction, verifies identity,
+                updates the record in all authoritative systems, and propagates corrections to service providers and
+                contractors. Where a business contests the accuracy of a correction request in good faith, document
+                the basis for the disagreement. CPPA regulations (§7024) address the standard for commercially
+                reasonable correction efforts and notification to third parties.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.106 (CPRA — Right to Correct)"
+
+        - id: "US-CA-CCPA-004"
+          uuid: "a1b2c3d4-0604-4000-8000-100000000604"
+          title: "Right to Opt Out of Sale or Sharing — Honor requests; recognize Global Privacy Control"
+          props:
+            - name: "source-section"
+              value: "§ 1798.120, .135; CCPA Regs § 7025"
+            - name: "effective-date"
+              value: "2020-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-004_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to opt out of the sale or sharing of their personal information at any
+                time. Businesses that sell or share personal information must provide a conspicuous "Do Not Sell or
+                Share My Personal Information" link and must honor opt-out requests without penalty. Businesses must
+                also recognize the Global Privacy Control (GPC) signal as a valid opt-out mechanism. Opted-out
+                status must be honored for at least 12 months before the business may ask the consumer to opt back in.
+            - id: "US-CA-CCPA-004_gdn"
+              name: "guidance"
+              prose: |
+                Implement server-side or client-side detection of the GPC browser signal and immediately treat it
+                as a valid opt-out without requiring additional consumer action (CPPA Reg. §7025). Place the "Do
+                Not Sell or Share" link in the footer of every page where personal information is collected. Propagate
+                opt-out status to all downstream ad-tech and analytics vendors through contractual mechanisms.
+                Review vendor data-sharing arrangements at least annually to confirm opt-out compliance.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.120, .135 (CCPA/CPRA — Opt Out of Sale or Sharing)"
+            - href: "https://cppa.ca.gov/regulations/"
+              rel: source
+              text: "CPPA Regulations § 7025 (Global Privacy Control)"
+
+        - id: "US-CA-CCPA-005"
+          uuid: "a1b2c3d4-0605-4000-8000-100000000605"
+          title: "Right to Limit Use of Sensitive Personal Information — Honor limitation requests"
+          props:
+            - name: "source-section"
+              value: "§ 1798.121 (CPRA)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-005_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to direct a business that collects sensitive personal information to limit
+                its use and disclosure to only what is necessary to perform the services or provide the goods
+                reasonably expected by an average consumer. Sensitive personal information includes Social Security
+                numbers, financial account information, precise geolocation, racial or ethnic origin, religious
+                beliefs, health data, biometric data, and the contents of communications. Businesses must provide
+                a "Limit the Use of My Sensitive Personal Information" link or a combined opt-out link.
+            - id: "US-CA-CCPA-005_gdn"
+              name: "guidance"
+              prose: |
+                Identify all categories of sensitive personal information (SPI) your organization collects and map
+                the processing purposes. Where SPI is used for purposes beyond service delivery — such as secondary
+                analytics, profiling, or advertising — implement controls to suppress that processing when a
+                limitation request is active. CPPA Reg. §7027 permits combining the SPI-limit link with the opt-out
+                link into a single "Your Privacy Choices" link accompanied by the opt-out icon. Confirm that service
+                providers and contractors receive and honor limitation instructions.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.121 (CPRA — Limit Use of Sensitive Personal Information)"
+            - href: "https://cppa.ca.gov/regulations/"
+              rel: source
+              text: "CPPA Regulations § 7027 (SPI limit link)"
+
+        - id: "US-CA-CCPA-006"
+          uuid: "a1b2c3d4-0606-4000-8000-100000000606"
+          title: "Non-Discrimination — Do not discriminate against consumers exercising rights; financial incentives with disclosure only"
+          props:
+            - name: "source-section"
+              value: "§ 1798.125"
+            - name: "effective-date"
+              value: "2020-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-006_smt"
+              name: "statement"
+              prose: |
+                A business shall not discriminate against a consumer for exercising any rights under the CCPA/CPRA,
+                including by denying goods or services, charging different prices, providing a different level of
+                quality, or suggesting any of these consequences. A business may offer financial incentives or
+                price differences only if the practice is reasonably related to the value provided by the
+                consumer's data and the consumer is notified and gives prior opt-in consent to the program.
+            - id: "US-CA-CCPA-006_gdn"
+              name: "guidance"
+              prose: |
+                Train customer-facing staff not to deny service or reduce service quality in response to rights
+                requests. Review any loyalty or discount programs that tie benefits to data collection or consent
+                to confirm they meet the "reasonably related to value" standard and include a compliant financial
+                incentive notice (§ 1798.125(b)(2)). Document the good-faith value estimate supporting any
+                differential pricing tied to personal information.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.125 (CCPA/CPRA — Non-Discrimination)"
+
+    - id: "ccpa-cpra-business-obligations"
+      title: "Business Obligations — §§ 1798.100(b), .130, .135, .140, .145, .150, .185"
+      controls:
+        - id: "US-CA-CCPA-007"
+          uuid: "a1b2c3d4-0607-4000-8000-100000000607"
+          title: "Notice at Collection — Inform consumers at or before collection of categories, purposes, retention"
+          props:
+            - name: "source-section"
+              value: "§ 1798.100(b); CCPA Regs § 7012"
+            - name: "effective-date"
+              value: "2020-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-007_smt"
+              name: "statement"
+              prose: |
+                At or before collecting personal information, a business must inform consumers of the categories
+                of personal information to be collected, the purposes for which each category will be used, and
+                whether the information is sold or shared. If the business materially changes its collection or
+                use practices, it must provide an updated notice before collecting information under the new
+                practices. Notices must be accessible to consumers with disabilities.
+            - id: "US-CA-CCPA-007_gdn"
+              name: "guidance"
+              prose: |
+                Place a short-form notice at every data-collection point (web forms, app sign-up screens, checkout
+                flows) that lists the categories of personal information collected, the purposes, and a link to the
+                full privacy policy. CPPA Reg. §7012 specifies what the notice at collection must contain and
+                that it must be presented before any personal information is collected. For offline collection,
+                provide notice via a paper form, a verbal statement, or a posted notice. Review collection practices
+                when product features change to ensure notice stays current.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.100(b) (CCPA/CPRA — Notice at Collection)"
+            - href: "https://cppa.ca.gov/regulations/"
+              rel: source
+              text: "CPPA Regulations § 7012 (Notice at Collection)"
+
+        - id: "US-CA-CCPA-008"
+          uuid: "a1b2c3d4-0608-4000-8000-100000000608"
+          title: "Privacy Policy — Maintain a comprehensive privacy policy with required disclosures, updated every 12 months"
+          props:
+            - name: "source-section"
+              value: "§ 1798.130(a)(5)"
+            - name: "effective-date"
+              value: "2020-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-008_smt"
+              name: "statement"
+              prose: |
+                Businesses must maintain a privacy policy that is conspicuously posted on its website and covers:
+                consumer rights and how to exercise them; the categories of personal information collected in the
+                preceding 12 months; the purposes for which each category is used; the categories of third parties
+                to whom information is disclosed; and the categories of sources from which information is collected.
+                The privacy policy must be updated at least every 12 months and display the date it was last updated.
+            - id: "US-CA-CCPA-008_gdn"
+              name: "guidance"
+              prose: |
+                Link the privacy policy from the homepage footer and from all data-collection screens. Include a
+                clearly labeled section for each consumer right (Know, Delete, Correct, Opt Out, Limit SPI) with
+                instructions on how to submit a request. Set a calendar reminder for an annual review cycle and
+                update the "last updated" date even when changes are minor. CPPA Reg. §7011 specifies the privacy
+                policy's required content in detail. Ensure the policy is machine-readable and accessible to users
+                of screen readers and other assistive technologies.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.130(a)(5) (CCPA/CPRA — Privacy Policy)"
+            - href: "https://cppa.ca.gov/regulations/"
+              rel: source
+              text: "CPPA Regulations § 7011 (Privacy Policy Content)"
+
+        - id: "US-CA-CCPA-009"
+          uuid: "a1b2c3d4-0609-4000-8000-100000000609"
+          title: "Verifiable Consumer Request Process — At least two designated methods; verify identity"
+          props:
+            - name: "source-section"
+              value: "§ 1798.130(a)(1); CCPA Regs § 7060"
+            - name: "effective-date"
+              value: "2020-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-009_smt"
+              name: "statement"
+              prose: |
+                Businesses that operate exclusively online and have a direct relationship with a consumer may
+                provide an email address for requests. All other businesses must provide at least two designated
+                methods, including a toll-free telephone number and, if a website is maintained, a web form.
+                Businesses must verify the identity of the consumer making a request before complying, using a
+                reasonable process commensurate with the sensitivity of the information and without requiring
+                a consumer to create an account.
+            - id: "US-CA-CCPA-009_gdn"
+              name: "guidance"
+              prose: |
+                Deploy a dedicated privacy request portal or web form and a toll-free number staffed during business
+                hours. CPPA Reg. §7060 prescribes the verification standards: for requests to know specific pieces,
+                use at least three data points plus a signed declaration under penalty of perjury. For requests
+                submitted through a password-protected account, identity is verified by authentication to the account.
+                Log all requests, responses, and verification steps. Authorized agents must be verified separately.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.130(a)(1) (CCPA/CPRA — Request Methods)"
+            - href: "https://cppa.ca.gov/regulations/"
+              rel: source
+              text: "CPPA Regulations § 7060 (Verification of Consumer Requests)"
+
+        - id: "US-CA-CCPA-010"
+          uuid: "a1b2c3d4-0610-4000-8000-100000000610"
+          title: "Service Provider and Contractor Contracts — Bind processors with required contractual terms"
+          props:
+            - name: "source-section"
+              value: "§ 1798.140(ag), (j); CCPA Regs § 7051"
+            - name: "effective-date"
+              value: "2020-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-010_smt"
+              name: "statement"
+              prose: |
+                A business that discloses personal information to a service provider or contractor must enter into
+                a written contract that prohibits the recipient from selling or sharing the personal information,
+                retaining or using the personal information outside the specified business purpose, or combining
+                the personal information with information from other sources not permitted under the contract.
+                Contracts must also require the service provider or contractor to delete the personal information
+                upon the business's direction and to assist the business in responding to consumer requests.
+            - id: "US-CA-CCPA-010_gdn"
+              name: "guidance"
+              prose: |
+                Audit existing vendor agreements and update them to include the mandatory clauses required by
+                § 1798.140(ag)(1) and CPPA Reg. §7051, including data-purpose limitations, prohibition on
+                cross-context behavioral advertising, consumer request assistance obligations, and sub-processor
+                flow-down requirements. Maintain a vendor register that tracks agreement status, scope, and the
+                date of last review. When a vendor cannot accept required contractual terms, treat the disclosure
+                as a sale and trigger the appropriate opt-out rights.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.140(ag), (j) (CCPA/CPRA — Service Provider Contracts)"
+            - href: "https://cppa.ca.gov/regulations/"
+              rel: source
+              text: "CPPA Regulations § 7051 (Service Provider and Contractor Contracts)"
+
+        - id: "US-CA-CCPA-011"
+          uuid: "a1b2c3d4-0611-4000-8000-100000000611"
+          title: "Data Security — Implement reasonable security procedures; statutory damages on breach"
+          props:
+            - name: "source-section"
+              value: "§ 1798.150"
+            - name: "effective-date"
+              value: "2020-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-011_smt"
+              name: "statement"
+              prose: |
+                Businesses must implement and maintain reasonable security procedures and practices appropriate to
+                the nature of the personal information they hold, in order to protect it from unauthorized access,
+                destruction, use, modification, or disclosure. A consumer whose non-encrypted or non-redacted
+                personal information is subject to unauthorized access and exfiltration as a result of a business's
+                failure to maintain reasonable security has a private right of action for statutory damages of
+                $100–$750 per consumer per incident, or actual damages, whichever is greater.
+            - id: "US-CA-CCPA-011_gdn"
+              name: "guidance"
+              prose: |
+                The California Attorney General has indicated that the Center for Internet Security (CIS) Controls
+                represent a reasonable baseline security posture. Encrypt personal information at rest and in
+                transit, implement access controls and least-privilege principles, conduct regular vulnerability
+                scans and penetration tests, and maintain an incident response plan. Particular attention should
+                be paid to the categories of personal information triggering the private right of action: first
+                and last name combined with SSN, financial account numbers, medical/health information, or
+                biometric data, among others.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.150 (CCPA/CPRA — Security and Private Right of Action)"
+
+        - id: "US-CA-CCPA-012"
+          uuid: "a1b2c3d4-0612-4000-8000-100000000612"
+          title: "Risk Assessments and Cybersecurity Audits — Conduct for high-risk processing; submit on Agency request"
+          props:
+            - name: "source-section"
+              value: "§ 1798.185(a)(15)–(16); CCPA Regs Risk Assessments / Cybersecurity Audits (rulemaking ongoing as of 2026-05-09)"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-012_smt"
+              name: "statement"
+              prose: |
+                Under regulations adopted by the California Privacy Protection Agency, businesses that engage in
+                processing activities that present significant risk to consumer privacy — including selling personal
+                information, processing sensitive personal information, and using personal information for profiling
+                or automated decision-making — must conduct documented risk assessments before initiating such
+                processing. Businesses that meet scale thresholds must also conduct annual cybersecurity audits.
+                Both risk assessments and audit reports must be submitted to the CPPA on request.
+            - id: "US-CA-CCPA-012_gdn"
+              name: "guidance"
+              prose: |
+                Risk assessments must weigh the benefits of the processing against the risks to consumers and
+                document any safeguards in place to mitigate identified risks. Cybersecurity audits must be
+                conducted by a qualified third party and must evaluate the business's security program against a
+                recognized framework. Retain all risk assessment and audit documentation. The CPPA's Risk
+                Assessment and Cybersecurity Audit regulations are subject to ongoing rulemaking; check the CPPA
+                regulations page for current status before relying on a fixed obligation date.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.185(a)(15)–(16) (CCPA/CPRA — Risk Assessment Authority)"
+            - href: "https://cppa.ca.gov/regulations/"
+              rel: source
+              text: "CPPA Regulations — Risk Assessments and Cybersecurity Audits (rulemaking ongoing)"

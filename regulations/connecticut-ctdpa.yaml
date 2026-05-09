@@ -1,0 +1,420 @@
+catalog:
+  uuid: "a1b2c3d4-b200-4000-8000-100000000000"
+  metadata:
+    title: "Connecticut Data Privacy Act (CTDPA)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "CT-CTDPA"
+      - name: "jurisdiction"
+        value: "US-CT"
+      - name: "effective-as-of"
+        value: "2023-07-01"
+      - name: "source-citation"
+        value: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+      - name: "amending-act"
+        value: "PA 23-56 (minor protection amendments, effective 2024-10-01)"
+  groups:
+    - id: "ct-ctdpa-scope"
+      title: "Scope and Applicability"
+      controls:
+        - id: "US-CT-CTDPA-001"
+          uuid: "a1b2c3d4-b201-4000-8000-100000000001"
+          title: "Determine applicability based on consumer and revenue thresholds"
+          props:
+            - name: "source-section"
+              value: "§42-515(b)"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CT-CTDPA-001_smt"
+              name: "statement"
+              prose: |
+                The CTDPA applies to persons that conduct business in Connecticut or produce products or services
+                targeted to Connecticut residents and that during the preceding calendar year: (i) controlled or
+                processed personal data of at least 100,000 consumers (excluding data processed solely for
+                completing a payment transaction); or (ii) controlled or processed personal data of at least
+                25,000 consumers and derived more than 25 percent of gross revenue from the sale of personal data.
+            - id: "US-CT-CTDPA-001_gdn"
+              name: "guidance"
+              prose: |
+                Note the CTDPA excludes payment-transaction-only data from the 100,000 consumer threshold —
+                a distinction from VCDPA. Assess both thresholds annually and document your methodology.
+                Non-profit, HIPAA-covered, and higher-education entities may have entity-level or data-level
+                exemptions — verify applicability for each business unit. Track revenue attribution from data
+                sales separately in your accounting systems.
+          links:
+            - href: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+              rel: source
+              text: "Conn. Gen. Stat. §42-515 — Definitions and applicability"
+
+    - id: "ct-ctdpa-controller-obligations"
+      title: "Controller Obligations"
+      controls:
+        - id: "US-CT-CTDPA-002"
+          uuid: "a1b2c3d4-b202-4000-8000-100000000002"
+          title: "Provide a clear and accessible privacy notice"
+          props:
+            - name: "source-section"
+              value: "§42-520(a)"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CT-CTDPA-002_smt"
+              name: "statement"
+              prose: |
+                Controllers must provide consumers with a reasonably accessible and clear privacy notice
+                disclosing: the categories of personal data processed; the purposes for processing;
+                how consumers may exercise their rights and appeal a denial; the categories of personal data
+                shared with third parties; the categories of third-party recipients; and whether personal
+                data is sold or used for targeted advertising, with instructions to opt out.
+            - id: "US-CT-CTDPA-002_gdn"
+              name: "guidance"
+              prose: |
+                The CTDPA requires the privacy notice to explain the appeals process — not just rights — which
+                is more specific than many peer statutes. Include a dedicated section explaining how consumers
+                can appeal a denied rights request (internal review, then AG complaint). Link the notice from
+                all data-collection entry points. Update it promptly when processing activities change.
+          links:
+            - href: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+              rel: source
+              text: "Conn. Gen. Stat. §42-520 — Controller responsibilities"
+
+        - id: "US-CT-CTDPA-003"
+          uuid: "a1b2c3d4-b203-4000-8000-100000000003"
+          title: "Apply data minimization and purpose limitation"
+          props:
+            - name: "source-section"
+              value: "§42-520(a)(2)"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CT-CTDPA-003_smt"
+              name: "statement"
+              prose: |
+                Controllers must limit the collection of personal data to what is adequate, relevant, and
+                reasonably necessary for the disclosed purposes. Personal data must not be processed for
+                purposes that are not reasonably necessary to or compatible with the disclosed purposes,
+                unless the consumer provides consent.
+            - id: "US-CT-CTDPA-003_gdn"
+              name: "guidance"
+              prose: |
+                Conduct a data mapping exercise to align each collected data element with a disclosed purpose.
+                Secondary-use assessments must be documented before data is reused for new purposes. Build
+                minimization into product requirements: collect the least-necessary set of fields by default.
+                Review data retention against purpose necessity at least annually.
+          links:
+            - href: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+              rel: source
+              text: "Conn. Gen. Stat. §42-520 — Controller responsibilities"
+
+        - id: "US-CT-CTDPA-004"
+          uuid: "a1b2c3d4-b204-4000-8000-100000000004"
+          title: "Implement reasonable data security practices"
+          props:
+            - name: "source-section"
+              value: "§42-520(a)(4)"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CT-CTDPA-004_smt"
+              name: "statement"
+              prose: |
+                Controllers must establish, implement, and maintain reasonable administrative, technical, and
+                physical data security practices to protect the confidentiality, integrity, and accessibility
+                of personal data. Security measures must be appropriate to the volume and nature of the
+                personal data at issue.
+            - id: "US-CT-CTDPA-004_gdn"
+              name: "guidance"
+              prose: |
+                Security controls should be risk-calibrated. Document a security program that covers encryption
+                (in transit and at rest), access control, patch management, and incident response. For sensitive
+                data categories, apply heightened controls. Review and test security controls at least annually
+                and after significant system changes.
+          links:
+            - href: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+              rel: source
+              text: "Conn. Gen. Stat. §42-520 — Controller responsibilities"
+
+    - id: "ct-ctdpa-consumer-rights"
+      title: "Consumer Rights"
+      controls:
+        - id: "US-CT-CTDPA-005"
+          uuid: "a1b2c3d4-b205-4000-8000-100000000005"
+          title: "Respond to consumer access requests within 45 days"
+          props:
+            - name: "source-section"
+              value: "§42-519(a)(1), §42-519(f)"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CT-CTDPA-005_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to confirm whether a controller processes their personal data and
+                to obtain a copy of that data. Controllers must respond to authenticated requests within
+                45 days. The response period may be extended by an additional 45 days where reasonably
+                necessary; the consumer must be notified of the extension and the reason within the initial
+                45-day window.
+            - id: "US-CT-CTDPA-005_gdn"
+              name: "guidance"
+              prose: |
+                Implement a verified intake process and a 45-day response SLA. Deliver the data in a portable
+                format. Where access is denied in whole or part, explain the reason and inform the consumer
+                of their right to appeal. Maintain a log of all requests, responses, and any extensions for
+                at least two years for audit purposes.
+          links:
+            - href: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+              rel: source
+              text: "Conn. Gen. Stat. §42-519 — Consumer rights"
+
+        - id: "US-CT-CTDPA-006"
+          uuid: "a1b2c3d4-b206-4000-8000-100000000006"
+          title: "Honor consumer correction and deletion requests"
+          props:
+            - name: "source-section"
+              value: "§42-519(a)(2), §42-519(a)(3)"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CT-CTDPA-006_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to correct inaccuracies in their personal data and to delete personal
+                data provided by or obtained about the consumer. Controllers must act on verified requests
+                within 45 days, with a possible 45-day extension. Deletion instructions must be propagated
+                to processors. Exceptions apply for data required by law or necessary to complete a transaction.
+            - id: "US-CT-CTDPA-006_gdn"
+              name: "guidance"
+              prose: |
+                Map all data stores to enable deletion propagation across the full data estate, including
+                backups and analytics environments. Implement processor propagation via DPA provisions.
+                Document the legal-hold or exception basis when deletion is declined. Correction requests
+                require updating records and notifying downstream third parties where feasible.
+          links:
+            - href: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+              rel: source
+              text: "Conn. Gen. Stat. §42-519 — Consumer rights"
+
+        - id: "US-CT-CTDPA-007"
+          uuid: "a1b2c3d4-b207-4000-8000-100000000007"
+          title: "Provide opt-out for sale, targeted advertising, and profiling"
+          props:
+            - name: "source-section"
+              value: "§42-519(a)(5)"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CT-CTDPA-007_smt"
+              name: "statement"
+              prose: |
+                Consumers have the right to opt out of: (i) the sale of personal data; (ii) targeted
+                advertising; and (iii) profiling for decisions that produce legal or similarly significant
+                effects. Controllers must honor global privacy control (GPC) signals as a valid opt-out
+                mechanism effective October 1, 2024 (PA 23-56).
+            - id: "US-CT-CTDPA-007_gdn"
+              name: "guidance"
+              prose: |
+                Implement opt-out links in the privacy notice and on collection pages. Honor GPC browser
+                signals automatically as of the PA 23-56 effective date. Process opt-out requests promptly
+                and propagate them to ad-tech and data-broker partners. Do not re-enroll opted-out consumers
+                without affirmative re-consent. Log all opt-out events with timestamps.
+          links:
+            - href: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+              rel: source
+              text: "Conn. Gen. Stat. §42-519 — Consumer rights; PA 23-56"
+
+        - id: "US-CT-CTDPA-008"
+          uuid: "a1b2c3d4-b208-4000-8000-100000000008"
+          title: "Establish an internal consumer rights appeal process"
+          props:
+            - name: "source-section"
+              value: "§42-519(f)"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-CT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CT-CTDPA-008_smt"
+              name: "statement"
+              prose: |
+                Controllers must establish an internal process for consumers to appeal the denial of a rights
+                request within a reasonable time after the denial. Within 60 days of receipt of an appeal,
+                the controller must inform the consumer in writing of the action taken or not taken, the
+                reasons, and the consumer's right to submit a complaint to the AG.
+            - id: "US-CT-CTDPA-008_gdn"
+              name: "guidance"
+              prose: |
+                Create a documented appeals workflow distinct from the initial request process. The appeal
+                response must explain the decision reasoning, not simply restate the denial. Include in the
+                response the AG's contact information for consumer complaints. Log all appeals, outcomes,
+                and notification dates. The appeals obligation is a CTDPA distinguishing feature — ensure
+                your privacy notice discloses the process clearly.
+          links:
+            - href: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+              rel: source
+              text: "Conn. Gen. Stat. §42-519(f) — Appeal process"
+
+    - id: "ct-ctdpa-sensitive-data"
+      title: "Sensitive Data and Children"
+      controls:
+        - id: "US-CT-CTDPA-009"
+          uuid: "a1b2c3d4-b209-4000-8000-100000000009"
+          title: "Obtain consent before processing sensitive data"
+          props:
+            - name: "source-section"
+              value: "§42-520(a)(5)"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CT-CTDPA-009_smt"
+              name: "statement"
+              prose: |
+                Controllers must not process sensitive personal data without the consumer's consent. Sensitive
+                data includes: racial or ethnic origin; religious beliefs; mental or physical health condition;
+                sexual orientation; immigration status; genetic or biometric data; precise geolocation;
+                and personal data of known children. The minor-protection amendments (PA 23-56) extend child
+                data protections effective October 1, 2024.
+            - id: "US-CT-CTDPA-009_gdn"
+              name: "guidance"
+              prose: |
+                Sensitive-data consent must be a separate, affirmative opt-in — not bundled with service
+                terms. For children, comply with COPPA as the federal floor and apply CTDPA consent
+                requirements on top. Following PA 23-56, controllers with actual knowledge that a consumer
+                is under 18 must not process their sensitive data without parental consent. Audit your
+                age-verification and sensitive-data identification processes to detect gaps.
+          links:
+            - href: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+              rel: source
+              text: "Conn. Gen. Stat. §42-520; PA 23-56 minor protection amendments"
+
+    - id: "ct-ctdpa-dpia"
+      title: "Data Protection Impact Assessments"
+      controls:
+        - id: "US-CT-CTDPA-010"
+          uuid: "a1b2c3d4-b20a-4000-8000-10000000000a"
+          title: "Conduct DPIAs for high-risk processing activities"
+          props:
+            - name: "source-section"
+              value: "§42-522"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CT-CTDPA-010_smt"
+              name: "statement"
+              prose: |
+                Controllers must conduct and document a data protection impact assessment for processing
+                activities presenting heightened risk, including: targeted advertising; sale of personal data;
+                profiling for consequential decisions; processing sensitive data; and activities involving
+                children's data. DPIAs must be provided to the AG upon request.
+            - id: "US-CT-CTDPA-010_gdn"
+              name: "guidance"
+              prose: |
+                The DPIA must weigh benefits against consumer risks including injury, discrimination, financial
+                loss, and reputational harm. A single DPIA may cover a set of substantially similar operations.
+                Document: processing purpose; data categories; necessity; proportionality; safeguards; and
+                residual risk. Update DPIAs when processing activities change materially. Integrate DPIA
+                triggers into the product development lifecycle.
+          links:
+            - href: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+              rel: source
+              text: "Conn. Gen. Stat. §42-522 — Data protection assessments"
+
+    - id: "ct-ctdpa-processors"
+      title: "Processor Contracts"
+      controls:
+        - id: "US-CT-CTDPA-011"
+          uuid: "a1b2c3d4-b20b-4000-8000-10000000000b"
+          title: "Govern processor relationships through binding data processing agreements"
+          props:
+            - name: "source-section"
+              value: "§42-521"
+            - name: "effective-date"
+              value: "2023-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CT"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CT-CTDPA-011_smt"
+              name: "statement"
+              prose: |
+                Processing by a processor must be governed by a binding contract between controller and
+                processor. The contract must: set out processing instructions; specify nature and purpose;
+                identify data types and processing duration; and delineate obligations of both parties.
+                Processors must follow controller instructions and must assist controllers in fulfilling
+                CTDPA obligations, including consumer rights requests and security requirements.
+            - id: "US-CT-CTDPA-011_gdn"
+              name: "guidance"
+              prose: |
+                Audit the vendor portfolio to identify processors. Update contracts missing CTDPA-required
+                provisions. Data processing agreements must restrict processors from using data for their
+                own purposes, require sub-processor authorization before engagement, and mandate deletion or
+                return of data at contract end. Track sub-processor changes and update controller authorizations
+                before the sub-processor processes any data.
+          links:
+            - href: "https://www.cga.ct.gov/current/pub/chap_743ff.htm"
+              rel: source
+              text: "Conn. Gen. Stat. §42-521 — Responsibilities of processors"

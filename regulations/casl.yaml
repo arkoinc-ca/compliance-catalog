@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-0005-4000-8000-100000000005"
   metadata:
     title: "Canada's Anti-Spam Legislation (CASL)"
-    last-modified: "2026-05-08T00:00:00Z"
-    version: "0.0.1-skeleton"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -16,14 +16,257 @@ catalog:
         value: "https://laws-lois.justice.gc.ca/eng/acts/E-1.6/"
   groups:
     - id: "casl-commercial-messages"
-      title: "Commercial Electronic Messages"
+      title: "Commercial Electronic Messages (CASL §6–8)"
       controls:
         - id: "CA-CASL-001"
-          title: "Express or Implied Consent — Obtain consent before sending commercial electronic messages"
+          uuid: "a1b2c3d4-0401-4000-8000-100000000401"
+          title: "Express or Implied Consent — Obtain consent before sending CEMs"
           props:
+            - name: "source-section"
+              value: "§6, §10"
+            - name: "effective-date"
+              value: "2014-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA"
             - name: "status"
-              value: "skeleton"
+              value: "draft"
           parts:
-            - id: "CASL-1-stmt"
+            - id: "CA-CASL-001_smt"
               name: "statement"
-              prose: "TODO: Author full control statement in Phase 1."
+              prose: |
+                A person must not send, or cause or permit a commercial electronic message (CEM) to be sent, to
+                an electronic address unless the person to whom the message is sent has given express or implied
+                consent to receive it and the message complies with the form and content requirements of CASL.
+                Express consent requires a clear positive action by the recipient. Implied consent arises only in
+                prescribed circumstances (e.g., existing business or non-business relationship) and is time-limited.
+            - id: "CA-CASL-001_gdn"
+              name: "guidance"
+              prose: |
+                Implement a double opt-in flow for marketing email lists to obtain and evidence express consent.
+                Document consent records including the date, the mechanism used, the exact consent language
+                displayed, and the IP address or other identifier. Implied consent periods are strictly capped
+                (e.g., two years from a business transaction under §10(4)) — automate expiry tracking and
+                suppress sends when implied consent lapses. Review the CRTC's guidance on implied consent
+                scenarios before relying on them, as the burden of proof rests on the sender.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/E-1.6/"
+              rel: source
+              text: "An Act to promote the efficiency and adaptability of the Canadian economy by regulating certain activities
+                that discourage reliance on electronic means (S.C. 2010, c. 23), §6, §10"
+            - href: "https://crtc.gc.ca/eng/internet/anti.htm"
+              rel: reference
+              text: "CRTC — Canada's Anti-Spam Legislation guidance"
+
+        - id: "CA-CASL-002"
+          uuid: "a1b2c3d4-0402-4000-8000-100000000402"
+          title: "Identification — Clearly identify sender (name, contact info, mailing address) in every CEM"
+          props:
+            - name: "source-section"
+              value: "§6(2); Reg. SOR/2012-36 §2"
+            - name: "effective-date"
+              value: "2014-07-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-CASL-002_smt"
+              name: "statement"
+              prose: |
+                Every commercial electronic message must clearly and prominently identify the person who sent the
+                message and, if different, the person on whose behalf it is sent. The message must include
+                information enabling the recipient to readily contact the sender, including a mailing address and
+                either a telephone number, email address, or web address. This identification requirement applies
+                regardless of whether the recipient consented to receiving the message.
+            - id: "CA-CASL-002_gdn"
+              name: "guidance"
+              prose: |
+                Include in every CEM footer: the legal name of the sending organization (or the name under which
+                the business is ordinarily carried on); a valid physical mailing address; and at least one live
+                contact method (email, phone, or web address). The Electronic Commerce Protection Regulations
+                (SOR/2012-36, §2) specify these requirements. Where a third-party sender (e.g., email service
+                provider or agency) sends on your behalf, both the sender and the organization on whose behalf
+                the message is sent must be identified. Test every CEM template to confirm footer completeness
+                before deploying to production sending infrastructure.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/E-1.6/"
+              rel: source
+              text: "An Act to promote the efficiency and adaptability of the Canadian economy (S.C. 2010, c. 23), §6(2)"
+            - href: "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2012-36/"
+              rel: source
+              text: "Electronic Commerce Protection Regulations (SOR/2012-36), §2"
+
+        - id: "CA-CASL-003"
+          uuid: "a1b2c3d4-0403-4000-8000-100000000403"
+          title: >-
+            Unsubscribe Mechanism — Provide a working, free, functional unsubscribe in every CEM;
+            honor within 10 business days
+          props:
+            - name: "source-section"
+              value: "§6(2)(c), §11"
+            - name: "effective-date"
+              value: "2014-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-CASL-003_smt"
+              name: "statement"
+              prose: |
+                Every commercial electronic message must contain an unsubscribe mechanism that enables the recipient
+                to withdraw consent to receive future messages from the sender. The unsubscribe mechanism must be
+                set out clearly and prominently, must be able to be readily performed, and must remain functional
+                for a minimum of 60 days after the message is sent. The sender must give effect to an unsubscribe
+                request no later than 10 business days after it is received, at no cost to the recipient.
+            - id: "CA-CASL-003_gdn"
+              name: "guidance"
+              prose: |
+                Every CEM must include a one-click (or minimal-step) unsubscribe link that does not require the
+                recipient to log in or provide additional personal information. The link must remain active for
+                at least 60 days after send date — validate that expired-campaign URLs are redirected or kept
+                live. Implement an automated suppression list that is honored within 10 business days of receipt
+                of an unsubscribe request; preferably process suppressions within 24–72 hours. Audit your
+                unsubscribe queue and suppression list regularly to ensure no accidental re-subscription or
+                list-hygiene gaps. The CRTC has issued significant monetary penalties for unsubscribe failures.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/E-1.6/"
+              rel: source
+              text: "An Act to promote the efficiency and adaptability of the Canadian economy (S.C. 2010, c. 23), §6(2)(c), §11"
+            - href: "https://crtc.gc.ca/eng/internet/anti.htm"
+              rel: reference
+              text: "CRTC — Canada's Anti-Spam Legislation guidance"
+
+    - id: "casl-altering-transmission-and-software"
+      title: "Altering Transmission Data and Software Installation (CASL §7–8)"
+      controls:
+        - id: "CA-CASL-004"
+          uuid: "a1b2c3d4-0404-4000-8000-100000000404"
+          title: "Altering Transmission Data — Do not alter transmission data without express consent"
+          props:
+            - name: "source-section"
+              value: "§7"
+            - name: "effective-date"
+              value: "2014-07-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-CASL-004_smt"
+              name: "statement"
+              prose: |
+                A person must not, in the course of a commercial activity, alter or cause to be altered the
+                transmission data in an electronic message so that the message is delivered to a destination other
+                than or in addition to that specified by the sender, without the express consent of the sender.
+                This prohibition covers techniques such as email re-routing, address harvesting, and hijacking
+                of email delivery paths.
+            - id: "CA-CASL-004_gdn"
+              name: "guidance"
+              prose: |
+                Ensure that any email-routing, forwarding, or redirect service used by your organization operates
+                only with the documented, express consent of the originating sender. This requirement applies to
+                internal mail-relay configurations as well as third-party services. Review email infrastructure
+                contracts to confirm that providers do not alter transmission data for any purpose beyond
+                legitimate delivery. Where your product includes email-forwarding or redirect features, obtain
+                explicit user consent with clear disclosure before activating them.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/E-1.6/"
+              rel: source
+              text: "An Act to promote the efficiency and adaptability of the Canadian economy (S.C. 2010, c. 23), §7"
+            - href: "https://crtc.gc.ca/eng/internet/anti.htm"
+              rel: reference
+              text: "CRTC — Canada's Anti-Spam Legislation guidance"
+
+        - id: "CA-CASL-005"
+          uuid: "a1b2c3d4-0405-4000-8000-100000000405"
+          title: "Computer Program Installation — Obtain express consent before installing software; disclose function"
+          props:
+            - name: "source-section"
+              value: "§8, §10(3)"
+            - name: "effective-date"
+              value: "2015-01-15"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-CASL-005_smt"
+              name: "statement"
+              prose: |
+                A person must not, in the course of a commercial activity, install or cause to be installed a
+                computer program on another person's computer system, or cause an installed program to cause the
+                installation of another program, without the express consent of the owner or authorized user of
+                the system. Express consent under §10(3) requires that the request clearly describe the program's
+                function and behavior before consent is given, and identify the person seeking consent.
+            - id: "CA-CASL-005_gdn"
+              name: "guidance"
+              prose: |
+                Before installing any software (including updates, browser extensions, plugins, SDKs, or agents)
+                on a user's device, present a clear, affirmative consent dialog that describes what the program
+                does, what data it accesses, and who is installing it. Pre-bundled software installs that rely
+                on acceptance of general terms-of-service do not satisfy CASL's express consent requirement for
+                software installation. The §8 provisions apply to browser-based installations as well as desktop
+                executables. Retain a record of the consent event, including the version of the disclosure shown
+                and the user's affirmative action, to satisfy the burden of proof under §13.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/E-1.6/"
+              rel: source
+              text: "An Act to promote the efficiency and adaptability of the Canadian economy (S.C. 2010, c. 23), §8, §10(3)"
+            - href: "https://crtc.gc.ca/eng/internet/anti.htm"
+              rel: reference
+              text: "CRTC — Canada's Anti-Spam Legislation guidance"
+
+    - id: "casl-records-and-private-right"
+      title: "Records and Private Right of Action"
+      controls:
+        - id: "CA-CASL-006"
+          uuid: "a1b2c3d4-0406-4000-8000-100000000406"
+          title: "Consent Records — Retain proof of consent (express or implied) and the consent request itself"
+          props:
+            - name: "source-section"
+              value: "§13 (record-keeping)"
+            - name: "effective-date"
+              value: "2014-07-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-CASL-006_smt"
+              name: "statement"
+              prose: |
+                Under CASL, the burden of proving that consent was obtained rests on the person relying on the
+                consent. An organization must therefore maintain sufficient records to demonstrate, for each
+                recipient of a CEM or software installation, that valid express or implied consent existed at the
+                time the message was sent or the program was installed. Records must capture the consent
+                request presented, the recipient's affirmative response, and the date and method of consent.
+            - id: "CA-CASL-006_gdn"
+              name: "guidance"
+              prose: |
+                For each consent record, store: the full text or a versioned reference to the consent notice
+                displayed; the date and time the consent was given; the email address or device identifier to
+                which consent applies; the method of consent (e.g., web form, double opt-in confirmation email);
+                and, for implied consent, the nature and date of the qualifying relationship. Retain records for
+                the duration of the consent plus a litigation-hold period sufficient to respond to CRTC
+                investigations (the CRTC may examine records up to three years after the alleged violation per
+                §14). Integrate consent record capture into your CRM or marketing-automation platform's audit log.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/E-1.6/"
+              rel: source
+              text: "An Act to promote the efficiency and adaptability of the Canadian economy (S.C. 2010, c. 23), §13"
+            - href: "https://crtc.gc.ca/eng/internet/anti.htm"
+              rel: reference
+              text: "CRTC — Canada's Anti-Spam Legislation guidance"

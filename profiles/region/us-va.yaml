@@ -1,0 +1,27 @@
+profile:
+  uuid: "b2c3d4e5-d605-4000-8000-200000000005"
+  metadata:
+    title: "United States — Virginia Region Profile (VA-VCDPA)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+  imports:
+    - href: "../../regulations/virginia-vcdpa.yaml"
+      include-controls:
+        - with-ids:
+            - "US-VA-VCDPA-001"
+            - "US-VA-VCDPA-002"
+            - "US-VA-VCDPA-003"
+            - "US-VA-VCDPA-004"
+            - "US-VA-VCDPA-005"
+            - "US-VA-VCDPA-006"
+            - "US-VA-VCDPA-007"
+            - "US-VA-VCDPA-008"
+            - "US-VA-VCDPA-009"
+            - "US-VA-VCDPA-010"
+            - "US-VA-VCDPA-011"
+            - "US-VA-VCDPA-012"
+            - "US-VA-VCDPA-013"
+  merge:
+    combine:
+      method: merge

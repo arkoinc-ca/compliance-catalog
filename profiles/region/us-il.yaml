@@ -1,0 +1,22 @@
+profile:
+  uuid: "b2c3d4e5-d608-4000-8000-200000000008"
+  metadata:
+    title: "United States — Illinois Region Profile (IL-BIPA)"
+    last-modified: "2026-05-09T00:00:00Z"
+    version: "0.1.0"
+    oscal-version: "1.0.2"
+  # FOLLOW-UP: No Illinois general consumer privacy statute (ICCPA or equivalent) was authored
+  # in Phase 4. When authored, add it as a second import here alongside BIPA.
+  imports:
+    - href: "../../regulations/illinois-bipa.yaml"
+      include-controls:
+        - with-ids:
+            - "US-IL-BIPA-001"
+            - "US-IL-BIPA-002"
+            - "US-IL-BIPA-003"
+            - "US-IL-BIPA-004"
+            - "US-IL-BIPA-005"
+            - "US-IL-BIPA-006"
+  merge:
+    combine:
+      method: merge
