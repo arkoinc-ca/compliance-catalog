@@ -1,15 +1,20 @@
 profile:
   uuid: "b2c3d4e5-0201-4000-8000-200000000009"
   metadata:
-    title: "Use-Case Profile — SaaS Canada B2C (PIPEDA + Quebec Law 25 + CASL + PIPA-AB + PIPA-BC)"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    title: "Use-Case Profile — SaaS Canada B2C (PIPEDA + Quebec Law 25 + CASL + PIPA-AB + PIPA-BC + PHIPA-ON)"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.2"
     oscal-version: "1.0.2"
     props:
       - name: "use-case"
         value: "saas-canada-b2c"
       - name: "description"
-        value: "For SaaS products serving Canadian consumers across all provinces; covers federal baseline (PIPEDA + CASL) plus Quebec Law 25, Alberta PIPA, and BC PIPA provincial obligations."
+        value: >
+          For SaaS products serving Canadian consumers across all provinces; covers federal baseline
+          (PIPEDA + CASL) plus Quebec Law 25, Alberta PIPA, and BC PIPA provincial obligations.
+          Also includes Ontario PHIPA for SaaS products that process personal health information
+          on behalf of Ontario health information custodians (HICs), and provincial PHIA placeholders
+          for MB, SK, NL, and NS (community-tier; authored when RFC closes).
   imports:
     - href: "../../regulations/pipeda.yaml"
       include-controls:
@@ -35,6 +40,8 @@ profile:
             - "CA-CASL-004"
             - "CA-CASL-005"
             - "CA-CASL-006"
+            - "CA-CASL-007"
+            - "CA-CASL-008"
     - href: "../../regulations/quebec-law-25.yaml"
       include-controls:
         - with-ids:
@@ -85,6 +92,39 @@ profile:
             - "CA-BC-PIPA-006"
             - "CA-BC-PIPA-007"
             - "CA-BC-PIPA-008"
+    - href: "../../regulations/phipa-on.yaml"
+      include-controls:
+        - with-ids:
+            - "CA-ON-PHIPA-001"
+            - "CA-ON-PHIPA-002"
+            - "CA-ON-PHIPA-003"
+            - "CA-ON-PHIPA-004"
+            - "CA-ON-PHIPA-005"
+            - "CA-ON-PHIPA-006"
+            - "CA-ON-PHIPA-007"
+            - "CA-ON-PHIPA-008"
+            - "CA-ON-PHIPA-009"
+            - "CA-ON-PHIPA-010"
+            - "CA-ON-PHIPA-011"
+            - "CA-ON-PHIPA-012"
+            - "CA-ON-PHIPA-013"
+            - "CA-ON-PHIPA-014"
+    - href: "../../regulations/phia-mb-placeholder.yaml"
+      include-controls:
+        - with-ids:
+            - "CA-MB-PHIA-001"
+    - href: "../../regulations/hipa-sk-placeholder.yaml"
+      include-controls:
+        - with-ids:
+            - "CA-SK-HIPA-001"
+    - href: "../../regulations/phia-nl-placeholder.yaml"
+      include-controls:
+        - with-ids:
+            - "CA-NL-PHIA-001"
+    - href: "../../regulations/phia-ns-placeholder.yaml"
+      include-controls:
+        - with-ids:
+            - "CA-NS-PHIA-001"
   merge:
     combine:
       method: merge

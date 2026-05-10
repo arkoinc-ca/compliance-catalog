@@ -20,26 +20,68 @@ rules:
         - "EU-GDPR-003"
         - "CA-QC-LAW25-022"
         - "US-CA-CCPA-007"
-      confidence: "production"
-    patterns:
-      - pattern: |
-          class $MODEL(Base):
-              ...
-      - pattern-not: |
-          class $MODEL(Base):
-              retention_policy = ...
-      - pattern-not: |
-          class $MODEL(Base):
-              __retention__ = ...
-      - pattern-not: |
-          class $MODEL(Base):
-              deleted_at = ...
-      - pattern-not: |
-          class $MODEL(Base):
-              expires_at = ...
-      - pattern-not: |
-          class $MODEL(Base):
-              purge_after_days = ...
+      # confidence raised to production after H-12 sign-off
+      confidence: "baseline"
+    # A-H9: extend pattern-either to cover common ORM base classes beyond literal Base
+    pattern-either:
+      - patterns:
+          - pattern: |
+              class $MODEL(Base):
+                  ...
+          - pattern-not: |
+              class $MODEL(Base):
+                  retention_policy = ...
+          - pattern-not: |
+              class $MODEL(Base):
+                  __retention__ = ...
+          - pattern-not: |
+              class $MODEL(Base):
+                  deleted_at = ...
+          - pattern-not: |
+              class $MODEL(Base):
+                  expires_at = ...
+          - pattern-not: |
+              class $MODEL(Base):
+                  purge_after_days = ...
+      - patterns:
+          - pattern: |
+              class $MODEL(db.Model):
+                  ...
+          - pattern-not: |
+              class $MODEL(db.Model):
+                  retention_policy = ...
+          - pattern-not: |
+              class $MODEL(db.Model):
+                  deleted_at = ...
+          - pattern-not: |
+              class $MODEL(db.Model):
+                  expires_at = ...
+      - patterns:
+          - pattern: |
+              class $MODEL(SQLModel, table=True):
+                  ...
+          - pattern-not: |
+              class $MODEL(SQLModel, table=True):
+                  retention_policy = ...
+          - pattern-not: |
+              class $MODEL(SQLModel, table=True):
+                  deleted_at = ...
+          - pattern-not: |
+              class $MODEL(SQLModel, table=True):
+                  expires_at = ...
+      - patterns:
+          - pattern: |
+              class $MODEL(models.Model):
+                  ...
+          - pattern-not: |
+              class $MODEL(models.Model):
+                  retention_policy = ...
+          - pattern-not: |
+              class $MODEL(models.Model):
+                  deleted_at = ...
+          - pattern-not: |
+              class $MODEL(models.Model):
+                  expires_at = ...
 
   - id: missing-retention-javascript
     languages: [javascript, typescript]
@@ -60,7 +102,8 @@ rules:
         - "EU-GDPR-003"
         - "CA-QC-LAW25-022"
         - "US-CA-CCPA-007"
-      confidence: "production"
+      # confidence raised to production after H-12 sign-off
+      confidence: "baseline"
     patterns:
       - pattern-either:
           - patterns:

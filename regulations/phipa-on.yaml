@@ -2,7 +2,7 @@ catalog:
   uuid: "a1b2c3d4-d100-4000-8000-100000000100"
   metadata:
     title: "Personal Health Information Protection Act, 2004 (Ontario PHIPA)"
-    last-modified: "2026-05-09T00:00:00Z"
+    last-modified: "2026-05-10T00:00:00Z"
     version: "0.1.0"
     oscal-version: "1.0.2"
     props:
@@ -14,6 +14,8 @@ catalog:
         value: "2004-11-01"
       - name: "source-citation"
         value: "https://www.ontario.ca/laws/statute/04p03"
+      - name: "citation-formal"
+        value: "S.O. 2004, c. 3, Sched. A"
       - name: "amending-act"
         value: "Strengthening Patient Care Act, 2021, S.O. 2021, c. 27"
   groups:

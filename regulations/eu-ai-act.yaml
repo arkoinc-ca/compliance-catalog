@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-a000-4000-8000-100000000000"
   metadata:
     title: "Regulation (EU) 2024/1689 of the European Parliament and of the Council laying down harmonised rules on artificial intelligence (EU AI Act)"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.1"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -14,8 +14,10 @@ catalog:
         value: "2024-08-01"
       - name: "source-citation"
         value: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
-      - name: "amending-act"
-        value: "Regulation (EU) 2024/1689, OJ L 2024/1689, 12.7.2024"
+      - name: "entry-into-force"
+        value: "2024-08-01"
+      - name: "oj-reference"
+        value: "OJ L 2024/1689, 12.7.2024"
   groups:
     - id: "eu-ai-act-risk-management"
       title: "Risk Management (Article 9)"
@@ -431,7 +433,7 @@ catalog:
             - name: "source-section"
               value: "Art. 50(1)"
             - name: "effective-date"
-              value: "2025-08-02"
+              value: "2026-08-02"
             - name: "severity"
               value: "high"
             - name: "jurisdiction"
@@ -469,7 +471,7 @@ catalog:
             - name: "source-section"
               value: "Art. 50(2), 50(4)"
             - name: "effective-date"
-              value: "2025-08-02"
+              value: "2026-08-02"
             - name: "severity"
               value: "high"
             - name: "jurisdiction"
@@ -540,6 +542,8 @@ catalog:
                 legal opinion. Art. 5 applies from 2025-02-02 — the earliest of any EU AI Act obligation.
                 Violations are subject to the highest fines: up to EUR 35 million or 7% of global annual
                 turnover, whichever is higher.
+                <!-- TODO(H-07): SME confirmation — verify current Commission guidance on §1 scope
+                following delegated act under Art. 6(2) -->
           links:
             - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
               rel: source
@@ -667,3 +671,420 @@ catalog:
             - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
               rel: source
               text: "EU AI Act, Art. 72 and 73 — Post-market monitoring and incident reporting"
+
+    - id: "eu-ai-act-annex-iii-use-cases"
+      title: "Annex III High-Risk Use-Case Categories (§§1–3, 5–8) — Applicability assessment controls"
+      controls:
+        - id: "EU-AI-ACT-020"
+          uuid: "a1b2c3d4-a020-4000-8000-100000000020"
+          title: "Annex III §1 — Biometric identification and categorisation systems applicability assessment"
+          props:
+            - name: "source-section"
+              value: "Annex III §1; Art. 6, 10"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-020_smt"
+              name: "statement"
+              prose: |
+                AI systems intended to be used for the remote biometric identification of natural persons and
+                AI systems intended to be used for biometric categorisation of natural persons based on their
+                biometric data to deduce or infer their race, political opinions, trade union membership,
+                religious or philosophical beliefs, sex life, or sexual orientation, and AI systems intended
+                to be used for emotion recognition of natural persons, are classified as high-risk under
+                Annex III §1. Providers and deployers must comply with all Chapter III Section 2 requirements
+                for such systems. Real-time remote biometric identification in publicly accessible spaces is
+                subject to additional restrictions and the prohibition framework of Art. 5.
+            - id: "EU-AI-ACT-020_gdn"
+              name: "guidance"
+              prose: |
+                Conduct an Annex III §1 applicability screen before developing or procuring any system that
+                processes biometric data. If the system falls under §1, immediately trigger the full
+                Chapter III Section 2 compliance programme: risk management system (Art. 9), data governance
+                (Art. 10), technical documentation (Art. 11), automatic logging (Art. 12), transparency to
+                deployers (Art. 13), human oversight (Art. 14), and accuracy/security (Art. 15). Document
+                the applicability assessment and retain it in the Annex IV technical file.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Annex III §1 — Biometric identification and categorisation"
+
+        - id: "EU-AI-ACT-021"
+          uuid: "a1b2c3d4-a021-4000-8000-100000000021"
+          title: "Annex III §2 — Critical infrastructure management applicability assessment"
+          props:
+            - name: "source-section"
+              value: "Annex III §2; Art. 6"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-021_smt"
+              name: "statement"
+              prose: |
+                AI systems intended to be used as safety components in the management and operation of
+                critical digital infrastructure, road traffic, or the supply of water, gas, heating, and
+                electricity are classified as high-risk under Annex III §2. Such systems must comply with
+                all high-risk AI requirements under Chapter III Section 2. Providers and deployers operating
+                in regulated critical infrastructure sectors should additionally assess obligations under
+                the NIS2 Directive and sector-specific legislation.
+            - id: "EU-AI-ACT-021_gdn"
+              name: "guidance"
+              prose: |
+                Identify all AI systems deployed as safety components in critical infrastructure contexts.
+                Map each system to the applicable sector definitions in Annex III §2 and the NIS2 Directive
+                Annex I/II sectors. For each identified system, complete the full Chapter III Section 2
+                compliance programme and document the applicability determination in the technical file.
+                Engage with the relevant competent authority for the infrastructure sector where applicable.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Annex III §2 — Critical infrastructure"
+
+        - id: "EU-AI-ACT-022"
+          uuid: "a1b2c3d4-a022-4000-8000-100000000022"
+          title: "Annex III §3 — Education and vocational training applicability assessment"
+          props:
+            - name: "source-section"
+              value: "Annex III §3; Art. 6"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-022_smt"
+              name: "statement"
+              prose: |
+                AI systems intended to be used to determine access to or admission to educational and
+                vocational training institutions; to evaluate learning outcomes; to assess the appropriate
+                level of education for a person; or to monitor and detect prohibited behaviour of students
+                during tests are classified as high-risk under Annex III §3. Providers of such systems
+                must comply with all Chapter III Section 2 obligations before placing the system on the
+                market or putting it into service.
+            - id: "EU-AI-ACT-022_gdn"
+              name: "guidance"
+              prose: |
+                Conduct an Annex III §3 applicability assessment for any AI system used in an educational
+                or vocational training context that affects admissions decisions, learning outcome evaluation,
+                or examination integrity. Document the assessment. If the system falls under §3, initiate
+                the full high-risk compliance programme. Consider GDPR Article 22 implications for automated
+                decision-making affecting individuals' educational trajectories.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Annex III §3 — Education and vocational training"
+
+        - id: "EU-AI-ACT-023"
+          uuid: "a1b2c3d4-a023-4000-8000-100000000023"
+          title: "Annex III §5 — Access to essential private services and public benefits applicability"
+          props:
+            - name: "source-section"
+              value: "Annex III §5; Art. 6"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-023_smt"
+              name: "statement"
+              prose: |
+                AI systems intended to be used to evaluate the creditworthiness of natural persons or
+                establish their credit score; to evaluate and classify emergency calls; to be used for
+                dispatch of emergency services; to evaluate risks and pricing in life and health insurance;
+                or to evaluate and classify natural persons for the purpose of accessing essential public
+                or private services and benefits are classified as high-risk under Annex III §5. This
+                category captures AI systems with consequential effects on individuals' access to financial
+                products, insurance, and social support.
+            - id: "EU-AI-ACT-023_gdn"
+              name: "guidance"
+              prose: |
+                Assess whether any AI system deployed for credit scoring, insurance underwriting, emergency
+                services, or benefits determination falls within Annex III §5. Particular attention should
+                be paid to credit-scoring models and insurance pricing models — both are explicitly captured.
+                For each identified system, implement the full high-risk compliance programme and document
+                how human oversight (Art. 14) is exercised over consequential decisions. Assess GDPR Art. 22
+                compliance for automated credit and insurance decisions.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Annex III §5 — Essential services and benefits"
+
+        - id: "EU-AI-ACT-024"
+          uuid: "a1b2c3d4-a024-4000-8000-100000000024"
+          title: "Annex III §6 — Law enforcement applicability assessment"
+          props:
+            - name: "source-section"
+              value: "Annex III §6; Art. 6"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-024_smt"
+              name: "statement"
+              prose: |
+                AI systems intended to be used by or on behalf of competent authorities for polygraph
+                testing, the assessment of criminal recidivism risk, profiling of natural persons
+                to assess criminal risk, evaluation of reliability of evidence in criminal proceedings,
+                crime prediction based on profiling or assessment of personality traits, or forensic
+                age estimation of unaccompanied minors are classified as high-risk under Annex III §6.
+                These systems are additionally subject to the Law Enforcement Directive (2016/680) and
+                must satisfy its requirements in parallel with the EU AI Act.
+            - id: "EU-AI-ACT-024_gdn"
+              name: "guidance"
+              prose: |
+                Law enforcement AI systems in scope of Annex III §6 are subject to the strictest scrutiny
+                under the EU AI Act. Conduct a mandatory fundamental rights impact assessment (Art. 27) and
+                DPIA. Document the necessity and proportionality of the system for the stated law
+                enforcement purpose. Ensure that any system used for predictive policing or risk scoring
+                is subject to robust human oversight (Art. 14) and cannot be the sole basis for any
+                enforcement action. Engage with the supervisory authority prior to deployment.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Annex III §6 — Law enforcement"
+
+        - id: "EU-AI-ACT-025"
+          uuid: "a1b2c3d4-a025-4000-8000-100000000025"
+          title: "Annex III §7 — Migration, asylum, and border control applicability assessment"
+          props:
+            - name: "source-section"
+              value: "Annex III §7; Art. 6"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-025_smt"
+              name: "statement"
+              prose: |
+                AI systems intended to be used by or on behalf of competent authorities, or by EU agencies,
+                in migration, asylum, and border control management — including polygraph testing of asylum
+                seekers, risk assessment for irregular migration threats, examination of visa and asylum
+                applications for the purpose of assessing their merits, or systems used for border
+                surveillance — are classified as high-risk under Annex III §7. These systems interact with
+                individuals in particularly vulnerable situations and must meet the highest standards of
+                accuracy, human oversight, and fundamental rights protection.
+            - id: "EU-AI-ACT-025_gdn"
+              name: "guidance"
+              prose: |
+                AI systems in the migration and border control context present acute fundamental rights
+                risks. Conduct a fundamental rights impact assessment (Art. 27) as mandatory prior to
+                deployment. Assess compliance with the EU Charter of Fundamental Rights, the Asylum
+                Procedures Directive, and the Return Directive in parallel. Ensure human oversight is
+                genuinely effective — systems must not function as automated decision-makers for
+                individual deportation or asylum outcomes.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Annex III §7 — Migration, asylum, and border control"
+
+        - id: "EU-AI-ACT-026"
+          uuid: "a1b2c3d4-a026-4000-8000-100000000026"
+          title: "Annex III §8 — Administration of justice and democratic processes applicability"
+          props:
+            - name: "source-section"
+              value: "Annex III §8; Art. 6"
+            - name: "effective-date"
+              value: "2026-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-026_smt"
+              name: "statement"
+              prose: |
+                AI systems intended to assist a judicial authority or administrative body in researching
+                and interpreting facts and the law and in applying the law to a concrete set of facts,
+                and AI systems intended to be used for influencing the outcome of an election or referendum
+                or the voting behaviour of natural persons, are classified as high-risk under Annex III §8.
+                AI-assisted legal research tools, judgment support systems, and any AI used in electoral
+                contexts must comply with all Chapter III Section 2 requirements.
+            - id: "EU-AI-ACT-026_gdn"
+              name: "guidance"
+              prose: |
+                AI systems supporting judicial or quasi-judicial decision-making must never replace human
+                judgment — they are advisory tools subject to Art. 14 human oversight requirements.
+                Document the scope of AI assistance and the safeguards preventing over-reliance. For any
+                system used in the context of elections or democratic processes, conduct a fundamental
+                rights impact assessment and engage with the relevant national electoral authority.
+                Note that the prohibition of AI systems used for manipulating voter behaviour (Art. 5
+                prohibition list) is distinct from the high-risk obligations and applies unconditionally.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Annex III §8 — Administration of justice and democratic processes"
+
+    - id: "eu-ai-act-gpai-providers"
+      title: "General-Purpose AI (GPAI) Provider Obligations (Articles 53–55)"
+      controls:
+        - id: "EU-AI-ACT-017"
+          uuid: "f3a1b7c2-d4e5-4f60-9a2b-8c3d7e1f4a09"
+          title: "GPAI provider obligations — technical documentation, training data summary, and copyright policy"
+          class: "gpai-provider"
+          props:
+            - name: "source-section"
+              value: "Art. 53"
+            - name: "effective-date"
+              value: "2025-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "applicability_filter"
+              value: "gpai-provider"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-017_smt"
+              name: "statement"
+              prose: |
+                Providers of general-purpose AI (GPAI) models must: (a) draw up and keep up to date
+                technical documentation covering at minimum the information in Annex XI, including model
+                architecture, training methodology, and evaluation results; (b) provide downstream providers
+                with sufficient information about the model's capabilities and limitations, including a
+                summary of the training data used; (c) put in place a copyright compliance policy including
+                measures enabling rightholders to exercise their rights under EU law (in particular the
+                text and data mining exception opt-out under Directive 2019/790); and (d) publish a
+                sufficiently detailed summary of the content used for training in accordance with templates
+                issued by the AI Office. These obligations apply from 2 August 2025.
+            - id: "EU-AI-ACT-017_gdn"
+              name: "guidance"
+              prose: |
+                Maintain Annex XI technical documentation as a living document versioned with each
+                significant model update. The training-data summary must be granular enough to allow
+                downstream providers and deployers to assess copyright exposure and to respond to
+                rightholders' opt-out requests. Publish the training-data summary on the AI Office
+                transparency database. Establish a structured process for receiving and acting on
+                rightholder opt-out notices, and document that process in the copyright policy.
+                Make Annex XI documentation and the copyright policy available to the AI Office and
+                national competent authorities on request. Downstream API terms of service should
+                clearly communicate the model's intended purposes, known limitations, and any
+                restrictions imposed by the GPAI provider.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 53 — Obligations for providers of general-purpose AI models"
+
+        - id: "EU-AI-ACT-018"
+          uuid: "a2c4e6f8-1b3d-4a7c-9e0f-2d5b8c1a6e3f"
+          title: "Systemic-risk GPAI obligations — model evaluations, adversarial testing, incident reporting, and cybersecurity"
+          class: "gpai-systemic-risk"
+          props:
+            - name: "source-section"
+              value: "Art. 55"
+            - name: "effective-date"
+              value: "2025-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "applicability_filter"
+              value: "gpai-systemic-risk"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-018_smt"
+              name: "statement"
+              prose: |
+                Providers of GPAI models with systemic risk (as determined by the AI Office under
+                Art. 51 — currently triggered by training compute exceeding 10^25 FLOPs or by AI
+                Office designation) must, in addition to the Art. 53 obligations: (a) perform model
+                evaluations including adversarial testing in accordance with standardised protocols or
+                state-of-the-art methodologies to identify and mitigate systemic risks; (b) assess and
+                mitigate possible systemic risks, including their sources, at Union or global level;
+                (c) report serious incidents and possible corrective measures to the AI Office without
+                undue delay; and (d) ensure an adequate level of cybersecurity protection for the GPAI
+                model, the physical infrastructure of the model, and the relevant model weights.
+                These obligations apply from 2 August 2025.
+            - id: "EU-AI-ACT-018_gdn"
+              name: "guidance"
+              prose: |
+                Develop a systemic risk evaluation programme that includes red-teaming, capability
+                evaluations, and scenario analysis for catastrophic or irreversible harms (CBRN uplift,
+                large-scale manipulation, critical infrastructure disruption). Align evaluation protocols
+                with AI Office guidance and the General-Purpose AI Code of Practice once finalised.
+                Establish an internal incident classification and escalation workflow with a clear trigger
+                for the "without undue delay" reporting obligation to the AI Office. Maintain a
+                cybersecurity programme addressing model-weight protection, secure API access, adversarial
+                robustness, and supply-chain integrity. Document all systemic risk evaluations, findings,
+                and mitigations in the Annex XII technical documentation required for systemic-risk models.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 55 — Obligations for providers of GPAI models with systemic risk"
+
+        - id: "EU-AI-ACT-019"
+          uuid: "b5d7f9a1-c2e4-4b6d-8f0a-3c5e7a9b1d2f"
+          title: "Authorised representative for non-EU GPAI providers — designate a Union-based representative"
+          class: "gpai-provider"
+          props:
+            - name: "source-section"
+              value: "Art. 54"
+            - name: "effective-date"
+              value: "2025-08-02"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "applicability_filter"
+              value: "gpai-provider-non-eu"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-AI-ACT-019_smt"
+              name: "statement"
+              prose: |
+                A provider of a general-purpose AI model established outside the EU that places the
+                model on the EU market or puts it into service within the EU must designate, by written
+                mandate, an authorised representative established in the EU. The authorised representative
+                must be empowered to act on behalf of the non-EU provider with respect to its obligations
+                under the EU AI Act, including obligations to the AI Office and national competent
+                authorities. The authorised representative's name, address, and contact details must be
+                included in the technical documentation under Art. 53 and communicated to the AI Office.
+            - id: "EU-AI-ACT-019_gdn"
+              name: "guidance"
+              prose: |
+                Select an authorised representative with sufficient knowledge of the EU regulatory
+                environment and the capacity to discharge the non-EU provider's obligations, including
+                responding to AI Office inquiries, facilitating audits, and maintaining the EU registry
+                registration. The mandate must be in writing, specify the scope of authority, and remain
+                current while the model is on the EU market. Terminate and update the mandate without
+                undue delay if the authorised representative ceases to meet the requirements. Non-EU
+                providers whose models are exclusively accessed outside the EU, and whose outputs are
+                not used in the EU, are outside scope; document the extraterritoriality analysis if
+                relying on this exclusion.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+              rel: source
+              text: "EU AI Act, Art. 54 — Authorised representatives of providers of general-purpose AI models"

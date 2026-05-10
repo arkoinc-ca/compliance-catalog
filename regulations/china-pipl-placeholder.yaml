@@ -1,0 +1,50 @@
+catalog:
+  uuid: "0f7fe4b6-a76d-439d-aebe-62dd5f5a9943"
+  metadata:
+    title: "Personal Information Protection Law (PIPL) — China [PLACEHOLDER — OUT-OF-SCOPE-FOR-V1]"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "CN-PIPL"
+      - name: "jurisdiction"
+        value: "CN"
+      - name: "effective-as-of"
+        value: "2021-11-01"
+      - name: "source-citation"
+        value: "https://www.npc.gov.cn/npc/c30834/202108/a8c4e3672c74491a80b53a172bb753fe.shtml"
+      - name: "status"
+        value: "out-of-scope-for-v1"
+      - name: "placeholder-reason"
+        value: >-
+          Cross-border transfer obligations under PIPL and the CAC security assessment
+          certification regime require regional legal partnership and in-country counsel
+          to author accurately. The CAC Standard Contract and security assessment
+          procedures involve PRC-law specifics that are out of scope for the v1 catalog
+          focus on Western-jurisdiction data-protection obligations.
+  groups:
+    - id: "china-pipl-placeholder-group"
+      title: "PLACEHOLDER — OUT-OF-SCOPE-FOR-V1 — Controls to be authored with regional legal partnership"
+      controls:
+        - id: "CN-PIPL-001"
+          title: "PLACEHOLDER — PIPL personal information processing obligations [OUT-OF-SCOPE-FOR-V1]"
+          props:
+            - name: "status"
+              value: "skeleton"
+            - name: "placeholder-reason"
+              value: >-
+                Cross-border transfer obligations and CAC certification regime require
+                regional legal partnership; out of scope for v1.
+          parts:
+            - id: "CN-PIPL-001-stmt"
+              name: "statement"
+              prose: >-
+                PIPL (effective 2021-11-01) establishes a comprehensive framework for
+                processing personal information of individuals in China, including lawful
+                basis requirements, purpose limitation, consent obligations, and
+                restrictions on cross-border transfers. Organisations transferring personal
+                information outside China must pass a CAC security assessment, conclude a
+                standard contract, or obtain a personal information protection certification.
+                TODO: Author full control set once regional legal partnership is established.
+                Monitor https://www.cac.gov.cn/ for implementing regulations.

@@ -72,6 +72,22 @@ compliance-catalog/
 
 **Phase 4 expansion** (target: late 2026) adds 6+ jurisdictions including EU AI Act, additional US state privacy laws (VA, CT, UT, TX, CO, OR), Brazil LGPD, UK GDPR, and Canadian provincial health laws (PHIPA, PHIA, HIPA). See `docs/phases/phase-4-catalog-v1.md` for the full v1 scope.
 
+### Placeholder Tier (not yet enacted / in progress)
+
+Skeleton files are included to reserve control-ID namespaces and document authoring scope decisions. Placeholder files contain exactly one skeletal control with prose explaining why the regulation is not yet authored.
+
+| Jurisdiction | Short Code | Regulation | Status |
+|---|---|---|---|
+| CA | CA-CPPA | Consumer Privacy Protection Act (Bill C-27 Part 1) | Not yet in force — placeholder skeleton |
+| CA | CA-AIDA | Artificial Intelligence and Data Act (Bill C-27 Part III) | Not yet in force — placeholder skeleton |
+| US | US-HIPAA | Health Insurance Portability and Accountability Act — Privacy + Security Rules | Out-of-scope for v1 — placeholder skeleton |
+| US | US-COPPA | Children's Online Privacy Protection Act | Out-of-scope for v1 — placeholder skeleton |
+| IN | IN-DPDP | Digital Personal Data Protection Act 2023 | Out-of-scope for v1 — placeholder skeleton |
+| CN | CN-PIPL | Personal Information Protection Law (PIPL) | Out-of-scope for v1 — placeholder skeleton |
+| AU | AU-PA | Privacy Act 1988 (as amended by Privacy and Other Legislation Amendment Act 2024) | Out-of-scope for v1 — placeholder skeleton |
+| EU | EU-NIS2 | Directive (EU) 2022/2555 (NIS2) | Out-of-scope for v1 — placeholder skeleton |
+| EU | EU-DORA | Regulation (EU) 2022/2554 (Digital Operational Resilience Act) | Out-of-scope for v1 — placeholder skeleton |
+
 ---
 
 ## How to use

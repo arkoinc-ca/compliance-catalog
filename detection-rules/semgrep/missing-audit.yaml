@@ -18,13 +18,19 @@ rules:
         - "EU-GDPR-011"
         - "US-CA-CCPA-008"
         - "CA-CASL-006"
-      confidence: "production"
+      # confidence raised to production after H-12 sign-off
+      confidence: "baseline"
       notes: >
         pattern-not-inside suppresses when the containing function has an audit_log.write or
         audit.record call appearing before the sensitive operation. If the audit call appears
         after the delete (post-hoc logging), the rule will still fire. Considered intentional
         for v0: pre-action audit logging is the safer pattern. v1 should use taint-mode or
         a dataflow analysis to handle both orderings.
+        Known FP modes: (1) functions decorated with @audit_required or similar decorators
+        that inject audit logging externally; (2) calls inside try/except blocks where the
+        audit write is in the except handler; (3) methods on audited model classes that log
+        via ORM signals/hooks. These are suppressed where structurally detectable (see
+        pattern-not-inside blocks below) but may still fire in complex decorator chains.
     patterns:
       - pattern-either:
           - pattern: $USER.delete()
@@ -60,6 +66,19 @@ rules:
               ...
               $USER.delete()
               ...
+      # A-H9: suppress when function is decorated with an audit decorator
+      - pattern-not-inside: |
+          @$AUDIT_DECORATOR
+          def $F(...):
+              ...
+      # A-H9: suppress when sensitive operation is inside a try block that has audit in except
+      - pattern-not-inside: |
+          try:
+              ...
+          except ...:
+              ...
+              audit_log.write(...)
+              ...
 
   - id: missing-audit-javascript
     languages: [javascript, typescript]
@@ -79,7 +98,8 @@ rules:
         - "EU-GDPR-011"
         - "US-CA-CCPA-008"
         - "CA-CASL-006"
-      confidence: "production"
+      # confidence raised to production after H-12 sign-off
+      confidence: "baseline"
     patterns:
       - pattern-either:
           - pattern: $USER.delete()

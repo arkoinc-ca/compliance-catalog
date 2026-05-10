@@ -43,17 +43,17 @@ MIN_CONTROLS: dict[str, int] = {
     "pipeda": 10,
     "pipa-ab": 8,
     "pipa-bc": 8,
-    "casl": 5,
-    "gdpr": 15,
-    "ccpa-cpra": 10,
-    "nyc-ll144": 3,
+    "casl": 8,
+    "gdpr": 22,
+    "ccpa-cpra": 15,
+    "nyc-ll144": 5,
     "colorado-ai-act": 4,
-    "eu-ai-act": 16,
+    "eu-ai-act": 26,
     "phipa-on": 14,
     "virginia-vcdpa": 13,
     "connecticut-ctdpa": 11,
     "utah-ucpa": 10,
-    "lgpd": 14,
+    "lgpd": 21,
     "uk-gdpr": 10,
     "illinois-bipa": 6,
 }
@@ -75,6 +75,7 @@ class Control(BaseModel):
     id: str
     uuid: str | None = None
     title: str
+    props: list[dict[str, str]] = Field(default_factory=list)
     parts: list[ControlPart] = Field(default_factory=list)
 
     @field_validator("id")
@@ -204,6 +205,18 @@ def _validate_file(path: Path) -> list[str]:
         errors.append(
             f"{path}: expected at least {required} controls, found {len(controls)}"
         )
+
+    # 7. Severity vocabulary check — props named "severity" must use the closed set
+    _VALID_SEVERITIES = {"critical", "high", "medium", "low", "info"}
+    for ctrl in controls:
+        for prop in ctrl.props:
+            if prop.get("name") == "severity":
+                val = prop.get("value", "")
+                if val not in _VALID_SEVERITIES:
+                    errors.append(
+                        f"{path}: control '{ctrl.id}' has unknown severity '{val}'; "
+                        f"must be one of {sorted(_VALID_SEVERITIES)}"
+                    )
 
     return errors
 

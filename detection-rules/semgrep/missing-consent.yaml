@@ -21,7 +21,8 @@ rules:
         - "CA-QC-LAW25-007"
         - "CA-AB-PIPA-002"
         - "CA-BC-PIPA-002"
-      confidence: "production"
+      # confidence raised to production after H-12 sign-off
+      confidence: "baseline"
     pattern-either:
       - patterns:
           - pattern-either:
@@ -42,6 +43,20 @@ rules:
           - pattern-not-inside: |
               if $CONSENT:
                   ...
+          # A-H9: suppress early-return guard-clause idiom (not a missing consent case)
+          - pattern-not-inside: |
+              if not $USER.consent_marketing:
+                  return
+              ...
+              $MAILER.send(...)
+          - pattern-not-inside: |
+              if not $USER.consent_marketing:
+                  return
+              ...
+          # A-H9: suppress assert guard (assertion is an explicit consent check)
+          - pattern-not-inside: |
+              assert $USER.consent_marketing
+              ...
       - patterns:
           - pattern: $X.send_newsletter(...)
           - pattern-not-inside: |
@@ -50,6 +65,11 @@ rules:
           - pattern-not-inside: |
               if $USER.newsletter_opt_in:
                   ...
+          # A-H9: suppress early-return guard-clause idiom
+          - pattern-not-inside: |
+              if not $USER.consent_marketing:
+                  return
+              ...
 
   - id: missing-consent-javascript
     languages: [javascript, typescript]
@@ -72,7 +92,8 @@ rules:
         - "CA-QC-LAW25-007"
         - "CA-AB-PIPA-002"
         - "CA-BC-PIPA-002"
-      confidence: "production"
+      # confidence raised to production after H-12 sign-off
+      confidence: "baseline"
     pattern-either:
       - patterns:
           - pattern-either:

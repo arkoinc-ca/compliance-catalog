@@ -1,0 +1,50 @@
+catalog:
+  uuid: "23b24712-4be0-48d5-8055-3725b3fcbe9c"
+  metadata:
+    title: "Health Insurance Portability and Accountability Act — Privacy + Security Rules [PLACEHOLDER — OUT-OF-SCOPE-FOR-V1]"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "US-HIPAA"
+      - name: "jurisdiction"
+        value: "US"
+      - name: "effective-as-of"
+        value: "1996-08-21"
+      - name: "source-citation"
+        value: "https://www.hhs.gov/hipaa/for-professionals/privacy/index.html"
+      - name: "status"
+        value: "out-of-scope-for-v1"
+      - name: "placeholder-reason"
+        value: >-
+          HIPAA covered-entity and business-associate coverage is sectoral (health plans,
+          healthcare clearinghouses, and providers transmitting health data electronically).
+          Authoring accurate controls requires sectoral scoping that is outside the current
+          PII-focus of compliance-catalog v1; scheduled for a dedicated health-sector
+          catalog extension.
+  groups:
+    - id: "hipaa-placeholder-group"
+      title: "PLACEHOLDER — OUT-OF-SCOPE-FOR-V1 — Controls to be authored in a future health-sector catalog extension"
+      controls:
+        - id: "US-HIPAA-001"
+          title: "PLACEHOLDER — HIPAA Privacy Rule and Security Rule obligations [OUT-OF-SCOPE-FOR-V1]"
+          props:
+            - name: "status"
+              value: "skeleton"
+            - name: "placeholder-reason"
+              value: >-
+                HIPAA covered-entity coverage requires sectoral scoping outside the
+                current PII-focus of compliance-catalog v1.
+          parts:
+            - id: "US-HIPAA-001-stmt"
+              name: "statement"
+              prose: >-
+                HIPAA (Pub. L. 104-191) requires covered entities and their business
+                associates to protect the privacy and security of individually identifiable
+                health information (Protected Health Information, PHI). The Privacy Rule
+                (45 CFR Part 164, Subpart E) establishes permitted uses and disclosures
+                of PHI; the Security Rule (45 CFR Part 164, Subpart C) requires
+                administrative, physical, and technical safeguards for electronic PHI.
+                TODO: Author full control set once health-sector catalog extension is
+                scoped. See https://www.hhs.gov/hipaa/for-professionals/index.html

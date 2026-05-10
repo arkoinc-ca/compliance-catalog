@@ -2,8 +2,8 @@ profile:
   uuid: "b2c3d4e5-0108-4000-8000-200000000008"
   metadata:
     title: "European Union — Generic Region Profile (GDPR)"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.1"
     oscal-version: "1.0.2"
   imports:
     - href: "../../regulations/gdpr.yaml"
@@ -27,6 +27,10 @@ profile:
             - "EU-GDPR-016"
             - "EU-GDPR-017"
             - "EU-GDPR-018"
+            - "EU-GDPR-019"
+            - "EU-GDPR-020"
+            - "EU-GDPR-021"
+            - "EU-GDPR-022"
   merge:
     combine:
       method: merge

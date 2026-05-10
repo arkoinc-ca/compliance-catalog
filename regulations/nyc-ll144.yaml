@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-0008-4000-8000-100000000008"
   metadata:
     title: "New York City Local Law 144 of 2021 — Automated Employment Decision Tools (AEDT)"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.1"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -17,6 +17,59 @@ catalog:
       - name: "dcwp-rules-citation"
         value: "https://rules.cityofnewyork.us/rule/automated-employment-decision-tools/"
   groups:
+    - id: "nyc-ll144-scope"
+      title: "AEDT Scope and Applicability (DCWP Rule § 5-300)"
+      controls:
+        - id: "US-NY-LL144-005"
+          uuid: "a1b2c3d4-0705-4000-8000-100000000705"
+          title: "AEDT scope test — determine whether a system constitutes an AEDT triggering LL144 obligations"
+          props:
+            - name: "source-section"
+              value: "Admin. Code § 20-870; DCWP Final Rule § 5-300"
+            - name: "effective-date"
+              value: "2023-07-05"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-NY-NYC"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-NY-LL144-005_smt"
+              name: "statement"
+              prose: |
+                An Automated Employment Decision Tool (AEDT) is defined under NYC Admin. Code § 20-870(a) as
+                any computational process derived from machine learning, statistical modelling, data analytics,
+                or artificial intelligence that issues simplified output including a score, classification, or
+                recommendation that is used to substantially assist or replace discretionary decision-making
+                for employment decisions regarding persons located in New York City. DCWP Final Rule § 5-300
+                clarifies "substantially assist or replace": (a) an employer or employment agency solely relies
+                on the output, overriding all other factors; or (b) an employer or employment agency uses the
+                output as one of a set of factors where the output is weighted more heavily than any other
+                factor. Tools that do not substantially assist or replace human judgment are outside scope.
+                Employers that use an AEDT to screen candidates for employment or employees for promotion
+                must satisfy all LL144 requirements including bias audit (§ 20-871), candidate notice
+                (§ 20-871(c)), and records retention.
+            - id: "US-NY-LL144-005_gdn"
+              name: "guidance"
+              prose: |
+                Conduct a formal AEDT scope assessment for every tool used in employment or promotion
+                decisions affecting persons in NYC. The scope assessment must address: (1) does the tool
+                use ML, statistical modelling, data analytics, or AI?; (2) does it produce simplified
+                output (score, classification, recommendation)?; (3) is the output used to substantially
+                assist or replace discretionary decision-making?; (4) are the affected individuals located
+                in NYC?. Document the assessment and retain it. Tools that fail any element are out of
+                scope but should be reassessed if the tool or its usage changes. DCWP enforcement has
+                focused on ATS tools with automated scoring and resume-screening tools that rank candidates.
+                Engage employment counsel when assessing borderline tools.
+          links:
+            - href: "https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=4344524&GUID=B051915D-A9AC-451E-81F8-6596032FA3F9"
+              rel: source
+              text: "NYC Local Law 144 of 2021, § 20-870(a) (AEDT definition)"
+            - href: "https://rules.cityofnewyork.us/rule/automated-employment-decision-tools/"
+              rel: source
+              text: "DCWP Final Rule § 5-300 (AEDT scope definition)"
+
     - id: "nyc-ll144-bias-audit-requirements"
       title: "Bias Audit and Disclosure Requirements"
       controls:

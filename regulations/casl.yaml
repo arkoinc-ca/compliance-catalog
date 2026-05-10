@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-0005-4000-8000-100000000005"
   metadata:
     title: "Canada's Anti-Spam Legislation (CASL)"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.1"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -270,3 +270,93 @@ catalog:
             - href: "https://crtc.gc.ca/eng/internet/anti.htm"
               rel: reference
               text: "CRTC — Canada's Anti-Spam Legislation guidance"
+
+    - id: "casl-implied-consent-and-unsubscribe"
+      title: "Implied Consent (§10(9)) and Unsubscribe Specifics (§11)"
+      controls:
+        - id: "CA-CASL-007"
+          uuid: "a1b2c3d4-0407-4000-8000-100000000407"
+          title: "Business-card implied consent — electronic address prominently published without prohibition (§10(9))"
+          props:
+            - name: "source-section"
+              value: "§10(9)"
+            - name: "effective-date"
+              value: "2014-07-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-CASL-007_smt"
+              name: "statement"
+              prose: |
+                Under CASL §10(9), a person is deemed to have given implied consent to receive CEMs if the
+                person has conspicuously published their electronic address (e.g., on a website, business card,
+                or directory) and has not indicated a prohibition against receiving unsolicited CEMs, and the
+                message is relevant to the person's business, role, functions, or duties in a business or
+                official capacity. This form of implied consent is time-limited by the content relevance
+                requirement: a published address alone does not create open-ended implied consent for any
+                commercial message. The sender must be able to demonstrate that the CEM is relevant to the
+                recipient's publicly published professional role.
+            - id: "CA-CASL-007_gdn"
+              name: "guidance"
+              prose: |
+                Document the relevance rationale for each CEM campaign directed at published-address recipients
+                under §10(9) implied consent. A best practice is to include a brief statement in the CEM
+                explaining the relevance connection. Note that §10(9) implied consent differs from the
+                two-year implied consent arising from an existing business relationship under §10(4) — they
+                are separate bases with distinct requirements. The §10(9) basis applies only to CEMs relating
+                to the recipient's business or official capacity, not to consumer-directed marketing. Include
+                a functional unsubscribe mechanism in all such CEMs even when relying on §10(9) implied consent.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/E-1.6/"
+              rel: source
+              text: "An Act to promote the efficiency and adaptability of the Canadian economy (S.C. 2010, c. 23), §10(9)"
+
+        - id: "CA-CASL-008"
+          uuid: "a1b2c3d4-0408-4000-8000-100000000408"
+          title: "Unsubscribe mechanism specifics — functional, no-charge, same sender, 10-business-day honour (§11)"
+          props:
+            - name: "source-section"
+              value: "§11"
+            - name: "effective-date"
+              value: "2014-07-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "CA-CASL-008_smt"
+              name: "statement"
+              prose: |
+                Every CEM must include an unsubscribe mechanism that satisfies the requirements of CASL §11.
+                The mechanism must: (a) be clearly and prominently set out; (b) enable the person to indicate
+                electronically their wish to no longer receive CEMs from the sender and any person acting on
+                behalf of the sender (§11(1)(a)); (c) specify an electronic address or web-link to which the
+                unsubscribe request can be sent (§11(1)(b)); (d) remain capable of receiving requests for
+                60 days after the CEM is sent (§11(1)(c)); and (e) impose no cost on the recipient and require
+                no information other than the electronic address and the request (§11(2)). The sender must
+                give effect to the unsubscribe request within 10 business days of receiving it (§11(3)).
+                Sending any CEM to an address after processing an unsubscribe request is a violation.
+            - id: "CA-CASL-008_gdn"
+              name: "guidance"
+              prose: |
+                Implement a dedicated unsubscribe endpoint (web-link preferred) or a monitored unsubscribe
+                email address. Ensure the endpoint remains active for at least 60 days after each CEM send.
+                The 10-business-day honour window begins on the date the request is received, not the date
+                it is processed — monitor the unsubscribe queue at least daily. Propagate unsubscribe requests
+                across all sending domains and sub-brands operated by the same legal entity within the 10-day
+                window. Maintain an unsubscribe log recording the request date, acknowledgement date, and
+                suppression date for each unsubscribe. Audit the unsubscribe process quarterly. Do not
+                re-add unsubscribed addresses to active lists without fresh express consent.
+          links:
+            - href: "https://laws-lois.justice.gc.ca/eng/acts/E-1.6/"
+              rel: source
+              text: "An Act to promote the efficiency and adaptability of the Canadian economy (S.C. 2010, c. 23), §11"
+            - href: "https://crtc.gc.ca/eng/internet/anti.htm"
+              rel: reference
+              text: "CRTC CASL guidance — Unsubscribe requirements"

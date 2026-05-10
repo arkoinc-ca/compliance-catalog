@@ -18,7 +18,8 @@ rules:
         - "US-CA-CCPA-011"
         - "CA-AB-PIPA-006"
         - "CA-BC-PIPA-006"
-      confidence: "production"
+      # confidence raised to production after H-12 sign-off
+      confidence: "baseline"
     pattern-either:
       - patterns:
           - pattern-either:
@@ -66,7 +67,8 @@ rules:
         - "US-CA-CCPA-011"
         - "CA-AB-PIPA-006"
         - "CA-BC-PIPA-006"
-      confidence: "production"
+      # confidence raised to production after H-12 sign-off
+      confidence: "baseline"
     pattern-either:
       - pattern: console.$LEVEL($X.email)
       - pattern: console.$LEVEL($X.phone)

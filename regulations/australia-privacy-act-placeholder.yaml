@@ -1,0 +1,51 @@
+catalog:
+  uuid: "2a352eb6-402e-454e-99f4-d5282bacc0d1"
+  metadata:
+    title: "Privacy Act 1988 (as amended by Privacy and Other Legislation Amendment Act 2024) — Australia [PLACEHOLDER — OUT-OF-SCOPE-FOR-V1]"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "AU-PA"
+      - name: "jurisdiction"
+        value: "AU"
+      - name: "effective-as-of"
+        value: "1988-12-21"
+      - name: "source-citation"
+        value: "https://www.legislation.gov.au/Details/C2024C00383"
+      - name: "status"
+        value: "out-of-scope-for-v1"
+      - name: "placeholder-reason"
+        value: >-
+          Privacy Act Review Tier 1 and Tier 2 reforms (enacted via Privacy and Other
+          Legislation Amendment Act 2024) are being tracked but not yet authored into
+          controls. Tier 2 reforms including a statutory tort for serious privacy
+          invasions and enhanced individual rights remain under government consultation.
+          Controls will be authored once the reform package is fully enacted and
+          commencement dates are confirmed.
+  groups:
+    - id: "australia-privacy-act-placeholder-group"
+      title: "PLACEHOLDER — OUT-OF-SCOPE-FOR-V1 — Controls to be authored once Privacy Act Review reforms are fully enacted"
+      controls:
+        - id: "AU-PA-001"
+          title: "PLACEHOLDER — Australian Privacy Principles (APPs) obligations [OUT-OF-SCOPE-FOR-V1]"
+          props:
+            - name: "status"
+              value: "skeleton"
+            - name: "placeholder-reason"
+              value: >-
+                Privacy Act Review Tier 1+2 reforms tracked but not yet authored;
+                out of scope for v1 catalog.
+          parts:
+            - id: "AU-PA-001-stmt"
+              name: "statement"
+              prose: >-
+                The Privacy Act 1988 (Cth) and its Australian Privacy Principles (APPs)
+                govern the collection, use, disclosure, and storage of personal information
+                by Australian Government agencies and private-sector organisations with
+                annual turnover exceeding AUD 3 million. The Privacy and Other Legislation
+                Amendment Act 2024 introduced Tier 1 reforms including a new Children's
+                Online Privacy Code framework and enhanced enforcement powers for the OAIC.
+                TODO: Author full control set once Tier 1 and Tier 2 reforms are fully
+                enacted. Monitor https://www.oaic.gov.au/privacy/privacy-act-review

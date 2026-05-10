@@ -1,10 +1,20 @@
 profile:
   uuid: "b2c3d4e5-0102-4000-8000-200000000002"
   metadata:
-    title: "Canada — Quebec Region Profile (Quebec Law 25 + CASL)"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    title: "Canada — Quebec Region Profile (Quebec Law 25 + PIPEDA + CASL)"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.2"
     oscal-version: "1.0.2"
+    props:
+      - name: "non-applicability-note"
+        value: >-
+          Quebec has been declared substantially similar to PIPEDA for intra-provincial commercial
+          activity (OIC P.C. 2003-1842). PIPEDA is included here because it continues to apply in
+          Quebec to: (a) federal works and undertakings; (b) inter-provincial trade and commerce;
+          and (c) cross-border transfers of personal information. Organisations operating exclusively
+          within Quebec's private sector for intra-provincial purposes may be governed solely by
+          Quebec Law 25, but SaaS or multi-jurisdictional products should assess PIPEDA applicability
+          on all three residual grounds before excluding it from their compliance scope.
   imports:
     - href: "../../regulations/quebec-law-25.yaml"
       include-controls:
@@ -34,6 +44,21 @@ profile:
             - "CA-QC-LAW25-023"
             - "CA-QC-LAW25-024"
             - "CA-QC-LAW25-025"
+    - href: "../../regulations/pipeda.yaml"
+      include-controls:
+        - with-ids:
+            - "CA-PIPEDA-001"
+            - "CA-PIPEDA-002"
+            - "CA-PIPEDA-003"
+            - "CA-PIPEDA-004"
+            - "CA-PIPEDA-005"
+            - "CA-PIPEDA-006"
+            - "CA-PIPEDA-007"
+            - "CA-PIPEDA-008"
+            - "CA-PIPEDA-009"
+            - "CA-PIPEDA-010"
+            - "CA-PIPEDA-011"
+            - "CA-PIPEDA-012"
     - href: "../../regulations/casl.yaml"
       include-controls:
         - with-ids:
@@ -43,6 +68,8 @@ profile:
             - "CA-CASL-004"
             - "CA-CASL-005"
             - "CA-CASL-006"
+            - "CA-CASL-007"
+            - "CA-CASL-008"
   merge:
     combine:
       method: merge

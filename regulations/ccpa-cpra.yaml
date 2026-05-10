@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-0007-4000-8000-100000000007"
   metadata:
     title: "California Consumer Privacy Act / California Privacy Rights Act (CCPA/CPRA)"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.2"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -449,12 +449,15 @@ catalog:
 
         - id: "US-CA-CCPA-012"
           uuid: "a1b2c3d4-0612-4000-8000-100000000612"
+          # TODO: H-07 SME confirmation required — verify exact final-rule numbers,
+          # OAL approval date, and phased operative dates for Risk Assessment,
+          # Cybersecurity Audit, and ADMT regulations before next catalog release.
           title: "Risk Assessments and Cybersecurity Audits — Conduct for high-risk processing; submit on Agency request"
           props:
             - name: "source-section"
-              value: "§ 1798.185(a)(15)–(16); CCPA Regs Risk Assessments / Cybersecurity Audits (rulemaking ongoing as of 2026-05-09)"
+              value: "§ 1798.185(a)(15)–(16); CPPA Risk Assessment, Cybersecurity Audit, and ADMT Regulations (adopted 2025)"
             - name: "effective-date"
-              value: "2023-01-01"
+              value: "2026-01-01"
             - name: "severity"
               value: "high"
             - name: "jurisdiction"
@@ -470,20 +473,157 @@ catalog:
                 information, processing sensitive personal information, and using personal information for profiling
                 or automated decision-making — must conduct documented risk assessments before initiating such
                 processing. Businesses that meet scale thresholds must also conduct annual cybersecurity audits.
-                Both risk assessments and audit reports must be submitted to the CPPA on request.
+                Both risk assessments and audit reports must be submitted to the CPPA on request. The CPPA
+                risk-assessment and cybersecurity-audit regulations were adopted in 2025, with phased operative
+                dates beginning 2026. Automated Decision-Making Technology (ADMT) regulations were adopted in
+                the same rulemaking cycle with operative dates to be confirmed.
             - id: "US-CA-CCPA-012_gdn"
               name: "guidance"
               prose: |
                 Risk assessments must weigh the benefits of the processing against the risks to consumers and
                 document any safeguards in place to mitigate identified risks. Cybersecurity audits must be
                 conducted by a qualified third party and must evaluate the business's security program against a
-                recognized framework. Retain all risk assessment and audit documentation. The CPPA's Risk
-                Assessment and Cybersecurity Audit regulations are subject to ongoing rulemaking; check the CPPA
-                regulations page for current status before relying on a fixed obligation date.
+                recognized framework. Retain all risk assessment and audit documentation for at least 24 months
+                after completion. Verify exact operative dates and any phased applicability thresholds against
+                the CPPA regulations page and OAL approval notices before scheduling compliance work.
           links:
             - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
               rel: source
               text: "California Civil Code § 1798.185(a)(15)–(16) (CCPA/CPRA — Risk Assessment Authority)"
             - href: "https://cppa.ca.gov/regulations/"
               rel: source
-              text: "CPPA Regulations — Risk Assessments and Cybersecurity Audits (rulemaking ongoing)"
+              text: "CPPA Regulations — Risk Assessments, Cybersecurity Audits, and ADMT (adopted 2025)"
+
+    - id: "ccpa-cpra-exemptions-and-enforcement"
+      title: "Exemptions, Enforcement, and Private Right of Action — §§ 1798.145, 1798.155, 1798.199"
+      controls:
+        - id: "US-CA-CCPA-013"
+          uuid: "a1b2c3d4-0613-4000-8000-100000000613"
+          title: "Exemptions — Understand and apply CCPA/CPRA exemptions that limit the scope of consumer rights"
+          props:
+            - name: "source-section"
+              value: "§ 1798.145"
+            - name: "effective-date"
+              value: "2020-01-01"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-013_smt"
+              name: "statement"
+              prose: |
+                Section 1798.145 sets out exemptions from the CCPA/CPRA's consumer rights obligations.
+                Key exemptions include: compliance with federal, state, or local laws; cooperation with
+                law enforcement; exercise or defence of legal claims; certain financial institution and
+                healthcare data regulated by GLBA and HIPAA; internal research and statistical purposes;
+                and deidentified or aggregate consumer information. The business that relies on an
+                exemption bears the burden of establishing that the exemption applies. Certain exemptions
+                are partial (limiting only specific rights rather than the full Act).
+            - id: "US-CA-CCPA-013_gdn"
+              name: "guidance"
+              prose: |
+                Map each processing activity to applicable exemptions before denying a consumer request.
+                Document the exemption relied upon and the legal basis in the request log. Note that
+                the GLBA and HIPAA safe harbours are data-category-specific, not entity-wide — only
+                the specific data subject to the federal law is exempt; other personal information
+                held by the same business remains subject to CCPA/CPRA. Train privacy operations
+                staff on the scope of each exemption. Review exemption reliance annually as the CPPA
+                may issue regulations clarifying scope. Evidence: request log with exemption citations,
+                exemption policy document, training records.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.145 (CCPA/CPRA — Exemptions)"
+
+        - id: "US-CA-CCPA-014"
+          uuid: "a1b2c3d4-0614-4000-8000-100000000614"
+          title: "Enforcement and Administrative Fines — CPPA enforcement process and cure period compliance"
+          props:
+            - name: "source-section"
+              value: "§ 1798.155"
+            - name: "effective-date"
+              value: "2023-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-014_smt"
+              name: "statement"
+              prose: |
+                The California Privacy Protection Agency has authority to investigate and bring enforcement
+                actions against businesses for violations of the CCPA/CPRA (§ 1798.155(b)). The CPPA may
+                issue regulations, bring administrative enforcement proceedings, and impose civil penalties
+                of up to $2,500 per unintentional violation and $7,500 per intentional violation. The
+                agency may also direct remediation. The 30-day cure period that formerly allowed businesses
+                to correct certain §1798.155(b) violations before formal enforcement was eliminated by
+                AB 1824 (effective January 1, 2024) for businesses with annual gross revenues exceeding
+                $25 million. Smaller businesses below that revenue threshold retain a 30-day cure period
+                for §1798.155(b) violations under current regulations. All businesses must respond promptly
+                to any CPPA notice of non-compliance regardless of cure-period applicability.
+            - id: "US-CA-CCPA-014_gdn"
+              name: "guidance"
+              prose: |
+                Maintain a documented compliance program that demonstrates good-faith efforts to comply with
+                the CCPA/CPRA. Establish a regulatory inquiry response team and documented playbook for
+                responding to CPPA investigations. If a CPPA notice is received, engage privacy counsel
+                immediately and assess whether correction is feasible within the specified timeframe.
+                Document all remediation steps. Treat the per-violation penalty structure ($7,500 for
+                intentional violations) as a cost-of-non-compliance ceiling when conducting privacy
+                risk assessments. Evidence: compliance program documentation, regulatory inquiry playbook,
+                training records, and corrective action log.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.155 (CCPA/CPRA — CPPA Enforcement)"
+            - href: "https://cppa.ca.gov/"
+              rel: reference
+              text: "California Privacy Protection Agency"
+
+        - id: "US-CA-CCPA-015"
+          uuid: "a1b2c3d4-0615-4000-8000-100000000615"
+          title: "Private Right of Action — § 1798.150 (Data Security Breach Liability)"
+          props:
+            - name: "source-section"
+              value: "§ 1798.150; § 1798.199.95"
+            - name: "effective-date"
+              value: "2020-01-01"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "US-CA"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "US-CA-CCPA-015_smt"
+              name: "statement"
+              prose: |
+                Any consumer whose nonencrypted and nonredacted personal information (as defined in Cal. Civ.
+                Code § 1798.81.5(d)(1)(A)) is subject to unauthorized access and exfiltration, theft, or
+                disclosure as a result of the business's violation of the duty to implement and maintain
+                reasonable security procedures and practices may institute a civil action to recover statutory
+                damages of $100 to $750 per consumer per incident, or actual damages (whichever is greater),
+                injunctive or declaratory relief, and any other relief the court deems proper (§ 1798.150).
+                The private right of action is limited to data security breaches; other CCPA/CPRA violations
+                are enforceable only by the CPPA or the Attorney General (§ 1798.199.95).
+            - id: "US-CA-CCPA-015_gdn"
+              name: "guidance"
+              prose: |
+                The private right of action under § 1798.150 creates direct class-action exposure for
+                data security failures. Prioritise implementation of reasonable security procedures
+                (see US-CA-CCPA-011) and treat the $750 per-consumer statutory minimum as a floor for
+                breach cost modelling. Before a civil action may be brought, the consumer must provide
+                30 days written notice to the business and the business has the opportunity to cure the
+                breach within 30 days. Establish a breach notification workflow that triggers the § 1798.150
+                cure-period clock. Maintain cyber liability insurance with coverage for CCPA statutory
+                damages. Evidence: documented security program, breach response SOP referencing the
+                30-day cure period, insurance documentation.
+          links:
+            - href: "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5"
+              rel: source
+              text: "California Civil Code § 1798.150 (Private Right of Action) and § 1798.199.95 (AG / CPPA enforcement)"

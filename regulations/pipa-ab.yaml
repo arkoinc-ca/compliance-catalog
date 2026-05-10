@@ -2,7 +2,7 @@ catalog:
   uuid: "a1b2c3d4-0003-4000-8000-100000000003"
   metadata:
     title: "Personal Information Protection Act (Alberta PIPA)"
-    last-modified: "2026-05-09T00:00:00Z"
+    last-modified: "2026-05-10T00:00:00Z"
     version: "0.1.0"
     oscal-version: "1.0.2"
     props:
@@ -13,7 +13,7 @@ catalog:
       - name: "effective-as-of"
         value: "2004-01-01"
       - name: "source-citation"
-        value: "https://kings-printer.alberta.ca/1266.cfm?page=p06p5.cfm"
+        value: "https://www.qp.alberta.ca/documents/Acts/P06P5.pdf"
   groups:
     - id: "pipa-ab-collection-and-consent"
       title: "Collection, Use, Disclosure, and Consent (Part 2, §7–22)"
@@ -51,7 +51,7 @@ catalog:
                 Alberta has found deficient notices in orders P2011-003 and P2016-016 where organizations
                 relied on fine-print disclosures remote from the collection point.
           links:
-            - href: "https://kings-printer.alberta.ca/1266.cfm?page=p06p5.cfm"
+            - href: "https://www.qp.alberta.ca/documents/Acts/P06P5.pdf"
               rel: source
               text: "Personal Information Protection Act, SA 2003, c P-6.5 (Alberta King's Printer)"
 
@@ -89,7 +89,7 @@ catalog:
                 (updated 2018) and Order P2019-05 clarify that bundled consent for unrelated purposes
                 does not meet the meaningfulness standard.
           links:
-            - href: "https://kings-printer.alberta.ca/1266.cfm?page=p06p5.cfm"
+            - href: "https://www.qp.alberta.ca/documents/Acts/P06P5.pdf"
               rel: source
               text: "Personal Information Protection Act, SA 2003, c P-6.5 (Alberta King's Printer)"
 
@@ -128,7 +128,7 @@ catalog:
                 documented justification. The OIPC Alberta's guidance on employee information (2017)
                 recommends annual re-notification when purposes change.
           links:
-            - href: "https://kings-printer.alberta.ca/1266.cfm?page=p06p5.cfm"
+            - href: "https://www.qp.alberta.ca/documents/Acts/P06P5.pdf"
               rel: source
               text: "Personal Information Protection Act, SA 2003, c P-6.5 (Alberta King's Printer)"
 
@@ -167,7 +167,7 @@ catalog:
                 voluntary disclosure to police without proper authority (see OIPC orders P2012-007 and
                 P2014-002).
           links:
-            - href: "https://kings-printer.alberta.ca/1266.cfm?page=p06p5.cfm"
+            - href: "https://www.qp.alberta.ca/documents/Acts/P06P5.pdf"
               rel: source
               text: "Personal Information Protection Act, SA 2003, c P-6.5 (Alberta King's Printer)"
 
@@ -210,7 +210,7 @@ catalog:
                 inform the individual of their right to make a complaint to the OIPC Alberta. Implement
                 an access-request intake process with a logged 45-day deadline tracker.
           links:
-            - href: "https://kings-printer.alberta.ca/1266.cfm?page=p06p5.cfm"
+            - href: "https://www.qp.alberta.ca/documents/Acts/P06P5.pdf"
               rel: source
               text: "Personal Information Protection Act, SA 2003, c P-6.5 (Alberta King's Printer)"
 
@@ -249,7 +249,7 @@ catalog:
                 (e.g., P2019-ND-002) consistently cite absence of encryption and poor access controls
                 as failures of §34.
           links:
-            - href: "https://kings-printer.alberta.ca/1266.cfm?page=p06p5.cfm"
+            - href: "https://www.qp.alberta.ca/documents/Acts/P06P5.pdf"
               rel: source
               text: "Personal Information Protection Act, SA 2003, c P-6.5 (Alberta King's Printer)"
 
@@ -290,7 +290,7 @@ catalog:
                 Maintain a breach log of all incidents evaluated, whether or not the notification
                 threshold was met, as the OIPC AB may audit breach assessment decisions.
           links:
-            - href: "https://kings-printer.alberta.ca/1266.cfm?page=p06p5.cfm"
+            - href: "https://www.qp.alberta.ca/documents/Acts/P06P5.pdf"
               rel: source
               text: "Personal Information Protection Act, SA 2003, c P-6.5 (Alberta King's Printer)"
             - href: "https://oipc.ab.ca/"
@@ -331,7 +331,7 @@ catalog:
                 Alberta recommends the designate also oversee the breach notification program and respond
                 to OIPC inquiries within the required timelines.
           links:
-            - href: "https://kings-printer.alberta.ca/1266.cfm?page=p06p5.cfm"
+            - href: "https://www.qp.alberta.ca/documents/Acts/P06P5.pdf"
               rel: source
               text: "Personal Information Protection Act, SA 2003, c P-6.5 (Alberta King's Printer)"
             - href: "https://oipc.ab.ca/"

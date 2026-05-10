@@ -24,7 +24,8 @@ rules:
         - "US-CA-CCPA-002"
         - "CA-AB-PIPA-005"
         - "CA-BC-PIPA-005"
-      confidence: "production"
+      # confidence raised to production after H-12 sign-off
+      confidence: "baseline"
       notes: >
         v0 heuristic — file-level scope, not per-app. pattern-not-inside suppresses when the
         delete call is inside a class or a function named *DSR*. Does not detect DSR routes
@@ -66,7 +67,8 @@ rules:
         - "US-CA-CCPA-002"
         - "CA-AB-PIPA-005"
         - "CA-BC-PIPA-005"
-      confidence: "production"
+      # confidence raised to production after H-12 sign-off
+      confidence: "baseline"
     patterns:
       - pattern-either:
           - pattern: $USER.delete()

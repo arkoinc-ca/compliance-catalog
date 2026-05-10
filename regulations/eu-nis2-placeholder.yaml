@@ -1,0 +1,50 @@
+catalog:
+  uuid: "f07fa3fe-514f-432e-80ce-18d7a33fb181"
+  metadata:
+    title: "Directive (EU) 2022/2555 (NIS2) [PLACEHOLDER — OUT-OF-SCOPE-FOR-V1]"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "EU-NIS2"
+      - name: "jurisdiction"
+        value: "EU"
+      - name: "effective-as-of"
+        value: "2024-10-17"
+      - name: "source-citation"
+        value: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022L2555"
+      - name: "status"
+        value: "out-of-scope-for-v1"
+      - name: "placeholder-reason"
+        value: >-
+          NIS2 addresses cybersecurity incident reporting and risk-management obligations
+          for operators of essential and important entities across critical sectors. While
+          it complements GDPR Article 33 personal-data breach notification, its scope
+          is cybersecurity-centric rather than data-protection-centric. Authoring NIS2
+          controls is out of scope for the v1 catalog which focuses on data-protection
+          obligations; a future cybersecurity-catalog module will address NIS2.
+  groups:
+    - id: "eu-nis2-placeholder-group"
+      title: "PLACEHOLDER — OUT-OF-SCOPE-FOR-V1 — Controls to be authored in a future cybersecurity-catalog module"
+      controls:
+        - id: "EU-NIS2-001"
+          title: "PLACEHOLDER — NIS2 cybersecurity risk management and incident notification [OUT-OF-SCOPE-FOR-V1]"
+          props:
+            - name: "status"
+              value: "skeleton"
+            - name: "placeholder-reason"
+              value: >-
+                Cybersecurity incident reporting scope; complement to GDPR Art 33 —
+                out of scope for v1 catalog focus on data-protection.
+          parts:
+            - id: "EU-NIS2-001-stmt"
+              name: "statement"
+              prose: >-
+                NIS2 (Directive (EU) 2022/2555) requires essential and important entities
+                to implement proportionate technical and organisational cybersecurity
+                risk-management measures and to notify the competent national authority of
+                significant incidents within 24 hours (early warning) and 72 hours (incident
+                notification). Member States transposed NIS2 by 17 October 2024.
+                TODO: Author full control set in a future cybersecurity-catalog module.
+                See https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022L2555

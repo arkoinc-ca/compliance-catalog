@@ -2,8 +2,8 @@ profile:
   uuid: "b2c3d4e5-0107-4000-8000-200000000007"
   metadata:
     title: "United States — California Region Profile (CCPA/CPRA)"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.1"
     oscal-version: "1.0.2"
   imports:
     - href: "../../regulations/ccpa-cpra.yaml"
@@ -21,6 +21,9 @@ profile:
             - "US-CA-CCPA-010"
             - "US-CA-CCPA-011"
             - "US-CA-CCPA-012"
+            - "US-CA-CCPA-013"
+            - "US-CA-CCPA-014"
+            - "US-CA-CCPA-015"
   merge:
     combine:
       method: merge

@@ -141,6 +141,23 @@ Most controls use `questionnaire` as the primary (or only) method. `semgrep` and
 
 ---
 
+## Semgrep rule-id naming convention
+
+Semgrep rules in `detection-rules/semgrep/` are organised per language. Each language file defines rules with **language-suffixed IDs** because Semgrep requires unique rule IDs within a run and the same logical pattern is implemented once per language:
+
+| Language file | Rule-id suffix | Example |
+|---|---|---|
+| `missing-audit.python.yaml` | `-python` | `missing-audit-python` |
+| `missing-audit.javascript.yaml` | `-javascript` | `missing-audit-javascript` |
+| `missing-audit.java.yaml` | `-java` | `missing-audit-java` |
+| `missing-audit.csharp.yaml` | `-csharp` | `missing-audit-csharp` |
+
+**Canonical reference in `mapping.yaml`:** `detection-rules/mapping.yaml` references the **Python variant** as the primary `rule-id` for each semgrep entry. This is a documentation convention only — the assessor resolves all language variants at runtime from the same family prefix. When reading mapping.yaml, substitute `-python` with the target language suffix to find the relevant rule file.
+
+**Decision rationale (C-M17, 2026-05-10):** Family names (`missing-audit`) were rejected because they do not correspond to any actual Semgrep rule ID, making cross-reference from mapping.yaml to semgrep YAML files ambiguous. Per-language IDs are unambiguous and match the file layout exactly.
+
+---
+
 ## Control status lifecycle
 
 | Status | Meaning |

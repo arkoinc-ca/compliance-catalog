@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-c400-4000-8000-100000000000"
   metadata:
     title: "Illinois Biometric Information Privacy Act (BIPA) — 740 ILCS 14/"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.1"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -14,6 +14,8 @@ catalog:
         value: "2008-10-03"
       - name: "last-amended"
         value: "2024-08-02"
+      - name: "sol-framework"
+        value: "5-year SOL applies to all BIPA claims (Tims v. Black Horse Carriers, 2023 IL 127801, Ill. S.Ct. 2023); 1-year SOL does not apply"
       - name: "source-citation"
         value: "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004&ChapterID=57"
   groups:
@@ -222,6 +224,11 @@ catalog:
       title: "2024 SB 2979 Amendment — Per-Subject Damage Limitation"
       controls:
         - id: "US-IL-BIPA-006"
+          # NOTE: Tims v. Black Horse Carriers (2023 IL 127801, Ill. S.Ct. Feb 2, 2023) established
+          # that all BIPA claims are subject to the 5-year catch-all SOL under 735 ILCS 5/13-205.
+          # The 1-year SOL under 735 ILCS 5/13-201 (publication of matter violating right of privacy)
+          # does not apply to BIPA. The 2-year SOL under 735 ILCS 5/13-202 was also rejected.
+          # This extends class-action exposure significantly — include in litigation-reserve calculations.
           uuid: "a1b2c3d4-c406-4000-8000-100000000006"
           title: "Apply SB 2979 (2024) one-violation-per-subject rule to BIPA compliance program"
           props:

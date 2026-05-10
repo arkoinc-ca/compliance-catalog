@@ -1,0 +1,51 @@
+catalog:
+  uuid: "a59dd74a-145c-4af7-abea-7931eef5834d"
+  metadata:
+    title: "Regulation (EU) 2022/2554 (Digital Operational Resilience Act — DORA) [PLACEHOLDER — OUT-OF-SCOPE-FOR-V1]"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "EU-DORA"
+      - name: "jurisdiction"
+        value: "EU"
+      - name: "effective-as-of"
+        value: "2025-01-17"
+      - name: "source-citation"
+        value: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554"
+      - name: "status"
+        value: "out-of-scope-for-v1"
+      - name: "placeholder-reason"
+        value: >-
+          DORA is a financial-sector ICT risk regulation applicable to financial entities
+          (credit institutions, investment firms, insurance undertakings, crypto-asset
+          service providers, etc.) and their critical ICT third-party service providers.
+          The regulation came into force 2025-01-17. Its sector-specific scope falls
+          outside the general-purpose data-protection focus of compliance-catalog v1;
+          scheduled for a future financial-sector catalog extension.
+  groups:
+    - id: "eu-dora-placeholder-group"
+      title: "PLACEHOLDER — OUT-OF-SCOPE-FOR-V1 — Controls to be authored in a future financial-sector catalog extension"
+      controls:
+        - id: "EU-DORA-001"
+          title: "PLACEHOLDER — DORA ICT risk management and digital operational resilience [OUT-OF-SCOPE-FOR-V1]"
+          props:
+            - name: "status"
+              value: "skeleton"
+            - name: "placeholder-reason"
+              value: >-
+                Financial-sector ICT risk regulation; in force 2025-01-17 but
+                sector-specific; out of scope for v1 general data-protection catalog.
+          parts:
+            - id: "EU-DORA-001-stmt"
+              name: "statement"
+              prose: >-
+                DORA (Regulation (EU) 2022/2554, applicable from 17 January 2025) requires
+                financial entities to maintain robust ICT risk management frameworks,
+                classify and report major ICT-related incidents to competent authorities,
+                conduct digital operational resilience testing, and manage ICT third-party
+                concentration risk. Critical ICT third-party service providers are subject
+                to direct oversight by European Supervisory Authorities (EBA, EIOPA, ESMA).
+                TODO: Author full control set in a future financial-sector catalog extension.
+                See https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554

@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-c100-4000-8000-100000000000"
   metadata:
     title: "Lei Geral de Proteção de Dados Pessoais (LGPD) — Lei nº 13.709/2018"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.1"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -16,6 +16,10 @@ catalog:
         value: "2021-08-01"
       - name: "source-citation"
         value: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+      - name: "regulator"
+        value: "Autoridade Nacional de Proteção de Dados (ANPD)"
+      - name: "regulator-url"
+        value: "https://www.gov.br/anpd/pt-br"
   groups:
     - id: "lgpd-legal-bases"
       title: "Legal Bases for Processing"
@@ -569,3 +573,283 @@ catalog:
             - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
               rel: source
               text: "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais"
+
+    - id: "lgpd-supplementary-obligations"
+      title: "Supplementary Obligations — Definitions, Consent, Legitimate Interest, Anonymization, Retention"
+      controls:
+        - id: "BR-LGPD-015"
+          uuid: "a1b2c3d4-c115-4000-8000-100000000015"
+          title: "Apply LGPD definitions to determine scope of personal data processing (Art. 5)"
+          props:
+            - name: "source-section"
+              value: "Art. 5"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-015_smt"
+              name: "statement"
+              prose: |
+                The LGPD applies to the processing of personal data — any information relating to an identified
+                or identifiable natural person — as defined in Art. 5 I. Sensitive personal data (Art. 5 II)
+                includes racial or ethnic origin, religious belief, political opinion, union membership, health
+                or sex life, genetic or biometric data. Anonymous data (Art. 5 III) lies outside the LGPD
+                scope when anonymization is irreversible; pseudonymous data (Art. 5 XI) remains subject to
+                the LGPD. Controllers and operators must correctly classify data under these definitions before
+                determining applicable obligations and legal bases.
+            - id: "BR-LGPD-015_gdn"
+              name: "guidance"
+              prose: |
+                Conduct a data classification exercise covering all personal data held or processed. For each
+                dataset, determine: is it personal data (Art. 5 I)?; is it sensitive (Art. 5 II)?; is it
+                truly anonymized or merely pseudonymized (Art. 5 III and XI)?. Anonymization must satisfy
+                the Art. 12 technical standard — data that can be re-identified with reasonable effort remains
+                personal data. Document classification outcomes in your ROPA. Misclassification of personal
+                data as anonymous is a common compliance failure with significant enforcement risk.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018, Art. 5 — Definitions"
+
+        - id: "BR-LGPD-016"
+          uuid: "a1b2c3d4-c116-4000-8000-100000000016"
+          title: "Obtain valid consent — freely given, informed, unambiguous, and purpose-specific (Art. 8)"
+          props:
+            - name: "source-section"
+              value: "Art. 8"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-016_smt"
+              name: "statement"
+              prose: |
+                Consent under the LGPD must be provided in writing or by another means that demonstrates the
+                data subject's free manifestation of will (Art. 8 caput). When consent is obtained in written
+                form, it must be highlighted — clearly distinguishable from other clauses (Art. 8 §1). The
+                burden of proof that consent was obtained falls on the controller (Art. 8 §2). Consent is
+                deficient if it is too generic, and processing based on such consent is unlawful (Art. 8 §4).
+                Consent may be revoked at any time without charge to the data subject (Art. 8 §5). Processing
+                activities conducted before revocation remain lawful.
+            - id: "BR-LGPD-016_gdn"
+              name: "guidance"
+              prose: |
+                Design consent collection to be clearly separated from other contractual terms. Use purpose-
+                specific consent checkboxes — do not bundle consent for multiple purposes in a single click.
+                Maintain a consent audit trail capturing: the exact consent text displayed, the timestamp,
+                the method of collection, and the unique identifier of the data subject. Implement a revocation
+                mechanism accessible to the data subject at all times; immediately propagate revocation to all
+                downstream systems. Audit consent records quarterly for completeness and legibility.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018, Art. 8 — Consent requirements"
+
+        - id: "BR-LGPD-017"
+          uuid: "a1b2c3d4-c117-4000-8000-100000000017"
+          title: "Document and justify legitimate interest as a lawful basis for processing (Art. 10)"
+          props:
+            - name: "source-section"
+              value: "Art. 10"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-017_smt"
+              name: "statement"
+              prose: |
+                Processing of personal data based on the controller's or third party's legitimate interest
+                (Art. 7 IX / Art. 10) is permissible only for legitimate purposes, grounded in concrete
+                situations, and when the data subject's fundamental rights and freedoms do not prevail.
+                The controller must carry out an impact assessment on the data subject's rights and interests
+                when processing based on legitimate interest (Art. 10 §3). The ANPD may request and the
+                controller must provide evidence of the balancing test performed. Legitimate interest
+                cannot be used to process sensitive personal data (Art. 11).
+            - id: "BR-LGPD-017_gdn"
+              name: "guidance"
+              prose: |
+                Complete a three-part legitimate interest assessment (LIA) for each processing activity
+                relying on Art. 10: (1) purpose test — is the purpose legitimate and specific?; (2) necessity
+                test — is processing necessary and proportionate to the purpose?; (3) balancing test — do
+                the legitimate interests override the data subject's rights and freedoms? Document the
+                assessment and retain it for the ANPD. Implement an opt-out mechanism for data subjects to
+                object to processing based on legitimate interest (Art. 18 II). Review LIAs annually
+                and whenever the underlying processing activity changes.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018, Art. 10 — Legitimate interest"
+
+        - id: "BR-LGPD-018"
+          uuid: "a1b2c3d4-c118-4000-8000-100000000018"
+          title: "Apply LGPD anonymization standards; treat pseudonymous data as personal data (Art. 12)"
+          props:
+            - name: "source-section"
+              value: "Art. 12"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-018_smt"
+              name: "statement"
+              prose: |
+                Anonymized data — data that cannot by any reasonable technical means be re-identified — is
+                not considered personal data for LGPD purposes and is not subject to the Act (Art. 12 caput).
+                However, where the process of anonymization can be reversed, or if the data can be used to
+                identify the data subject, it is treated as personal data (Art. 12 §1). Pseudonymized data —
+                where a reversible additional key is needed to re-identify — remains personal data subject
+                to the full LGPD regime (Art. 12 §2). The ANPD may issue technical standards defining the
+                conditions that constitute true anonymization.
+            - id: "BR-LGPD-018_gdn"
+              name: "guidance"
+              prose: |
+                Before treating any dataset as anonymized and outside LGPD scope, apply a re-identification
+                risk assessment using the ANPD's technical standards once published, or established
+                international benchmarks (NIST SP 800-188, ISO 29101). Document the assessment and
+                the technical method applied (generalisation, suppression, noise addition, k-anonymity,
+                differential privacy). Review anonymization assessments annually and whenever the dataset
+                or the adversary context changes. Datasets shared with third parties should be subject
+                to a fresh re-identification risk assessment before each transfer.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018, Art. 12 — Anonymized and pseudonymized data"
+
+        - id: "BR-LGPD-019"
+          uuid: "a1b2c3d4-c119-4000-8000-100000000019"
+          title: "Delete or anonymize personal data when the processing purpose is fulfilled (Art. 15)"
+          props:
+            - name: "source-section"
+              value: "Art. 15"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-019_smt"
+              name: "statement"
+              prose: |
+                The processing of personal data must end and the data must be deleted when: the processing
+                purpose has been achieved or the data is no longer necessary for the purpose (Art. 15 I);
+                the retention period has ended (Art. 15 II); the data subject has communicated revocation
+                of consent (Art. 15 III); or the ANPD has determined the unlawfulness of the processing
+                (Art. 15 IV). Data must be deleted in a format that cannot be recovered. The obligation
+                to delete does not apply where retention is necessary to comply with a legal or regulatory
+                obligation, for research by a public body, for transfer to a third party under the LGPD,
+                or for exclusive use of the controller provided it is anonymized.
+            - id: "BR-LGPD-019_gdn"
+              name: "guidance"
+              prose: |
+                Implement retention schedules that automatically trigger deletion or anonymization when
+                the retention period ends or the purpose is fulfilled. Document the legal basis for any
+                data retained beyond the primary purpose (e.g., legal hold, regulatory obligation). For
+                deletion requests from data subjects, implement the right to deletion under Art. 18 VI
+                and propagate deletion requests to all processors and sub-processors. Evidence: retention
+                schedule documentation, deletion execution logs, and legal hold register.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018, Art. 15 — Termination of data processing"
+
+        - id: "BR-LGPD-020"
+          uuid: "a1b2c3d4-c120-4000-8000-100000000020"
+          title: "Apply data subject rights on processing termination; delete or return data (Art. 16)"
+          props:
+            - name: "source-section"
+              value: "Art. 16"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-020_smt"
+              name: "statement"
+              prose: |
+                Upon termination of processing pursuant to Art. 15, personal data must be deleted (Art. 16 I),
+                or retained for the exclusive use of the controller provided it is anonymized (Art. 16 II),
+                or transferred to a third party that has complied with the LGPD (Art. 16 III), or retained by
+                the controller or operator for compliance with a legal or regulatory obligation (Art. 16 IV).
+                Where data is retained under Art. 16 II (anonymization), the anonymization must be technically
+                irreversible. Where retained under Art. 16 IV, the controller must document the legal obligation
+                and limit access to the retained data to the minimum necessary.
+            - id: "BR-LGPD-020_gdn"
+              name: "guidance"
+              prose: |
+                Map each retention scenario to the applicable Art. 16 basis at the time the processing
+                termination trigger fires. For data retained under legal obligation (Art. 16 IV), create
+                a legal hold register documenting: the specific legal or regulatory requirement; the
+                categories of data retained; the retention duration; and the data access controls in place.
+                For data retained in anonymized form (Art. 16 II), document the anonymization method and
+                conduct a re-identification risk assessment per BR-LGPD-018.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018, Art. 16 — Conservation of personal data"
+
+        - id: "BR-LGPD-021"
+          uuid: "a1b2c3d4-c121-4000-8000-100000000021"
+          title: "Provide personal data portability to the data subject or another service provider (Art. 17)"
+          props:
+            - name: "source-section"
+              value: "Art. 17"
+            - name: "effective-date"
+              value: "2020-09-18"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "BR"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "BR-LGPD-021_smt"
+              name: "statement"
+              prose: |
+                Every natural person is entitled to the ownership of their personal data and to ensure the
+                exercise of the rights specified in the LGPD in relation to them (Art. 17). The right to
+                portability — providing a structured, interoperable copy of the data subject's personal data
+                to another service provider — is an enumerated data subject right under Art. 18 V. The
+                controller must provide data in a format that facilitates transfer to another controller,
+                subject to ANPD regulation defining technical interoperability standards and any exceptions
+                for industrial and commercial secrets.
+            - id: "BR-LGPD-021_gdn"
+              name: "guidance"
+              prose: |
+                Implement a portability export capability that produces personal data in a structured,
+                machine-readable format (e.g., JSON or CSV). The portability right covers personal data
+                provided by the data subject and processed with consent or under a contract. Data derived
+                or inferred by the controller (e.g., risk scores, inferences) may be subject to different
+                treatment — seek ANPD guidance on the scope of portability as regulations mature.
+                Respond to portability requests within the 15-day window established for data subject
+                rights responses under Art. 18. Document each portability request and its fulfilment.
+          links:
+            - href: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              rel: source
+              text: "Lei nº 13.709/2018, Art. 17 — Ownership of personal data and Art. 18 V — Portability"

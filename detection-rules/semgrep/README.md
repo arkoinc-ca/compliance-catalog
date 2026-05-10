@@ -21,9 +21,9 @@ rules:
     severity: ERROR
     metadata:
       controls:
-        - "PIPEDA-7"       # Safeguards
-        - "GDPR-5-1-f"    # Integrity and confidentiality
-        - "QC-LAW25-10"   # Security measures
+        - "CA-PIPEDA-007"   # Safeguards
+        - "EU-GDPR-032"     # Security of processing
+        - "CA-QC-LAW25-010" # Security measures
       category: pii-in-logs
       confidence: MEDIUM
       false-positive-rate: "0.12"
@@ -39,9 +39,9 @@ Files are named by the detection category they cover, not by a specific regulati
 |------|----------|
 | `pii-in-logs.yaml` | PII written to application logs |
 | `missing-consent.yaml` | Absence of consent collection mechanism |
-| `missing-dsr-handler.yaml` | No data-subject-request endpoint or handler |
-| `missing-audit-emission.yaml` | Audit event not emitted at access/mutation boundary |
-| `unprotected-sensitive-field.yaml` | Sensitive field stored without encryption marker |
+| `missing-dsr.yaml` | No data-subject-request endpoint or handler |
+| `missing-audit.yaml` | Audit event not emitted at access/mutation boundary |
+| `missing-retention.yaml` | Data retained beyond declared retention period |
 
 ## Adding a New Rule
 
@@ -53,11 +53,11 @@ Files are named by the detection category they cover, not by a specific regulati
 
 ## Control ID Reference Format
 
-Control IDs follow the pattern `<SHORT-CODE>-<CONTROL-NUM>` as defined in each regulation catalog, for example:
+Control IDs follow the pattern `<JURISDICTION>-<SHORT-CODE>-<NNN>` (zero-padded to 3 digits) as defined in each regulation catalog, for example:
 
-- `PIPEDA-1`, `PIPEDA-7`
-- `QC-LAW25-1`, `QC-LAW25-10`
-- `GDPR-5-1-a`, `GDPR-32`
-- `CASL-1`
+- `CA-PIPEDA-001`, `CA-PIPEDA-007`
+- `CA-QC-LAW25-001`, `CA-QC-LAW25-010`
+- `EU-GDPR-005`, `EU-GDPR-032`
+- `CA-CASL-001`
 
 Semgrep rules are scheduled for authoring in Phase 2 of the implementation plan.

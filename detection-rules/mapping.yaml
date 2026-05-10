@@ -3,6 +3,15 @@
 # Methods: semgrep | otel | questionnaire.
 # Schema version: 0.1.0
 #
+# RULE-ID NAMING CONVENTION (C-M17 fix 2026-05-10):
+# Semgrep rule files contain per-language rule IDs (e.g., missing-audit-python,
+# missing-audit-javascript, missing-audit-java, missing-audit-csharp). The `rule-id`
+# field in this mapping references the Python rule-id as the canonical identifier
+# (Python is the primary production-supported language). The semgrep CLI join is done
+# against the full rule file — language-specific rule-ids are needed because semgrep
+# requires unique IDs within a rule set. Do not use the family name (e.g., "missing-audit")
+# as a rule-id — it does not match any actual rule and breaks the runtime join.
+#
 # NOTE: questionnaire/* and otel-queries/* file references in this index are
 # Phase 2 / Phase 5 deliverables. Rule files for these methods will be authored
 # in those phases (see detection-rules/questionnaire/README.md). Until then,
@@ -22,8 +31,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-audit.yaml"
-        rule-id: "missing-audit"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-audit-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-priv-officer-designated"
@@ -44,8 +53,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-consent.yaml"
-        rule-id: "missing-consent"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-consent-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-consent-mechanism-present"
@@ -66,8 +75,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-retention.yaml"
-        rule-id: "missing-retention"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-retention-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-retention-schedule-defined"
@@ -88,8 +97,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/pii-in-logs.yaml"
-        rule-id: "pii-in-logs"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "pii-in-logs-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-security-safeguards-documented"
@@ -110,8 +119,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-dsr-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/dsr-process.yaml"
         fragment-id: "q-dsr-access-process-defined"
@@ -153,8 +162,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-audit.yaml"
-        rule-id: "missing-audit"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-audit-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-priv-officer-designated"
@@ -211,8 +220,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-consent.yaml"
-        rule-id: "missing-consent"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-consent-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-express-consent-for-sensitive-pi"
@@ -296,8 +305,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/pii-in-logs.yaml"
-        rule-id: "pii-in-logs"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "pii-in-logs-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/breach-response.yaml"
         fragment-id: "q-individual-breach-notification-sop"
@@ -309,8 +318,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-dsr-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/dsr-process.yaml"
         fragment-id: "q-access-request-process-qc"
@@ -362,8 +371,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-retention.yaml"
-        rule-id: "missing-retention"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-retention-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-retention-destruction-schedule-exists"
@@ -414,8 +423,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-consent.yaml"
-        rule-id: "missing-consent"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-consent-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-consent-mechanism-ab"
@@ -445,8 +454,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-dsr-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/dsr-process.yaml"
         fragment-id: "q-access-correction-45day-ab"
@@ -458,8 +467,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/pii-in-logs.yaml"
-        rule-id: "pii-in-logs"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "pii-in-logs-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-security-arrangements-ab"
@@ -501,8 +510,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-consent.yaml"
-        rule-id: "missing-consent"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-consent-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-consent-mechanism-bc"
@@ -532,8 +541,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-dsr-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/dsr-process.yaml"
         fragment-id: "q-access-correction-30day-bc"
@@ -545,8 +554,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/pii-in-logs.yaml"
-        rule-id: "pii-in-logs"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "pii-in-logs-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-security-arrangements-bc"
@@ -579,8 +588,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-consent.yaml"
-        rule-id: "missing-consent"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-consent-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-cem-consent-obtained"
@@ -628,15 +637,33 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-audit.yaml"
-        rule-id: "missing-audit"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-audit-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-consent-records-retained"
         notes: "Organizational obligation — primary detection."
 
+  - control-id: "CA-CASL-007"
+    regulation: "CASL"
+    title: "Business-card implied consent — electronic address prominently published without prohibition (§10(9))"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-casl-published-address-relevance-documented"
+        notes: "C-M11 control added 2026-05-10. Relevance determination requires human review."
+
+  - control-id: "CA-CASL-008"
+    regulation: "CASL"
+    title: "Unsubscribe mechanism specifics — functional, no-charge, same sender, 10-business-day honour (§11)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-casl-unsubscribe-sop-documented"
+        notes: "C-M11 control added 2026-05-10. Unsubscribe mechanism and 10-day SLA require human attestation."
+
   # ──────────────────────────────────────────────────────────────────────────
-  # GDPR (18 controls)
+  # GDPR (22 controls)
   # ──────────────────────────────────────────────────────────────────────────
   - control-id: "EU-GDPR-001"
     regulation: "GDPR"
@@ -644,8 +671,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-consent.yaml"
-        rule-id: "missing-consent"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-consent-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-lawful-basis-documented"
@@ -666,8 +693,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-retention.yaml"
-        rule-id: "missing-retention"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-retention-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-data-minimisation-applied"
@@ -679,8 +706,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-consent.yaml"
-        rule-id: "missing-consent"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-consent-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-consent-conditions-met"
@@ -710,8 +737,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-dsr-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/dsr-process.yaml"
         fragment-id: "q-access-request-one-month"
@@ -723,8 +750,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-dsr-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/dsr-process.yaml"
         fragment-id: "q-erasure-restriction-process"
@@ -754,8 +781,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-audit.yaml"
-        rule-id: "missing-audit"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-audit-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-ropa-maintained"
@@ -785,8 +812,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/pii-in-logs.yaml"
-        rule-id: "pii-in-logs"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "pii-in-logs-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-security-toms-implemented"
@@ -832,6 +859,42 @@ mappings:
         fragment-id: "q-transfer-mechanism-documented"
         notes: "Transfer mechanism selection and documentation require human review."
 
+  - control-id: "EU-GDPR-019"
+    regulation: "GDPR"
+    title: "Controller Responsibility — Implement appropriate measures and demonstrate compliance with GDPR"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-controller-accountability-mapping"
+        notes: "C-M1 control added 2026-05-10. Questionnaire primary — organisational obligation."
+
+  - control-id: "EU-GDPR-020"
+    regulation: "GDPR"
+    title: "Joint Controllers — Determine responsibilities and provide essentials to data subjects (Art. 26)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/vendor-management.yaml"
+        fragment-id: "q-joint-controller-arrangement-documented"
+        notes: "C-M1 control added 2026-05-10. Questionnaire primary — JCA review is human-only."
+
+  - control-id: "EU-GDPR-021"
+    regulation: "GDPR"
+    title: "Representative in the EU — Non-EU controllers must designate an EU representative in writing"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-representative-designated"
+        notes: "C-M1 control added 2026-05-10. Questionnaire primary — designation is an organisational act."
+
+  - control-id: "EU-GDPR-022"
+    regulation: "GDPR"
+    title: "Cooperation with the Supervisory Authority — Provide access and information on request (Art. 31)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-supervisory-authority-cooperation-sop"
+        notes: "C-M1 control added 2026-05-10. Questionnaire primary — cooperation SOP is an organisational obligation."
+
   # ──────────────────────────────────────────────────────────────────────────
   # CCPA / CPRA (12 controls)
   # ──────────────────────────────────────────────────────────────────────────
@@ -841,8 +904,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-dsr-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/dsr-process.yaml"
         fragment-id: "q-right-to-know-disclosure"
@@ -854,8 +917,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-dsr-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/dsr-process.yaml"
         fragment-id: "q-right-to-delete-process"
@@ -903,8 +966,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-retention.yaml"
-        rule-id: "missing-retention"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-retention-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-notice-at-collection-ccpa"
@@ -916,8 +979,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-audit.yaml"
-        rule-id: "missing-audit"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "missing-audit-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-privacy-policy-annual-update"
@@ -947,8 +1010,8 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/pii-in-logs.yaml"
-        rule-id: "pii-in-logs"
-        notes: "TODO author rule in P2-T06."
+        rule-id: "pii-in-logs-python"
+        notes: "Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-reasonable-security-ccpa"
@@ -963,8 +1026,39 @@ mappings:
         fragment-id: "q-risk-assessment-high-risk-ccpa"
         notes: "Risk assessment completion requires human attestation."
 
+  - control-id: "US-CA-CCPA-013"
+    regulation: "CCPA-CPRA"
+    title: "Exemptions — Understand and apply CCPA/CPRA exemptions that limit the scope of consumer rights"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ccpa-exemption-basis-documented"
+        notes: "C-M2 control added 2026-05-10. Exemption reliance determination is human-only."
+
+  - control-id: "US-CA-CCPA-014"
+    regulation: "CCPA-CPRA"
+    title: "Enforcement and Administrative Fines — CPPA enforcement process and cure period compliance"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ccpa-enforcement-response-playbook"
+        notes: "C-M2 control added 2026-05-10. Questionnaire primary — enforcement response is organisational."
+
+  - control-id: "US-CA-CCPA-015"
+    regulation: "CCPA-CPRA"
+    title: "Private Right of Action — Data Security Breach Liability under § 1798.199.95"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/pii-in-logs.yaml"
+        rule-id: "pii-in-logs-python"
+        notes: "C-M2 control added 2026-05-10. Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-ccpa-pra-security-program-documented"
+        notes: "Organizational obligation — primary detection."
+
   # ──────────────────────────────────────────────────────────────────────────
-  # NYC Local Law 144 (4 controls)
+  # NYC Local Law 144 (5 controls)
   # ──────────────────────────────────────────────────────────────────────────
   - control-id: "US-NY-LL144-001"
     regulation: "NYC-LL144"
@@ -1005,6 +1099,15 @@ mappings:
         file: "detection-rules/questionnaire/ai-bias-audit.yaml"
         fragment-id: "q-bias-audit-input-records-retained"
         notes: "Record-keeping requires human attestation."
+
+  - control-id: "US-NY-LL144-005"
+    regulation: "NYC-LL144"
+    title: "AEDT scope test — determine whether a system constitutes an AEDT triggering LL144 obligations"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/ai-bias-audit.yaml"
+        fragment-id: "q-aedt-scope-assessment-completed"
+        notes: "C-M12 control added 2026-05-10. Scope assessment is a documented organisational determination."
 
   # ──────────────────────────────────────────────────────────────────────────
   # Colorado AI Act (5 controls)
@@ -1094,7 +1197,7 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-audit.yaml"
-        rule-id: "missing-audit"
+        rule-id: "missing-audit-python"
         notes: "Phase 4 v0 — semgrep audit-log detection."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
@@ -1209,6 +1312,96 @@ mappings:
         fragment-id: "q-eu-ai-act-016"
         notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
 
+  - control-id: "EU-AI-ACT-017"
+    regulation: "EU-AI-ACT"
+    title: "GPAI provider obligations — technical documentation, training data summary, and copyright policy"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-017"
+        notes: "Phase 4 v0 — GPAI provider obligation; questionnaire only. Applies to providers of GPAI models (Art. 53)."
+
+  - control-id: "EU-AI-ACT-018"
+    regulation: "EU-AI-ACT"
+    title: "Systemic-risk GPAI obligations — model evaluations, adversarial testing, incident reporting, and cybersecurity"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-018"
+        notes: "Phase 4 v0 — systemic-risk GPAI obligation; questionnaire only. Applies to providers of GPAI models with systemic risk (Art. 55)."
+
+  - control-id: "EU-AI-ACT-019"
+    regulation: "EU-AI-ACT"
+    title: "Authorised representative for non-EU GPAI providers — designate a Union-based representative"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-019"
+        notes: "Phase 4 v0 — non-EU GPAI provider obligation; questionnaire only. Applies to non-EU GPAI providers placing models on the EU market (Art. 54)."
+
+  - control-id: "EU-AI-ACT-020"
+    regulation: "EU-AI-ACT"
+    title: "Annex III §1 — Biometric identification and categorisation systems applicability assessment"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-020"
+        notes: "C-M3 control added 2026-05-10. Annex III §1 scope assessment is human-only."
+
+  - control-id: "EU-AI-ACT-021"
+    regulation: "EU-AI-ACT"
+    title: "Annex III §2 — Critical infrastructure management applicability assessment"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-021"
+        notes: "C-M3 control added 2026-05-10. Annex III §2 scope assessment is human-only."
+
+  - control-id: "EU-AI-ACT-022"
+    regulation: "EU-AI-ACT"
+    title: "Annex III §3 — Education and vocational training applicability assessment"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-022"
+        notes: "C-M3 control added 2026-05-10. Annex III §3 scope assessment is human-only."
+
+  - control-id: "EU-AI-ACT-023"
+    regulation: "EU-AI-ACT"
+    title: "Annex III §5 — Access to essential private services and public benefits applicability"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-023"
+        notes: "C-M3 control added 2026-05-10. Annex III §5 scope assessment is human-only."
+
+  - control-id: "EU-AI-ACT-024"
+    regulation: "EU-AI-ACT"
+    title: "Annex III §6 — Law enforcement applicability assessment"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-024"
+        notes: "C-M3 control added 2026-05-10. Annex III §6 scope assessment is human-only."
+
+  - control-id: "EU-AI-ACT-025"
+    regulation: "EU-AI-ACT"
+    title: "Annex III §7 — Migration, asylum, and border control applicability assessment"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-025"
+        notes: "C-M3 control added 2026-05-10. Annex III §7 scope assessment is human-only."
+
+  - control-id: "EU-AI-ACT-026"
+    regulation: "EU-AI-ACT"
+    title: "Annex III §8 — Administration of justice and democratic processes applicability"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-eu-ai-act-026"
+        notes: "C-M3 control added 2026-05-10. Annex III §8 scope assessment is human-only."
+
   # ──────────────────────────────────────────────────────────────────────────
   # Virginia VCDPA (13 controls)
   # ──────────────────────────────────────────────────────────────────────────
@@ -1263,7 +1456,7 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
+        rule-id: "missing-dsr-python"
         notes: "Phase 4 v0 — first DSR control for VA-VCDPA."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
@@ -1378,7 +1571,7 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
+        rule-id: "missing-dsr-python"
         notes: "Phase 4 v0 — first DSR control for CT-CTDPA."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
@@ -1484,7 +1677,7 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
+        rule-id: "missing-dsr-python"
         notes: "Phase 4 v0 — first DSR control for UT-UCPA."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
@@ -1563,7 +1756,7 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
+        rule-id: "missing-dsr-python"
         notes: "Phase 4 v0 — Art. 18 data-subject-rights control."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
@@ -1576,7 +1769,7 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-audit.yaml"
-        rule-id: "missing-audit"
+        rule-id: "missing-audit-python"
         notes: "Phase 4 v0 — Art. 41 DPO appointment control."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
@@ -1607,7 +1800,7 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-audit.yaml"
-        rule-id: "missing-audit"
+        rule-id: "missing-audit-python"
         notes: "Phase 4 v0 — Art. 48 incident notification control."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
@@ -1676,6 +1869,77 @@ mappings:
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
         fragment-id: "q-br-lgpd-014"
         notes: "Phase 4 v0 — questionnaire fallback; semgrep/otel rules deferred."
+
+  - control-id: "BR-LGPD-015"
+    regulation: "BR-LGPD"
+    title: "Apply LGPD definitions to determine scope of personal data processing (Art. 5)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-015"
+        notes: "C-M6 control added 2026-05-10. Questionnaire primary — classification is human assessment."
+
+  - control-id: "BR-LGPD-016"
+    regulation: "BR-LGPD"
+    title: "Obtain valid consent — freely given, informed, unambiguous, and purpose-specific (Art. 8)"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-consent.yaml"
+        rule-id: "missing-consent-python"
+        notes: "C-M6 control added 2026-05-10. Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-016"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "BR-LGPD-017"
+    regulation: "BR-LGPD"
+    title: "Document and justify legitimate interest as a lawful basis for processing (Art. 10)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-017"
+        notes: "C-M6 control added 2026-05-10. LIA assessment is human-only."
+
+  - control-id: "BR-LGPD-018"
+    regulation: "BR-LGPD"
+    title: "Apply LGPD anonymization standards; treat pseudonymous data as personal data (Art. 12)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-018"
+        notes: "C-M6 control added 2026-05-10. Re-identification risk assessment is human-only."
+
+  - control-id: "BR-LGPD-019"
+    regulation: "BR-LGPD"
+    title: "Delete or anonymize personal data when the processing purpose is fulfilled (Art. 15)"
+    detection-methods:
+      - method: semgrep
+        file: "detection-rules/semgrep/missing-retention.yaml"
+        rule-id: "missing-retention-python"
+        notes: "C-M6 control added 2026-05-10. Rule authored (P2-T06 complete). Primary language rule-id shown; see semgrep file for java/js/csharp variants."
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-019"
+        notes: "Organizational obligation — primary detection."
+
+  - control-id: "BR-LGPD-020"
+    regulation: "BR-LGPD"
+    title: "Apply data subject rights on processing termination; delete or return data (Art. 16)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
+        fragment-id: "q-br-lgpd-020"
+        notes: "C-M6 control added 2026-05-10. Questionnaire primary — retention basis determination is human-only."
+
+  - control-id: "BR-LGPD-021"
+    regulation: "BR-LGPD"
+    title: "Provide personal data portability to the data subject or another service provider (Art. 17)"
+    detection-methods:
+      - method: questionnaire
+        file: "detection-rules/questionnaire/dsr-process.yaml"
+        fragment-id: "q-br-lgpd-021"
+        notes: "C-M6 control added 2026-05-10. Portability mechanism requires human attestation."
 
   # ──────────────────────────────────────────────────────────────────────────
   # UK GDPR (10 controls)
@@ -1779,7 +2043,7 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-consent.yaml"
-        rule-id: "missing-consent"
+        rule-id: "missing-consent-python"
         notes: "Phase 4 v0 — biometric consent detection."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
@@ -1792,7 +2056,7 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-retention.yaml"
-        rule-id: "missing-retention"
+        rule-id: "missing-retention-python"
         notes: "Phase 4 v0 — biometric retention policy detection."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
@@ -1925,7 +2189,7 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-dsr.yaml"
-        rule-id: "missing-dsr"
+        rule-id: "missing-dsr-python"
         notes: "Phase 4 v0 — access-and-correction DSR control for ON-PHIPA."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"
@@ -1947,7 +2211,7 @@ mappings:
     detection-methods:
       - method: semgrep
         file: "detection-rules/semgrep/missing-audit.yaml"
-        rule-id: "missing-audit"
+        rule-id: "missing-audit-python"
         notes: "Phase 4 v0 — audit log control for ON-PHIPA."
       - method: questionnaire
         file: "detection-rules/questionnaire/governance-privacy-officer.yaml"

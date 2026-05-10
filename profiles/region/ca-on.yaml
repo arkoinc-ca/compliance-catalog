@@ -1,11 +1,28 @@
 profile:
   uuid: "b2c3d4e5-0101-4000-8000-200000000001"
   metadata:
-    title: "Canada — Ontario Region Profile (PIPEDA + CASL)"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    title: "Canada — Ontario Region Profile (PHIPA-ON + PIPEDA + CASL)"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.2"
     oscal-version: "1.0.2"
   imports:
+    - href: "../../regulations/phipa-on.yaml"
+      include-controls:
+        - with-ids:
+            - "CA-ON-PHIPA-001"
+            - "CA-ON-PHIPA-002"
+            - "CA-ON-PHIPA-003"
+            - "CA-ON-PHIPA-004"
+            - "CA-ON-PHIPA-005"
+            - "CA-ON-PHIPA-006"
+            - "CA-ON-PHIPA-007"
+            - "CA-ON-PHIPA-008"
+            - "CA-ON-PHIPA-009"
+            - "CA-ON-PHIPA-010"
+            - "CA-ON-PHIPA-011"
+            - "CA-ON-PHIPA-012"
+            - "CA-ON-PHIPA-013"
+            - "CA-ON-PHIPA-014"
     - href: "../../regulations/pipeda.yaml"
       include-controls:
         - with-ids:
@@ -30,6 +47,8 @@ profile:
             - "CA-CASL-004"
             - "CA-CASL-005"
             - "CA-CASL-006"
+            - "CA-CASL-007"
+            - "CA-CASL-008"
   merge:
     combine:
       method: merge

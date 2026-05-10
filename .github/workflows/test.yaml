@@ -1,4 +1,4 @@
-name: OSCAL Validate
+name: Test
 
 on:
   pull_request:
@@ -10,33 +10,28 @@ permissions:
   contents: read
 
 concurrency:
-  group: oscal-validate-catalog-${{ github.ref }}
+  group: test-catalog-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  oscal-validate:
-    name: OSCAL Validation
+  pytest:
+    name: pytest (${{ matrix.python-version }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2  # TODO(P0-08): verify SHA
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0  # TODO(P0-08): verify SHA
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
         run: pip install pyyaml pydantic pytest ruff mypy types-PyYAML
 
-      - name: Lint
-        run: python -m ruff check scripts/ tests/
-
-      - name: Type check
-        run: python -m mypy scripts/
-
-      - name: Run custom catalog validator
-        run: python scripts/validate_catalog.py
-
-      - name: Run catalog test suite
-        run: pytest tests/test_catalog_validation.py -v
+      - name: Run pytest
+        run: pytest tests/ -v

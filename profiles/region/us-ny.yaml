@@ -2,8 +2,8 @@ profile:
   uuid: "b2c3d4e5-0105-4000-8000-200000000005"
   metadata:
     title: "United States — New York Region Profile (NYC LL.144)"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.1"
     oscal-version: "1.0.2"
   imports:
     - href: "../../regulations/nyc-ll144.yaml"
@@ -13,6 +13,7 @@ profile:
             - "US-NY-LL144-002"
             - "US-NY-LL144-003"
             - "US-NY-LL144-004"
+            - "US-NY-LL144-005"
   merge:
     combine:
       method: merge

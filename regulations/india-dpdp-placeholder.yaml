@@ -1,0 +1,49 @@
+catalog:
+  uuid: "174abaf9-57c1-4a54-a199-5c96c8e06eea"
+  metadata:
+    title: "Digital Personal Data Protection Act 2023 (India DPDP) [PLACEHOLDER — OUT-OF-SCOPE-FOR-V1]"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.0.1-skeleton"
+    oscal-version: "1.0.2"
+    props:
+      - name: "regulation-short-code"
+        value: "IN-DPDP"
+      - name: "jurisdiction"
+        value: "IN"
+      - name: "effective-as-of"
+        value: "null"
+      - name: "source-citation"
+        value: "https://www.meity.gov.in/content/digital-personal-data-protection-act-2023"
+      - name: "status"
+        value: "out-of-scope-for-v1"
+      - name: "placeholder-reason"
+        value: >-
+          Data Protection Board of India rules are pending; the Act's operative provisions
+          are conditional on a Section 1 commencement notification that had not been issued
+          as of the catalog authoring date. Controls will be authored once the commencement
+          notification and subsidiary rules are published by MeitY.
+  groups:
+    - id: "india-dpdp-placeholder-group"
+      title: "PLACEHOLDER — OUT-OF-SCOPE-FOR-V1 — Controls to be authored once DPDP commencement notification is issued"
+      controls:
+        - id: "IN-DPDP-001"
+          title: "PLACEHOLDER — India DPDP data fiduciary obligations [OUT-OF-SCOPE-FOR-V1]"
+          props:
+            - name: "status"
+              value: "skeleton"
+            - name: "placeholder-reason"
+              value: >-
+                Data Protection Board of India rules pending; effective date conditional
+                on Section 1 commencement notification.
+          parts:
+            - id: "IN-DPDP-001-stmt"
+              name: "statement"
+              prose: >-
+                The Digital Personal Data Protection Act 2023 (No. 22 of 2023) establishes
+                obligations for Data Fiduciaries processing personal data of individuals in
+                India, including consent requirements, purpose limitation, data minimisation,
+                data accuracy, storage limitation, and security safeguards. Significant data
+                fiduciaries face additional obligations including appointment of a Data
+                Protection Officer and periodic Data Protection Impact Assessments.
+                TODO: Author full control set once commencement notification is issued.
+                Monitor https://www.meity.gov.in/content/digital-personal-data-protection-act-2023

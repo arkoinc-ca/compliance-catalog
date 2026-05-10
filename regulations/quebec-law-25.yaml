@@ -2,7 +2,7 @@ catalog:
   uuid: "a1b2c3d4-0002-4000-8000-100000000002"
   metadata:
     title: "An Act to modernize legislative provisions as regards the protection of personal information (Quebec Law 25 / Bill 64)"
-    last-modified: "2026-05-09T00:00:00Z"
+    last-modified: "2026-05-10T00:00:00Z"
     version: "0.1.0"
     oscal-version: "1.0.2"
     props:
@@ -15,7 +15,9 @@ catalog:
       - name: "source-citation"
         value: "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
       - name: "amending-act"
-        value: "Bill 64 / An Act to modernize legislative provisions as regards the protection of personal information, SQ 2021, c 25"
+        value: "SQ 2021, c 25 (Bill 64 — primary amending act, enacted 2021-09-22)"
+      - name: "latest-amendment"
+        value: "The Act Respecting the Protection of Personal Information in the Private Sector (RLRQ c P-39.1) as in force 2024-09-22 (all Bill 64 provisions fully operative)"
   groups:
     - id: "qc-law25-governance"
       title: "Governance and Accountability"
@@ -443,7 +445,7 @@ catalog:
           title: "Conduct a PIA before any cross-border transfer of personal information"
           props:
             - name: "source-section"
-              value: "§3.3"
+              value: "§17(2)"
             - name: "effective-date"
               value: "2022-09-22"
             - name: "severity"

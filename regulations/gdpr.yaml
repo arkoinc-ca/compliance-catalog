@@ -2,8 +2,8 @@ catalog:
   uuid: "a1b2c3d4-0006-4000-8000-100000000006"
   metadata:
     title: "General Data Protection Regulation (GDPR) — Regulation (EU) 2016/679"
-    last-modified: "2026-05-09T00:00:00Z"
-    version: "0.1.0"
+    last-modified: "2026-05-10T00:00:00Z"
+    version: "0.1.1"
     oscal-version: "1.0.2"
     props:
       - name: "regulation-short-code"
@@ -702,6 +702,174 @@ catalog:
             - href: "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
               rel: reference
               text: "EDPB Guidelines on Data Protection Officers (WP243 rev.01)"
+
+    - id: "gdpr-controller-responsibility-and-representatives"
+      title: "Chapter IV — Controller Responsibility, Joint Controllers, Representatives (Articles 24, 26, 27, 31)"
+      controls:
+        - id: "EU-GDPR-019"
+          uuid: "a1b2c3d4-0519-4000-8000-100000000519"
+          title: "Controller Responsibility — Implement appropriate measures and demonstrate compliance with GDPR"
+          props:
+            - name: "source-section"
+              value: "Art. 24"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-019_smt"
+              name: "statement"
+              prose: |
+                Taking into account the nature, scope, context, and purposes of processing as well as the risks
+                to the rights and freedoms of natural persons, the controller must implement appropriate technical
+                and organisational measures to ensure and be able to demonstrate that processing is performed in
+                accordance with the GDPR (Article 24(1)). Where proportionate in relation to processing activities,
+                these measures shall include the implementation of appropriate data protection policies by the
+                controller (Article 24(2)). Adherence to approved codes of conduct or certification mechanisms
+                may be used as an element to demonstrate compliance (Article 24(3)).
+            - id: "EU-GDPR-019_gdn"
+              name: "guidance"
+              prose: |
+                Conduct and document a controller accountability mapping exercise covering: the lawful basis
+                for each processing activity; the technical and organisational measures in place; DPA and DPO
+                arrangements; and policy documentation. Review the accountability framework at least annually
+                and whenever processing activities change materially. Certification under an approved GDPR
+                certification scheme (e.g., EuroPriSe) constitutes admissible evidence of compliance. Evidence
+                of compliance: data protection policies in force, records of the accountability mapping exercise,
+                and any certification documentation.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Art. 24 (Responsibility of the controller)"
+
+        - id: "EU-GDPR-020"
+          uuid: "a1b2c3d4-0520-4000-8000-100000000520"
+          title: "Joint Controllers — Determine responsibilities and provide essentials to data subjects (Art. 26)"
+          props:
+            - name: "source-section"
+              value: "Art. 26"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "high"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-020_smt"
+              name: "statement"
+              prose: |
+                Where two or more controllers jointly determine the purposes and means of processing, they are
+                joint controllers and must in a transparent manner determine their respective responsibilities
+                for compliance with the GDPR by means of an arrangement between them (Article 26(1)). The
+                arrangement must duly reflect the respective roles of and relationships between the joint
+                controllers with regard to data subjects. The essence of the arrangement must be made available
+                to the data subject (Article 26(2)). Data subjects may exercise their rights against each
+                individual controller (Article 26(3)).
+            - id: "EU-GDPR-020_gdn"
+              name: "guidance"
+              prose: |
+                Before engaging in joint processing, execute a written Joint Controller Agreement (JCA) that
+                assigns responsibility for each GDPR obligation: privacy notices, DSR handling, breach
+                notification, DPIA, RoPA entries, and security measures. The JCA must designate a single
+                contact point for data subjects regardless of how internal responsibilities are divided.
+                Publish the essence of the JCA (which controller handles which obligation) in a manner easily
+                accessible to data subjects — typically a dedicated section in the privacy notice. Evidence
+                of compliance: signed JCA, privacy notice extract referencing the arrangement, and DPA register
+                entry for the joint processing activity.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Art. 26 (Joint controllers)"
+
+        - id: "EU-GDPR-021"
+          uuid: "a1b2c3d4-0521-4000-8000-100000000521"
+          title: "Representative in the EU — Non-EU controllers must designate an EU representative in writing"
+          props:
+            - name: "source-section"
+              value: "Art. 27"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-021_smt"
+              name: "statement"
+              prose: |
+                Where Article 3(2) applies (controller or processor not established in the EU offering goods
+                or services to, or monitoring the behaviour of, EU data subjects), the controller or processor
+                must designate in writing a representative in the EU (Article 27(1)). The representative must
+                be established in one of the member states where the data subjects whose personal data are
+                processed reside (Article 27(3)). The representative must be mandated by the controller or
+                processor to be addressed by supervisory authorities and data subjects on all issues related
+                to processing, and may be held liable for any GDPR infringement (Article 27(4), (5)).
+                Exceptions apply for occasional low-risk processing and public authorities (Article 27(2)).
+            - id: "EU-GDPR-021_gdn"
+              name: "guidance"
+              prose: |
+                If your organisation is not established in the EU but processes personal data of EU residents
+                under Art. 3(2), conduct a tripartite assessment: (1) do you offer goods or services to EU
+                data subjects?; (2) do you monitor their behaviour?; (3) do you qualify for an Art. 27(2)
+                exemption? If the representative obligation applies, appoint and mandate a representative
+                (a legal entity or natural person) in the relevant EU member state(s) and record the
+                appointment in writing. Publish the representative's contact details in your privacy notice
+                alongside the controller's contact. Register the representative's details with the lead
+                supervisory authority. Evidence: representative appointment letter, privacy notice publication,
+                supervisory authority registration.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Art. 27 (Representatives of controllers or processors not established in the Union)"
+
+        - id: "EU-GDPR-022"
+          uuid: "a1b2c3d4-0522-4000-8000-100000000522"
+          title: "Cooperation with the Supervisory Authority — Provide access and information on request (Art. 31)"
+          props:
+            - name: "source-section"
+              value: "Art. 31"
+            - name: "effective-date"
+              value: "2018-05-25"
+            - name: "severity"
+              value: "medium"
+            - name: "jurisdiction"
+              value: "EU"
+            - name: "status"
+              value: "draft"
+          parts:
+            - id: "EU-GDPR-022_smt"
+              name: "statement"
+              prose: |
+                The controller and the processor and, where applicable, their representatives must cooperate,
+                on request, with the supervisory authority in the performance of its tasks (Article 31). This
+                includes providing any information requested by the supervisory authority and granting access
+                to processing activities, systems, documentation, and staff as required to fulfil investigative,
+                corrective, authorisation, and advisory powers under Article 58. Failure to cooperate is an
+                infringement subject to administrative fines of up to EUR 10 million or 2% of global annual
+                turnover.
+            - id: "EU-GDPR-022_gdn"
+              name: "guidance"
+              prose: |
+                Designate a named contact (DPO or legal team) as the supervisory authority liaison and document
+                the response escalation path. Ensure any supervisory authority inquiry is acknowledged within
+                one business day and responded to within the timeframe specified in the request (or the
+                applicable member state procedural rules). Maintain an organised evidence pack (RoPA, DPIAs,
+                DPA agreements, security documentation, breach logs, consent records) that can be produced
+                at short notice. Maintain a log of all supervisory authority interactions. Evidence of
+                compliance: supervisory authority correspondence register, designated liaison contact, evidence
+                pack readiness checklist.
+          links:
+            - href: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+              rel: source
+              text: "GDPR — Art. 31 (Cooperation with the supervisory authority)"
 
     - id: "gdpr-international-transfers"
       title: "Chapter V — Transfers to Third Countries (Articles 44–49)"
