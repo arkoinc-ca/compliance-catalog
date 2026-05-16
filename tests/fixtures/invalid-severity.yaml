@@ -1,0 +1,18 @@
+catalog:
+  uuid: "a1b2c3d4-8888-4000-8000-100000008888"
+  metadata:
+    title: "Test fixture — unknown severity value (must fail validation)"
+  groups:
+    - id: "test-group"
+      title: "Test Group"
+      controls:
+        - id: "CA-TEST-REG-001"
+          uuid: "a1b2c3d4-1003-4000-8000-100000001003"
+          title: "Control with bogus severity"
+          props:
+            - name: "severity"
+              value: "bogus"
+          parts:
+            - id: "CA-TEST-REG-001_smt"
+              name: "statement"
+              prose: "Test control with an invalid severity prop value."
