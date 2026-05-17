@@ -18,7 +18,7 @@ rules:
         - "EU-GDPR-011"
         - "US-CA-CCPA-008"
         - "CA-CASL-006"
-      # confidence raised to production after H-12 sign-off
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
       notes: >
         pattern-not-inside suppresses when the containing function has an audit_log.write or
@@ -98,24 +98,72 @@ rules:
         - "EU-GDPR-011"
         - "US-CA-CCPA-008"
         - "CA-CASL-006"
-      # confidence raised to production after H-12 sign-off
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
+      notes: >
+        v0.2.x rewrite. The deletion patterns no longer match a bare `.delete()`; they
+        require either a user-ish receiver (metavariable-regex on the receiver expression)
+        or a `DELETE FROM <user-table>` SQL string argument. This deliberately excludes
+        unrelated `.delete()` calls on cookies, Map/Set, IndexedDB object stores, the Cache
+        API and HTTP Headers. Suppression is function-scoped (function declarations, arrow
+        functions and class methods) and order-independent within that scope. Known
+        limitations: (1) a deletion in a helper that is audited by its *caller* will still
+        fire; (2) audit calls under names other than auditLog.write / auditLogger.log /
+        audit.record / audit.log are not recognised; (3) a receiver whose name contains a
+        user-ish token but is not a data store (e.g. `userCache`) can still false-positive —
+        inherent to name-based heuristics, so baseline-tier findings need manual review.
+        v1 should use taint/dataflow analysis.
     patterns:
       - pattern-either:
-          - pattern: $USER.delete()
-          - pattern: $REPO.delete($USER)
+          # User-record deletion via an ORM/repository with a user-ish receiver.
+          - patterns:
+              - pattern: $REPO.$DEL(...)
+              - metavariable-regex:
+                  metavariable: $REPO
+                  regex: (?i).*(user|account|member|customer|profile)
+              - metavariable-regex:
+                  metavariable: $DEL
+                  regex: ^(delete|deleteById|deleteOne|deleteMany|remove|destroy|softDelete)$
+          # Raw-SQL user deletion (e.g. queryWithTenantContext('DELETE FROM users ...')).
+          # $FN is constrained to DB-execution method names so a log line or comment
+          # string that merely contains "delete from user" text is not flagged.
+          - patterns:
+              - pattern: $FN($SQL, ...)
+              - metavariable-regex:
+                  metavariable: $FN
+                  regex: (?i).*(query|exec|raw)
+              - metavariable-regex:
+                  metavariable: $SQL
+                  regex: (?i)['"`]?\s*delete\s+from\s+['"`]?\s*\w*user
+          # Role / payment operations (name-based, already specific).
           - pattern: $X.assignRole(...)
           - pattern: $X.revokeRole(...)
           - pattern: $X.refund(...)
           - pattern: $X.processPayment(...)
       - pattern-not-inside: |
-          auditLog.write(...)
+          function $F(...) { ... auditLog.write(...); ... }
       - pattern-not-inside: |
-          auditLogger.log(...)
+          function $F(...) { ... auditLogger.log(...); ... }
       - pattern-not-inside: |
-          audit.record(...)
+          function $F(...) { ... audit.record(...); ... }
       - pattern-not-inside: |
-          audit.log(...)
+          function $F(...) { ... audit.log(...); ... }
+      - pattern-not-inside: |
+          (...) => { ... auditLog.write(...); ... }
+      - pattern-not-inside: |
+          (...) => { ... auditLogger.log(...); ... }
+      - pattern-not-inside: |
+          (...) => { ... audit.record(...); ... }
+      - pattern-not-inside: |
+          (...) => { ... audit.log(...); ... }
+      - pattern-not-inside: |
+          $M(...) { ... auditLog.write(...); ... }
+      - pattern-not-inside: |
+          $M(...) { ... auditLogger.log(...); ... }
+      - pattern-not-inside: |
+          $M(...) { ... audit.record(...); ... }
+      - pattern-not-inside: |
+          $M(...) { ... audit.log(...); ... }
 
   - id: missing-audit-java
     languages: [java]
@@ -134,19 +182,31 @@ rules:
         - "EU-GDPR-011"
         - "US-CA-CCPA-008"
         - "CA-CASL-006"
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
+      notes: >
+        v0.2.x fix. The previous suppressors (`$AUDIT.log(...)` followed by `...`) were not
+        valid Java and caused semgrep to abort the whole file with a rule-parse error. They
+        are replaced with method-scoped suppressors. The delete receiver is constrained to a
+        user-ish name so generic `List`/`Map` `.delete()` calls are not flagged.
     patterns:
       - pattern-either:
-          - pattern: $REPO.delete($USER)
-          - pattern: $REPO.deleteById(...)
+          - patterns:
+              - pattern: $REPO.delete($USER)
+              - metavariable-regex:
+                  metavariable: $REPO
+                  regex: (?i).*(user|account|member|customer|profile)
+          - patterns:
+              - pattern: $REPO.deleteById(...)
+              - metavariable-regex:
+                  metavariable: $REPO
+                  regex: (?i).*(user|account|member|customer|profile)
           - pattern: $SERVICE.assignRole(...)
           - pattern: $SERVICE.revokeRole(...)
       - pattern-not-inside: |
-          $AUDIT.log(...)
-          ...
+          $RT $M(...) { ... auditLogger.log(...); ... }
       - pattern-not-inside: |
-          $AUDIT_LOGGER.info(...)
-          ...
+          $RT $M(...) { ... auditLog.write(...); ... }
 
   - id: missing-audit-csharp
     languages: [csharp]
@@ -165,20 +225,29 @@ rules:
         - "EU-GDPR-011"
         - "US-CA-CCPA-008"
         - "CA-CASL-006"
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
+      notes: >
+        v0.2.x fix. The previous suppressors (`$AUDIT.Log(...)` followed by `...`) were not
+        valid C# and caused semgrep to abort the whole file with a rule-parse error. They are
+        replaced with method-scoped suppressors. The `.Remove()` receiver is constrained to a
+        user-ish name so generic `List`/`ICollection` `.Remove()` calls are not flagged.
     patterns:
       - pattern-either:
-          - pattern: $REPO.Remove($USER)
-          - pattern: _context.Users.Remove($USER)
-          - pattern: await $REPO.DeleteAsync($USER)
+          - patterns:
+              - pattern: $REPO.Remove($USER)
+              - metavariable-regex:
+                  metavariable: $REPO
+                  regex: (?i).*(user|account|member|customer|profile)
+          - pattern: $CTX.Users.Remove($USER)
+          - patterns:
+              - pattern: await $REPO.DeleteAsync($USER)
+              - metavariable-regex:
+                  metavariable: $REPO
+                  regex: (?i).*(user|account|member|customer|profile)
           - pattern: $SERVICE.AssignRole(...)
           - pattern: $SERVICE.RevokeRole(...)
       - pattern-not-inside: |
-          $AUDIT.Log(...)
-          ...
+          $RT $M(...) { ... $AUDIT.LogInformation(...); ... }
       - pattern-not-inside: |
-          _auditLogger.LogInformation(...)
-          ...
-      - pattern-not-inside: |
-          await $AUDIT.LogAsync(...)
-          ...
+          $RT $M(...) { ... $AUDIT.LogAsync(...); ... }

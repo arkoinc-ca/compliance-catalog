@@ -24,26 +24,45 @@ rules:
         - "US-CA-CCPA-002"
         - "CA-AB-PIPA-005"
         - "CA-BC-PIPA-005"
-      # confidence raised to production after H-12 sign-off
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
       notes: >
-        v0 heuristic — file-level scope, not per-app. pattern-not-inside suppresses when the
-        delete call is inside a class or a function named *DSR*. Does not detect DSR routes
-        registered via decorator (e.g. @app.delete('/dsr')). Consider taint-mode or
-        framework-aware analysis in v1.
+        v0.2.x rewrite. The deletion patterns no longer match a bare `.delete()`; the
+        single-argument repository form requires a user-ish argument and the zero-argument
+        form requires a user-ish receiver, so cache/session evictions like `cache.delete(key)`
+        are not flagged. Raw `DELETE FROM <user table>` SQL passed to a cursor is also
+        detected. Suppression is limited to deletions inside a class whose name looks like a
+        DSR handler (dsr/datasubject/datarights/privacy/erasure/gdpr). v0 heuristic — file-level
+        scope, not per-app; it cannot see a DSR route defined in another module. The
+        questionnaire fallback covers controls this heuristic misses.
     patterns:
       - pattern-either:
-          - pattern: $USER.delete()
-          - pattern: $REPO.delete($USER)
-          - pattern: $SESSION.delete($USER)
-      - pattern-not-inside: |
-          class $DSR:
-              ...
-      - pattern-not-inside: |
-          def $DSR_HANDLER(...):
-              ...
-          ...
-          $USER.delete()
+          # Zero-argument delete on a user-ish receiver (Django model / queryset).
+          - patterns:
+              - pattern: $USER.delete()
+              - metavariable-regex:
+                  metavariable: $USER
+                  regex: (?i).*(user|account|member|customer|profile)
+          # Repository/session delete whose argument is a user-ish value.
+          - patterns:
+              - pattern: $REPO.delete($ARG)
+              - metavariable-regex:
+                  metavariable: $ARG
+                  regex: (?i).*(user|account|member|customer|profile)
+          # Raw-SQL user deletion via a DB cursor.
+          - patterns:
+              - pattern: $CUR.execute($SQL, ...)
+              - metavariable-regex:
+                  metavariable: $SQL
+                  regex: (?i)['"]?\s*delete\s+from\s+['"]?\s*\w*user
+      - pattern-not-inside:
+          patterns:
+            - pattern: |
+                class $DSR:
+                    ...
+            - metavariable-regex:
+                metavariable: $DSR
+                regex: (?i).*(dsr|datasubject|datarights|privacy|erasure|gdpr)
 
   - id: missing-dsr-javascript
     languages: [javascript, typescript]
@@ -67,23 +86,45 @@ rules:
         - "US-CA-CCPA-002"
         - "CA-AB-PIPA-005"
         - "CA-BC-PIPA-005"
-      # confidence raised to production after H-12 sign-off
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
+      notes: >
+        v0.2.x rewrite. The deletion patterns require either a user-ish ORM/repository
+        receiver or a `DELETE FROM <user table>` SQL string argument, so unrelated `.delete()`
+        calls on cookies, Map/Set, IndexedDB object stores, the Cache API and HTTP Headers are
+        not flagged. Suppressed inside a DSR-named handler class or an Express `/dsr`
+        /`/data-rights` route. Known limitation: a receiver whose name contains a user-ish
+        token but is not a data store (e.g. `userCache`) can still false-positive — inherent
+        to name-based heuristics. v0 heuristic — file-level scope; the questionnaire fallback
+        covers controls this heuristic misses.
     patterns:
       - pattern-either:
-          - pattern: $USER.delete()
-          - pattern: $REPO.delete($USER)
-          - pattern: $PRISMA.user.delete(...)
-          - pattern: $DB.users.deleteOne(...)
-          - pattern: $DB.users.deleteMany(...)
-      - pattern-not-inside: |
-          $APP.delete('/dsr', ...)
-      - pattern-not-inside: |
-          $APP.delete('/data-rights', ...)
-      - pattern-not-inside: |
-          class $DSR_CONTROLLER {
-            ...
-          }
+          - patterns:
+              - pattern: $REPO.$DEL(...)
+              - metavariable-regex:
+                  metavariable: $REPO
+                  regex: (?i).*(user|account|member|customer|profile)
+              - metavariable-regex:
+                  metavariable: $DEL
+                  regex: ^(delete|deleteById|deleteOne|deleteMany|remove|destroy|softDelete)$
+          # $FN constrained to DB-execution method names so a log line or comment
+          # string that merely contains "delete from user" text is not flagged.
+          - patterns:
+              - pattern: $FN($SQL, ...)
+              - metavariable-regex:
+                  metavariable: $FN
+                  regex: (?i).*(query|exec|raw)
+              - metavariable-regex:
+                  metavariable: $SQL
+                  regex: (?i)['"`]?\s*delete\s+from\s+['"`]?\s*\w*user
+      - pattern-not-inside:
+          patterns:
+            - pattern: class $DSR { ... }
+            - metavariable-regex:
+                metavariable: $DSR
+                regex: (?i).*(dsr|datasubject|datarights|privacy|erasure|gdpr)
+      - pattern-not-inside: $APP.delete("/dsr", ...)
+      - pattern-not-inside: $APP.delete("/data-rights", ...)
 
   - id: missing-dsr-java
     languages: [java]
@@ -105,21 +146,30 @@ rules:
         - "US-CA-CCPA-002"
         - "CA-AB-PIPA-005"
         - "CA-BC-PIPA-005"
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
+      notes: >
+        v0.2.x fix. The delete receiver is constrained to a user-ish name so generic
+        `List`/`Map` `.delete()` calls are not flagged, and the suppressor class name is
+        constrained to a DSR-like identifier. Baseline rule — review manually.
     patterns:
       - pattern-either:
-          - pattern: $REPO.delete($USER)
-          - pattern: $REPO.deleteById(...)
-      - pattern-not-inside: |
-          @RestController
-          class $DSR {
-            ...
-          }
-      - pattern-not-inside: |
-          @RequestMapping("/dsr")
-          class $X {
-            ...
-          }
+          - patterns:
+              - pattern: $REPO.delete($USER)
+              - metavariable-regex:
+                  metavariable: $REPO
+                  regex: (?i).*(user|account|member|customer|profile)
+          - patterns:
+              - pattern: $REPO.deleteById(...)
+              - metavariable-regex:
+                  metavariable: $REPO
+                  regex: (?i).*(user|account|member|customer|profile)
+      - pattern-not-inside:
+          patterns:
+            - pattern: class $DSR { ... }
+            - metavariable-regex:
+                metavariable: $DSR
+                regex: (?i).*(dsr|datasubject|datarights|privacy|erasure|gdpr)
 
   - id: missing-dsr-csharp
     languages: [csharp]
@@ -141,20 +191,33 @@ rules:
         - "US-CA-CCPA-002"
         - "CA-AB-PIPA-005"
         - "CA-BC-PIPA-005"
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
+      notes: >
+        v0.2.x fix. The `.Remove()`/`.Delete()` receiver is constrained to a user-ish name so
+        generic `List`/`ICollection` calls are not flagged, and the suppressor class name is
+        constrained to a DSR-like identifier. Baseline rule — review manually.
     patterns:
       - pattern-either:
-          - pattern: $REPO.Remove($USER)
-          - pattern: _context.Users.Remove($USER)
-          - pattern: $REPO.Delete($USER)
-          - pattern: await $REPO.DeleteAsync($USER)
-      - pattern-not-inside: |
-          [Route("dsr")]
-          class $CTRL : ControllerBase {
-            ...
-          }
-      - pattern-not-inside: |
-          [Route("data-rights")]
-          class $CTRL : ControllerBase {
-            ...
-          }
+          - patterns:
+              - pattern: $REPO.Remove($USER)
+              - metavariable-regex:
+                  metavariable: $REPO
+                  regex: (?i).*(user|account|member|customer|profile)
+          - pattern: $CTX.Users.Remove($USER)
+          - patterns:
+              - pattern: $REPO.Delete($USER)
+              - metavariable-regex:
+                  metavariable: $REPO
+                  regex: (?i).*(user|account|member|customer|profile)
+          - patterns:
+              - pattern: await $REPO.DeleteAsync($USER)
+              - metavariable-regex:
+                  metavariable: $REPO
+                  regex: (?i).*(user|account|member|customer|profile)
+      - pattern-not-inside:
+          patterns:
+            - pattern: class $DSR { ... }
+            - metavariable-regex:
+                metavariable: $DSR
+                regex: (?i).*(dsr|datasubject|datarights|privacy|erasure|gdpr)

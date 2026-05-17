@@ -21,7 +21,7 @@ rules:
         - "CA-QC-LAW25-007"
         - "CA-AB-PIPA-002"
         - "CA-BC-PIPA-002"
-      # confidence raised to production after H-12 sign-off
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
     pattern-either:
       - patterns:
@@ -92,7 +92,7 @@ rules:
         - "CA-QC-LAW25-007"
         - "CA-AB-PIPA-002"
         - "CA-BC-PIPA-002"
-      # confidence raised to production after H-12 sign-off
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
     pattern-either:
       - patterns:

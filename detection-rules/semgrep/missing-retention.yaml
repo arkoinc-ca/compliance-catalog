@@ -20,7 +20,7 @@ rules:
         - "EU-GDPR-003"
         - "CA-QC-LAW25-022"
         - "US-CA-CCPA-007"
-      # confidence raised to production after H-12 sign-off
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
     # A-H9: extend pattern-either to cover common ORM base classes beyond literal Base
     pattern-either:
@@ -102,7 +102,7 @@ rules:
         - "EU-GDPR-003"
         - "CA-QC-LAW25-022"
         - "US-CA-CCPA-007"
-      # confidence raised to production after H-12 sign-off
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
     patterns:
       - pattern-either:

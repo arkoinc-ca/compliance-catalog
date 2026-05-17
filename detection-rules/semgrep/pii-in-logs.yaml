@@ -18,7 +18,7 @@ rules:
         - "US-CA-CCPA-011"
         - "CA-AB-PIPA-006"
         - "CA-BC-PIPA-006"
-      # confidence raised to production after H-12 sign-off
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
     pattern-either:
       - patterns:
@@ -67,7 +67,7 @@ rules:
         - "US-CA-CCPA-011"
         - "CA-AB-PIPA-006"
         - "CA-BC-PIPA-006"
-      # confidence raised to production after H-12 sign-off
+      # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
     pattern-either:
       - pattern: console.$LEVEL($X.email)
