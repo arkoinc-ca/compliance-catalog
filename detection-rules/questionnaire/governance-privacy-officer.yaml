@@ -1,0 +1,1749 @@
+questionnaire:
+  id: "governance-privacy-officer"
+  title: "Privacy Governance and Organizational Attestations"
+  description: >
+    Self-attestation questions for organizational privacy obligations — officer designation,
+    governance frameworks, consent mechanisms, transparency notices, security programs, and
+    regulatory compliance posture — that cannot be detected by static analysis or runtime metrics.
+    This is the catch-all file covering controls across PIPEDA, Quebec Law 25, PIPA-AB, PIPA-BC,
+    CASL, GDPR, CCPA/CPRA, EU AI Act, VCDPA, CTDPA, UCPA, LGPD, UK GDPR, BIPA, PHIPA-ON,
+    and community-tier placeholder regulations.
+  questions:
+    - id: "q-priv-officer-designated"
+      text: >
+        Has the organization designated an individual accountable for compliance with
+        applicable privacy legislation?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the name, title, and contact email of the designated Privacy Officer.
+
+    - id: "q-purposes-documented"
+      text: >
+        Has the organization documented the purposes for which it collects personal
+        information, and does it disclose those purposes at or before the time of collection?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the purpose-documentation register or the privacy notice that discloses
+        purposes at or before collection.
+
+    - id: "q-consent-mechanism-present"
+      text: >
+        Does the organization obtain meaningful consent before collecting, using, or
+        disclosing personal information, except where law permits collection without consent?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the consent mechanism used, including how consent is obtained, recorded,
+        and managed.
+
+    - id: "q-collection-limited-to-purpose"
+      text: >
+        Does the organization limit the personal information it collects to what is
+        necessary for the identified purposes?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the data-minimization review process used to assess whether each
+        collection is limited to what is necessary.
+
+    - id: "q-retention-schedule-defined"
+      text: >
+        Does the organization use personal information only for the stated purposes,
+        and does it retain personal information only for as long as is necessary
+        to fulfil those purposes?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the data retention schedule or policy.
+
+    - id: "q-security-safeguards-documented"
+      text: >
+        Does the organization protect personal information with security safeguards
+        appropriate to the sensitivity of the information?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the information security policy or a summary of the technical and
+        organizational safeguards in place.
+
+    - id: "q-privacy-policy-published"
+      text: >
+        Does the organization make its privacy policies and practices readily available
+        to individuals?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the URL or location where the privacy policy is published.
+
+    - id: "q-complaint-mechanism-present"
+      text: >
+        Does the organization have a complaint mechanism that allows individuals to
+        challenge its compliance with privacy obligations, and does it respond to and
+        document complaints?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the complaint-submission process and provide a sample of how complaints
+        are tracked and resolved.
+
+    - id: "q-priv-officer-contact-published"
+      text: >
+        Has the organization published the contact information of the individual in charge
+        of the protection of personal information?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the URL or document location where the contact information is published.
+
+    - id: "q-governance-framework-documented"
+      text: >
+        Has the organization defined and documented a privacy governance framework that
+        describes roles, responsibilities, and processes for managing personal information?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the governance framework document or policy that defines privacy roles
+        and responsibilities.
+
+    - id: "q-purposes-disclosed-at-collection"
+      text: >
+        Does the organization inform individuals of the purposes for collecting their
+        personal information at or before the time of collection?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample of the collection notice or privacy notice used at the point
+        of collection.
+
+    - id: "q-third-party-sharing-disclosed"
+      text: >
+        Does the organization disclose to individuals at or before collection whether
+        their personal information may be shared with third parties or used in automated
+        decision-making?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the collection or privacy notice that discloses third-party sharing
+        and automated decision-making practices.
+
+    - id: "q-express-consent-for-sensitive-pi"
+      text: >
+        Does the organization obtain express (explicit) consent before collecting,
+        using, or disclosing sensitive personal information?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the express consent mechanism used for sensitive personal information
+        and provide a sample consent form or interface.
+
+    - id: "q-granular-consent-per-purpose"
+      text: >
+        Does the organization obtain separate consent for each distinct purpose for which
+        personal information is collected, used, or disclosed?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the granular consent architecture and provide an example showing
+        per-purpose consent options.
+
+    - id: "q-parental-consent-under-14"
+      text: >
+        Does the organization obtain parental or guardian consent before collecting or
+        using personal information from individuals under the age of 14?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the age-verification mechanism and the parental consent process.
+
+    - id: "q-privacy-by-default-applied"
+      text: >
+        Does the organization apply privacy by default to its technological products and
+        services, ensuring the most privacy-protective settings are active by default?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a privacy-by-default assessment or design review showing default settings
+        for each product or service.
+
+    - id: "q-retention-destruction-schedule-exists"
+      text: >
+        Has the organization established and is it applying a data retention and
+        destruction schedule that specifies how long personal information is kept
+        and how it is securely destroyed?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the retention and destruction schedule.
+
+    - id: "q-confidentiality-policy-published"
+      text: >
+        Does the organization maintain a publicly accessible, plain-language
+        confidentiality policy?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the URL or location of the published confidentiality policy.
+
+    - id: "q-collection-notice-ab"
+      text: >
+        Does the organization notify individuals at or before the collection of personal
+        information of the purposes for collection and how to contact the organization
+        with inquiries, as required by PIPA (Alberta)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample of the collection notice used in Alberta operations.
+
+    - id: "q-consent-mechanism-ab"
+      text: >
+        Does the organization obtain consent before collecting, using, or disclosing
+        personal information under PIPA (Alberta)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the consent mechanism and provide a sample of how consent is obtained
+        and recorded for Alberta operations.
+
+    - id: "q-employee-pi-purposes-reasonable"
+      text: >
+        Does the organization limit its collection and use of employee personal information
+        to purposes that a reasonable person would consider appropriate, and does it provide
+        employees with notice of those purposes?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the employee privacy notice or policy that describes the purposes for
+        collecting employee personal information.
+
+    - id: "q-disclosure-without-consent-basis-documented"
+      text: >
+        Where the organization discloses personal information without consent under an
+        authorized exception, does it document the legal basis for each such disclosure?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the disclosure-without-consent policy or log that records the legal basis
+        for each disclosure made without consent.
+
+    - id: "q-security-arrangements-ab"
+      text: >
+        Does the organization have reasonable security arrangements in place to protect
+        personal information against loss, theft, and unauthorized access, disclosure,
+        copying, use, or modification, as required by PIPA (Alberta)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the security policy or a description of the administrative, technical,
+        and physical safeguards protecting personal information.
+
+    - id: "q-priv-officer-designated-ab"
+      text: >
+        Has the organization designated one or more individuals responsible for ensuring
+        compliance with PIPA (Alberta)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the name and title of the designated privacy officer(s) for Alberta
+        operations.
+
+    - id: "q-collection-notice-bc"
+      text: >
+        Does the organization notify individuals at or before the collection of personal
+        information of the purposes for collection and identify a contact for inquiries,
+        as required by PIPA (BC)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample of the collection notice used in BC operations.
+
+    - id: "q-consent-mechanism-bc"
+      text: >
+        Does the organization obtain consent before collecting, using, or disclosing
+        personal information under PIPA (BC)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the consent mechanism for BC operations and provide a sample of how
+        consent is obtained and recorded.
+
+    - id: "q-employee-pi-purposes-bc"
+      text: >
+        Does the organization limit collection of employee personal information to
+        reasonable purposes and provide employees with notice of those purposes,
+        as required by PIPA (BC)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the employee privacy notice describing the purposes for which employee
+        personal information is collected in BC operations.
+
+    - id: "q-disclosure-without-consent-bc"
+      text: >
+        Where the organization discloses personal information without consent under an
+        authorized exception in PIPA (BC), does it document the legal basis for each
+        such disclosure?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the disclosure-without-consent policy or log for BC operations.
+
+    - id: "q-security-arrangements-bc"
+      text: >
+        Does the organization have reasonable security arrangements to protect personal
+        information from unauthorized access, collection, use, disclosure, or disposal,
+        as required by PIPA (BC)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the security policy or a summary of safeguards protecting personal
+        information in BC operations.
+
+    - id: "q-priv-officer-designated-bc"
+      text: >
+        Has the organization designated one or more individuals responsible for ensuring
+        compliance with PIPA (BC)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the name and title of the designated privacy officer(s) for BC operations.
+
+    - id: "q-privacy-practices-records-bc"
+      text: >
+        Does the organization develop and follow privacy policies and practices, and
+        make them available to individuals on request, as required by PIPA (BC)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the privacy policies and describe the process for making them available
+        to individuals on request.
+
+    - id: "q-cem-consent-obtained"
+      text: >
+        Does the organization obtain express or valid implied consent from recipients
+        before sending commercial electronic messages (CEMs)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the consent process for CEM sending, including how consent records are
+        maintained.
+
+    - id: "q-cem-sender-identified"
+      text: >
+        Does the organization clearly identify itself as the sender in every commercial
+        electronic message it sends?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample CEM showing the sender identification, including name, mailing
+        address, and contact information.
+
+    - id: "q-transmission-data-not-altered"
+      text: >
+        Does the organization refrain from altering transmission data in electronic
+        messages without the express consent of the originator?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the technical controls and policies in place to prevent alteration of
+        electronic message transmission data.
+
+    - id: "q-software-install-consent-obtained"
+      text: >
+        Does the organization obtain express consent before installing software on
+        a user's computer system, and does it disclose the function of the software?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the consent mechanism for software installation and a sample of the
+        disclosure provided to users.
+
+    - id: "q-consent-records-retained"
+      text: >
+        Does the organization retain proof of each consent obtained for sending CEMs,
+        including a copy of the consent request itself?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the consent-record retention system and the retention period for
+        consent records.
+
+    - id: "q-casl-published-address-relevance-documented"
+      text: >
+        Where the organization relies on the business-card implied-consent exception
+        (CASL s. 10(9)), has it documented that the CEM sent is relevant to the
+        recipient's business role in which the address was published?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the policy or documented determination confirming relevance of the
+        CEM to the recipient's published business role.
+
+    - id: "q-lawful-basis-documented"
+      text: >
+        Has the organization identified and documented a lawful basis for each
+        personal data processing activity under GDPR Art. 6?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the Record of Processing Activities (RoPA) or processing register
+        showing the lawful basis for each activity.
+
+    - id: "q-purpose-limitation-documented"
+      text: >
+        Does the organization collect personal data only for specified, explicit,
+        and legitimate purposes, and does it refrain from further processing in
+        a manner incompatible with those purposes?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the purpose-limitation policy or the RoPA entries documenting the
+        specified purposes for each processing activity.
+
+    - id: "q-data-minimisation-applied"
+      text: >
+        Does the organization apply data minimisation, accuracy, storage limitation,
+        and integrity and confidentiality principles to all personal data processing?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the data-governance policy that addresses minimisation, accuracy,
+        retention limits, and security.
+
+    - id: "q-consent-conditions-met"
+      text: >
+        Where the organization relies on consent as its lawful basis for processing,
+        is that consent freely given, specific, informed, unambiguous, and as easy
+        to withdraw as to give?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample of the consent mechanism and the withdrawal mechanism,
+        confirming equal ease of withdrawal.
+
+    - id: "q-special-category-conditions-met"
+      text: >
+        Where the organization processes special category data (GDPR Art. 9), has it
+        identified and documented a qualifying condition, and does it apply age-appropriate
+        parental consent for children's data?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the special-category processing register with the Art. 9 condition
+        documented for each processing activity.
+
+    - id: "q-transparency-notices-present"
+      text: >
+        Does the organization provide privacy notices at collection and on request
+        that contain all required GDPR transparency information?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the current privacy notice and confirm it includes all Art. 13/14
+        required elements.
+
+    - id: "q-ropa-maintained"
+      text: >
+        Does the organization maintain a Record of Processing Activities (RoPA) as
+        required by GDPR Art. 30?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the RoPA document or confirm the system used to maintain it.
+
+    - id: "q-privacy-by-design-applied"
+      text: >
+        Does the organization embed data protection by design and by default into
+        its systems and processes from the earliest stage of development?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a privacy-by-design assessment or design review for a recent system
+        or product.
+
+    - id: "q-security-toms-implemented"
+      text: >
+        Has the organization implemented appropriate technical and organisational
+        measures (TOMs) to ensure a level of security appropriate to the risk of
+        personal data processing?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the information security policy or a security controls register
+        documenting the TOMs implemented.
+
+    - id: "q-dpo-designated-where-required"
+      text: >
+        Where required by GDPR Art. 37, has the organization designated a Data
+        Protection Officer (DPO), published the DPO's contact details, and notified
+        the relevant supervisory authority?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the DPO designation document, the published DPO contact URL, and
+        confirmation of notification to the supervisory authority.
+
+    - id: "q-controller-accountability-mapping"
+      text: >
+        Has the organization implemented appropriate technical and organisational
+        measures to ensure and demonstrate that its personal data processing complies
+        with GDPR, as required by Art. 24?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the accountability framework or compliance programme document showing
+        how GDPR compliance is implemented and evidenced.
+
+    - id: "q-eu-representative-designated"
+      text: >
+        Where the organization processes personal data of EU data subjects without an
+        EU establishment, has it designated a representative in the EU in writing,
+        as required by GDPR Art. 27?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the written designation document and the name and contact details of
+        the EU representative.
+
+    - id: "q-supervisory-authority-cooperation-sop"
+      text: >
+        Does the organization have a documented procedure for cooperating with
+        supervisory authority requests, including providing access and information
+        as required by GDPR Art. 31?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the supervisory authority cooperation SOP or the section of the
+        compliance programme that covers Art. 31 obligations.
+
+    - id: "q-non-discrimination-policy"
+      text: >
+        Does the organization have a policy prohibiting discrimination against
+        consumers who exercise their rights under CCPA/CPRA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the non-discrimination policy or the section of the privacy policy
+        that addresses CCPA/CPRA non-discrimination obligations.
+
+    - id: "q-notice-at-collection-ccpa"
+      text: >
+        Does the organization provide consumers with a notice at or before the point
+        of collection disclosing the categories of personal information collected,
+        the purposes, and the retention period?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample of the notice at collection used.
+
+    - id: "q-privacy-policy-annual-update"
+      text: >
+        Does the organization maintain a comprehensive privacy policy that includes
+        all CCPA/CPRA-required disclosures and is updated at least every 12 months?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the current privacy policy and the date it was last updated.
+
+    - id: "q-reasonable-security-ccpa"
+      text: >
+        Does the organization implement and maintain reasonable security procedures
+        and practices appropriate to the nature of the personal information it holds?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the security policy or a description of the security controls
+        protecting personal information.
+
+    - id: "q-ccpa-exemption-basis-documented"
+      text: >
+        Has the organization identified and documented the CCPA/CPRA exemptions
+        that apply to its operations, and does it apply those exemptions consistently?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the exemption analysis or legal memo documenting which CCPA/CPRA
+        exemptions the organization relies on.
+
+    - id: "q-ccpa-enforcement-response-playbook"
+      text: >
+        Does the organization have a documented playbook for responding to CPPA
+        enforcement actions, including the cure period compliance process?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the enforcement-response playbook or the section of the compliance
+        programme that addresses CPPA enforcement.
+
+    - id: "q-ccpa-pra-security-program-documented"
+      text: >
+        Does the organization have a documented data security program that addresses
+        the private right of action for data security breaches under CCPA/CPRA
+        s. 1798.199.95?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the data security programme document and describe how it addresses
+        the private right of action liability exposure.
+
+    - id: "q-eu-ai-act-001"
+      text: >
+        Has the organization established and does it maintain a risk management system
+        for each high-risk AI system it places on the market or puts into service,
+        as required by EU AI Act Art. 9?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the risk management system documentation for each high-risk AI system.
+
+    - id: "q-eu-ai-act-002"
+      text: >
+        Has the organization implemented data governance practices covering training,
+        validation, and testing datasets for high-risk AI systems, as required by
+        EU AI Act Art. 10?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the data governance policy or procedures for AI training datasets.
+
+    - id: "q-eu-ai-act-003"
+      text: >
+        Has the organization prepared and does it maintain Annex IV technical
+        documentation before placing each high-risk AI system on the market or
+        putting it into service?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the Annex IV technical documentation for each high-risk AI system.
+
+    - id: "q-eu-ai-act-004"
+      text: >
+        Has the organization ensured that each high-risk AI system automatically
+        logs events throughout its lifecycle to the extent enabled by the system?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the logging specification or configuration confirming automated logging
+        is enabled for each high-risk AI system.
+
+    - id: "q-eu-ai-act-005"
+      text: >
+        Does the organization provide deployers of its high-risk AI systems with
+        transparent information and instructions for use, as required by EU AI Act Art. 13?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the instructions-for-use documentation provided to deployers.
+
+    - id: "q-eu-ai-act-006"
+      text: >
+        Has the organization designed its high-risk AI systems with effective human
+        oversight measures, as required by EU AI Act Art. 14?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the human oversight design documentation for each high-risk AI system.
+
+    - id: "q-eu-ai-act-007"
+      text: >
+        Has the organization achieved and does it maintain appropriate levels of
+        accuracy, robustness, and cybersecurity for its high-risk AI systems,
+        as required by EU AI Act Art. 15?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the accuracy, robustness, and cybersecurity assessment for each
+        high-risk AI system.
+
+    - id: "q-eu-ai-act-008"
+      text: >
+        Does the organization comply with high-risk AI obligations when deploying
+        AI systems in employment and worker management contexts, as required by
+        EU AI Act Annex III §4?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the employment AI compliance assessment for each system used in
+        employment or worker management contexts.
+
+    - id: "q-eu-ai-act-009"
+      text: >
+        Has the organization fulfilled its deployer obligations for high-risk AI
+        systems, including post-market monitoring and human oversight, as required
+        by EU AI Act Art. 26?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the deployer obligations checklist or compliance record for each
+        high-risk AI system deployed.
+
+    - id: "q-eu-ai-act-010"
+      text: >
+        Has the organization conducted a fundamental rights impact assessment before
+        deploying a high-risk AI system in a public or regulated context, as required
+        by EU AI Act Art. 27?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the fundamental rights impact assessment for each qualifying deployment.
+
+    - id: "q-eu-ai-act-011"
+      text: >
+        Does the organization notify natural persons when they are interacting with
+        an AI system, and does it disclose AI-generated content as required by
+        EU AI Act Art. 50?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample of the AI interaction notice and describe the AI-generated
+        content disclosure mechanism.
+
+    - id: "q-eu-ai-act-012"
+      text: >
+        Does the organization label deepfake and synthetic media content with
+        machine-readable disclosure, as required by EU AI Act Art. 50?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the technical mechanism used to embed machine-readable disclosures
+        in deepfake or synthetic content.
+
+    - id: "q-eu-ai-act-013"
+      text: >
+        Has the organization confirmed that it does not develop or deploy AI systems
+        that engage in prohibited practices under EU AI Act Art. 5?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a documented assessment confirming no prohibited AI practices are
+        present in the organization's systems.
+
+    - id: "q-eu-ai-act-014"
+      text: >
+        Has the organization completed the required conformity assessment and registered
+        each high-risk AI system in the EU database before placing it on the market?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the conformity assessment documentation and the EU database registration
+        reference for each high-risk AI system.
+
+    - id: "q-eu-ai-act-015"
+      text: >
+        Has the organization drawn up and does it maintain an EU declaration of
+        conformity for each high-risk AI system?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the EU declaration of conformity for each high-risk AI system.
+
+    - id: "q-eu-ai-act-016"
+      text: >
+        Has the organization established a post-market monitoring system for its
+        high-risk AI systems and does it report serious incidents to the relevant
+        national authority?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the post-market monitoring plan and the incident reporting SOP for
+        high-risk AI systems.
+
+    - id: "q-eu-ai-act-017"
+      text: >
+        Where the organization is a GPAI model provider, has it prepared and maintained
+        technical documentation, a training data summary, and a copyright compliance
+        policy, as required by EU AI Act Art. 53?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the GPAI technical documentation, the training data summary, and
+        the copyright policy for each GPAI model.
+
+    - id: "q-eu-ai-act-018"
+      text: >
+        Where the organization provides a GPAI model with systemic risk, has it conducted
+        model evaluations, adversarial testing, implemented incident reporting, and
+        addressed cybersecurity risks, as required by EU AI Act Art. 55?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the systemic-risk model evaluation report, adversarial testing results,
+        and incident reporting SOP.
+
+    - id: "q-eu-ai-act-019"
+      text: >
+        Where the organization is a non-EU GPAI model provider placing models on the EU
+        market, has it designated a Union-based authorised representative, as required
+        by EU AI Act Art. 54?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the written designation of the authorised representative and their
+        contact details.
+
+    - id: "q-eu-ai-act-020"
+      text: >
+        Has the organization completed a documented assessment to determine whether any
+        of its AI systems fall within the Annex III §1 biometric identification and
+        categorisation category of high-risk AI systems?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the Annex III §1 scope assessment document for each AI system evaluated.
+
+    - id: "q-eu-ai-act-021"
+      text: >
+        Has the organization completed a documented assessment to determine whether any
+        of its AI systems fall within the Annex III §2 critical infrastructure management
+        category of high-risk AI systems?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the Annex III §2 scope assessment document for each AI system evaluated.
+
+    - id: "q-eu-ai-act-022"
+      text: >
+        Has the organization completed a documented assessment to determine whether any
+        of its AI systems fall within the Annex III §3 education and vocational training
+        category of high-risk AI systems?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the Annex III §3 scope assessment document for each AI system evaluated.
+
+    - id: "q-eu-ai-act-023"
+      text: >
+        Has the organization completed a documented assessment to determine whether any
+        of its AI systems fall within the Annex III §5 access to essential private
+        services and public benefits category of high-risk AI systems?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the Annex III §5 scope assessment document for each AI system evaluated.
+
+    - id: "q-eu-ai-act-024"
+      text: >
+        Has the organization completed a documented assessment to determine whether any
+        of its AI systems fall within the Annex III §6 law enforcement category of
+        high-risk AI systems?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the Annex III §6 scope assessment document for each AI system evaluated.
+
+    - id: "q-eu-ai-act-025"
+      text: >
+        Has the organization completed a documented assessment to determine whether any
+        of its AI systems fall within the Annex III §7 migration, asylum, and border
+        control category of high-risk AI systems?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the Annex III §7 scope assessment document for each AI system evaluated.
+
+    - id: "q-eu-ai-act-026"
+      text: >
+        Has the organization completed a documented assessment to determine whether any
+        of its AI systems fall within the Annex III §8 administration of justice and
+        democratic processes category of high-risk AI systems?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the Annex III §8 scope assessment document for each AI system evaluated.
+
+    - id: "q-us-va-vcdpa-001"
+      text: >
+        Has the organization determined whether it meets the Virginia VCDPA applicability
+        thresholds based on consumer count or revenue from the sale of personal data?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the VCDPA applicability assessment documenting the consumer and
+        revenue thresholds evaluated.
+
+    - id: "q-us-va-vcdpa-002"
+      text: >
+        Does the organization provide a clear and accessible privacy notice that includes
+        all disclosures required by the Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the current privacy notice and confirm it includes all VCDPA-required elements.
+
+    - id: "q-us-va-vcdpa-003"
+      text: >
+        Does the organization limit the processing of personal data to specified, explicit,
+        and legitimate purposes under the Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the data-processing register or purpose-limitation policy for Virginia
+        operations.
+
+    - id: "q-us-va-vcdpa-004"
+      text: >
+        Has the organization implemented reasonable data security practices to protect
+        the confidentiality, integrity, and accessibility of personal data under the
+        Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the security policy or controls register for Virginia operations.
+
+    - id: "q-us-va-vcdpa-005"
+      text: >
+        Does the organization prohibit processing personal data in a discriminatory manner
+        in violation of federal or state anti-discrimination laws, as required by the
+        Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the non-discrimination policy covering personal data processing.
+
+    - id: "q-us-va-vcdpa-006"
+      text: >
+        Does the organization have a documented process to respond to consumer access
+        and portability requests under the Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the access/portability request SOP for Virginia consumers.
+
+    - id: "q-us-va-vcdpa-007"
+      text: >
+        Does the organization have a documented process to honor consumer correction
+        requests under the Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the correction request SOP for Virginia consumers.
+
+    - id: "q-us-va-vcdpa-008"
+      text: >
+        Does the organization have a documented process to honor consumer deletion
+        requests under the Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the deletion request SOP for Virginia consumers.
+
+    - id: "q-us-va-vcdpa-009"
+      text: >
+        Does the organization provide consumers with mechanisms to opt out of the sale
+        of personal data, targeted advertising, and profiling for consequential decisions,
+        as required by the Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the opt-out mechanisms provided and how opt-out signals are honored.
+
+    - id: "q-us-va-vcdpa-010"
+      text: >
+        Does the organization obtain consent before processing sensitive personal data,
+        as required by the Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the consent mechanism for sensitive data processing in Virginia operations.
+
+    - id: "q-us-va-vcdpa-011"
+      text: >
+        Does the organization conduct data protection impact assessments for high-risk
+        processing activities as required by the Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the DPIA register for Virginia high-risk processing activities.
+
+    - id: "q-us-va-vcdpa-012"
+      text: >
+        Has the organization executed binding data processing agreements with all
+        processors that process personal data on its behalf under the Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample processor agreement or a register of agreements in place.
+
+    - id: "q-us-va-vcdpa-013"
+      text: >
+        Does the organization have a documented process to respond to Attorney General
+        enforcement notices within the 30-day cure period under the Virginia VCDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the enforcement-response playbook or policy covering the VCDPA
+        30-day cure period.
+
+    - id: "q-us-ct-ctdpa-001"
+      text: >
+        Has the organization determined whether it meets the Connecticut CTDPA
+        applicability thresholds based on consumer count or revenue from data processing?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the CTDPA applicability assessment documenting the thresholds evaluated.
+
+    - id: "q-us-ct-ctdpa-002"
+      text: >
+        Does the organization provide a clear and accessible privacy notice that includes
+        all disclosures required by the Connecticut CTDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the current privacy notice and confirm it includes all CTDPA-required elements.
+
+    - id: "q-us-ct-ctdpa-003"
+      text: >
+        Does the organization apply data minimization and purpose limitation to all
+        personal data processing under the Connecticut CTDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the data minimization and purpose limitation policy for Connecticut operations.
+
+    - id: "q-us-ct-ctdpa-004"
+      text: >
+        Has the organization implemented reasonable data security practices for personal
+        data processing under the Connecticut CTDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the security policy or controls register for Connecticut operations.
+
+    - id: "q-us-ct-ctdpa-005"
+      text: >
+        Does the organization have a documented process to respond to consumer access
+        requests within 45 days under the Connecticut CTDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the access request SOP specifying the 45-day response deadline.
+
+    - id: "q-us-ct-ctdpa-006"
+      text: >
+        Does the organization have a documented process to honor consumer correction
+        and deletion requests under the Connecticut CTDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the correction and deletion SOP for Connecticut consumers.
+
+    - id: "q-us-ct-ctdpa-007"
+      text: >
+        Does the organization provide consumers with mechanisms to opt out of the sale
+        of personal data, targeted advertising, and profiling, as required by the
+        Connecticut CTDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the opt-out mechanisms and how they are honored.
+
+    - id: "q-us-ct-ctdpa-008"
+      text: >
+        Does the organization have an internal appeals process allowing consumers to
+        appeal the organization's response to their rights requests under the CTDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the consumer rights appeal process documentation.
+
+    - id: "q-us-ct-ctdpa-009"
+      text: >
+        Does the organization obtain consent before processing sensitive personal data
+        under the Connecticut CTDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the consent mechanism for sensitive data processing in Connecticut
+        operations.
+
+    - id: "q-us-ct-ctdpa-010"
+      text: >
+        Does the organization conduct Data Protection Impact Assessments (DPIAs) for
+        high-risk processing activities under the Connecticut CTDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the DPIA register for Connecticut high-risk processing activities.
+
+    - id: "q-us-ct-ctdpa-011"
+      text: >
+        Has the organization governed all processor relationships through binding data
+        processing agreements as required by the Connecticut CTDPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample processor agreement or a register of agreements in place.
+
+    - id: "q-us-ut-ucpa-001"
+      text: >
+        Has the organization determined whether it meets the Utah UCPA applicability
+        thresholds based on annual revenue and consumer count?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the UCPA applicability assessment documenting the revenue and consumer
+        thresholds evaluated.
+
+    - id: "q-us-ut-ucpa-002"
+      text: >
+        Does the organization provide a clear and accessible privacy notice that includes
+        all disclosures required by the Utah UCPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the current privacy notice and confirm it includes all UCPA-required elements.
+
+    - id: "q-us-ut-ucpa-003"
+      text: >
+        Does the organization limit processing of personal data to the purposes disclosed
+        in its privacy notice and practice data minimization under the Utah UCPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the purpose-limitation and data-minimization policy for Utah operations.
+
+    - id: "q-us-ut-ucpa-004"
+      text: >
+        Has the organization implemented reasonable administrative, technical, and physical
+        security measures to protect personal data under the Utah UCPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the security policy or controls register for Utah operations.
+
+    - id: "q-us-ut-ucpa-005"
+      text: >
+        Does the organization have a documented process to respond to consumer access
+        and portability requests within 45 days under the Utah UCPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the access/portability SOP specifying the 45-day response deadline.
+
+    - id: "q-us-ut-ucpa-006"
+      text: >
+        Does the organization have a documented process to honor consumer deletion
+        requests for personal data the consumer provided to the organization, as
+        required by the Utah UCPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the deletion SOP for Utah consumers.
+
+    - id: "q-us-ut-ucpa-007"
+      text: >
+        Does the organization provide consumers with mechanisms to opt out of the sale
+        of personal data and targeted advertising, as required by the Utah UCPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the opt-out mechanisms and how they are honored for Utah consumers.
+
+    - id: "q-us-ut-ucpa-008"
+      text: >
+        Does the organization obtain consent or provide opt-out mechanisms before
+        processing sensitive personal data, as required by the Utah UCPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the consent or opt-out mechanism for sensitive data processing
+        in Utah operations.
+
+    - id: "q-us-ut-ucpa-009"
+      text: >
+        Has the organization governed all processor relationships through binding
+        contracts that include the requirements of the Utah UCPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample processor contract or a register confirming UCPA-compliant
+        terms are in place.
+
+    - id: "q-us-ut-ucpa-010"
+      text: >
+        Does the organization have a documented process to respond to Utah Attorney
+        General enforcement notices, given there is no private right of action under
+        the UCPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the enforcement-response policy or playbook for Utah UCPA enforcement.
+
+    - id: "q-br-lgpd-001"
+      text: >
+        Has the organization identified and documented a lawful basis for each personal
+        data processing activity under LGPD Art. 7?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the processing register or RoPA showing the LGPD Art. 7 lawful basis
+        for each processing activity.
+
+    - id: "q-br-lgpd-002"
+      text: >
+        Has the organization identified and documented a lawful basis for each sensitive
+        personal data processing activity under LGPD Art. 11?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the sensitive data processing register showing the Art. 11 lawful basis
+        for each activity.
+
+    - id: "q-br-lgpd-003"
+      text: >
+        Does the organization have a documented process to honor data subject rights
+        upon request under LGPD Art. 18?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the data subject rights SOP covering all Art. 18 rights.
+
+    - id: "q-br-lgpd-004"
+      text: >
+        Has the organization appointed a DPO (encarregado) and published their contact
+        details, as required by LGPD Art. 41?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the DPO appointment document and the URL where the DPO's contact
+        details are published.
+
+    - id: "q-br-lgpd-005"
+      text: >
+        Has the organization conducted a DPIA (RIPD) for high-risk personal data
+        processing activities and made it available to the ANPD on request, as
+        required by LGPD Art. 38?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the DPIA/RIPD register for high-risk processing activities.
+
+    - id: "q-br-lgpd-006"
+      text: >
+        Has the organization ensured adequate protection before transferring personal
+        data internationally, using one of the mechanisms permitted by LGPD Art. 33?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the international transfer register documenting the Art. 33 mechanism
+        used for each transfer.
+
+    - id: "q-br-lgpd-007"
+      text: >
+        Does the organization have a documented SOP to notify the ANPD and affected data
+        subjects of security incidents that may result in risk or damage to data subjects,
+        as required by LGPD Art. 48?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the incident notification SOP covering both ANPD and data subject
+        notification.
+
+    - id: "q-br-lgpd-008"
+      text: >
+        Does the organization maintain records of personal data processing activities
+        as required by LGPD Art. 37?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the processing records register or describe the system used to maintain it.
+
+    - id: "q-br-lgpd-009"
+      text: >
+        Does the organization obtain specific parental or guardian consent before
+        processing children's personal data, as required by LGPD Art. 14?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the age-verification and parental consent mechanism for children's
+        data processing.
+
+    - id: "q-br-lgpd-010"
+      text: >
+        Does the organization ensure that operators (processors) process personal data
+        only in accordance with the controller's instructions, as required by LGPD Art. 39?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample data processing agreement or a register of operator agreements
+        confirming instruction-based processing.
+
+    - id: "q-br-lgpd-011"
+      text: >
+        Has the organization implemented technical and administrative security measures
+        to protect personal data from unauthorized access and accidental or unlawful
+        situations, as required by LGPD Art. 46?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the information security policy or controls register for LGPD compliance.
+
+    - id: "q-br-lgpd-012"
+      text: >
+        Does the organization apply data minimization and purpose limitation principles
+        to all personal data processing, as required by LGPD Art. 6?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the data minimization and purpose limitation policy for Brazil operations.
+
+    - id: "q-br-lgpd-013"
+      text: >
+        Does the organization provide a transparent privacy notice to data subjects
+        disclosing the information required by LGPD Art. 9?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the current privacy notice and confirm it includes all Art. 9 required
+        elements.
+
+    - id: "q-br-lgpd-014"
+      text: >
+        Has the organization established an accountability governance programme and
+        can it demonstrate compliance with LGPD, as required by Art. 50?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the accountability governance programme document for LGPD compliance.
+
+    - id: "q-br-lgpd-015"
+      text: >
+        Has the organization applied the LGPD definitions to determine the scope of
+        personal data it processes and confirmed which activities fall within the
+        scope of LGPD (Art. 5)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the LGPD scope assessment documenting how personal data categories
+        are classified.
+
+    - id: "q-br-lgpd-016"
+      text: >
+        Where the organization relies on consent as its LGPD lawful basis, is that
+        consent freely given, informed, unambiguous, and specific to a purpose?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample of the consent mechanism and the withdrawal process.
+
+    - id: "q-br-lgpd-017"
+      text: >
+        Where the organization relies on legitimate interest as its LGPD lawful basis,
+        has it conducted and documented a Legitimate Interest Assessment (LIA), as
+        required by Art. 10?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the LIA document for each processing activity relying on legitimate
+        interest.
+
+    - id: "q-br-lgpd-018"
+      text: >
+        Has the organization assessed the re-identification risk of anonymized data and
+        applied LGPD anonymization standards, treating pseudonymous data as personal
+        data, as required by Art. 12?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the anonymization and re-identification risk assessment.
+
+    - id: "q-br-lgpd-019"
+      text: >
+        Does the organization delete or anonymize personal data when the processing
+        purpose is fulfilled or the data is no longer necessary, as required by LGPD
+        Art. 15?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the data deletion or anonymization procedure and the retention schedule.
+
+    - id: "q-br-lgpd-020"
+      text: >
+        Does the organization apply data subject rights on processing termination,
+        including deleting or returning personal data, as required by LGPD Art. 16?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the processing termination procedure documenting how data is deleted
+        or returned when retention is no longer justified.
+
+    - id: "q-uk-gdpr-001"
+      text: >
+        Has the organization registered with the ICO and paid the applicable data
+        protection fee as required by the DPA 2018 Part 4?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the ICO registration number and confirmation of current fee payment.
+
+    - id: "q-uk-gdpr-002"
+      text: >
+        Does the organization have a documented SOP to report personal data breaches
+        to the ICO within 72 hours of becoming aware of the breach, as required by
+        UK GDPR Art. 33?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the breach notification SOP specifying the 72-hour ICO notification step.
+
+    - id: "q-uk-gdpr-003"
+      text: >
+        Does the organization apply age 13 as the UK consent threshold for information
+        society services and obtain parental consent for users under 13, as required by
+        DPA 2018 s. 9?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the age-verification mechanism and the parental consent process
+        for UK users.
+
+    - id: "q-uk-gdpr-004"
+      text: >
+        Has the organization assessed whether any DPA 2018 national security or
+        intelligence services exemptions apply to its processing activities, and
+        applied them consistently?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the exemption analysis documenting which DPA 2018 Schedule 2
+        exemptions apply to the organization's processing.
+
+    - id: "q-uk-gdpr-005"
+      text: >
+        Has the organization documented the legal mechanism used for each international
+        personal data transfer from the UK, such as an adequacy regulation, UK-specific
+        SCCs (IDTA), or an applicable derogation?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the UK international transfer register documenting the legal mechanism
+        for each transfer.
+
+    - id: "q-uk-gdpr-006"
+      text: >
+        Has the organization assessed and documented its UK-EU data flows and the
+        adequacy reliance basis for those flows in the post-Brexit context?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the UK-EU data flow assessment and adequacy reliance documentation.
+
+    - id: "q-uk-gdpr-007"
+      text: >
+        Does the organization comply with applicable ICO statutory codes of practice
+        as required by DPA 2018 ss. 121-128?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Identify the ICO codes of practice applicable to the organization and confirm
+        compliance with each.
+
+    - id: "q-uk-gdpr-008"
+      text: >
+        Does the organization comply with the Privacy and Electronic Communications
+        Regulations (PECR 2003) for electronic marketing and cookie or tracking
+        requirements?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the PECR compliance assessment and the cookie consent mechanism.
+
+    - id: "q-uk-gdpr-009"
+      text: >
+        Does the organization apply the ICO Direct Marketing Code to all UK marketing
+        activities?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe how the ICO Direct Marketing Code is applied to UK marketing
+        activities.
+
+    - id: "q-uk-gdpr-010"
+      text: >
+        Where the organization has no UK establishment, has it appointed a UK GDPR
+        representative, as required by UK GDPR Art. 27?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the appointment document and contact details of the UK representative.
+
+    - id: "q-us-il-bipa-001"
+      text: >
+        Does the organization obtain written informed consent from individuals before
+        collecting their biometric identifiers or biometric information, as required
+        by BIPA s. 15(b)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample of the written consent form used before biometric data
+        collection.
+
+    - id: "q-us-il-bipa-002"
+      text: >
+        Has the organization published a written biometric data retention and
+        destruction schedule, as required by BIPA s. 15(a)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the published biometric data retention and destruction schedule.
+
+    - id: "q-us-il-bipa-003"
+      text: >
+        Does the organization refrain from selling, leasing, trading, or otherwise
+        profiting from biometric data, as required by BIPA s. 15(c)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Confirm in writing that no commercial transactions involving biometric data
+        occur, or describe the policy preventing such transactions.
+
+    - id: "q-us-il-bipa-004"
+      text: >
+        Does the organization restrict the disclosure of biometric data to third
+        parties and document the basis for any permitted disclosure, as required by
+        BIPA s. 15(d)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the biometric data disclosure policy and any third-party disclosure
+        log.
+
+    - id: "q-us-il-bipa-005"
+      text: >
+        Does the organization protect biometric data using security standards at least
+        as protective as those applied to other sensitive personal information, as
+        required by BIPA s. 15(e)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the security controls applied to biometric data storage and processing.
+
+    - id: "q-us-il-bipa-006"
+      text: >
+        Has the organization applied the SB 2979 (2024) one-violation-per-subject
+        interpretation to its BIPA compliance program to reflect current enforcement
+        risk?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Confirm that the compliance program has been updated to reflect the SB 2979
+        per-person violation rule.
+
+    - id: "q-ca-on-phipa-001"
+      text: >
+        Has the organization designated a Contact Person and implemented privacy
+        policies required of a Health Information Custodian (HIC) under PHIPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the name and contact of the designated Contact Person and the
+        PHIPA privacy policy.
+
+    - id: "q-ca-on-phipa-002"
+      text: >
+        Does the organization ensure that all agents who handle personal health
+        information (PHI) on its behalf comply with the HIC's instructions and PHIPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the agent agreements or policies requiring PHIPA compliance.
+
+    - id: "q-ca-on-phipa-003"
+      text: >
+        Does the organization obtain express consent before collecting, using, or
+        disclosing personal health information, except where PHIPA expressly permits
+        collection without consent?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the consent mechanism for PHI collection and provide a sample consent
+        form.
+
+    - id: "q-ca-on-phipa-004"
+      text: >
+        Does the organization respect a patient's lockbox instruction to withhold
+        their PHI from specific recipients?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the lockbox implementation and how lockbox restrictions are enforced
+        in the organization's systems.
+
+    - id: "q-ca-on-phipa-005"
+      text: >
+        Does the organization operate within the circle of care for permitted use and
+        disclosure of PHI for treatment purposes under PHIPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe how the organization defines and manages its circle of care for PHI
+        sharing.
+
+    - id: "q-ca-on-phipa-006"
+      text: >
+        Does the organization limit its collection of personal health information to
+        the minimum amount necessary for the identified purpose, as required by PHIPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the data minimization process applied to PHI collection.
+
+    - id: "q-ca-on-phipa-007"
+      text: >
+        Does the organization disclose personal health information only for permitted
+        purposes and only to permitted recipients, as required by PHIPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the PHI disclosure policy or the access control documentation
+        governing PHI recipients.
+
+    - id: "q-ca-on-phipa-008"
+      text: >
+        Has the organization implemented administrative, technical, and physical
+        safeguards to protect personal health information against theft, loss, and
+        unauthorized use or disclosure, as required by PHIPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the PHI security policy or safeguards register.
+
+    - id: "q-ca-on-phipa-009"
+      text: >
+        Does the organization have a documented procedure to notify affected individuals
+        and the IPC of privacy breaches at the first reasonable opportunity, as required
+        by PHIPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the PHIPA breach notification SOP.
+
+    - id: "q-ca-on-phipa-010"
+      text: >
+        Does the organization have a documented process to provide individuals with
+        access to their own personal health information on request, as required by PHIPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the PHI access request SOP.
+
+    - id: "q-ca-on-phipa-011"
+      text: >
+        Does the organization have a documented process to correct inaccurate or
+        incomplete personal health information on request, as required by PHIPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the PHI correction request SOP.
+
+    - id: "q-ca-on-phipa-012"
+      text: >
+        Does the organization log and retain records of PHI access events in electronic
+        health systems, as required by PHIPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the electronic audit log system, including what events are logged,
+        the retention period, and how logs are reviewed.
+
+    - id: "q-ca-on-phipa-013"
+      text: >
+        Does the organization have a documented procedure to cooperate with IPC
+        investigations and comply with IPC orders, as required by PHIPA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the IPC cooperation SOP or the relevant section of the PHIPA compliance
+        programme.
+
+    - id: "q-ca-on-phipa-014"
+      text: >
+        Where the organization discloses PHI to prescribed persons or registries, does
+        it do so only for prescribed purposes and in accordance with the applicable
+        PHIPA regulations?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the prescribed-person disclosure log and the regulatory authority
+        for each type of disclosure.
+
+    - id: "q-us-tx-tdpsa-001"
+      text: >
+        Has the organization assessed whether the Texas Data Privacy and Security Act
+        (TDPSA) applies to its operations, and does it have a plan to comply once
+        the regulation is formally enacted?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the TDPSA applicability assessment and any readiness plan on file.
+
+    - id: "q-us-co-cpa-001"
+      text: >
+        Has the organization assessed whether the Colorado Privacy Act (CPA) applies
+        to its operations, and does it have a plan to comply?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the CPA applicability assessment and any readiness plan on file.
+
+    - id: "q-us-or-ocpa-001"
+      text: >
+        Has the organization assessed whether the Oregon Consumer Privacy Act (OCPA)
+        applies to its operations, and does it have a plan to comply?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the OCPA applicability assessment and any readiness plan on file.
+
+    - id: "q-il-aivi-001"
+      text: >
+        Has the organization assessed whether Israel's AI and data protection policy
+        (AIVI 2023) applies to its operations, and does it have a plan to comply once
+        formally enacted?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the AIVI applicability assessment and any readiness plan on file.
+
+    - id: "q-ca-mb-phia-001"
+      text: >
+        Has the organization assessed whether the Manitoba Personal Health Information
+        Act (PHIA) applies to its operations, and does it have a plan to comply?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the Manitoba PHIA applicability assessment and any readiness plan
+        on file.
+
+    - id: "q-ca-sk-hipa-001"
+      text: >
+        Has the organization assessed whether the Saskatchewan Health Information
+        Protection Act (HIPA) applies to its operations, and does it have a plan
+        to comply?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the Saskatchewan HIPA applicability assessment and any readiness
+        plan on file.
+
+    - id: "q-ca-nl-phia-001"
+      text: >
+        Has the organization assessed whether the Newfoundland and Labrador Personal
+        Health Information Act (PHIA) applies to its operations, and does it have
+        a plan to comply?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the NL PHIA applicability assessment and any readiness plan on file.
+
+    - id: "q-ca-ns-phia-001"
+      text: >
+        Has the organization assessed whether the Nova Scotia Personal Health
+        Information Act (PHIA) applies to its operations, and does it have a plan
+        to comply?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the NS PHIA applicability assessment and any readiness plan on file.

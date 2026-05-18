@@ -1,0 +1,61 @@
+questionnaire:
+  id: "vendor-management"
+  title: "Service Provider and Processor Agreement Attestations"
+  description: >
+    Self-attestation questions for vendor and processor contractual obligations that
+    cannot be detected by static analysis or runtime metrics.
+  questions:
+    - id: "q-service-provider-written-agreements"
+      text: >
+        Does the organization have written agreements with all service providers that
+        handle personal information on its behalf, requiring those providers to protect
+        the information with comparable safeguards?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample service-provider agreement or a list of agreements in place,
+        including the key privacy obligations required of each provider.
+
+    - id: "q-third-party-disclosure-records"
+      text: >
+        Does the organization maintain records of all personal information communicated
+        to third parties, including the identity of the third party, the purpose, and
+        the date of disclosure?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the third-party disclosure register or describe the system used to
+        record disclosures.
+
+    - id: "q-dpa-art28-in-place"
+      text: >
+        Does the organization have a binding Article 28 data processing agreement in place
+        with every processor that processes personal data on its behalf, providing
+        sufficient guarantees of GDPR compliance?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample DPA or a register of processors with confirmed Article 28
+        agreements in place.
+
+    - id: "q-joint-controller-arrangement-documented"
+      text: >
+        Where the organization jointly determines the purposes and means of processing
+        with another controller, has it documented the respective responsibilities in
+        a transparent arrangement and provided the essentials to data subjects (GDPR Art. 26)?
+      type: boolean
+      required: false
+      evidence-prompt: >
+        Provide the joint controller arrangement document and confirm the essentials are
+        made available to data subjects.
+
+    - id: "q-service-provider-contracts-ccpa"
+      text: >
+        Does the organization have written contracts with all service providers and
+        contractors that process personal information on its behalf, including the
+        contractual terms required by CCPA/CPRA?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample service provider or contractor contract, or a register of
+        agreements confirming the required CCPA/CPRA terms are present.

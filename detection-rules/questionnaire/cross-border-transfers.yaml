@@ -1,0 +1,38 @@
+questionnaire:
+  id: "cross-border-transfers"
+  title: "Cross-Border Transfer Assessment Attestations"
+  description: >
+    Self-attestation questions for cross-border data transfer obligations — PIAs, equivalence
+    assessments, and transfer mechanism documentation — that cannot be detected by static analysis.
+  questions:
+    - id: "q-pia-cross-border-completed"
+      text: >
+        Has the organization completed a Privacy Impact Assessment (PIA) before any
+        cross-border transfer of personal information outside Quebec?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the completed PIA document or a register of PIAs conducted for cross-border
+        transfers, including the destination jurisdiction and assessment outcome.
+
+    - id: "q-equivalent-protection-confirmed"
+      text: >
+        Has the organization confirmed, through documented assessment, that personal
+        information communicated outside Quebec will receive equivalent protection to
+        that provided under Quebec privacy law?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the equivalence assessment or legal opinion confirming adequate protection
+        in the destination jurisdiction.
+
+    - id: "q-transfer-mechanism-documented"
+      text: >
+        Has the organization documented the legal mechanism used for each international
+        personal data transfer — such as an adequacy decision, standard contractual clauses
+        with a transfer impact assessment, binding corporate rules, or an applicable derogation?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the transfer mechanism register or the contractual documentation (e.g., SCCs,
+        BCRs, or adequacy reliance record) for each international data transfer.

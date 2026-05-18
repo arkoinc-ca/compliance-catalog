@@ -1,0 +1,69 @@
+questionnaire:
+  id: "ai-impact-assessment"
+  title: "AI and Privacy Impact Assessment Attestations"
+  description: >
+    Self-attestation questions for AI impact assessments, data protection impact assessments
+    (DPIAs), and risk assessments that cannot be detected by static analysis or runtime metrics.
+  questions:
+    - id: "q-pia-it-acquisition-completed"
+      text: >
+        Has the organization completed a Privacy Impact Assessment (PIA) before acquiring or
+        deploying each information technology product or service that involves personal information?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the completed PIA document or a register of PIAs conducted for IT acquisitions.
+
+    - id: "q-automated-decision-notice-provided"
+      text: >
+        Does the organization notify individuals when an automated decision is made about them,
+        and provide a meaningful right to have the decision reviewed by a human?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample of the automated-decision notice and describe the human-review process.
+
+    - id: "q-dpia-completed-for-high-risk"
+      text: >
+        Has the organization completed a Data Protection Impact Assessment (DPIA) for every
+        processing activity that is likely to result in a high risk to individuals' rights and freedoms?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the DPIA register or a list of processing activities assessed, with outcomes.
+
+    - id: "q-risk-assessment-high-risk-ccpa"
+      text: >
+        Has the organization conducted risk assessments and cybersecurity audits for all
+        high-risk personal information processing activities, and submitted them to the CPPA on request?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the completed risk assessment documents for high-risk processing activities.
+
+    - id: "q-risk-impact-assessment-co"
+      text: >
+        Has the organization completed a documented risk impact assessment before deploying
+        each high-risk AI system, and is the assessment reviewed at least annually?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the risk impact assessment document for each high-risk AI system deployed.
+
+    - id: "q-consumer-ai-notice-co"
+      text: >
+        Does the organization notify consumers when a consequential decision about them is made
+        using a high-risk AI system, and provide an explanation of that decision on request?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample of the consumer notice and describe the explanation-request process.
+
+    - id: "q-appeal-human-review-process-co"
+      text: >
+        Does the organization provide consumers with the opportunity to correct inaccurate data
+        and appeal adverse consequential decisions through a human review process?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the appeal and human-review procedure document or workflow description.

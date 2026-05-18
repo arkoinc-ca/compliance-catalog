@@ -1,0 +1,68 @@
+questionnaire:
+  id: "breach-response"
+  title: "Breach Detection, Containment, and Notification Attestations"
+  description: >
+    Self-attestation questions for breach-response obligations — SOPs, record-keeping, and
+    regulator/individual notification timelines — that cannot be detected by static analysis.
+  questions:
+    - id: "q-breach-response-sop-documented"
+      text: >
+        Does the organization have a documented breach-response SOP that covers reporting
+        a breach of security safeguards to the Privacy Commissioner of Canada and notifying
+        affected individuals when there is real risk of significant harm?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the breach-response SOP document or a reference to the relevant policy section.
+
+    - id: "q-breach-records-maintained"
+      text: >
+        Does the organization maintain a record of every breach of security safeguards,
+        regardless of whether it was required to report the breach to the Privacy Commissioner?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the breach register or describe the system used to record breaches and
+        the retention period for those records.
+
+    - id: "q-cai-breach-notification-sop"
+      text: >
+        Does the organization have a documented SOP to notify the Commission d'acces a
+        l'information (CAI) of a confidentiality incident that involves a risk of serious injury?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the breach-notification SOP or the section of the incident-response plan
+        that addresses CAI notification.
+
+    - id: "q-individual-breach-notification-sop"
+      text: >
+        Does the organization have a documented process to notify affected individuals of a
+        confidentiality incident that involves a risk of serious injury to those individuals?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the individual notification template and the triggering criteria used to
+        determine when notification is required.
+
+    - id: "q-breach-notification-oipc-ab"
+      text: >
+        Does the organization have a documented SOP to notify the Office of the Information
+        and Privacy Commissioner of Alberta without unreasonable delay when a breach poses
+        a real risk of significant harm to an individual?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the breach-notification SOP or policy that addresses OIPC-AB notification
+        and describe the threshold assessment process.
+
+    - id: "q-breach-72hr-notification-sop"
+      text: >
+        Does the organization have a documented SOP to notify the relevant supervisory
+        authority within 72 hours of becoming aware of a personal data breach, and to notify
+        affected data subjects without undue delay when the breach is high risk?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the breach-response SOP that specifies the 72-hour supervisory-authority
+        notification step and the high-risk individual notification criteria.

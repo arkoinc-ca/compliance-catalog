@@ -1,0 +1,229 @@
+questionnaire:
+  id: "dsr-process"
+  title: "Data Subject Request Intake and Fulfilment Attestations"
+  description: >
+    Self-attestation questions for data-subject-request (DSR) intake, identity verification,
+    and fulfilment obligations that cannot be detected by static analysis or runtime metrics.
+  questions:
+    - id: "q-accuracy-process-defined"
+      text: >
+        Does the organization have a documented process to keep personal information accurate,
+        complete, and up-to-date for the purposes for which it is used?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the data-accuracy procedures, including how inaccuracies are identified
+        and corrected.
+
+    - id: "q-dsr-access-process-defined"
+      text: >
+        Does the organization have a documented process to respond to individual access
+        requests, provide copies of personal information held, and correct inaccuracies?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the access-request SOP or workflow, including the response timeline.
+
+    - id: "q-consent-withdrawal-honored"
+      text: >
+        Does the organization have a mechanism to accept and honor withdrawal of consent
+        without penalty to the individual?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the consent-withdrawal mechanism and confirm that withdrawal has no
+        adverse consequence for the individual.
+
+    - id: "q-access-request-process-qc"
+      text: >
+        Does the organization have a documented process to respond to requests from
+        individuals to access their personal information held by the organization?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the access-request SOP, including the response deadline and escalation path.
+
+    - id: "q-rectification-process-defined"
+      text: >
+        Does the organization have a documented process to honor rectification requests
+        for personal information that is inaccurate or incomplete?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the rectification workflow, including how corrections are communicated
+        to third parties who received the inaccurate data.
+
+    - id: "q-portability-process-defined"
+      text: >
+        Does the organization have a documented process to provide personal information
+        in a portable, structured format to individuals on request?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the portability mechanism, including the format provided and any
+        automated tooling used.
+
+    - id: "q-deindexing-process-defined"
+      text: >
+        Does the organization have a documented process to honor requests for deindexing
+        and cessation of dissemination of personal information?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the deindexing SOP and describe the criteria used to evaluate requests.
+
+    - id: "q-access-correction-45day-ab"
+      text: >
+        Does the organization have a documented process to respond to access and correction
+        requests under PIPA (Alberta) within 45 days, including an explanation for any refusal?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the access/correction SOP specifying the 45-day response deadline and
+        the refusal justification process.
+
+    - id: "q-access-correction-30day-bc"
+      text: >
+        Does the organization have a documented process to respond to access and correction
+        requests under PIPA (BC) within 30 business days?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the access/correction SOP specifying the 30-business-day response deadline.
+
+    - id: "q-unsubscribe-mechanism-present"
+      text: >
+        Does every commercial electronic message (CEM) sent by the organization contain a
+        working unsubscribe mechanism that is honored within 10 business days?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample CEM showing the unsubscribe mechanism and describe how
+        unsubscribe requests are processed within the 10-business-day SLA.
+
+    - id: "q-casl-unsubscribe-sop-documented"
+      text: >
+        Does the organization have a documented SOP for its unsubscribe mechanism that
+        confirms it is functional, free of charge, from the same sender, and honored
+        within 10 business days, as required by CASL s. 11?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the unsubscribe SOP and any monitoring reports confirming the 10-business-day
+        SLA is being met.
+
+    - id: "q-access-request-one-month"
+      text: >
+        Does the organization have a documented process to provide a copy of personal data
+        to data subjects within one month of receiving an access request under GDPR Art. 15?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the access-request SOP specifying the one-month response deadline and
+        any extension process.
+
+    - id: "q-erasure-restriction-process"
+      text: >
+        Does the organization have a documented process to correct, erase, or restrict
+        the processing of personal data in response to data subject requests under
+        GDPR Arts. 16, 17, and 18?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the erasure/restriction SOP, including the criteria used to evaluate
+        requests and the process for notifying downstream recipients.
+
+    - id: "q-portability-structured-format"
+      text: >
+        Does the organization have a documented process to provide personal data in a
+        structured, commonly used, machine-readable format to data subjects where processing
+        is based on consent or contract and is automated?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the portability mechanism, the formats supported, and any direct
+        transfer-to-controller functionality.
+
+    - id: "q-right-to-object-honored"
+      text: >
+        Does the organization have a documented process to honor objections to processing
+        and to restrict solely automated decision-making, including profiling, with
+        significant effects on individuals?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the objection-handling SOP and describe how the organization assesses
+        compelling legitimate grounds that override the objection.
+
+    - id: "q-right-to-know-disclosure"
+      text: >
+        Does the organization have a documented process to disclose, in response to a
+        verified consumer request, the categories and specific pieces of personal information
+        collected, used, and disclosed about that consumer?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the right-to-know response SOP and a sample disclosure.
+
+    - id: "q-right-to-delete-process"
+      text: >
+        Does the organization have a documented process to honor verifiable consumer requests
+        to delete personal information it has collected about the consumer?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the deletion SOP, including how deletion is propagated to service providers
+        and contractors.
+
+    - id: "q-right-to-correct-process"
+      text: >
+        Does the organization have a documented process to honor requests from consumers
+        to correct inaccurate personal information it holds about them?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the correction SOP and describe how corrections are communicated
+        to third parties.
+
+    - id: "q-opt-out-sale-sharing-honored"
+      text: >
+        Does the organization have a documented process to honor consumer requests to opt
+        out of the sale or sharing of their personal information, including recognizing the
+        Global Privacy Control (GPC) signal?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the opt-out mechanism, GPC recognition implementation, and the process
+        for communicating opt-outs to third parties.
+
+    - id: "q-sensitive-pi-limitation-process"
+      text: >
+        Does the organization have a documented process to honor consumer requests to limit
+        the use and disclosure of their sensitive personal information to permitted purposes?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the sensitive-PI limitation SOP and describe how limitation signals are
+        enforced across internal systems.
+
+    - id: "q-vcr-two-methods-identity-verified"
+      text: >
+        Does the organization offer at least two designated methods for submitting verifiable
+        consumer requests, and does it verify the identity of each requestor before
+        fulfilling the request?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        List the two or more submission methods offered and describe the identity
+        verification process used for each.
+
+    - id: "q-br-lgpd-021"
+      text: >
+        Does the organization have a documented process to provide data subjects with their
+        personal data in a portable format, or to transfer it directly to another service
+        provider, on request (LGPD Art. 17)?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe the portability mechanism, the data formats supported, and any direct
+        controller-to-controller transfer capability.

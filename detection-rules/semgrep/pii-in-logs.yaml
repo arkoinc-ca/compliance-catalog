@@ -3,9 +3,10 @@ rules:
     languages: [python]
     severity: WARNING
     message: |
-      Potential PII in log statement. Logging fields named 'email', 'phone', 'ssn', 'password',
-      'token', or 'credit_card' may leak personal information into log streams, which often have
-      wider read-access than the source data store. Redact or mask these fields before logging.
+      Potential PII in a log statement. A field named 'email', 'phone', 'ssn', 'password',
+      'token', or 'credit_card' reaches a log call — directly, via string concatenation, or
+      inside an f-string. Log streams often have wider read-access than the source data store.
+      Redact or mask these fields before logging.
     metadata:
       category: "compliance"
       cwe: "CWE-532"
@@ -20,41 +21,28 @@ rules:
         - "CA-BC-PIPA-006"
       # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
-    pattern-either:
-      - patterns:
-          - pattern-either:
-              - pattern: logger.$LEVEL(..., $X.email, ...)
-              - pattern: logger.$LEVEL(..., $X.phone, ...)
-              - pattern: logger.$LEVEL(..., $X.ssn, ...)
-              - pattern: logger.$LEVEL(..., $X.password, ...)
-              - pattern: logger.$LEVEL(..., $X.token, ...)
-              - pattern: logger.$LEVEL(..., $X.credit_card, ...)
-              - pattern: logging.$LEVEL(..., $X.email, ...)
-              - pattern: logging.$LEVEL(..., $X.phone, ...)
-              - pattern: logging.$LEVEL(..., $X.ssn, ...)
-              - pattern: logging.$LEVEL(..., $X.password, ...)
-              - pattern: logging.$LEVEL(..., $X.token, ...)
-              - pattern: logging.$LEVEL(..., $X.credit_card, ...)
-              - pattern: log.$LEVEL(..., $X.email, ...)
-              - pattern: log.$LEVEL(..., $X.phone, ...)
-              - pattern: log.$LEVEL(..., $X.ssn, ...)
-              - pattern: log.$LEVEL(..., $X.password, ...)
-              - pattern: log.$LEVEL(..., $X.token, ...)
-              - pattern: log.$LEVEL(..., $X.credit_card, ...)
-              - pattern: print(..., $X.email, ...)
-              - pattern: print(..., $X.phone, ...)
-              - pattern: print(..., $X.ssn, ...)
-              - pattern: print(..., $X.password, ...)
-              - pattern: print(..., $X.token, ...)
-              - pattern: print(..., $X.credit_card, ...)
+    # The deep-expression operator <... e ...> matches the sensitive field
+    # access anywhere inside an argument — direct, inside a string concat, or
+    # inside an f-string substitution. metavariable-regex anchors the field
+    # name so 'token_endpoint'/'email_provider' do not false-positive.
+    patterns:
+      - pattern-either:
+          - pattern: logger.$LEVEL(..., <... $OBJ.$FIELD ...>, ...)
+          - pattern: logging.$LEVEL(..., <... $OBJ.$FIELD ...>, ...)
+          - pattern: log.$LEVEL(..., <... $OBJ.$FIELD ...>, ...)
+          - pattern: print(..., <... $OBJ.$FIELD ...>, ...)
+      - metavariable-regex:
+          metavariable: $FIELD
+          regex: ^(email|phone|ssn|password|token|credit_card)$
 
   - id: pii-in-logs-javascript
     languages: [javascript, typescript]
     severity: WARNING
     message: |
-      Potential PII in log statement. Logging properties named 'email', 'phone', 'ssn', 'password',
-      or 'token' may leak personal information into log streams. Redact or mask these fields before
-      logging. Consider a structured logging library with a built-in redaction filter.
+      Potential PII in a log statement. A property named 'email', 'phone', 'ssn', 'password',
+      'token', or 'creditCard' reaches a log call — directly, via string concatenation, or
+      inside a template literal. Redact or mask these fields before logging. Consider a
+      structured logging library with a built-in redaction filter.
     metadata:
       category: "compliance"
       cwe: "CWE-532"
@@ -69,25 +57,18 @@ rules:
         - "CA-BC-PIPA-006"
       # baseline confidence — pending H-12 precision corpus
       confidence: "baseline"
-    pattern-either:
-      - pattern: console.$LEVEL($X.email)
-      - pattern: console.$LEVEL($X.phone)
-      - pattern: console.$LEVEL($X.ssn)
-      - pattern: console.$LEVEL($X.password)
-      - pattern: console.$LEVEL($X.token)
-      - pattern: console.$LEVEL($X.creditCard)
-      - pattern: console.$LEVEL($X.credit_card)
-      - pattern: logger.$LEVEL($X.email)
-      - pattern: logger.$LEVEL($X.phone)
-      - pattern: logger.$LEVEL($X.ssn)
-      - pattern: logger.$LEVEL($X.password)
-      - pattern: logger.$LEVEL($X.token)
-      - pattern: logger.$LEVEL($X.creditCard)
-      - pattern: log.$LEVEL($X.email)
-      - pattern: log.$LEVEL($X.phone)
-      - pattern: log.$LEVEL($X.ssn)
-      - pattern: log.$LEVEL($X.password)
-      - pattern: log.$LEVEL($X.token)
+    # The deep-expression operator <... e ...> matches the sensitive property
+    # access anywhere inside an argument — direct, inside a string concat, or
+    # inside a template-literal substitution. metavariable-regex anchors the
+    # property name so 'tokenEndpoint'/'emailProvider' do not false-positive.
+    patterns:
+      - pattern-either:
+          - pattern: console.$LEVEL(..., <... $OBJ.$FIELD ...>, ...)
+          - pattern: logger.$LEVEL(..., <... $OBJ.$FIELD ...>, ...)
+          - pattern: log.$LEVEL(..., <... $OBJ.$FIELD ...>, ...)
+      - metavariable-regex:
+          metavariable: $FIELD
+          regex: ^(email|phone|ssn|password|token|creditCard|credit_card)$
 
   - id: pii-in-logs-java
     languages: [java]

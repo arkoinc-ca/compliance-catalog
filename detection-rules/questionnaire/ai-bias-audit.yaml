@@ -1,0 +1,72 @@
+questionnaire:
+  id: "ai-bias-audit"
+  title: "Automated Decision Tool Bias Audit Attestations"
+  description: >
+    Self-attestation questions for bias-audit and algorithmic-discrimination obligations that
+    cannot be detected by static analysis or runtime metrics.
+  questions:
+    - id: "q-independent-bias-audit-completed"
+      text: >
+        Has the organization obtained an independent external bias audit of every automated
+        employment decision tool (AEDT) before its first use, and is that audit updated annually?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the name of the external auditor, the audit date, and a link or reference to
+        the audit report on file.
+
+    - id: "q-bias-audit-results-published"
+      text: >
+        Has the organization posted a summary of the most recent bias audit results on a
+        publicly accessible website?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the URL where the bias audit summary is published.
+
+    - id: "q-aedt-candidate-notice-10days"
+      text: >
+        Does the organization notify candidates or employees at least 10 business days before
+        using an AEDT, including information about the tool and an alternative process?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide a sample of the notice template and describe the alternative-process workflow.
+
+    - id: "q-bias-audit-input-records-retained"
+      text: >
+        Does the organization retain records of bias audit inputs — including datasets, model
+        parameters, and methodology — sufficient for an independent auditor to reproduce the analysis?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Describe where audit input records are stored and for how long they are retained.
+
+    - id: "q-aedt-scope-assessment-completed"
+      text: >
+        Has the organization completed a documented scope assessment to determine whether each
+        deployed system constitutes an AEDT that triggers NYC Local Law 144 obligations?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the scope assessment document or decision memo for each system evaluated.
+
+    - id: "q-algorithmic-discrimination-controls"
+      text: >
+        Has the organization implemented and documented reasonable measures to protect consumers
+        from known or foreseeable discrimination risks arising from high-risk AI systems?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the discrimination-risk assessment or impact-assessment document that
+        describes the controls implemented.
+
+    - id: "q-ag-disclosure-90day-sop"
+      text: >
+        Does the organization have a documented procedure to report algorithmic discrimination
+        to the Colorado Attorney General within 90 days of discovery?
+      type: boolean
+      required: true
+      evidence-prompt: >
+        Provide the incident-response or disclosure SOP that covers the 90-day AG
+        notification requirement.

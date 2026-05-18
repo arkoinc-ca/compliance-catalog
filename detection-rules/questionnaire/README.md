@@ -46,12 +46,13 @@ Files are named by the governance domain they cover.
 
 | File | Domain |
 |------|--------|
-| `governance-privacy-officer.yaml` | Privacy Officer designation and accountability |
-| `governance-breach-procedure.yaml` | Breach detection, containment, and notification |
-| `ai-governance-impact-assessment.yaml` | AI impact assessment and risk documentation |
-| `ai-bias-audit.yaml` | External bias audit for automated decision tools |
-| `dsr-process.yaml` | Data subject request intake and fulfillment |
-| `retention-policy.yaml` | Retention schedule documentation |
+| `governance-privacy-officer.yaml` | Privacy governance, officer designation, consent, transparency, security, and regulatory posture (catch-all) |
+| `dsr-process.yaml` | Data subject request intake, identity verification, and fulfilment |
+| `breach-response.yaml` | Breach detection, containment, regulator notification, and record-keeping |
+| `ai-impact-assessment.yaml` | AI impact assessments, DPIAs, and risk assessments for AI and high-risk processing |
+| `cross-border-transfers.yaml` | Cross-border transfer PIAs, equivalence assessments, and transfer mechanism documentation |
+| `vendor-management.yaml` | Service provider and processor agreements and third-party disclosure records |
+| `ai-bias-audit.yaml` | Automated decision tool bias audits and algorithmic-discrimination controls |
 
 ## Adding a Fragment
 
